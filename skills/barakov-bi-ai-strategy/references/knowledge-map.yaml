@@ -1,0 +1,137 @@
+# Машиночитаемая карта знаний BI+AI Strategy Builder.
+# Назначение: агент по номеру блока находит, что читать локально и что взять
+# из companion-репозитория DG Board KB. Аналог 30_graph/objects.yaml у companion.
+
+meta:
+  skill: barakov-bi-ai-strategy
+  structure: "7 блоков (D&A Strategy & Tactics Planner) + диагностика Health Check"
+  phases: "AS-IS = блоки 1–2 · TO-BE = блоки 3–6 · Трансформация = блок 7"
+
+companion:
+  id: dg-board-kb
+  url: "https://github.com/alexbarakov/dg-board-kb"
+  entry: "README.md"
+  graph: "30_graph/objects.yaml"
+  role: "grounds governance, DG-практики и AI-фундамент; визуальный источник — публичный Miro-борд"
+  precedence:
+    bi_ai_questions: "этот скилл ведёт, companion даёт governance-подложку"
+    dg_questions: "companion ведёт, этот скилл даёт BI/AI-стрим"
+    conflict: "по governance выигрывает companion, по BI/AI — этот скилл; инварианты общие"
+  shared_invariants:
+    - "stack-rank и порядок заморозки"
+    - "kill-gates перед запуском AI-инициатив"
+    - "AI генерирует черновик — человек проверяет"
+    - "цепочка core → semantic → контекст → точность AI → self-service"
+
+# Порядок заморозки: режем справа налево
+stack_rank:
+  - governance-and-ownership
+  - trusted-data
+  - ai-readiness-triad      # certified core → semantic layer → доменная база знаний
+  - bi-content
+  - self-service-and-agentic
+
+kill_gates:
+  - id: no-assistant-without-foundation
+    rule: "нет AI-ассистента без семантического покрытия целевых доменов и сертифицированного ядра"
+  - id: no-selfservice-without-governance
+    rule: "нет масштабирования self-service без governance-гейта и мониторинга качества"
+  - id: no-semantic-without-core
+    rule: "нет семантического слоя без core-слоя под ним"
+  - id: no-agent-write-without-identity
+    rule: "нет операций записи агентом без своей identity, узких ключей и audit trail"
+
+blocks:
+  - id: 1
+    title: "Бизнес Основа"
+    phase: as-is
+    local: [strategy-template.md, question-bank.md]
+    companion:
+      - "11_dg_program_themes/getting-started.md   # тест 5 из 12: нужна ли программа вообще"
+      - "11_dg_program_themes/dg-kitchen-research.md"
+    evidence: []
+
+  - id: 2
+    title: "Оценка D&A ландшафта"
+    phase: as-is
+    local: [diagnostic.md, question-bank.md, make-maturity-svg.py, evidence-2026.md]
+    companion:
+      - "11_dg_program_themes/maturity-and-metrics.md"
+      - "11_dg_program_themes/dg-frameworks.md"
+    evidence: ["карта «где AI работает в дата-процессах» — evidence-2026.md §2"]
+
+  - id: 3
+    title: "Целевая Операционная Модель"
+    phase: to-be
+    local: [strategy-template.md, course-knowledge.md]
+    companion:
+      - "11_dg_program_themes/roles-and-operating-model.md"
+      - "11_dg_program_themes/domains-and-data-mesh.md"
+    evidence: ["data app как четвёртый канал — evidence-2026.md §6", "агент как identity — §4.2"]
+
+  - id: 4.1
+    title: "Data Models Management"
+    phase: to-be
+    local: [strategy-template.md, evidence-2026.md]
+    companion:
+      - "11_dg_program_themes/data-quality.md"
+      - "11_dg_program_themes/data-catalog.md"
+      - "11_dg_program_themes/domains-and-data-mesh.md"
+      - "10_ai_era_themes/certified-core-layer.md"
+    evidence: ["права на уровне куска, удаление производных, контракты через CI — §4"]
+
+  - id: 4.2
+    title: "BI Report Management"
+    phase: to-be
+    local: [strategy-template.md, evidence-2026.md]
+    companion:
+      - "10_ai_era_themes/bi-content-management.md"
+    evidence: ["сертификация паспорт vs тесты — §7"]
+
+  - id: 4.3
+    title: "Insight Management"
+    phase: to-be
+    local: [strategy-template.md, course-knowledge.md]
+    companion:
+      - "11_dg_program_themes/data-literacy.md"
+      - "10_ai_era_themes/llm-assistant-architecture.md"
+    evidence: []
+
+  - id: 5
+    title: "Технологическая Основа"
+    phase: to-be
+    local: [strategy-template.md, course-knowledge.md, evidence-2026.md]
+    companion:
+      - "10_ai_era_themes/semantic-layer.md"
+      - "10_ai_era_themes/semantic-metric-layer-v2.md"
+      - "10_ai_era_themes/certified-core-layer.md"
+      - "10_ai_era_themes/domain-knowledge-base.md"
+      - "10_ai_era_themes/context-governance.md"
+      - "10_ai_era_themes/llm-assistant-architecture.md"
+      - "10_ai_era_themes/enterprise-ontology.md"
+    evidence: ["контекстный слой и референсная архитектура — §5", "context rot — §3"]
+
+  - id: 6
+    title: "Операционная Основа"
+    phase: to-be
+    local: [strategy-template.md, evidence-2026.md]
+    companion:
+      - "10_ai_era_themes/skills-hub.md"
+      - "11_dg_program_themes/roles-and-operating-model.md"
+      - "11_dg_program_themes/maturity-and-metrics.md"
+    evidence: ["запрет измерять эффект самооценкой — §1"]
+
+  - id: 7
+    title: "Управление изменениями"
+    phase: transformation
+    local: [strategy-template.md, review-gates.md]
+    companion:
+      - "11_dg_program_themes/dg-program-roadmap.md"
+      - "10_ai_era_themes/ai-governance.md"
+    evidence: ["kill-gate с порогом на своих данных — §1, §2"]
+
+# Инструменты и источники companion-репозитория, полезные в любом блоке
+cross_cutting:
+  workshop_templates: "12_templates/templates.md   # анализ болей, классификатор доменов, vision statement, канвасы"
+  reading_library: "10_ai_era_themes/library.md"
+  source_verification: "40_sources.md"
