@@ -4,6 +4,8 @@
 
 meta:
   skill: barakov-bi-ai-strategy
+  triage: "50-failure-catalog.md   # вход «у нас что-то не так»: симптом → семейство → атом"
+  numbers: "51-numbers.md          # каждая цифра с тегом надёжности; тег переносится вместе с числом"
   root: references/kb
   atoms: 66
   convention: "один файл = одна тема; связи через [[wiki-ссылки]]"
