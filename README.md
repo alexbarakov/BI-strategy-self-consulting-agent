@@ -1,99 +1,156 @@
-# BI+AI Strategy Builder — Claude Code skill
+# BI+AI Strategy Builder — agent entry point
 
-Скилл для [Claude Code](https://claude.com/claude-code), который собирает **персональную BI+AI-стратегию**: интервью → диагностика зрелости → стратегия-документ по всем блокам, в виде связанной мини-вики.
+A ready-to-run skill that builds a **BI+AI strategy** for a specific company: interview → maturity diagnosis → a linked mini-wiki covering every block. Grounded on the canonical method (BI Project Health Check + D&A Strategy & Tactics Planner, data nature / Alex Barakov) plus the AI layer of the «BI+AI Strategy 2026» course.
 
-Заземлён на канонический метод (BI Project Health Check + D&A Strategy & Tactics Planner) плюс AI-слой курса «Разработка BI+AI стратегии». Принцип: **AI генерирует черновик — человек проверяет**. Скилл не выдумывает, а инстанцирует известные фреймворки под данные участника.
+Working principle: **AI drafts — humans validate.** The skill does not invent; it instantiates known frameworks against the participant's own data, and every block is validated by the user before the next one starts.
 
-## Три сценария
+**Companion:** [DG Board KB](https://github.com/alexbarakov/dg-board-kb) — the governance half of the same method. The two repositories are designed as a pair and share the same invariants.
 
-| Сценарий | Когда | Что на выходе |
+## At a glance
+
+| What | Size |
+|---|---|
+| Knowledge base — one topic per file, `[[wiki-links]]`, machine-readable graph | **66 atoms** |
+| Participant question base with answers, provenance-tagged | **101 Q&A** |
+| Golden set — retrieval / answer quality / honest refusal | **143 positions** |
+| Health Check diagnostic factors, 0–4 scale | **72 factors** |
+| Strategy structure | **7 blocks** |
+| Working templates (xlsx), ready to hand to the participant | **2** |
+
+## Two ways to use this repository
+
+**A. As a knowledge source (passive).** Add the repo or its URL to your agent's context and let it ground *other* tasks — answering BI/AI questions, reviewing a design, preparing a talk, sanity-checking a vendor claim. Nothing to install; the agent follows "How the agent uses it" below.
+
+**B. As a strategy skill (active).** [`skills/barakov-bi-ai-strategy/SKILL.md`](skills/barakov-bi-ai-strategy/SKILL.md) runs the full procedure in three scenarios.
+
+## Scenarios
+
+| Scenario | When | What comes out |
 |---|---|---|
-| **CONSULT** | есть конкретный кейс или вопрос | разбор с вариантами и trade-off, сходимся на решении |
-| **FORM** | нужна стратегия | интервью → диагностика → 7 блоков → 6-pager |
-| **AUDIT** | есть готовая стратегия или программа | скоркард, карта разрывов цепочки, пересборка приоритетов, быстрые победы |
+| **CONSULT** | you have a concrete case or question | a grounded analysis with options and trade-offs, converging on a decision |
+| **FORM** | you need a strategy | interview → diagnosis → 7 blocks → 6-pager, as a linked wiki |
+| **AUDIT** | a strategy or program already exists | scorecard, chain-break map, resequenced priorities, quick wins |
 
-Любой артефакт проходит **стадию судьи** — состязательное ревью в голосе скептичного руководителя аналитики — и **анти-оптимизм-проход** при постановке целей. Ничего не финализируется без них.
+FORM asks for the mode up front — **Light** (~15 min: 8 context questions, self-assessment across 9 categories, scorecard and stack-rank) or **Full** (~45–60 min: factor-by-factor diagnosis, per-domain detail, every block expanded).
 
-## Что делает
+No artifact is finalized without two passes: the **judge stage** — an adversarial review in the voice of a sceptical head of analytics who has killed two BI projects — and the **anti-optimism pass** when targets are set.
 
-1. **Интервью** — вопросы через `AskUserQuestion` (режим Лайт ~15 мин или Полный ~45–60 мин).
-2. **Диагностика зрелости** — профиль по 9 категориям Health Check (0–4) + AI-readiness оверлей + разрыв цепочки зависимостей `core → semantic → контекст → точность AI → self-service`. Плюс бар-чарт зрелости по темам (SVG).
-3. **Стратегия** — 7-блочная структура (по D&A Planner) как связанная вики: `index` + диагностика + 6-pager в FAQ-формате + страница на каждый блок, с `[[wiki-ссылками]]` (Obsidian), таблицами вопросов/дорожной карты/метрик, гейтами зрелости и материалами. Собирается в сайт (MkDocs Material) или один HTML.
-
-## Установка
-
-Скопируйте папку скилла в директорию скиллов Claude Code — глобально или в проект:
+## Quickstart
 
 ```bash
-# глобально
+# globally
 cp -R skills/barakov-bi-ai-strategy ~/.claude/skills/
 
-# или в конкретный проект
+# or into a specific project
 cp -R skills/barakov-bi-ai-strategy <project>/.claude/skills/
 ```
 
-## Запуск
+Then in Claude Code: `/bi-ai-strategy`, or just ask — "build my BI+AI strategy", "assess our BI maturity", "audit this strategy" (attach the document).
 
-В Claude Code:
+For any other agent: paste `SKILL.md` as instructions and give the repository as a knowledge source. Everything is grounded offline from `references/` — no internet and no internal systems required.
 
-- `/bi-ai-strategy`
-- или фразой: «собери мою BI+AI стратегию», «диагностика BI зрелости», «финальная домашка курса».
+## How the agent uses it (instructions for the agent)
 
-Скилл спросит режим (Лайт / Полный) и проведёт по шагам. Всё грунтуется офлайн из `references/` — интернет и внутренние системы не нужны.
+0. **Something is going wrong / diagnosing a project** — start from the field material: `references/kb/30-field/pain-fronts-2026.md` (how pains actually distribute) and `references/kb/40-course/bi-value-illusion.md` (what happens to reports that nobody owns). Probe with `references/question-bank.md`.
+1. **Answering a BI/AI question** — open `references/kb/kb-graph.yaml`, find the strategy block, read the atoms it lists. `key_evidence` holds the numbers worth arguing with, each carrying its evidence level. Atoms cross-link with `[[wiki-links]]`; follow them rather than re-deriving.
+2. **Someone already asked this** — check `references/faq-participants.md` (101 questions with answers, each citing the atoms behind it) before composing a new answer.
+3. **Building or auditing a strategy** — run the full procedure in [`SKILL.md`](skills/barakov-bi-ai-strategy/SKILL.md); structure from `references/strategy-template.md`, output shape from `references/wiki-structure.md`.
+4. **Grounding governance blocks** — pull from the companion per `references/companion-kb.md`; the machine-readable mapping is the `companion:` field in `references/knowledge-map.yaml`.
+5. **Quoting a number** — take it from `references/evidence-2026.md` or from an atom, and **carry its evidence level with it**. A vendor-measured figure is never presented as fact.
+6. **Producing the deliverable** — always **in the user's language**. This repository is the source, not the output template. Missing facts become explicit `[requires clarification]` markers naming the source that would close them — never invented numbers.
 
-## Что внутри
+## Map
 
-```
-skills/barakov-bi-ai-strategy/
-├── SKILL.md                       — точка входа, порядок работы, правила
-└── references/
-    ├── diagnostic.md              — модель диагностики (Health Check + AI-readiness)
-    ├── question-bank.md           — 72 фактора-вопроса Health Check
-    ├── strategy-template.md       — 7-блочная структура + маппинг блок→материалы
-    ├── wiki-structure.md          — шаблоны страниц вики и 6-pager (FAQ-формат)
-    ├── course-knowledge.md        — библиотека концептов курса (грунт для рекомендаций)
-    ├── knowledge-map.yaml        — машиночитаемая карта: блок → локальные файлы + companion
-    ├── review-gates.md           — гейты качества: судья и анти-оптимизм
-    ├── companion-kb.md           — как подключать DG Board KB как governance-подложку
-    ├── evidence-2026.md          — проверяемая фактура 2026 со ссылками: карта «где AI
-    │                               работает в дата-процессах», тренды управления данными,
-    │                               контекстный слой (LLM wiki), next-gen отчёты
-    ├── materials-links.md         — что публичное, что участник заполняет сам
-    ├── make-maturity-svg.py       — генератор бар-чарта зрелости
-    ├── BI Project Health Check.xlsx          — рабочий шаблон диагностики
-    └── D&A Strategy & Tactics Planner [ENG].xlsx — рабочий шаблон стратегии
-```
+| Path | Content |
+|---|---|
+| `skills/barakov-bi-ai-strategy/SKILL.md` | Entry point: scenarios, step order, rules |
+| `references/kb/kb-graph.yaml` | **Machine-readable graph** — strategy block → atoms, `key_evidence`, `anonymized_cases`. Start navigation here |
+| `references/kb/10-method/` | 19 atoms — the canonical method, one worksheet of the Guide per atom: pains, domains, user classification, info supply-demand, data & content processes, self-service and centralized practices, access matrix, metrics, action plan, vision |
+| `references/kb/20-catalog/` | BI Project Innovation Map — the catalog of every direction a BI project can contain, used as a completeness checklist |
+| `references/kb/30-field/` | Field data: benchmark of 12 BI projects (2026) and the map of pain fronts. Calibration for "how do others look", **not industry statistics** |
+| `references/kb/40-course/` | 44 atoms — concepts, cases and practices from nine course sessions: AI foundation triad, LLM assistant reference architecture, context layer, semantic layer with paired accuracy measurements, content certification, community, competencies, hiring in the AI era |
+| `references/faq-participants.md` | 101 participant questions with answers, tagged by provenance: ◆ real (pre-course survey n=12 and session interactive n=10) · ◇ raised by the author for group discussion · ○ derived from the KB |
+| `references/eval/` | **Three-tier golden set**: retrieval (101, deterministic), answer quality (32, with `must_contain` / `must_not` and a judge), honest refusal (10). `build.py` regenerates tier 1 from the FAQ, `score.py` aggregates a run |
+| `references/diagnostic.md` | Diagnosis model — Health Check + AI-readiness overlay |
+| `references/question-bank.md` | 72 Health Check factors across 9 categories, 0–4 scale, with current and 1-year target |
+| `references/strategy-template.md` | 7-block structure + block → materials mapping |
+| `references/wiki-structure.md` | Wiki page templates and the 6-pager in FAQ form |
+| `references/review-gates.md` | Quality gates: the judge stage and the anti-optimism rules for setting targets |
+| `references/evidence-2026.md` | Verifiable 2026 material with sources: where AI actually works in data processes, data management trends, the context layer, next-gen report formats |
+| `references/course-knowledge.md` | Concept library — generic grounding for recommendations, no company data |
+| `references/knowledge-map.yaml` | Block → local files + companion files; entry point for navigation |
+| `references/companion-kb.md` | How to plug DG Board KB in as the governance layer |
+| `references/materials-links.md` | Which links are public and which the participant fills in themselves |
+| `references/make-maturity-svg.py` | Maturity bar-chart generator |
+| `references/*.xlsx` | BI Project Health Check and D&A Strategy & Tactics Planner — working templates to hand to the participant |
 
-Внутренние ссылки на ресурсы компании в шаблонах — **заглушки**: участник заполняет их под свою организацию. Цифры и названия из любых референс-стратегий скилл не переносит — они образец формата, а не источник данных.
+## Method invariants
 
+Shared with the companion repository — the same rules hold on both sides.
 
-## Парный репозиторий: DG Board KB
+- **Diagnose before prescribing.** A 0–4 maturity scorecard plus an AI-readiness overlay; name 2–3 breaks in the chain `core → semantic → context → AI accuracy → self-service`. The strategy is the repair plan for those breaks, not a wish list.
+- **Stack-rank the freeze order:** governance & ownership → trusted data → AI readiness (the triad **certified core layer → semantic layer → domain knowledge base**, wrapped in **context governance**) → BI content → self-service and agentic interfaces last. Cuts are made right to left.
+- **Kill-gates block launches** until prerequisites are met: no assistant without semantic coverage and a certified core; no semantic layer without a core beneath it; no self-service scaling without a governance gate; no agent write operations without its own identity, narrow keys and an audit trail.
+- **Dual track:** old BI sustaining plus new AI exploring, ring-fenced from each other.
+- **Rational target maturity.** The target line is calibrated to the company, not set at "best practice"; +1 level per year unless a funded reason says otherwise; every target discounted for dependency, capacity and adoption risk; what the strategy deliberately does *not* do is written down; the budget cut is rehearsed in advance into a published freeze list.
+- **Judge pass before finalization.** An adversarial review across seven dimensions — priority, order, feasibility, complexity, concreteness, defensibility, honesty about risk — whose blocking findings must be fixed or turned into explicit named decisions, with a visible before/after of the rework. A pass that changes nothing means the judge was polite, not useful.
+- **Guardrails:** AI drafts — humans validate · no number without a source · no over-optimism — a plan where everything succeeds is a plan nobody stress-tested.
 
-[**DG Board KB**](https://github.com/alexbarakov/dg-board-kb) — текстовая проекция публичного Miro-борда «Data Governance Program Guide»: темы AI-эры и классического Data Governance, каталог воркшоп-шаблонов, библиотека источников.
+## Evidence discipline
 
-Репозитории спроектированы как пара и разделяют инварианты: stack-rank и порядок заморозки, kill-gates, «AI генерирует черновик — человек проверяет», цепочка `core → semantic → контекст → точность AI → self-service`.
+Numbers are sorted by **who measured them**, not by how loud the claim is:
 
-| Что строим | Кто ведёт | Роль второго |
+| Level | Meaning |
+|---|---|
+| **verifiable** | a study or a reproducible benchmark |
+| **vendor-measured** | the vendor's own benchmark, or a survey commissioned by the seller |
+| **no data** | stated as absent rather than filled with a plausible figure |
+
+A vendor figure is never presented as fact — who measured it is named alongside. These three levels map onto the companion's five-tag registry (`measured` / `benchmark` / `vendor` / `author-estimate` / `disputed`); when both repositories are in play, the finer scale wins.
+
+One rule stands separately: **the effect of AI is never measured by the team's self-assessment.** In a controlled experiment developers were 19% slower while being convinced they were 20% faster — so only measurement against a golden set of questions makes it into a strategy's metrics.
+
+Case-study atoms carry anonymized thresholds: the mechanics transfer, the numbers do not. Set thresholds from your own baseline — a threshold borrowed from someone else's deck is either unreachable or already passed, and useless as a gate either way.
+
+## Evaluation
+
+Quality is measured, not asserted. `references/eval/` holds a three-tier golden set:
+
+- **Tier 1 — retrieval (101).** Did the agent find the right atoms? Deterministic, no LLM, cheap enough to run on every change. Generated from the FAQ by `build.py` so the set cannot drift from its source.
+- **Tier 2 — answer quality (32).** Did it say the right things and **avoid the wrong ones**? Judged by rubric, with a hard rule: a match against `must_not` overrides the judge's verdict, however many `must_contain` points the answer covered.
+- **Tier 3 — honest refusal (10).** Questions where the correct behaviour is to decline — "what accuracy will we get", "what threshold should we set", "give me industry statistics". Without this tier the set measures recall only and rewards confident invention.
+
+Fixation rule: the set is frozen before changes and **never reworded to match what the agent found** — rewording to fit the retrieval is fitting the test. Five positions are held blind. All positions carry `status: needs_review` until reviewed by the author; only `confirmed` counts.
+
+Targets are deliberately absent. Run once, record the baseline, then watch it not fall.
+
+## Caveats
+
+- **The field benchmark is a sample of 12, and a biased one** — course participants who had already decided to work on strategy. Use it as "here is how others look", never as industry statistics.
+- **Real participant questions are reconstructions.** Live session transcripts were not available; the ◆ questions are restored from the pre-course survey, the session-one interactive and the questions the author put on slides — faithful in substance, not verbatim quotes.
+- **Numbers in case atoms are anonymized on purpose.** Where a figure was an internal measurement it is given as an order of magnitude ("roughly threefold", "about two thirds"). The construction is intact; the exact value is not yours to copy anyway.
+- **Internal links in templates are placeholders** — the participant fills them in for their own organization. The skill never carries numbers or names from any reference strategy into a deliverable; those are a format example, not a data source.
+- **Tier-1 golden set questions are worded in the KB's own language**, so they partly test string overlap rather than understanding. Tiers 2 and 3 are deliberately reworded in participant language. Paraphrases for tier 1 are outstanding work.
+- Origin: method and materials — Alex Barakov / data nature. Course backing: «BI+AI Strategy 2026».
+
+## Companion repository
+
+[**DG Board KB**](https://github.com/alexbarakov/dg-board-kb) is the textual projection of the public Miro board «Data Governance Program Guide»: AI-era and classic Data Governance themes, a workshop template catalog, a failure catalog, a numbers registry and a diagnostic question bank.
+
+| What you are building | Who leads | Role of the other |
 |---|---|---|
-| BI или AI стратегия | **этот скилл** | DG Board KB заземляет governance-блоки и AI-фундамент |
-| Data Governance | DG Board KB | этот скилл даёт BI/AI-стрим |
-| D&A или смесь | DG Board KB ведёт структуру | этот скилл поставляет содержание BI/AI-стримов |
+| **BI** or **AI** strategy | **this skill** | DG Board KB grounds the governance blocks and the AI foundation |
+| **Data Governance** | DG Board KB | this skill supplies the BI/AI stream |
+| **D&A** or a mix | DG Board KB leads the structure | this skill supplies the substance of the BI/AI streams |
 
-Карта «блок стратегии → какие файлы читать в companion» — в `references/companion-kb.md`, машиночитаемая версия — в `references/knowledge-map.yaml`.
+Conflict rule: on governance questions the companion wins, on BI/AI questions this skill does. The invariants match by construction; if they diverge, subject-matter ownership decides.
 
-## Дисциплина доказательств
+Block → what to read in the companion: `references/companion-kb.md`; machine-readable version: the `companion:` field in `references/knowledge-map.yaml`.
 
-Скилл разделяет цифры на три уровня: **проверяемо** (исследование или воспроизводимый бенчмарк), **мерил продавец** (вендорский замер, заказанный опрос), **нет данных**. Вендорская цифра никогда не подаётся как факт — рядом указывается, кто мерил.
+## Live demo
 
-Отдельное правило: **эффект AI не измеряется самооценкой команды.** В контролируемом эксперименте разработчики оказались на 19% медленнее, будучи уверены, что стали на 20% быстрее — поэтому в метрики стратегии попадает только замер на эталонном наборе вопросов.
+A finished wiki built by this skill (anonymized data, placeholder numbers): **https://alexbarakov.github.io/bi-ai-strategy-demo/**
 
-Фактура и ссылки — в `references/evidence-2026.md`.
+## Author
 
-## Живое демо
-
-Пример готовой вики, собранной этим скиллом (данные обезличены, числа — заглушки):
-**https://alexbarakov.github.io/bi-ai-strategy-demo/**
-
-## Автор
-
-Метод и материалы — Alex Barakov / Data Nature. Канал: [@datanaturelinks](https://t.me/datanaturelinks).
+Method and materials — Alex Barakov / data nature: [data-nature.com](https://data-nature.com) · [t.me/datanature](https://t.me/datanature) · links channel [@datanaturelinks](https://t.me/datanaturelinks).
