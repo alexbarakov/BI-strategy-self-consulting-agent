@@ -4,6 +4,7 @@
 
 meta:
   skill: barakov-bi-ai-strategy
+  kb: "references/kb/  # 66 атомов, граф — references/kb/kb-graph.yaml"
   structure: "7 блоков (D&A Strategy & Tactics Planner) + диагностика Health Check"
   phases: "AS-IS = блоки 1–2 · TO-BE = блоки 3–6 · Трансформация = блок 7"
 
@@ -50,6 +51,7 @@ blocks:
       - "11_dg_program_themes/getting-started.md   # тест 5 из 12: нужна ли программа вообще"
       - "11_dg_program_themes/dg-kitchen-research.md"
     evidence: []
+    kb: "kb-graph.yaml → blocks[1]"
 
   - id: 2
     title: "Оценка D&A ландшафта"
@@ -59,6 +61,7 @@ blocks:
       - "11_dg_program_themes/maturity-and-metrics.md"
       - "11_dg_program_themes/dg-frameworks.md"
     evidence: ["карта «где AI работает в дата-процессах» — evidence-2026.md §2"]
+    kb: "kb-graph.yaml → blocks[2]"
 
   - id: 3
     title: "Целевая Операционная Модель"
@@ -68,6 +71,7 @@ blocks:
       - "11_dg_program_themes/roles-and-operating-model.md"
       - "11_dg_program_themes/domains-and-data-mesh.md"
     evidence: ["data app как четвёртый канал — evidence-2026.md §6", "агент как identity — §4.2"]
+    kb: "kb-graph.yaml → blocks[3]"
 
   - id: 4.1
     title: "Data Models Management"
@@ -79,6 +83,7 @@ blocks:
       - "11_dg_program_themes/domains-and-data-mesh.md"
       - "10_ai_era_themes/certified-core-layer.md"
     evidence: ["права на уровне куска, удаление производных, контракты через CI — §4"]
+    kb: "kb-graph.yaml → blocks[4.1]"
 
   - id: 4.2
     title: "BI Report Management"
@@ -87,6 +92,7 @@ blocks:
     companion:
       - "10_ai_era_themes/bi-content-management.md"
     evidence: ["сертификация паспорт vs тесты — §7"]
+    kb: "kb-graph.yaml → blocks[4.2]"
 
   - id: 4.3
     title: "Insight Management"
@@ -96,6 +102,7 @@ blocks:
       - "11_dg_program_themes/data-literacy.md"
       - "10_ai_era_themes/llm-assistant-architecture.md"
     evidence: []
+    kb: "kb-graph.yaml → blocks[4.3]"
 
   - id: 5
     title: "Технологическая Основа"
@@ -110,6 +117,7 @@ blocks:
       - "10_ai_era_themes/llm-assistant-architecture.md"
       - "10_ai_era_themes/enterprise-ontology.md"
     evidence: ["контекстный слой и референсная архитектура — §5", "context rot — §3"]
+    kb: "kb-graph.yaml → blocks[5]"
 
   - id: 6
     title: "Операционная Основа"
@@ -120,6 +128,7 @@ blocks:
       - "11_dg_program_themes/roles-and-operating-model.md"
       - "11_dg_program_themes/maturity-and-metrics.md"
     evidence: ["запрет измерять эффект самооценкой — §1"]
+    kb: "kb-graph.yaml → blocks[6]"
 
   - id: 7
     title: "Управление изменениями"
@@ -129,9 +138,13 @@ blocks:
       - "11_dg_program_themes/dg-program-roadmap.md"
       - "10_ai_era_themes/ai-governance.md"
     evidence: ["kill-gate с порогом на своих данных — §1, §2"]
+    kb: "kb-graph.yaml → blocks[7]"
 
 # Инструменты и источники companion-репозитория, полезные в любом блоке
 cross_cutting:
+  kb_entry: "references/kb/kb-graph.yaml   # блок → атомы; key_evidence — числа для защиты приоритетов"
+  kb_always_read: [guide-structure, innovation-map, plausible-but-wrong, ai-time-saving-trap, participants-2026-benchmark]
+  kb_internal_only: "атомы со списком internal_only в kb-graph.yaml содержат внутренние замеры — переносим конструкцию, не числа"
   workshop_templates: "12_templates/templates.md   # анализ болей, классификатор доменов, vision statement, канвасы"
   reading_library: "10_ai_era_themes/library.md"
   source_verification: "40_sources.md"
