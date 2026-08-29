@@ -179,7 +179,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  ORG["bi-org-structure<br/>IT-centric ↔ business-centric<br/>D&A Council"] -->|staffs| MTX["bi-competency-matrix<br/>L1–L3 · LLM внутри уровня"]
+  ORG["bi-org-structure<br/>IT-centric ↔ business-centric<br/>D&amp;A Council"] -->|staffs| MTX["bi-competency-matrix<br/>L1–L3 · LLM внутри уровня"]
   MTX -->|aligns| HIRE["bi-hiring-ai-era<br/>Grade Discovery · min(hard,soft)"]
   ORG --> CAL["bi-routine-calendar<br/>день · спринт · квартал"]
   CAL -->|operates| HYG["content-hygiene-loop"]
