@@ -17,6 +17,13 @@ def slug(name):
     return re.sub(r"[^a-zA-Zа-яА-Я0-9]+", "-", name).strip("-").lower()
 
 
+CUR_PAGE = {"slug": ""}
+
+
+def head_id(page_slug, heading):
+    return f"{page_slug}--{slug(heading)}"
+
+
 def inline(t):
     t = html.escape(t)
     t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
@@ -24,12 +31,13 @@ def inline(t):
     t = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", t)
     # [[ссылка|подпись]] и [[ссылка]] -> внутренний якорь
     def wiki(m):
-        tgt = m.group(1).split("#")[0].replace("../", "")
-        lab = m.group(2)[1:] if m.group(2) else m.group(1).split("|")[0]
-        return f'<a href="#{slug(tgt)}">{lab}</a>'
-    t = re.sub(r"\[\[([^\]|#]+)(?:#[^\]|]+)?(\|[^\]]+)?\]\]", wiki, t)
+        tgt = m.group(1).replace("../", "")
+        anchor = (m.group(2) or "").strip()
+        lab = m.group(3)[1:] if m.group(3) else (anchor or tgt)
+        href = head_id(slug(tgt), anchor) if anchor else slug(tgt)
+        return f'<a href="#{href}">{lab}</a>'
+    t = re.sub(r"\[\[([^\]|#]+)(?:#([^\]|]+))?(\|[^\]]+)?\]\]", wiki, t)
     t = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', t)
-    t = re.sub(r'<a id="([^"]+)"></a>', r'<span id="\1"></span>', t)
     return t
 
 
@@ -66,8 +74,9 @@ def convert(md):
             out.append("<hr>"); continue
         m = re.match(r"^(#{1,4})\s+(.*)$", line)
         if m:
-            lvl = len(m.group(1))
-            out.append(f"<h{lvl}>{inline(m.group(2))}</h{lvl}>"); continue
+            lvl, txt = len(m.group(1)), m.group(2)
+            hid = head_id(CUR_PAGE["slug"], txt)
+            out.append(f'<h{lvl} id="{hid}">{inline(txt)}</h{lvl}>'); continue
         m = re.match(r"^(\s*)[-*]\s+(.*)$", line)
         if m:
             out.append(f"<li>{inline(m.group(2))}</li>"); continue
@@ -96,6 +105,7 @@ nav .grp{margin:16px 0 6px;padding-left:10px;font-size:11px;letter-spacing:.08em
 main{padding:28px 0 96px;min-width:0}
 section{margin-bottom:56px;scroll-margin-top:20px}
 h1{font-size:30px;margin:.2em 0 .5em;line-height:1.25}
+h2,h3{scroll-margin-top:16px}
 h2{font-size:21px;margin:1.7em 0 .6em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
 h3{font-size:17px;margin:1.4em 0 .4em}
 h4{font-size:15px;margin:1.2em 0 .3em;color:var(--mut)}
@@ -132,6 +142,7 @@ def main():
         md = open(p, encoding="utf-8").read()
         md = re.sub(r"^\[\[.*?\]\].*?\n", "", md, count=1)  # хлебная крошка не нужна
         title = re.search(r"^#\s+(.*)$", md, re.M)
+        CUR_PAGE["slug"] = slug(name)
         pages.append((slug(name), name, title.group(1) if title else name, convert(md)))
 
     nav = []
@@ -140,7 +151,19 @@ def main():
             nav.append('<div class="grp">Приложение</div>')
         nav.append(f'<a href="#{sid}">{html.escape(title)}</a>')
 
+    # ссылка на соседнюю страницу внутри подпапки пишется без префикса — доразрешаем по известным якорям
+    known = {sid for sid, _, _, _ in pages}
     body = "\n".join(f'<section id="{sid}">{h}</section>' for sid, _, _, h in pages)
+
+    def fix(m):
+        target = m.group(1)
+        if target in known or target.split("--")[0] in known:
+            return m.group(0)
+        for k in known:
+            if k.endswith("-" + target.split("--")[0]):
+                return m.group(0).replace(target, k + target[len(target.split("--")[0]):])
+        return m.group(0)
+    body = re.sub(r'href="#([^"]+)"', fix, body)
     doc = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(pages[0][2])}</title><style>{CSS}</style></head><body>
