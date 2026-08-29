@@ -5,7 +5,8 @@
 meta:
   skill: bi-strategy
   kb: "references/kb/  # 66 атомов, граф — references/kb/30-graph.yaml"
-  structure: "7 блоков (D&A Strategy & Tactics Planner) + диагностика Health Check"
+  document: "6 разделов: контекст, видение, стримы, инициативы, цели через метрики, риски (strategy-requirements.md)"
+  frame: "7 блоков рабочей рамки анализа (D&A Strategy & Tactics Planner) + диагностика Health Check"
   phases: "AS-IS = блоки 1–2 · TO-BE = блоки 3–6 · Трансформация = блок 7"
 
 companion:

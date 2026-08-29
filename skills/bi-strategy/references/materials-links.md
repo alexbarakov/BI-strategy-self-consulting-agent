@@ -6,7 +6,7 @@
 - `course-knowledge.md` — библиотека концептов курса (грунт для рекомендаций).
 - `diagnostic.md` — модель диагностики (Health Check + AI-readiness).
 - `question-bank.md` — 72 фактора-вопроса Health Check.
-- `strategy-template.md` — 7-блочная структура + маппинг блок→материалы.
+- `strategy-template.md` — рабочая рамка анализа из 7 блоков + маппинг блок→материалы.
 - `wiki-structure.md` — шаблоны страниц вики.
 - `BI Project Health Check.xlsx`, `D&A Strategy & Tactics Planner [ENG].xlsx` — рабочие шаблоны (копируются в вики участника, линкуются относительным путём).
 
