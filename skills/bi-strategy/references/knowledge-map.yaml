@@ -3,7 +3,7 @@
 # из companion-репозитория DG Board KB. Аналог 30_graph/objects.yaml у companion.
 
 meta:
-  skill: barakov-bi-ai-strategy
+  skill: bi-strategy
   kb: "references/kb/  # 66 атомов, граф — references/kb/30-graph.yaml"
   structure: "7 блоков (D&A Strategy & Tactics Planner) + диагностика Health Check"
   phases: "AS-IS = блоки 1–2 · TO-BE = блоки 3–6 · Трансформация = блок 7"

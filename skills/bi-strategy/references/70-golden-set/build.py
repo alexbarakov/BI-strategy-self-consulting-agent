@@ -10,7 +10,7 @@ import re, sys, pathlib
 SRC = pathlib.Path(__file__).parent / ".." / "faq-participants.md"
 DST = pathlib.Path(__file__).parent / "goldenset-tier1.yaml"
 
-HEAD = """# Голден-сет скилла barakov-bi-ai-strategy — уровень 1: retrieval
+HEAD = """# Голден-сет скилла bi-strategy — уровень 1: retrieval
 #
 # Что меряет: нашёл ли агент нужные атомы базы знаний. Проверяется детерминированно,
 # без LLM-судьи: сравниваются множества атомов, на которые агент сослался.

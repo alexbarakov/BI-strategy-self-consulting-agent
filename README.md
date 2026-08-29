@@ -11,6 +11,7 @@ Working principle: **AI drafts — humans validate.** The skill does not invent;
 | What | Size |
 |---|---|
 | Knowledge base — one topic per file, `[[wiki-links]]`, machine-readable graph | **66 atoms** |
+| Theme graph — nodes, clusters, curated relations, Mermaid views | **66 nodes · 283 links · 10 diagrams** |
 | Participant question base with answers, provenance-tagged | **101 Q&A** |
 | Golden set — retrieval / answer quality / honest refusal | **143 positions** |
 | Failure catalog — named failure modes with symptom triage | **75 in 7 families** |
@@ -23,7 +24,7 @@ Working principle: **AI drafts — humans validate.** The skill does not invent;
 
 **A. As a knowledge source (passive).** Add the repo or its URL to your agent's context and let it ground *other* tasks — answering BI/AI questions, reviewing a design, preparing a talk, sanity-checking a vendor claim. Nothing to install; the agent follows "How the agent uses it" below.
 
-**B. As a strategy skill (active).** [`skills/barakov-bi-ai-strategy/SKILL.md`](skills/barakov-bi-ai-strategy/SKILL.md) runs the full procedure in three scenarios.
+**B. As a strategy skill (active).** [`skills/bi-strategy/SKILL.md`](skills/bi-strategy/SKILL.md) runs the full procedure in three scenarios.
 
 ## Scenarios
 
@@ -41,13 +42,13 @@ No artifact is finalized without two passes: the **judge stage** — an adversar
 
 ```bash
 # globally
-cp -R skills/barakov-bi-ai-strategy ~/.claude/skills/
+cp -R skills/bi-strategy ~/.claude/skills/
 
 # or into a specific project
-cp -R skills/barakov-bi-ai-strategy <project>/.claude/skills/
+cp -R skills/bi-strategy <project>/.claude/skills/
 ```
 
-Then in Claude Code: `/bi-ai-strategy`, or just ask — "build my BI+AI strategy", "assess our BI maturity", "audit this strategy" (attach the document).
+Then in Claude Code: `/bi-strategy`, or just ask — "build my BI+AI strategy", "assess our BI maturity", "audit this strategy" (attach the document).
 
 For any other agent: paste `SKILL.md` as instructions and give the repository as a knowledge source. Everything is grounded offline from `references/` — no internet and no internal systems required.
 
@@ -56,7 +57,7 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 0. **Something is going wrong / diagnosing a project** — start at `references/kb/50-failure-catalog.md` (symptom triage across 75 named failure modes), pull arguments from `references/kb/51-numbers.md` (**never quote a `vendor` or `disputed` figure as fact**), probe with `references/question-bank.md`.
 1. **Answering a BI/AI question** — open `references/kb/30-graph.yaml`, find the strategy block, read the atoms it lists. `key_evidence` holds the numbers worth arguing with, each carrying its evidence level. Atoms cross-link with `[[wiki-links]]`; follow them rather than re-deriving.
 2. **Someone already asked this** — check `references/faq-participants.md` (101 questions with answers, each citing the atoms behind it) before composing a new answer.
-3. **Building or auditing a strategy** — run the full procedure in [`SKILL.md`](skills/barakov-bi-ai-strategy/SKILL.md); structure from `references/strategy-template.md`, output shape from `references/wiki-structure.md`.
+3. **Building or auditing a strategy** — run the full procedure in [`SKILL.md`](skills/bi-strategy/SKILL.md); structure from `references/strategy-template.md`, output shape from `references/wiki-structure.md`.
 4. **Grounding governance blocks** — pull from the companion per `references/companion-kb.md`; the machine-readable mapping is the `companion:` field in `references/knowledge-map.yaml`.
 5. **Quoting a number** — take it from `references/evidence-2026.md` or from an atom, and **carry its evidence level with it**. A vendor-measured figure is never presented as fact.
 6. **Producing the deliverable** — always **in the user's language**. This repository is the source, not the output template. Missing facts become explicit `[requires clarification]` markers naming the source that would close them — never invented numbers.
@@ -65,8 +66,9 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 
 | Path | Content |
 |---|---|
-| `skills/barakov-bi-ai-strategy/SKILL.md` | Entry point: scenarios, step order, rules |
-| `references/kb/30-graph.yaml` | **Machine-readable graph** — strategy block → atoms, `key_evidence`, `anonymized_cases`. Start navigation here. Folder numbering is shared with the companion: the same number means the same role in both repositories |
+| `skills/bi-strategy/SKILL.md` | Entry point: scenarios, step order, rules |
+| `references/kb/30-graph.md` | **Visual graph** — 10 Mermaid diagrams rendered natively by GitHub: cluster map, dependency chain, AI foundation, method spine, content lifecycle, delivery models, data & governance, people, failure triage, diagnostics |
+| `references/kb/30-graph.yaml` | **Machine-readable graph** — strategy block → atoms, `key_evidence`, `anonymized_cases`, plus 66 typed nodes in 9 clusters and 44 curated relations. Start navigation here. Folder numbering is shared with the companion: the same number means the same role in both repositories |
 | `references/kb/50-failure-catalog.md` | **Failure catalog** — 75 named ways a BI or AI initiative dies, in 7 families, with a symptom-triage table. The entry point when something feels wrong |
 | `references/kb/51-numbers.md` | **Numbers registry** — every figure with a reliability tag and, where checked, the verification date. The tag travels with the number |
 | `references/kb/60-roadmap.md` | What the KB is still missing and in what order to fix it — written from findings, not aspiration |
@@ -158,7 +160,7 @@ Block → what to read in the companion: `references/companion-kb.md`; machine-r
 
 ## Live demo
 
-A finished wiki built by this skill (anonymized data, placeholder numbers): **https://alexbarakov.github.io/bi-ai-strategy-demo/**
+A finished wiki built by this skill (anonymized data, placeholder numbers): **https://alexbarakov.github.io/bi-strategy-demo/**
 
 ## Author
 

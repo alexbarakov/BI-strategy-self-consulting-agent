@@ -1,0 +1,290 @@
+# Машиночитаемый граф базы знаний.
+# Агент по номеру блока стратегии находит релевантные атомы.
+# Аналог 30_graph/objects.yaml у companion-репозитория DG-strategy-self-consulting-agent:
+# нумерация папок общая, один номер = одна роль в обоих репозиториях.
+
+meta:
+  skill: bi-strategy
+  triage: "50-failure-catalog.md   # вход «у нас что-то не так»: симптом → семейство → атом"
+  numbers: "51-numbers.md          # каждая цифра с тегом надёжности; тег переносится вместе с числом"
+  root: references/kb
+  atoms: 66
+  convention: "один файл = одна тема; связи через [[wiki-ссылки]]"
+
+sources:
+  - id: guide-2.0
+    title: "BI Strategy & Tactics Guide 2.0"
+    kind: spreadsheet
+    author: DataNature
+    url: "https://docs.google.com/spreadsheets/d/1thAW0TipIHBjxrnNWyVO0ztzkluFm-g8hgE6UqJloTo"
+    covers: 11-method/*
+  - id: miro-board
+    title: "BI Strategy Guide 2.0 + BI Project Innovation Map"
+    kind: miro
+    url: "https://miro.com/app/board/o9J_lha8MnM=/"
+    covers: 20-catalog/innovation-map.md
+    note: "фрейм Guide 2.0 — визуальное зеркало таблицы; Innovation Map — уникальный каталог направлений"
+  - id: course-2026
+    title: "Курс «Разработка BI+AI стратегии 2026», 9 занятий"
+    kind: slides
+    covers: 10-ai-era/*
+  - id: precourse-survey
+    title: "Пре-курс опрос участников, n=12, июль–август 2026"
+    kind: survey
+    covers: 31-field/*
+    note: "большинство респондентов разрешили раскрытие только в агрегированном виде"
+
+# Порядок работы по методу: разделы гайда слева направо
+method_spine:
+  - {section: 1, phase: as-is,          atoms: [painpoints-analysis, data-domains-classification, user-classification, info-supply-demand, bi-adoption-stats]}
+  - {section: 2, phase: to-be,          atoms: [data-mgmt-processes, critical-data-status, content-mgmt-processes, selfservice-practices, centralized-practices, bi-toolset-landscape]}
+  - {section: 3, phase: operations,     atoms: [access-matrix, regular-meetings, rules-and-standards, onboarding-plan, bi-project-metrics]}
+  - {section: 4, phase: transformation, atoms: [action-plan]}
+  - {section: 5, phase: vision,         atoms: [vision-statement]}
+
+blocks:
+  - id: 1
+    title: "Бизнес Основа"
+    method: [painpoints-analysis, data-domains-classification, user-classification, info-supply-demand, bi-adoption-stats, vision-statement]
+    course: [bi-value-illusion, bi-strategy-purpose, data-team-pain-points]
+    field: [pain-fronts-2026, participants-2026-benchmark]
+
+  - id: 2
+    title: "Оценка D&A ландшафта"
+    method: [info-supply-demand, bi-adoption-stats]
+    course: [maturity-models, bi-adoption-barriers, data-utility-gap, ai-ready-domain-score, ai-in-data-processes, plausible-but-wrong]
+    field: [participants-2026-benchmark, pain-fronts-2026]
+
+  - id: 3
+    title: "Целевая Операционная Модель"
+    method: [user-classification]
+    course: [ssbi-vs-guided, ssbi-failure-causes, ssbi-workflow, bi-org-structure, unified-bi-platform, nextgen-report-formats]
+
+  - id: 4.1
+    title: "Data Models Management"
+    method: [data-mgmt-processes, critical-data-status, data-domains-classification, access-matrix]
+    course: [core-layer-project, dg-launch-path, data-catalog-pitfalls, glossary-vs-dictionary, access-automation, ai-in-data-processes, data-team-pain-points]
+
+  - id: 4.2
+    title: "BI Report Management"
+    method: [content-mgmt-processes, centralized-practices]
+    course: [content-catalog-ux, content-certification, content-hygiene-loop, visual-style-guide, content-promotion-monitoring, nextgen-report-formats]
+
+  - id: 4.3
+    title: "Insight Management"
+    method: [selfservice-practices, centralized-practices]
+    course: [insight-management, ai-cases-in-prod, bi-community-management, domain-knowledge-base, centralized-bi-brand]
+
+  - id: 5
+    title: "Технологическая Основа"
+    method: [bi-toolset-landscape, critical-data-status]
+    course: [ai-triad-prerequisites, llm-assistant-architecture, domain-knowledge-base, context-governance, context-layer-market, semantic-layer-evidence, core-layer-project, bi-tool-selection, unified-bi-platform, ai-in-bi-approaches, ai-adoption-waves]
+
+  - id: 6
+    title: "Операционная Основа"
+    method: [regular-meetings, rules-and-standards, onboarding-plan, bi-project-metrics, access-matrix]
+    course: [bi-org-structure, bi-routine-calendar, bi-competency-matrix, bi-hiring-ai-era, bi-community-management, centralized-bi-brand, infra-billing, ai-accelerator]
+
+  - id: 7
+    title: "Управление изменениями"
+    method: [action-plan, vision-statement]
+    course: [dg-launch-path, ai-adoption-waves, ai-accelerator, ai-time-saving-trap, bi-hiring-ai-era, infra-billing]
+    catalog: [innovation-map]
+
+# Атомы, которые стоит прочитать всегда — независимо от блока
+cross_cutting:
+  - guide-structure          # спайн метода: без него непонятен порядок
+  - innovation-map           # карта всех направлений: чеклист полноты
+  - plausible-but-wrong      # главный риск, из которого выводятся все гейты
+  - ai-time-saving-trap      # запрет мерить эффект сэкономленными часами
+  - participants-2026-benchmark  # калибровка «а как у других»
+
+# Числа, которые чаще всего нужны для защиты приоритетов
+key_evidence:
+  - {claim: "88% отчётов умирают за 3 месяца, 2% дают стабильный результат", atom: bi-value-illusion, confidence: проверяемо}
+  - {claim: "медианное время жизни дашборда ~50 дней, при зрелых практиках 136", atom: bi-value-illusion, confidence: проверяемо}
+  - {claim: "text-to-SQL на реальных enterprise-схемах ~40%; с семантическим слоем 85–95%", atom: semantic-layer-evidence, confidence: смешанная}
+  - {claim: "парные замеры: 16,7% → 54,2% на корпоративной схеме из 199 таблиц", atom: semantic-layer-evidence, confidence: проверяемо}
+  - {claim: "модель почти не влияет — reasoning effort не меняет точность, когда слой есть", atom: semantic-layer-evidence, confidence: проверяемо}
+  - {claim: "accuracy доменного бота без базы знаний ~25%, с наполненной ~80%", atom: domain-knowledge-base, confidence: "проверяемо, внутренний замер"}
+  - {claim: "context rot: заметная потеря точности уже на 50К токенов при окне 200К", atom: context-layer-market, confidence: проверяемо}
+  - {claim: "описания от модели врут втрое чаще человека: 19,6% против 6,3%", atom: ai-in-data-processes, confidence: проверяемо}
+  - {claim: "разработчики на 19% медленнее, будучи уверены, что на 20% быстрее", atom: ai-in-data-processes, confidence: проверяемо}
+  - {claim: "20–40% доменов обеспечивают 60–85% use cases", atom: info-supply-demand, confidence: проверяемо}
+  - {claim: "в 4 из 12 компаний выборки DG-команды нет вообще", atom: participants-2026-benchmark, confidence: "самоотчёт, n=12"}
+  - {claim: "ни у одной компании выборки нет зрелого семантического слоя целиком", atom: participants-2026-benchmark, confidence: "самоотчёт, n=12"}
+
+# Кейсы из практики: числовые пороги обезличены (порядок эффекта вместо точной цифры).
+# Правило: конструкцию и механику переносим, пороги ставим от своего бейзлайна.
+anonymized_cases:
+  - ai-ready-domain-score
+  - ai-cases-in-prod
+  - core-layer-project
+  - infra-billing
+  - domain-knowledge-base
+  - context-governance
+  - ai-accelerator
+  - bi-competency-matrix
+  - bi-hiring-ai-era
+  - unified-bi-platform
+
+# ---------------------------------------------------------------------------
+# ГРАФ ТЕМ. Узлы — атомы базы, кластер и связность посчитаны по факту.
+# Визуальная версия: 30-graph.md (Mermaid, рендерится на GitHub).
+#
+# relations — курируемое смысловое ядро: типизированные связи, которые несут
+# порядок работы и предусловия. Полный ненаправленный набор связей живёт
+# в самих атомах как [[wiki-ссылки]] — 283 рёбер на 66 узлов, изолированных нет.
+# ---------------------------------------------------------------------------
+
+graph_meta:
+  nodes: 66
+  wiki_edges: 283
+  curated_relations: 44
+  mutual_pairs: 0
+  isolated: 0
+  relation_types: [prerequisite, enables, governs, feeds, measures, motivates, implements, operates, sequences, calibrates, explains, constrains, addresses, aligns, staffs, funds, precedes, closes, contains, demonstrates, maps-onto, completes]
+
+clusters:
+  value:
+    title: "Ценность и зрелость"
+    atoms: [bi-adoption-barriers, bi-project-metrics, bi-strategy-purpose, bi-value-illusion, data-utility-gap, maturity-models, painpoints-analysis, vision-statement]
+  demand:
+    title: "Спрос и домены"
+    atoms: [bi-adoption-stats, data-domains-classification, info-supply-demand, innovation-map, user-classification]
+  delivery:
+    title: "Модели поставки"
+    atoms: [bi-tool-selection, bi-toolset-landscape, centralized-bi-brand, centralized-practices, insight-management, nextgen-report-formats, selfservice-practices, ssbi-failure-causes, ssbi-vs-guided, ssbi-workflow, unified-bi-platform]
+  content:
+    title: "Контент и доверие"
+    atoms: [content-catalog-ux, content-certification, content-hygiene-loop, content-mgmt-processes, content-promotion-monitoring, visual-style-guide]
+  data:
+    title: "Данные и фундамент"
+    atoms: [access-automation, access-matrix, core-layer-project, critical-data-status, data-catalog-pitfalls, data-mgmt-processes, data-team-pain-points, dg-launch-path, glossary-vs-dictionary, infra-billing]
+  ai:
+    title: "AI-фундамент"
+    atoms: [ai-accelerator, ai-adoption-waves, ai-cases-in-prod, ai-in-bi-approaches, ai-in-data-processes, ai-ready-domain-score, ai-time-saving-trap, ai-triad-prerequisites, context-governance, context-layer-market, domain-knowledge-base, llm-assistant-architecture, plausible-but-wrong, semantic-layer-evidence]
+  people:
+    title: "Люди и команда"
+    atoms: [bi-community-management, bi-competency-matrix, bi-hiring-ai-era, bi-org-structure, bi-routine-calendar, onboarding-plan]
+  program:
+    title: "Программа и управление"
+    atoms: [action-plan, guide-structure, regular-meetings, rules-and-standards]
+  field:
+    title: "Полевые данные"
+    atoms: [pain-fronts-2026, participants-2026-benchmark]
+
+nodes:
+  - {id: access-automation, cluster: data, type: method, degree: 4, blocks: [4.1,6]}
+  - {id: access-matrix, cluster: data, type: method, degree: 9, blocks: [4.1,6]}
+  - {id: action-plan, cluster: program, type: method, degree: 16, blocks: [7]}
+  - {id: ai-accelerator, cluster: ai, type: case, degree: 5, blocks: [6,7]}
+  - {id: ai-adoption-waves, cluster: ai, type: pattern, degree: 5, blocks: [5,7]}
+  - {id: ai-cases-in-prod, cluster: ai, type: case, degree: 5, blocks: [4.3,5,6]}
+  - {id: ai-in-bi-approaches, cluster: ai, type: pattern, degree: 14, blocks: [5]}
+  - {id: ai-in-data-processes, cluster: ai, type: evidence, degree: 7, blocks: [2,4.1,5]}
+  - {id: ai-ready-domain-score, cluster: ai, type: metric, degree: 13, blocks: [2,5,6]}
+  - {id: ai-time-saving-trap, cluster: ai, type: pattern, degree: 8, blocks: [6,7]}
+  - {id: ai-triad-prerequisites, cluster: ai, type: method, degree: 11, blocks: [5]}
+  - {id: bi-adoption-barriers, cluster: value, type: pattern, degree: 8, blocks: [2,4.2]}
+  - {id: bi-adoption-stats, cluster: demand, type: method, degree: 7, blocks: [1,2,5]}
+  - {id: bi-community-management, cluster: people, type: method, degree: 6, blocks: [4.3,6]}
+  - {id: bi-competency-matrix, cluster: people, type: method, degree: 6, blocks: [6]}
+  - {id: bi-hiring-ai-era, cluster: people, type: method, degree: 5, blocks: [6,7]}
+  - {id: bi-org-structure, cluster: people, type: method, degree: 8, blocks: [3,6]}
+  - {id: bi-project-metrics, cluster: value, type: method, degree: 18, blocks: [6,7]}
+  - {id: bi-routine-calendar, cluster: people, type: method, degree: 5, blocks: [6]}
+  - {id: bi-strategy-purpose, cluster: value, type: pattern, degree: 5, blocks: [1,7]}
+  - {id: bi-tool-selection, cluster: delivery, type: method, degree: 5, blocks: [5]}
+  - {id: bi-toolset-landscape, cluster: delivery, type: method, degree: 7, blocks: [5]}
+  - {id: bi-value-illusion, cluster: value, type: pattern, degree: 9, blocks: [1,2]}
+  - {id: centralized-bi-brand, cluster: delivery, type: pattern, degree: 5, blocks: [4.3,6]}
+  - {id: centralized-practices, cluster: delivery, type: method, degree: 14, blocks: [4.2,4.3,6]}
+  - {id: content-catalog-ux, cluster: content, type: pattern, degree: 8, blocks: [4.2,4.3]}
+  - {id: content-certification, cluster: content, type: pattern, degree: 7, blocks: [4.2]}
+  - {id: content-hygiene-loop, cluster: content, type: pattern, degree: 8, blocks: [4.2,6]}
+  - {id: content-mgmt-processes, cluster: content, type: method, degree: 16, blocks: [4.2]}
+  - {id: content-promotion-monitoring, cluster: content, type: method, degree: 5, blocks: [4.2,6]}
+  - {id: context-governance, cluster: ai, type: method, degree: 9, blocks: [5,6]}
+  - {id: context-layer-market, cluster: ai, type: evidence, degree: 6, blocks: [5]}
+  - {id: core-layer-project, cluster: data, type: case, degree: 11, blocks: [4.1,5]}
+  - {id: critical-data-status, cluster: data, type: method, degree: 8, blocks: [4.1,5]}
+  - {id: data-catalog-pitfalls, cluster: data, type: pattern, degree: 9, blocks: [4.1,5]}
+  - {id: data-domains-classification, cluster: demand, type: method, degree: 10, blocks: [1,4.1]}
+  - {id: data-mgmt-processes, cluster: data, type: method, degree: 16, blocks: [4.1]}
+  - {id: data-team-pain-points, cluster: data, type: pattern, degree: 7, blocks: [1,4.1]}
+  - {id: data-utility-gap, cluster: value, type: pattern, degree: 8, blocks: [2,4.1,5]}
+  - {id: dg-launch-path, cluster: data, type: method, degree: 5, blocks: [4.1,7]}
+  - {id: domain-knowledge-base, cluster: ai, type: method, degree: 10, blocks: [4.3,5,6]}
+  - {id: glossary-vs-dictionary, cluster: data, type: method, degree: 5, blocks: [4.1,5]}
+  - {id: guide-structure, cluster: program, type: method, degree: 25, blocks: [1,2,3,4.1,4.2,4.3,5,6,7]}
+  - {id: info-supply-demand, cluster: demand, type: method, degree: 14, blocks: [1,2]}
+  - {id: infra-billing, cluster: data, type: case, degree: 5, blocks: [5,6,7]}
+  - {id: innovation-map, cluster: demand, type: catalog, degree: 9, blocks: [1,2,3,4.1,4.2,4.3,5,6,7]}
+  - {id: insight-management, cluster: delivery, type: pattern, degree: 7, blocks: [4.3,5]}
+  - {id: llm-assistant-architecture, cluster: ai, type: method, degree: 11, blocks: [5]}
+  - {id: maturity-models, cluster: value, type: method, degree: 6, blocks: [2]}
+  - {id: nextgen-report-formats, cluster: delivery, type: pattern, degree: 5, blocks: [3,4.2,5]}
+  - {id: onboarding-plan, cluster: people, type: method, degree: 8, blocks: [6]}
+  - {id: pain-fronts-2026, cluster: field, type: benchmark, degree: 7, blocks: [1,2]}
+  - {id: painpoints-analysis, cluster: value, type: method, degree: 10, blocks: [1]}
+  - {id: participants-2026-benchmark, cluster: field, type: benchmark, degree: 7, blocks: [1,2,3,5,6]}
+  - {id: plausible-but-wrong, cluster: ai, type: pattern, degree: 8, blocks: [2,5]}
+  - {id: regular-meetings, cluster: program, type: method, degree: 7, blocks: [6]}
+  - {id: rules-and-standards, cluster: program, type: method, degree: 10, blocks: [6]}
+  - {id: selfservice-practices, cluster: delivery, type: method, degree: 12, blocks: [4.3,6]}
+  - {id: semantic-layer-evidence, cluster: ai, type: evidence, degree: 8, blocks: [5]}
+  - {id: ssbi-failure-causes, cluster: delivery, type: pattern, degree: 7, blocks: [3,4.3]}
+  - {id: ssbi-vs-guided, cluster: delivery, type: pattern, degree: 9, blocks: [3,4.3]}
+  - {id: ssbi-workflow, cluster: delivery, type: method, degree: 8, blocks: [3,4.3,6]}
+  - {id: unified-bi-platform, cluster: delivery, type: case, degree: 7, blocks: [3,4.2,5]}
+  - {id: user-classification, cluster: demand, type: method, degree: 12, blocks: [1,3]}
+  - {id: vision-statement, cluster: value, type: method, degree: 7, blocks: [1,7]}
+  - {id: visual-style-guide, cluster: content, type: method, degree: 4, blocks: [4.2,6]}
+
+relations:
+  - {from: critical-data-status, to: core-layer-project, type: prerequisite, why: "сертифицированное ядро строится на реестре мастер-источников"}
+  - {from: core-layer-project, to: semantic-layer-evidence, type: prerequisite, why: "нет семантического слоя без core под ним"}
+  - {from: semantic-layer-evidence, to: domain-knowledge-base, type: prerequisite, why: "доменный контекст ложится поверх семантики"}
+  - {from: ai-triad-prerequisites, to: llm-assistant-architecture, type: enables, why: "триада — предусловие рабочего ассистента"}
+  - {from: context-governance, to: domain-knowledge-base, type: governs, why: "статусы, TTL и trust-плоскость управляют наполнением"}
+  - {from: llm-assistant-architecture, to: semantic-layer-evidence, type: feeds, why: "контур покрытия возвращает очередь моделирования"}
+  - {from: plausible-but-wrong, to: ai-triad-prerequisites, type: motivates, why: "главный риск, из которого выводится триада"}
+  - {from: plausible-but-wrong, to: llm-assistant-architecture, type: motivates, why: "из него же выводятся метка доверия и провенанс"}
+  - {from: ai-ready-domain-score, to: core-layer-project, type: measures, why: "каждая core-витрина поднимает скор домена"}
+  - {from: ai-ready-domain-score, to: domain-knowledge-base, type: measures, why: "полнота ДБЗ — первая часть скора"}
+  - {from: ai-time-saving-trap, to: bi-project-metrics, type: constrains, why: "запрет мерить эффект сэкономленными часами"}
+  - {from: ai-in-data-processes, to: data-team-pain-points, type: maps-onto, why: "боли команд ложатся на карту «где AI работает»"}
+  - {from: context-layer-market, to: context-governance, type: implements, why: "рыночная рамка операционализируется гейтами"}
+  - {from: data-domains-classification, to: critical-data-status, type: prerequisite, why: "статус критичности считается по доменам"}
+  - {from: data-domains-classification, to: access-matrix, type: prerequisite, why: "матрица прав строится от домена"}
+  - {from: info-supply-demand, to: access-matrix, type: feeds, why: "demand-матрица — основа матрицы прав"}
+  - {from: info-supply-demand, to: action-plan, type: feeds, why: "приоритизированный спрос даёт инициативы"}
+  - {from: painpoints-analysis, to: action-plan, type: feeds, why: "каждая группа болей даёт кандидат-инициативу"}
+  - {from: user-classification, to: ssbi-workflow, type: prerequisite, why: "маппинг ролей на инструменты"}
+  - {from: ssbi-vs-guided, to: ssbi-failure-causes, type: explains, why: "смешение двух смыслов — источник провалов"}
+  - {from: ssbi-workflow, to: content-certification, type: feeds, why: "propose→prototype→promote ведёт в сертификацию"}
+  - {from: content-certification, to: ai-ready-domain-score, type: feeds, why: "доля потребления на сертифицированном входит в скор"}
+  - {from: content-hygiene-loop, to: bi-value-illusion, type: addresses, why: "три механизма против 88% смертности"}
+  - {from: content-catalog-ux, to: content-certification, type: completes, why: "находимость превращает health-score в выбор"}
+  - {from: bi-value-illusion, to: bi-project-metrics, type: motivates, why: "без метрик деградации 2% не отличить от 88%"}
+  - {from: data-utility-gap, to: ai-triad-prerequisites, type: motivates, why: "шесть условий utility нужны агенту сразу"}
+  - {from: maturity-models, to: ai-ready-domain-score, type: precedes, why: "классическая зрелость и AI-готовность как оверлей"}
+  - {from: dg-launch-path, to: data-mgmt-processes, type: sequences, why: "common-sense DG до формальной программы"}
+  - {from: infra-billing, to: core-layer-project, type: funds, why: "биллинг делает экономию core-слоя наблюдаемой"}
+  - {from: data-catalog-pitfalls, to: domain-knowledge-base, type: feeds, why: "каталог как интерфейс контекста для агента"}
+  - {from: access-matrix, to: access-automation, type: implements, why: "матрица — мандат на автоматическую раздачу"}
+  - {from: regular-meetings, to: action-plan, type: operates, why: "governance-статус держит исполнение плана"}
+  - {from: bi-org-structure, to: bi-competency-matrix, type: staffs, why: "роли определяют, кого и как растить"}
+  - {from: bi-competency-matrix, to: bi-hiring-ai-era, type: aligns, why: "найм привязан к матрице один в один"}
+  - {from: bi-community-management, to: selfservice-practices, type: operates, why: "практики сообщества — инструментарий SS"}
+  - {from: bi-routine-calendar, to: content-hygiene-loop, type: operates, why: "ежедневные и квартальные проверки"}
+  - {from: guide-structure, to: action-plan, type: sequences, why: "спайн метода заканчивается планом"}
+  - {from: action-plan, to: vision-statement, type: closes, why: "план и видение переписываются в конце"}
+  - {from: pain-fronts-2026, to: painpoints-analysis, type: calibrates, why: "полевое распределение болей"}
+  - {from: participants-2026-benchmark, to: maturity-models, type: calibrates, why: "реальные значения зрелости в выборке"}
+  - {from: innovation-map, to: action-plan, type: feeds, why: "чеклист полноты даёт кандидат-инициативы"}
+  - {from: ai-adoption-waves, to: ai-accelerator, type: sequences, why: "волны внедрения и формат разгона"}
+  - {from: ai-cases-in-prod, to: ai-time-saving-trap, type: demonstrates, why: "замер baseline→after вместо самооценки"}
+  - {from: unified-bi-platform, to: nextgen-report-formats, type: contains, why: "один артефакт «Отчёт» вместо трёх форматов"}
+
