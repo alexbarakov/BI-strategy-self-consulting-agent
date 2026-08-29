@@ -80,6 +80,7 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 | `references/kb/20-catalog/` | BI Project Innovation Map — the catalog of every direction a BI project can contain, used as a completeness checklist |
 | `references/kb/31-field/` | Field data: benchmark of 12 BI projects (2026) and the map of pain fronts. Calibration for "how do others look", **not industry statistics** |
 | `references/faq-participants.md` | 101 participant questions with answers, tagged by provenance: ◆ real (pre-course survey n=12 and session interactive n=10) · ◇ raised by the author for group discussion · ○ derived from the KB |
+| `references/70-golden-set/e2e-01-severnaya/` | **A worked example**: a full six-section strategy for an invented pharmacy chain — eight wiki pages plus a single-file `strategy.html`. Built by `build-html.py`, no dependencies. Use it to show what the deliverable looks like |
 | `references/70-golden-set/` | **Three-tier golden set**: retrieval (101, deterministic), answer quality (32, with `must_contain` / `must_not` and a judge), honest refusal (10). `build.py` regenerates tier 1 from the FAQ, `score.py` aggregates a run |
 | `references/diagnostic.md` | Diagnosis model — Health Check + AI-readiness overlay |
 | `references/question-bank.md` | 72 Health Check factors across 9 categories, 0–4 scale, with current and 1-year target |
