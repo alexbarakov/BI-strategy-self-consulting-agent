@@ -13,6 +13,8 @@ Working principle: **AI drafts — humans validate.** The skill does not invent;
 | Knowledge base — one topic per file, `[[wiki-links]]`, machine-readable graph | **66 atoms** |
 | Participant question base with answers, provenance-tagged | **101 Q&A** |
 | Golden set — retrieval / answer quality / honest refusal | **143 positions** |
+| Failure catalog — named failure modes with symptom triage | **75 in 7 families** |
+| Numbers registry, every figure tagged by reliability | **87 rows** |
 | Health Check diagnostic factors, 0–4 scale | **72 factors** |
 | Strategy structure | **7 blocks** |
 | Working templates (xlsx), ready to hand to the participant | **2** |
@@ -51,7 +53,7 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 
 ## How the agent uses it (instructions for the agent)
 
-0. **Something is going wrong / diagnosing a project** — start from the field material: `references/kb/30-field/pain-fronts-2026.md` (how pains actually distribute) and `references/kb/40-course/bi-value-illusion.md` (what happens to reports that nobody owns). Probe with `references/question-bank.md`.
+0. **Something is going wrong / diagnosing a project** — start at `references/kb/50-failure-catalog.md` (symptom triage across 75 named failure modes), pull arguments from `references/kb/51-numbers.md` (**never quote a `vendor` or `disputed` figure as fact**), probe with `references/question-bank.md`.
 1. **Answering a BI/AI question** — open `references/kb/kb-graph.yaml`, find the strategy block, read the atoms it lists. `key_evidence` holds the numbers worth arguing with, each carrying its evidence level. Atoms cross-link with `[[wiki-links]]`; follow them rather than re-deriving.
 2. **Someone already asked this** — check `references/faq-participants.md` (101 questions with answers, each citing the atoms behind it) before composing a new answer.
 3. **Building or auditing a strategy** — run the full procedure in [`SKILL.md`](skills/barakov-bi-ai-strategy/SKILL.md); structure from `references/strategy-template.md`, output shape from `references/wiki-structure.md`.
@@ -65,6 +67,8 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 |---|---|
 | `skills/barakov-bi-ai-strategy/SKILL.md` | Entry point: scenarios, step order, rules |
 | `references/kb/kb-graph.yaml` | **Machine-readable graph** — strategy block → atoms, `key_evidence`, `anonymized_cases`. Start navigation here |
+| `references/kb/50-failure-catalog.md` | **Failure catalog** — 75 named ways a BI or AI initiative dies, in 7 families, with a symptom-triage table. The entry point when something feels wrong |
+| `references/kb/51-numbers.md` | **Numbers registry** — every figure in the KB with a reliability tag; the tag travels with the number |
 | `references/kb/10-method/` | 19 atoms — the canonical method, one worksheet of the Guide per atom: pains, domains, user classification, info supply-demand, data & content processes, self-service and centralized practices, access matrix, metrics, action plan, vision |
 | `references/kb/20-catalog/` | BI Project Innovation Map — the catalog of every direction a BI project can contain, used as a completeness checklist |
 | `references/kb/30-field/` | Field data: benchmark of 12 BI projects (2026) and the map of pain fronts. Calibration for "how do others look", **not industry statistics** |
@@ -100,13 +104,17 @@ Shared with the companion repository — the same rules hold on both sides.
 
 Numbers are sorted by **who measured them**, not by how loud the claim is:
 
-| Level | Meaning |
-|---|---|
-| **verifiable** | a study or a reproducible benchmark |
-| **vendor-measured** | the vendor's own benchmark, or a survey commissioned by the seller |
-| **no data** | stated as absent rather than filled with a plausible figure |
+Every quantity lives in `references/kb/51-numbers.md` with a tag saying how much to trust it — the same five-tag scale the companion uses, so numbers move between the repositories with their tag attached:
 
-A vendor figure is never presented as fact — who measured it is named alongside. These three levels map onto the companion's five-tag registry (`measured` / `benchmark` / `vendor` / `author-estimate` / `disputed`); when both repositories are in play, the finer scale wins.
+| Tag | Meaning | Quotable as fact |
+|---|---|---|
+| `measured` | measured in a named setting, method stated | yes, naming the setting |
+| `benchmark` | a reproducible external benchmark or study | yes |
+| `vendor` | the vendor's own measurement, or a seller-commissioned survey | **no** — only with who measured it named |
+| `author-estimate` | the author's expert judgement, marked as such | as an estimate, not a fact |
+| `disputed` | widely circulated, sourcing does not hold up | **no** |
+
+**The tag travels with the number.** If a `vendor` figure reaches a deliverable, the sentence naming who measured it goes with it. Atom-level `confidence:` frontmatter is a separate thing — it marks fidelity to the source of that file, not the reliability of a single figure.
 
 One rule stands separately: **the effect of AI is never measured by the team's self-assessment.** In a controlled experiment developers were 19% slower while being convinced they were 20% faster — so only measurement against a golden set of questions makes it into a strategy's metrics.
 
