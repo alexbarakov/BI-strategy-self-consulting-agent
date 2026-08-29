@@ -32,11 +32,11 @@ Working principle: **AI drafts — humans validate.** The skill does not invent;
 |---|---|---|
 | **CONSULT** | you have a concrete case or question | a grounded analysis with options and trade-offs, converging on a decision |
 | **FORM** | you need a strategy | interview → diagnosis → 7 blocks → 6-pager, as a linked wiki |
-| **AUDIT** | a strategy or program already exists | scorecard, chain-break map, resequenced priorities, quick wins |
+| **AUDIT** | a strategy or program already exists | scorecard across the six required sections, disqualifiers, chain-break map, resequenced priorities, quick wins |
 
 FORM asks for the mode up front — **Light** (~15 min: 8 context questions, self-assessment across 9 categories, scorecard and stack-rank) or **Full** (~45–60 min: factor-by-factor diagnosis, per-domain detail, every block expanded).
 
-No artifact is finalized without two passes: the **judge stage** — an adversarial review in the voice of a sceptical head of analytics who has killed two BI projects — and the **anti-optimism pass** when targets are set.
+No artifact is finalized without three passes: a **mechanical check against `strategy-requirements.md`** (disqualifiers, Definition of Done, two-way traceability, wording tests), then the **judge stage** — an adversarial review in the voice of a sceptical head of analytics who has killed two BI projects — and the **anti-optimism pass** when targets are set.
 
 ## Quickstart
 
@@ -82,6 +82,7 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 | `references/question-bank.md` | 72 Health Check factors across 9 categories, 0–4 scale, with current and 1-year target |
 | `references/strategy-template.md` | 7-block structure + block → materials mapping |
 | `references/wiki-structure.md` | Wiki page templates and the 6-pager in FAQ form |
+| `references/strategy-requirements.md` | **Acceptance spec for the deliverable**: six document sections (context → vision → streams → initiatives → goals as metrics → risks), a wording-precision requirement with six tests and a ban list, a 12-point Definition of Done and ten disqualifiers. Used as gate 0 in FORM and as the scorecard in AUDIT |
 | `references/review-gates.md` | Quality gates: the judge stage and the anti-optimism rules for setting targets |
 | `references/evidence-2026.md` | Verifiable 2026 material with sources: where AI actually works in data processes, data management trends, the context layer, next-gen report formats |
 | `references/course-knowledge.md` | Concept library — generic grounding for recommendations, no company data |

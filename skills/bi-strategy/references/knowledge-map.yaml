@@ -143,6 +143,7 @@ blocks:
 # Инструменты и источники companion-репозитория, полезные в любом блоке
 cross_cutting:
   eval: "references/70-golden-set/   # голден-сет 3 уровней; правило: набор фиксируется до правок и не переформулируется под поиск"
+  requirements: "references/strategy-requirements.md   # спека приёмки: 6 разделов документа, DoD, дисквалификаторы; гейт 0 в FORM и скоркард в AUDIT"
   faq: "references/faq-participants.md   # 101 вопрос участников с ответами, размеченными по провенансу"
   kb_entry: "references/kb/30-graph.yaml   # блок → атомы; key_evidence — числа для защиты приоритетов"
   kb_always_read: [guide-structure, innovation-map, plausible-but-wrong, ai-time-saving-trap, participants-2026-benchmark]
