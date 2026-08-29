@@ -142,6 +142,7 @@ blocks:
 
 # Инструменты и источники companion-репозитория, полезные в любом блоке
 cross_cutting:
+  faq: "references/faq-participants.md   # 101 вопрос участников с ответами, размеченными по провенансу"
   kb_entry: "references/kb/kb-graph.yaml   # блок → атомы; key_evidence — числа для защиты приоритетов"
   kb_always_read: [guide-structure, innovation-map, plausible-but-wrong, ai-time-saving-trap, participants-2026-benchmark]
   kb_internal_only: "атомы со списком internal_only в kb-graph.yaml содержат внутренние замеры — переносим конструкцию, не числа"
