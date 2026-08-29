@@ -1,10 +1,10 @@
-# BI+AI Strategy Builder — agent entry point
+# BI Strategy — self-consulting agent
 
 A ready-to-run skill that builds a **BI+AI strategy** for a specific company: interview → maturity diagnosis → a linked mini-wiki covering every block. Grounded on the canonical method (BI Project Health Check + D&A Strategy & Tactics Planner, data nature / Alex Barakov) plus the AI layer of the «BI+AI Strategy 2026» course.
 
 Working principle: **AI drafts — humans validate.** The skill does not invent; it instantiates known frameworks against the participant's own data, and every block is validated by the user before the next one starts.
 
-**Companion:** [DG Board KB](https://github.com/alexbarakov/dg-board-kb) — the governance half of the same method. The two repositories are designed as a pair and share the same invariants.
+**Companion:** [DG Board KB](https://github.com/alexbarakov/DG-strategy-self-consulting-agent) — the governance half of the same method. The two repositories are designed as a pair and share the same invariants.
 
 ## At a glance
 
@@ -14,7 +14,7 @@ Working principle: **AI drafts — humans validate.** The skill does not invent;
 | Participant question base with answers, provenance-tagged | **101 Q&A** |
 | Golden set — retrieval / answer quality / honest refusal | **143 positions** |
 | Failure catalog — named failure modes with symptom triage | **75 in 7 families** |
-| Numbers registry, every figure tagged by reliability | **87 rows** |
+| Numbers registry, every figure tagged by reliability | **93 rows** |
 | Health Check diagnostic factors, 0–4 scale | **72 factors** |
 | Strategy structure | **7 blocks** |
 | Working templates (xlsx), ready to hand to the participant | **2** |
@@ -54,7 +54,7 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 ## How the agent uses it (instructions for the agent)
 
 0. **Something is going wrong / diagnosing a project** — start at `references/kb/50-failure-catalog.md` (symptom triage across 75 named failure modes), pull arguments from `references/kb/51-numbers.md` (**never quote a `vendor` or `disputed` figure as fact**), probe with `references/question-bank.md`.
-1. **Answering a BI/AI question** — open `references/kb/kb-graph.yaml`, find the strategy block, read the atoms it lists. `key_evidence` holds the numbers worth arguing with, each carrying its evidence level. Atoms cross-link with `[[wiki-links]]`; follow them rather than re-deriving.
+1. **Answering a BI/AI question** — open `references/kb/30-graph.yaml`, find the strategy block, read the atoms it lists. `key_evidence` holds the numbers worth arguing with, each carrying its evidence level. Atoms cross-link with `[[wiki-links]]`; follow them rather than re-deriving.
 2. **Someone already asked this** — check `references/faq-participants.md` (101 questions with answers, each citing the atoms behind it) before composing a new answer.
 3. **Building or auditing a strategy** — run the full procedure in [`SKILL.md`](skills/barakov-bi-ai-strategy/SKILL.md); structure from `references/strategy-template.md`, output shape from `references/wiki-structure.md`.
 4. **Grounding governance blocks** — pull from the companion per `references/companion-kb.md`; the machine-readable mapping is the `companion:` field in `references/knowledge-map.yaml`.
@@ -66,15 +66,16 @@ For any other agent: paste `SKILL.md` as instructions and give the repository as
 | Path | Content |
 |---|---|
 | `skills/barakov-bi-ai-strategy/SKILL.md` | Entry point: scenarios, step order, rules |
-| `references/kb/kb-graph.yaml` | **Machine-readable graph** — strategy block → atoms, `key_evidence`, `anonymized_cases`. Start navigation here |
+| `references/kb/30-graph.yaml` | **Machine-readable graph** — strategy block → atoms, `key_evidence`, `anonymized_cases`. Start navigation here. Folder numbering is shared with the companion: the same number means the same role in both repositories |
 | `references/kb/50-failure-catalog.md` | **Failure catalog** — 75 named ways a BI or AI initiative dies, in 7 families, with a symptom-triage table. The entry point when something feels wrong |
-| `references/kb/51-numbers.md` | **Numbers registry** — every figure in the KB with a reliability tag; the tag travels with the number |
-| `references/kb/10-method/` | 19 atoms — the canonical method, one worksheet of the Guide per atom: pains, domains, user classification, info supply-demand, data & content processes, self-service and centralized practices, access matrix, metrics, action plan, vision |
+| `references/kb/51-numbers.md` | **Numbers registry** — every figure with a reliability tag and, where checked, the verification date. The tag travels with the number |
+| `references/kb/60-roadmap.md` | What the KB is still missing and in what order to fix it — written from findings, not aspiration |
+| `references/kb/10-ai-era/` | 44 atoms — concepts, cases and practices from nine course sessions: the AI foundation triad, the LLM assistant reference architecture, the context layer, the semantic layer with paired accuracy measurements, content certification, community, competencies, hiring in the AI era |
+| `references/kb/11-method/` | 19 atoms — the canonical method, one worksheet of the Guide per atom: pains, domains, user classification, info supply-demand, data & content processes, self-service and centralized practices, access matrix, metrics, action plan, vision |
 | `references/kb/20-catalog/` | BI Project Innovation Map — the catalog of every direction a BI project can contain, used as a completeness checklist |
-| `references/kb/30-field/` | Field data: benchmark of 12 BI projects (2026) and the map of pain fronts. Calibration for "how do others look", **not industry statistics** |
-| `references/kb/40-course/` | 44 atoms — concepts, cases and practices from nine course sessions: AI foundation triad, LLM assistant reference architecture, context layer, semantic layer with paired accuracy measurements, content certification, community, competencies, hiring in the AI era |
+| `references/kb/31-field/` | Field data: benchmark of 12 BI projects (2026) and the map of pain fronts. Calibration for "how do others look", **not industry statistics** |
 | `references/faq-participants.md` | 101 participant questions with answers, tagged by provenance: ◆ real (pre-course survey n=12 and session interactive n=10) · ◇ raised by the author for group discussion · ○ derived from the KB |
-| `references/eval/` | **Three-tier golden set**: retrieval (101, deterministic), answer quality (32, with `must_contain` / `must_not` and a judge), honest refusal (10). `build.py` regenerates tier 1 from the FAQ, `score.py` aggregates a run |
+| `references/70-golden-set/` | **Three-tier golden set**: retrieval (101, deterministic), answer quality (32, with `must_contain` / `must_not` and a judge), honest refusal (10). `build.py` regenerates tier 1 from the FAQ, `score.py` aggregates a run |
 | `references/diagnostic.md` | Diagnosis model — Health Check + AI-readiness overlay |
 | `references/question-bank.md` | 72 Health Check factors across 9 categories, 0–4 scale, with current and 1-year target |
 | `references/strategy-template.md` | 7-block structure + block → materials mapping |
@@ -122,7 +123,7 @@ Case-study atoms carry anonymized thresholds: the mechanics transfer, the number
 
 ## Evaluation
 
-Quality is measured, not asserted. `references/eval/` holds a three-tier golden set:
+Quality is measured, not asserted. `references/70-golden-set/` holds a three-tier golden set:
 
 - **Tier 1 — retrieval (101).** Did the agent find the right atoms? Deterministic, no LLM, cheap enough to run on every change. Generated from the FAQ by `build.py` so the set cannot drift from its source.
 - **Tier 2 — answer quality (32).** Did it say the right things and **avoid the wrong ones**? Judged by rubric, with a hard rule: a match against `must_not` overrides the judge's verdict, however many `must_contain` points the answer covered.
@@ -143,7 +144,7 @@ Targets are deliberately absent. Run once, record the baseline, then watch it no
 
 ## Companion repository
 
-[**DG Board KB**](https://github.com/alexbarakov/dg-board-kb) is the textual projection of the public Miro board «Data Governance Program Guide»: AI-era and classic Data Governance themes, a workshop template catalog, a failure catalog, a numbers registry and a diagnostic question bank.
+[**DG Board KB**](https://github.com/alexbarakov/DG-strategy-self-consulting-agent) is the textual projection of the public Miro board «Data Governance Program Guide»: AI-era and classic Data Governance themes, a workshop template catalog, a failure catalog, a numbers registry and a diagnostic question bank.
 
 | What you are building | Who leads | Role of the other |
 |---|---|---|

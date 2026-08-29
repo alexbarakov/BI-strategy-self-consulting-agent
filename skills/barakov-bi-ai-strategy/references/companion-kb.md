@@ -1,6 +1,6 @@
 # Companion: DG Board KB — governance-подложка для BI+AI стратегии
 
-**Репозиторий:** https://github.com/alexbarakov/dg-board-kb
+**Репозиторий:** https://github.com/alexbarakov/DG-strategy-self-consulting-agent
 **Точка входа:** его `README.md` · машиночитаемый граф тем: `30_graph/objects.yaml`
 **Что это:** текстовая проекция публичного Miro-борда «Data Governance Program Guide» — темы AI-эры и классического Data Governance, по одному файлу на тему, плюс каталог воркшоп-шаблонов и библиотека источников.
 

@@ -1,6 +1,7 @@
 # Машиночитаемый граф базы знаний.
 # Агент по номеру блока стратегии находит релевантные атомы.
-# Аналог 30_graph/objects.yaml у companion-репозитория dg-board-kb.
+# Аналог 30_graph/objects.yaml у companion-репозитория DG-strategy-self-consulting-agent:
+# нумерация папок общая, один номер = одна роль в обоих репозиториях.
 
 meta:
   skill: barakov-bi-ai-strategy
@@ -16,7 +17,7 @@ sources:
     kind: spreadsheet
     author: DataNature
     url: "https://docs.google.com/spreadsheets/d/1thAW0TipIHBjxrnNWyVO0ztzkluFm-g8hgE6UqJloTo"
-    covers: 10-method/*
+    covers: 11-method/*
   - id: miro-board
     title: "BI Strategy Guide 2.0 + BI Project Innovation Map"
     kind: miro
@@ -26,11 +27,11 @@ sources:
   - id: course-2026
     title: "Курс «Разработка BI+AI стратегии 2026», 9 занятий"
     kind: slides
-    covers: 40-course/*
+    covers: 10-ai-era/*
   - id: precourse-survey
     title: "Пре-курс опрос участников, n=12, июль–август 2026"
     kind: survey
-    covers: 30-field/*
+    covers: 31-field/*
     note: "большинство респондентов разрешили раскрытие только в агрегированном виде"
 
 # Порядок работы по методу: разделы гайда слева направо
