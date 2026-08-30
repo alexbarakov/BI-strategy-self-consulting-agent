@@ -1,102 +1,102 @@
 ---
 id: participants-2026-benchmark
-title: Полевой бенчмарк — 12 российских BI-проектов, июль–август 2026
+title: A field benchmark - 12 Russian BI projects, July-August 2026
 type: benchmark
-source: "Пре-курс опрос «BI+AI стратегия 26», Google Forms, 12 ответов, 31.07–07.08.2026"
-confidence: проверяемо (самоотчёт участников)
-anonymity: "Большинство респондентов разрешили раскрытие только в агрегированном виде без названия компании. Названия компаний в этом файле не приводятся; при использовании в артефактах — только агрегаты."
+source: "Pre-course survey for \"BI+AI strategy 26\", Google Forms, 12 responses, 31.07-07.08.2026"
+confidence: verifiable (participant self-report)
+anonymity: "Most respondents allowed disclosure only in aggregate, without the company name. No company names appear in this file; when used in artifacts, aggregates only."
 blocks: [1, 2, 3, 5, 6]
 ---
 
-> **Граница применимости.** Выборка целиком из технологических компаний и крупного ритейла с собственными командами разработки. Для не-tech компании и для компании без своей инженерии эти числа **завышают ожидания**: медиана «DWH-команда ~12» звучит как норма, которой у такой компании нет и не будет. Сверяться с распределением можно, ставить по нему цели — нет. Проверено на сквозном прогоне `70-golden-set/e2e-01-severnaya.md`.
+> **The boundary of applicability.** The sample consists entirely of technology companies and large retail with their own development teams. For a non-tech company, and for a company with no engineering of its own, these numbers **inflate expectations**: a median of "a warehouse team of ~12" reads as a norm that such a company does not have and never will. Comparing against the distribution is fine; setting goals from it is not. Checked in the end-to-end run in `70-golden-set/e2e-01-severnaya.md`.
 
-Живой референс для калибровки диагностики: как выглядят реальные BI-проекты в РФ на середину 2026. Выборка мала (n=12) и смещена — это участники курса по стратегии, то есть люди, которые уже озаботились. Использовать как «а вот что у остальных», **не как отраслевую статистику**.
+A live reference for calibrating a diagnostic: what real BI projects in Russia look like as of mid-2026. The sample is small (n=12) and biased - these are participants in a strategy course, meaning people who have already started caring. Use it as "here is what everyone else has", **not as industry statistics**.
 
-## Профиль выборки
+## The sample profile
 
-- **Отрасли:** ИТ (4), розничная торговля (4), банки (3), энергетика (1)
-- **Размер компаний:** от 101–500 сотрудников до 25000+; половина — 10000+
-- **Уровень в BI:** 7 из 12 — «эксперт, могу обучать и делать под ключ», 5 — «хорошо разбираюсь, есть проектный опыт»
-- **Уровень в AI:** 1 строит агентные системы · 3 внедряли AI-сценарии в процессы команды · 2 регулярно используют с пользой · 4 пробовали готовые ассистенты · 2 «только слышу про это»
+- **Industries:** IT (4), retail (4), banking (3), energy (1)
+- **Company size:** from 101-500 employees to 25,000+; half are 10,000+
+- **Level in BI:** 7 of 12 say "expert, I can teach and deliver end to end", 5 say "I know it well, I have project experience"
+- **Level in AI:** 1 builds agentic systems · 3 have introduced AI scenarios into their team's processes · 2 use it regularly and usefully · 4 have tried off-the-shelf assistants · 2 say "I only hear about it"
 
-## Размеры команд — медианы и разброс
+## Team sizes - medians and spread
 
-| Роль | Разброс | Комментарий |
+| Role | Spread | Comment |
 |---|---|---|
-| DWH / платформа данных | 3 – 100 | медиана ~12 |
-| Создатели BI-решений (BI/data аналитики) | 3 – 400 | медиана ~10; в двух случаях аналитиков **в разы больше**, чем DWH |
-| Бизнес-пользователи BI | 27 – 40 000 | медиана ~2500 |
-| ML / DS инженеры | 0 – 300 | медиана ~8 |
-| **Data Governance** | **0 – 11, медиана 2** | в 4 из 12 компаний DG-команды **нет вообще** |
-| Платформа GenAI / агентская инфраструктура | 0 – 97 | в 7 из 12 — ноль |
+| Warehouse / data platform | 3 - 100 | median ~12 |
+| Builders of BI solutions (BI/data analysts) | 3 - 400 | median ~10; in two cases the analysts **outnumber the warehouse team several times over** |
+| Business users of BI | 27 - 40,000 | median ~2,500 |
+| ML / DS engineers | 0 - 300 | median ~8 |
+| **Data governance** | **0 - 11, median 2** | in 4 of 12 companies there is **no governance team at all** |
+| GenAI platform / agent infrastructure | 0 - 97 | in 7 of 12 it is zero |
 
-**Самое показательное соотношение:** DG-команда почти всегда на порядок меньше BI-команды, а часто равна нулю. Это фактическое подтверждение паттерна «заявлено, но не обеспечено» из `review-gates.md` §3.
+**The most telling ratio:** the governance team is almost always an order of magnitude smaller than the BI team, and is frequently zero. That is empirical confirmation of the "declared but not resourced" pattern from `review-gates.md` §3.
 
-## Семантический слой — состояние
+## The semantic layer - the state of it
 
-| Статус | Компаний |
+| Status | Companies |
 |---|---|
-| нет / не в планах | 6 |
-| в процессе, в разработке, «пытаемся создать» | 4 |
-| есть частично (только метрики в AB-системе) | 1 |
-| «да, активно развиваем» | 1 |
+| none / not planned | 6 |
+| in progress, under development, "we are trying to build one" | 4 |
+| partially there (metrics in the A/B system only) | 1 |
+| "yes, actively developing it" | 1 |
 
-**Ни у одной компании нет зрелого семантического слоя целиком.** Именно поэтому kill-gate `no-assistant-without-foundation` — не теоретическая осторожность.
+**Not one company has a mature semantic layer in full.** Which is precisely why the `no-assistant-without-foundation` kill-gate is not theoretical caution.
 
-## AI-ассистент по данным
+## An AI assistant over data
 
-| Статус | Компаний |
+| Status | Companies |
 |---|---|
-| нет / нет в планах | 5 |
-| исследование, прототипы, «может быть» | 4 |
-| пилоты или несколько решений | 2 |
-| работающие в проде решения | 1 |
+| none / none planned | 5 |
+| research, prototypes, "maybe" | 4 |
+| pilots or several solutions | 2 |
+| solutions running in production | 1 |
 
-## Что пробовали с AI и что дожило до прода
+## What was tried with AI and what survived to production
 
-**Дожило:**
-- MCP для анализа и построения дашбордов — в проде, аудитория растёт
-- ad-hoc как сценарий чат-бота — в проде, работает ограниченно
-- автоматические презентации с LLM-суммаризацией
-- персонализированные HTML-отчёты на основе дашбордов
-- внутренние скиллы: сбор ТЗ, прототипирование, ускорение дашборда
-- чат-бот с вопросами по дашбордам
+**Survived:**
+- MCP for analysing and building dashboards - in production, with a growing audience
+- ad-hoc as a chatbot scenario - in production, works within limits
+- automatic presentations with LLM summarization
+- personalized HTML reports built from dashboards
+- internal skills: gathering requirements, prototyping, speeding a dashboard up
+- a chatbot answering questions about dashboards
 
-**Не дожило:**
-- Wren AI — «пробовали, не дожил» (в другой компании — в пилоте)
-- RAG по метрикам — «в проде, особо не работает»
-- прототипы text-to-SQL и text-to-dashboard в Superset — до прома не доведены
-- автоподведение итогов A/B — «под рукой не хватило артефактов для контекста: дерева метрик, приоритетов метрик, промптов для серых A/B»
+**Did not survive:**
+- Wren AI - "we tried it, it did not survive" (at another company it is in pilot)
+- RAG over metrics - "in production, does not really work"
+- text-to-SQL and text-to-dashboard prototypes in Superset - never taken to production
+- automatic A/B test summaries - "we did not have the artifacts to hand for the context: the metric tree, metric priorities, prompts for grey-zone A/B tests"
 
-**Читать так:** дожило то, что работает **поверх существующей структуры** (дашборды, документация, шаблоны ТЗ). Не дожило то, что требовало от модели самой восстановить семантику. Последняя цитата про A/B — прямое эмпирическое подтверждение тезиса о контекстном слое.
+**How to read this:** what survived works **on top of an existing structure** (dashboards, documentation, requirement templates). What did not survive required the model to reconstruct the semantics itself. That last quote about A/B tests is direct empirical confirmation of the context-layer thesis.
 
-## Adoption — % целевых бизнес-пользователей, заходящих в BI ≥1 раз в месяц
+## Adoption - the share of target business users opening BI at least monthly
 
-Ответы: 20% · 30% · 40% · 42% («научились автоматически считать адопшн, поэтому цифра точная») · 54% · 60% · 70–90% · ~80%. Плюс три ответа, где вместо процента названо абсолютное число пользователей — сам по себе диагностический признак: **метрика не считается**.
+The answers: 20% · 30% · 40% · 42% ("we learned to compute adoption automatically, so the number is exact") · 54% · 60% · 70-90% · ~80%. Plus three answers giving an absolute user count instead of a percentage - a diagnostic sign in itself: **the metric is not being computed**.
 
-Практический вывод для диагностики: если участник не может назвать процент — это находка блока 2, а не пробел в анкете.
+The practical conclusion for a diagnostic: if a participant cannot name a percentage, that is a finding for block 2, not a gap in the questionnaire.
 
-## Сколько ad-hoc можно отдать AI — субъективная оценка
+## How much ad-hoc could go to AI - a subjective estimate
 
-Разброс 20% – 90%. Медиана ~70–80%. Две самые честные формулировки:
+The spread is 20% to 90%. The median is ~70-80%. The two most honest formulations:
 
-> «Зависит от домена данных: где-то 80%, где-то 30–40%»
+> "It depends on the data domain: somewhere 80%, somewhere 30-40%."
 
-> «70%. Но эта высокая оценка связана с тем, что пока не закрыта базовая потребность в данных. При усложнении потребностей процент, возможно, будет ниже»
+> "70%. But that high estimate reflects the fact that the basic data need is not yet met. As the needs get more complex the percentage will probably be lower."
 
-Использовать как предупреждение: высокая оценка потенциала AI часто означает низкую зрелость спроса, а не высокую готовность.
+Use it as a warning: a high estimate of AI's potential often signals low maturity of demand rather than high readiness.
 
-## Что драйвят прямо сейчас — топ инициатив
+## What is being driven right now - the top initiatives
 
-Семантический слой и стандартизация метрик (5 из 12) · text-to-SQL / text-to-результат / умный интейк запросов (5) · автоматическая архивация мусорных отчётов и наведение порядка в проде (2) · единая платформа LLM-ad-hoc с автономным агентом в узких рамках · Data Portal как единая точка входа · умный поиск в BI и «прогрев» дашбордов по расписанию · ускорение поставки данных за счёт автогенерации ETL-пайплайнов · матрицы компетенций и обучение · импортозамещение.
+The semantic layer and metric standardization (5 of 12) · text-to-SQL / text-to-result / smart intake of requests (5) · automatic archiving of junk reports and tidying production (2) · a single platform for LLM ad-hoc with an autonomous agent inside narrow bounds · a data portal as a single entry point · smart search in BI and scheduled dashboard warming · faster data delivery through auto-generated ETL pipelines · competency matrices and training · import substitution.
 
-## Самые запрашиваемые темы курса
+## The most requested course topics
 
-1. **AI-готовность данных: semantic layer, core-слой, доменный контекст** — 9 из 12
-2. Тренд AI + BI и сдвиг к agentic analytics — 8
-3. Структура стратегии BI и целеполагание — 8
-4. Контент и governance в AI-эру (сертификация, health-score, AI slop) — 7
-5. Агентная архитектура и eval — MCP, скиллы, judge-gates, математика точности — 7
-6. Команда, профессия, будущее роли BI — 5
+1. **AI readiness of data: the semantic layer, the core layer, domain context** - 9 of 12
+2. The AI-plus-BI trend and the shift to agentic analytics - 8
+3. The structure of a BI strategy and goal setting - 8
+4. Content and governance in the AI era (certification, health score, AI slop) - 7
+5. Agent architecture and eval - MCP, skills, judge gates, the mathematics of accuracy - 7
+6. The team, the profession, the future of the BI role - 5
 
-Связи: [[pain-fronts-2026]] · [[painpoints-analysis]] · [[selfservice-practices]] · [[bi-project-metrics]]
+Links: [[pain-fronts-2026]] · [[painpoints-analysis]] · [[selfservice-practices]] · [[bi-project-metrics]]

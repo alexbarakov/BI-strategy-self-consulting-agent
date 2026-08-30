@@ -1,50 +1,50 @@
 ---
 id: pain-fronts-2026
-title: Три фронта болей BI-проектов — полевой срез 2026
+title: Three fronts of BI project pain - a 2026 field cut
 type: benchmark
-source: "Интерактив Занятия 1 курса «BI+AI стратегия 26», n=10 компаний (A–J); согласуется с пре-курс опросом n=12"
-confidence: проверяемо (самоотчёт участников)
+source: "The Day 1 interactive of the \"BI+AI strategy 26\" course, n=10 companies (A-J); consistent with the pre-course survey, n=12"
+confidence: verifiable (participant self-report)
 blocks: [1, 2]
 ---
 
-Свободные ответы на вопрос «какие проблемы при внедрении и развитии BI вы ощущаете в своей компании» схлопываются в три фронта. Сюжет один: **без единой методологии метрик и культуры данных AI-фундамент не строится**.
+Free-form answers to "what problems do you feel in your company when rolling out and developing BI" collapse into three fronts. The plot is the same throughout: **without a single metric methodology and a data culture, an AI foundation does not get built**.
 
-## Фронт 1. Semantic layer и метрики — 4 из 10
+## Front 1. The semantic layer and metrics - 4 of 10
 
-> «И да, метрики считаются по-разному»
-> «Метрики не переиспользуются из каталога метрик, а считаются каждый раз заново»
-> «Нет семантического слоя, нет дата-каталога, нет готовности к AI — семантики и разметки»
+> "And yes, the metrics are calculated differently."
+> "Metrics are not reused from the metric catalog; they are recalculated from scratch each time."
+> "There is no semantic layer, no data catalog, no readiness for AI - no semantics and no labelling."
 
-## Фронт 2. Культура данных — 4 из 10
+## Front 2. The data culture - 4 of 10
 
-> «Бизнес не понимает, какими данными владеет компания и зачем ими управлять»
-> «Низкая культура работы с данными»
-> «Бизнес не берёт ответственность за методологию метрик»
+> "The business does not understand what data the company holds or why it should be managed."
+> "A low culture of working with data."
+> "The business does not take responsibility for metric methodology."
 
-## Фронт 3. Скорость и ресурсы — 4 из 10
+## Front 3. Speed and resources - 4 of 10
 
-> «Высокий TTM по витринам — аналитики работают с более доступными данными, нарушая регламенты»
-> «Не успеваем закрывать хотелки бизнеса»
-> «Малый штат BI-щиков против желания навести порядок во всём»
+> "High time to market on marts - analysts work with whatever data is easier to reach, breaking the rules."
+> "We cannot keep up with what the business wants."
+> "A small BI headcount against a wish to put everything in order."
 
-## Смежные, названные реже
+## Adjacent, named less often
 
-**Контент-гигиена и техдолг.** «Портянки кода в датасорсах»; «тировые отчёты лезут в песочницы»; «мусорные отчёты в проде»; «разрозненные отчёты в разных BI, легаси в QlikView и Qlik Sense».
+**Content hygiene and technical debt.** "Walls of code in the data sources"; "production-grade reports creeping into the sandboxes"; "junk reports in production"; "scattered reports across different BI tools, legacy in QlikView and Qlik Sense".
 
-**Ценность и позиционирование BI.** «BI в непродающем подразделении — эффект на бизнес не посчитать»; «бизнес не покупает ценность дата-ролей: DataOps, стюарды, QA».
+**The value and positioning of BI.** "BI in a non-revenue unit - you cannot compute the effect on the business"; "the business does not buy the value of data roles: DataOps, stewards, QA".
 
-**Одиночные, но острые.** Кросс-доменная доступность данных · импортозамещение одновременно с внедрением AI · отсутствие единой стратегии при разбросе скиллов у разработчиков одного грейда · доступы, производительность и миграции между BI-платформами · self-service-разработка бизнес-пользователями без критериев («доступ выдали всем, теперь предстоит наводить порядок»).
+**One-offs, but sharp.** Cross-domain data availability · import substitution simultaneously with rolling out AI · no single strategy while developers on the same grade differ widely in skill · access, performance and migrations between BI platforms · self-service development by business users with no criteria ("we gave everyone access, now we have to sort it out").
 
-## Как использовать
+## How to use it
 
-1. **Как калибровку приоритета.** Если боль участника не попадает ни в один из трёх фронтов — стоит спросить, точно ли это самая дорогая боль, или просто самая свежая.
-2. **Как аргумент против перескока.** Три фронта — это ровно первые три звена цепочки `core → semantic → контекст → точность AI → self-service`. Компания, у которой болят метрики и культура, физически не может начать с агента.
-3. **Как материал для воркшопа.** Анонимные цитаты снимают у участника ощущение уникальности своей проблемы и сильно ускоряют сессию по [[painpoints-analysis]].
+1. **As a calibration of priority.** If a participant's pain does not fall into any of the three fronts, it is worth asking whether it really is the most expensive pain or merely the most recent.
+2. **As an argument against skipping ahead.** The three fronts are exactly the first three links of the chain `core -> semantic -> context -> AI accuracy -> self-service`. A company whose metrics and culture hurt physically cannot start with an agent.
+3. **As workshop material.** Anonymous quotes take away a participant's sense that their problem is unique and speed up a [[painpoints-analysis]] session considerably.
 
-## Отдельно: причинная связка, названная участником
+## Separately: a causal chain named by a participant
 
-> «Высокий TTM по витринам → аналитики работают с более доступными данными → нарушая регламенты»
+> "High time to market on marts -> analysts work with whatever data is easier to reach -> breaking the rules."
 
-Это лучший короткий аргумент против governance-first без вложений в скорость: **регламент, который дороже обхода, не соблюдается**. В стратегии из этого следует, что инициативы governance и инициативы TTM должны идти в паре, а не последовательно.
+This is the best short argument against governance-first without investing in speed: **a rule that costs more than going around it will not be followed**. In a strategy it follows that governance initiatives and time-to-market initiatives have to move as a pair, not in sequence.
 
-Связи: [[participants-2026-benchmark]] · [[painpoints-analysis]] · [[bi-value-illusion]] · [[info-supply-demand]]
+Links: [[participants-2026-benchmark]] · [[painpoints-analysis]] · [[bi-value-illusion]] · [[info-supply-demand]]

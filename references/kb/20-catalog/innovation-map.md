@@ -1,44 +1,44 @@
 ---
 id: innovation-map
-title: BI Project Innovation Map — каталог направлений развития BI-проекта
+title: The BI project innovation map - a catalog of directions for developing a BI project
 type: catalog
-source: "Miro-борд DataNature, фрейм «BI Project Innovation Map»"
+source: "The DataNature Miro board, the \"BI Project Innovation Map\" frame"
 source_url: "https://miro.com/app/board/o9J_lha8MnM=/?moveToWidget=3458764542627841491"
-confidence: проверяемо
-coverage: "извлечена первая страница объектов борда (~45 из 471 элементов фрейма); список направлений полный по крупным гексагонам, детализация вложенных объектов неполная"
+confidence: verifiable
+coverage: "the first page of the board's objects was extracted (~45 of the frame's 471 elements); the list of directions is complete for the large hexagons, the detail on nested objects is incomplete"
 blocks: [1, 2, 3, 4.1, 4.2, 4.3, 5, 6, 7]
 ---
 
-Визуальный каталог **всех направлений, из которых может состоять BI-проект**. В отличие от гайда, который ведёт по порядку, карта даёт пространство вариантов: на ней размечают, что уже есть, что нужно и что заведомо не нужно.
+A visual catalog of **every direction a BI project can consist of**. Unlike the guide, which walks you through in order, the map gives you the space of options: on it you mark what already exists, what is needed and what is knowingly not needed.
 
-Крупные гексагоны — большие темы, мелкие — конкретные инициативы внутри них.
+The large hexagons are the big themes; the small ones are specific initiatives inside them.
 
-## Ядро — вокруг чего собрана карта
+## The core - what the map is assembled around
 
-**Company's Data & Analytics Innovation map** и в центре — **Vision Statement**: «что вы реально делаете и планируете делать, с какими целями, для кого, какие вызовы и риски митигируете».
+**The company's data and analytics innovation map**, with the **vision statement** at the centre: "what you actually do and plan to do, towards which goals, for whom, and which challenges and risks you are mitigating".
 
-## Крупные направления
+## The large directions
 
-| Блок | Направления |
+| Block | Directions |
 |---|---|
-| **Модели поставки** | Self-Service BI · Centralized BI — reporting factory · **«Around BI» Services and Tools** · Data / Content management processes в SSBI-модели · Data & Content management processes в Centralized-модели · Cross-functional reports delivery |
-| **Технологии и платформа** | Data warehousing / lakehousing · ETL / Self-Service ETL · **Development of the main BI system** · Secondary BI tools development (сложные подписки, data wrangling, mapping tools, нишевые BI-продукты) · **Next generation BI development** · BI system technical development (высокая доступность и disaster recovery) · Architecture modernization / Cloud · DevOps · real-time processing · Advanced Monitoring toolset · BI Toolset |
-| **Данные и governance** | **Data governance** · Data Quality management · Data Cataloging · **Corporate data classification** (домены, business stewardship/ownership) · Data stewardship / curation program · Corporate glossary management · Data mesh / data fabric / data products · **RLS — row-level security** и visibility-таблицы по доменам |
-| **Люди и культура** | **D&A Culture** · Data literacy program · **BI Competency Matrix** и планы апгрейда аналитиков · Learning paths / Skill belt program · Newcomer onboarding plan · Team knowledge base и записи knowledge transfer · Staff strategy · **SS BI management org structure approach** |
-| **Пользователи и спрос** | **BI users / business roles classification** · Customer development, feedback tools и боты · Analytical use cases map for key roles |
-| **Аналитика и результат** | Data / Product analytics — deep dive и исследовательские проекты · **Goals and project efficiency** · BI Project Performance · Regular Management · **Rules, Guides, Instructions, Standards in BI, SLAs** |
-| **Каналы доставки** | **Embedding BI solutions** в корпоративные интерфейсы, нативные для бизнес-процессов · Adopting Mobile BI · Adopting new BI product releases and extensions |
+| **Delivery models** | self-service BI · centralized BI, the reporting factory · **"around BI" services and tools** · data and content management processes in the self-service model · data and content management processes in the centralized model · cross-functional report delivery |
+| **Technology and platform** | data warehousing / lakehousing · ETL / self-service ETL · **development of the main BI system** · secondary BI tool development (complex subscriptions, data wrangling, mapping tools, niche BI products) · **next generation BI development** · BI system technical development (high availability and disaster recovery) · architecture modernization / cloud · DevOps · real-time processing · an advanced monitoring toolset · the BI toolset |
+| **Data and governance** | **data governance** · data quality management · data cataloging · **corporate data classification** (domains, business stewardship and ownership) · a data stewardship / curation programme · corporate glossary management · data mesh / data fabric / data products · **row-level security** and visibility tables by domain |
+| **People and culture** | **D&A culture** · a data literacy programme · **the BI competency matrix** and analyst upgrade plans · learning paths / a skill belt programme · the newcomer onboarding plan · a team knowledge base and knowledge transfer recordings · staffing strategy · **the self-service BI management org structure approach** |
+| **Users and demand** | **classification of BI users and business roles** · customer development, feedback tools and bots · a map of analytical use cases for the key roles |
+| **Analytics and results** | data / product analytics - deep dives and investigative projects · **goals and project efficiency** · BI project performance · regular management · **rules, guides, instructions, standards in BI, SLAs** |
+| **Delivery channels** | **embedding BI solutions** into corporate interfaces native to the business process · adopting mobile BI · adopting new BI product releases and extensions |
 
-## Как использовать
+## How to use it
 
-1. **Как чеклист полноты стратегии.** Пройти по карте и отметить три статуса: есть · нужно · сознательно не делаем. Третья категория — материал для раздела «чего стратегия НЕ делает».
-2. **Как источник инициатив для [[action-plan]].** Каждый гексагон при разметке «нужно» превращается в кандидат-инициативу с владельцем и сроком.
-3. **Как карту для воркшопа.** Борд публичный, копируется на свой аккаунт и размечается участниками в живой сессии.
+1. **As a completeness checklist for the strategy.** Walk the map and mark three statuses: have it · need it · deliberately not doing it. The third category is material for the "what the strategy does not do" section.
+2. **As a source of initiatives for [[action-plan]].** Every hexagon marked "need it" turns into a candidate initiative with an owner and a date.
+3. **As a workshop map.** The board is public, can be copied into your own account and marked up by participants in a live session.
 
-## Чего на карте нет и что нужно дорисовать в 2026
+## What the map lacks and what needs adding in 2026
 
-Карта составлена до агентной волны. При использовании её нужно дополнить блоками, которых на ней нет: **семантический слой как отдельное направление · доменная база знаний и контекстный слой · агентная инфраструктура (MCP, скиллы, judge-gates) · биллинг аналитической инфраструктуры · data app как формат**.
+The map was drawn up before the agentic wave. When using it, add the blocks it does not have: **the semantic layer as its own direction · the domain knowledge base and the context layer · agent infrastructure (MCP, skills, judge gates) · billing of the analytics infrastructure · the data app as a format**.
 
-Соответствующие атомы: [[ai-triad-prerequisites]] · [[context-layer-market]] · [[infra-billing]] · [[nextgen-report-formats]].
+The corresponding atoms: [[ai-triad-prerequisites]] · [[context-layer-market]] · [[infra-billing]] · [[nextgen-report-formats]].
 
-Связи: [[guide-structure]] · [[action-plan]] · [[bi-toolset-landscape]] · [[bi-adoption-stats]]
+Links: [[guide-structure]] · [[action-plan]] · [[bi-toolset-landscape]] · [[bi-adoption-stats]]
