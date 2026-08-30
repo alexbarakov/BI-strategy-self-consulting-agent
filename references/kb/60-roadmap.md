@@ -21,7 +21,7 @@ This file exists because the base was tested rather than admired. The principle 
 
 ## B. Completeness of the base
 
-**B0. The base is skewed toward a large technology company.** The end-to-end run in `70-golden-set/e2e-01-severnaya.md` on a pharmacy chain showed that the frame comes out correct, but the thresholds and practices suggested come from the perimeter of a large technology company with its own engineering. The fix is not new atoms but caveats about the limits of applicability on the existing ones, starting with the field benchmark.
+**B0. The base is skewed toward a large technology company at the start of its journey.** Two end-to-end runs found the two halves of the same bias. `e2e-01-severnaya.md` (a pharmacy chain) showed the thresholds and practices come from the perimeter of a large technology company with its own engineering. `e2e-02-vantage.md` (a scale-up whose assistant has been live for eight months) showed the complementary half: every gate, chain and stack-rank assumes the AI **has not launched yet**. The fix is not new atoms but caveats about the limits of applicability on the existing ones, starting with the field benchmark.
 
 **B1. Session transcripts.** Real participant questions were reconstructed from written sources: the pre-course survey, the session-one interactive and the questions the author put on slides. Live questions have a different shape — "but our case is a bit special" — and those special cases are the most valuable material. Not currently available.
 
@@ -33,11 +33,21 @@ This file exists because the base was tested rather than admired. The principle 
 
 **B5. The contractor delivery model.** The whole base assumes an in-house engineering team. A company whose marts are built by a contractor on request is a common case with different economics, different lead times and a different principal risk — a single point of failure. There is no atom and no line in the failure catalog.
 
+**B6. The retroactive kill-gate.** The base frames gates as pre-launch: `no-assistant-without-foundation` stops a launch. It says nothing about the far more common 2026 case — the assistant is already in production, works, is funded and cannot be switched off. `plausible-but-wrong` names the risk and `ai-triad-prerequisites` the correct order; neither offers a retroactive form. Run 02 had to construct the whole answer (narrow the perimeter · guarantee inside it · refuse outside it · measure) from first principles.
+
+**B7. A publicly committed number.** `vision-statement` warns that an inspiring number outlives the strategy — but only as advice to the author not to write one. When the number has already been said outside the company, by the sponsor, at an investor day, renegotiating it is a governance and communication move and the base holds no material on it. In run 02 this became the strategy's centre of gravity and the base contributed nothing.
+
+**B8. The correct decision that reads as a retreat.** Narrowing an assistant's perimeter is right and will be received as a rollback. Family F of the failure catalog covers burnout, capacity and culture; the political cost of a correct technical decision is a distinct failure mode with its own mitigation — produce the number before the announcement — and it is absent.
+
+**B9. A company with no centralized reporting.** `ssbi-vs-guided` states that self-service cannot reach a single version of the truth without a centralized function. True, and unusable for a company that never had a factory team and will not build one. Taken literally the base recommends building centralized reporting, which such a company rejects in a week. The route used in run 02 — reach the single version through definitions with named owners rather than through a team — is not in the base.
+
+**B10. `ai-ready-domain-score` on a company with no knowledge base.** Its first part is knowledge base completeness, which is zero for such a company, making the composite meaningless as a current-state measure while remaining a good target. The atom should carry the caveat rather than leaving it to be discovered mid-diagnosis.
+
 ## C. Evaluation
 
 **C1. Paraphrases for tier 1 of the golden set.** The questions are taken from the FAQ verbatim and are phrased in the base's own language, so they partly test string overlap rather than understanding. Tiers 2 and 3 were deliberately reworded; tier 1 was not.
 
-**C2. A golden set for end-to-end assembly.** Done — `70-golden-set/e2e-01-severnaya.md`. Worth extending with a second and third company so that a single case does not become the specification.
+**C2. A golden set for end-to-end assembly.** Two runs done — `e2e-01-severnaya.md` (no team, no tools, a contractor and a regulator) and `e2e-02-vantage.md` (strong engineering, an assistant already in production, a public commitment). Between them they cover the two ends of the bias in B0. A third worth adding is a company mid-migration between platforms, where the strategy has to survive the stack changing underneath it.
 
 **C3. Deterministic checks on the base itself.** Dangling links, atoms without a `confidence` field, atoms missing from the graph, counter mismatches in the README — all currently checked by hand. The companion solves this in its `evals/`.
 
