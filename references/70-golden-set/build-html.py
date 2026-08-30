@@ -9,8 +9,16 @@
 """
 import html, os, re, sys
 
-ORDER = ["index", "01-Контекст", "02-Стримы", "03-Инициативы", "04-Цели", "05-Риски",
-         "appendix/90-Диагностика", "appendix/91-Рамка-анализа"]
+def discover(src):
+    """Page order: index first, then numbered pages, appendix last.
+    Independent of the language the filenames are written in."""
+    root = sorted(f[:-3] for f in os.listdir(src) if f.endswith(".md"))
+    apx = []
+    ap = os.path.join(src, "appendix")
+    if os.path.isdir(ap):
+        apx = sorted("appendix/" + f[:-3] for f in os.listdir(ap) if f.endswith(".md"))
+    idx = [p for p in root if p == "index"]
+    return idx + [p for p in root if p != "index"] + apx
 
 
 def slug(name):
@@ -136,7 +144,7 @@ def main():
     src = sys.argv[1] if len(sys.argv) > 1 else "."
     dst = sys.argv[2] if len(sys.argv) > 2 else os.path.join(src, "strategy.html")
     pages = []
-    for name in ORDER:
+    for name in discover(src):
         p = os.path.join(src, name + ".md")
         if not os.path.exists(p): continue
         md = open(p, encoding="utf-8").read()

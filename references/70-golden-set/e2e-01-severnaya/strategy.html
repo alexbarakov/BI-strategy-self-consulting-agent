@@ -1,6 +1,6 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BI+AI стратегия — «Северная аптека»</title><style>
+<title>BI+AI Strategy — Severnaya Pharmacy Chain</title><style>
 :root{--bg:#fbfbfa;--fg:#1f2328;--mut:#5b6570;--line:#e4e6e8;--acc:#2fb9ca;--card:#fff;--code:#f3f4f6}
 @media(prefers-color-scheme:dark){:root{--bg:#14171a;--fg:#e6e8ea;--mut:#9aa4ad;--line:#282d33;--acc:#43cadb;--card:#1b1f23;--code:#22272c}}
 *{box-sizing:border-box}
@@ -33,258 +33,320 @@ a{color:var(--acc)}
 @media(max-width:900px){.wrap{grid-template-columns:1fr;gap:0}nav{position:static;max-height:none;border-bottom:1px solid var(--line)}nav a{display:inline-block}}
 </style></head><body>
 <div class="wrap"><nav><div class="hdr"><div class="t">BI+AI стратегия</div></div>
-<a href="#index">BI+AI стратегия — «Северная аптека»</a><a href="#01-контекст">01. Контекст</a><a href="#02-стримы">02. Стримы изменений</a><a href="#03-инициативы">03. Проекты и инициативы</a><a href="#04-цели">04. Цели через метрики</a><a href="#05-риски">05. Риски</a><div class="grp">Приложение</div><a href="#appendix-90-диагностика">90. Диагностика зрелости</a><a href="#appendix-91-рамка-анализа">91. Рабочая рамка анализа</a></nav><main><section id="index"><h1 id="index--bi-ai-стратегия-северная-аптека">BI+AI стратегия — «Северная аптека»</h1>
+<a href="#index">BI+AI Strategy — Severnaya Pharmacy Chain</a><a href="#00-company-profile">00. Company profile — Severnaya Pharmacy Chain</a><a href="#01-context">01. Context</a><a href="#02-streams">02. Streams of change</a><a href="#03-initiatives">03. Projects and initiatives</a><a href="#04-goals">04. Goals as metrics</a><a href="#05-risks">05. Risks</a><div class="grp">Приложение</div><a href="#appendix-90-diagnostics">90. Maturity diagnostics</a><a href="#appendix-91-analysis-frame">91. Analysis frame</a></nav><main><section id="index"><h1 id="index--bi-ai-strategy-severnaya-pharmacy-chain">BI+AI Strategy — Severnaya Pharmacy Chain</h1>
 <blockquote>
-<p>Вымышленная компания · горизонт 3 года · драфт 1.1 после гейтов · 2026-08-29</p>
-<p>⚠️ Демонстрационный артефакт скилла. Числа — заглушки <code>&lt;•&gt;</code>, бейзлайны помечены <code>[требует уточнения]</code>.</p>
+<p>Fictional company · three-year horizon · draft 1.1, after the gates · 2026-08-29</p>
+<p>⚠️ A demonstration artifact of the skill. Figures are placeholders <code>&lt;•&gt;</code>; baselines are marked <code>[requires clarification]</code>.</p>
 </blockquote>
-<h2 id="index--куда-ид-м">Куда идём</h2>
-<p>Через три года решения о закупке, ценообразовании и логистике принимаются на одних и тех же цифрах, а не на выгрузках, которые каждая функция считает по-своему. Аналитики категорий берут данные из готового слоя, а не заказывают витрину у подрядчика и ждут неделями.</p>
-<p>Это не про инструмент. Инструмент сменится в ходе миграции; ценность создаёт описанный и поддерживаемый слой данных, который переживёт смену платформы.</p>
-<h2 id="index--какие-проблемы-закрываем">Какие проблемы закрываем</h2>
-<table><thead><tr><th>Проблема</th><th>Кого бьёт</th><th>→</th></tr></thead><tbody>
-<tr><td>Одна метрика считается по-разному в категориях и в финансах</td><td>коммерция, финансы</td><td><a href="#01-контекст--p1-метрики-расходятся">P1 · Метрики расходятся</a></td></tr>
-<tr><td>Любая новая витрина идёт через подрядчика: недели и деньги по договору</td><td>все аналитики</td><td><a href="#01-контекст--p2-витрины-через-подрядчика">P2 · Витрины через подрядчика</a></td></tr>
-<tr><td>Нет владельцев данных — некому подтвердить логику</td><td>вся компания</td><td><a href="#01-контекст--p3-нет-владельцев-данных">P3 · Нет владельцев данных</a></td></tr>
-<tr><td>Никто не знает, кто из руководителей чем пользуется</td><td>BI-команда</td><td><a href="#01-контекст--p4-использование-не-измеряется">P4 · Использование не измеряется</a></td></tr>
-<tr><td>ПДн лояльности лежат в тех же витринах, что продажи</td><td>комплаенс</td><td><a href="#01-контекст--p6-пдн-в-витринах-продаж">P6 · ПДн в витринах продаж</a></td></tr>
+<h2 id="index--where-we-are-going">Where we are going</h2>
+<p>Within three years, decisions on purchasing, pricing and logistics are made on the same numbers — not on extracts each function computes its own way. Category analysts take data from a ready layer instead of ordering a data mart from the contractor and waiting weeks.</p>
+<p>This is not about the tool. The tool will change during the migration; the value is created by a described and maintained data layer that outlives the platform switch.</p>
+<h2 id="index--which-problems-we-are-closing">Which problems we are closing</h2>
+<table><thead><tr><th>Problem</th><th>Who it hits</th><th>→</th></tr></thead><tbody>
+<tr><td>One metric is computed differently in categories and in finance</td><td>commerce, finance</td><td><a href="#01-context--p1-metrics-disagree">P1 · Metrics disagree</a></td></tr>
+<tr><td>Every new data mart goes through the contractor: weeks and a separate invoice</td><td>all analysts</td><td><a href="#01-context--p2-data-marts-via-the-contractor">P2 · Data marts via the contractor</a></td></tr>
+<tr><td>No data owners — nobody to confirm the logic</td><td>the whole company</td><td><a href="#01-context--p3-no-data-owners">P3 · No data owners</a></td></tr>
+<tr><td>Nobody knows which executive uses what</td><td>BI team</td><td><a href="#01-context--p4-usage-is-not-measured">P4 · Usage is not measured</a></td></tr>
+<tr><td>Loyalty personal data sits in the same marts as sales</td><td>compliance</td><td><a href="#01-context--p6-personal-data-inside-sales-marts">P6 · Personal data inside sales marts</a></td></tr>
 </tbody></table>
-<h2 id="index--стримы-изменений">Стримы изменений</h2>
-<table><thead><tr><th>Стрим</th><th>Одной строкой</th><th>Владелец</th></tr></thead><tbody>
-<tr><td><strong>S1 · Доверенные данные</strong></td><td>свои витрины по продажам и остаткам вместо заявок подрядчику</td><td>руководитель ИТ</td></tr>
-<tr><td><strong>S2 · Слой метрик</strong></td><td>одно определение метрики на компанию, закреплённое в коде</td><td>руководитель BI</td></tr>
-<tr><td><strong>S3 · Управляемый self-service</strong></td><td>аналитики категорий работают сами на сертифицированных источниках</td><td>руководитель BI</td></tr>
-<tr><td><strong>S4 · Платформенный переход</strong></td><td>миграция на российский BI без переписывания логики заново</td><td>руководитель ИТ</td></tr>
-<tr><td><strong>S5 · Разделение чувствительных данных</strong></td><td>ПДн лояльности отделены от продаж на уровне модели и прав</td><td>комплаенс + ИТ</td></tr>
+<h2 id="index--streams-of-change">Streams of change</h2>
+<table><thead><tr><th>Stream</th><th>In one line</th><th>Owner</th></tr></thead><tbody>
+<tr><td><strong>S1 · Trusted data</strong></td><td>our own marts for sales and stock instead of tickets to the contractor</td><td>Head of IT</td></tr>
+<tr><td><strong>S2 · Metric layer</strong></td><td>one definition per metric for the whole company, fixed in code</td><td>Head of BI</td></tr>
+<tr><td><strong>S3 · Governed self-service</strong></td><td>category analysts work on certified sources themselves</td><td>Head of BI</td></tr>
+<tr><td><strong>S4 · Platform migration</strong></td><td>move to the domestic BI tool without rewriting the logic from scratch</td><td>Head of IT</td></tr>
+<tr><td><strong>S5 · Separating sensitive data</strong></td><td>loyalty personal data separated from sales in the model and in permissions</td><td>Compliance + IT</td></tr>
 </tbody></table>
-<p>→ подробно: <a href="#02-стримы">02-Стримы</a></p>
-<h2 id="index--чего-мы-сознательно-не-делаем">Чего мы сознательно не делаем</h2>
-<ul><li><strong>AI-ассистента по продажам в этом году.</strong> Не потому что не нужен, а потому что отвечать ему не на чем: нет ни сертифицированного ядра, ни слоя метрик. Ассистент на текущих данных будет уверенно выдавать неверные числа, и это дороже его отсутствия. Гейт открытия назван в <a href="#04-цели">04-Цели</a>.</li>
-<li><strong>Дата-каталог как отдельный проект.</strong> Пока объектов, которые стоит каталогизировать, меньше сотни, реестр в вики дешевле платформы.</li>
-<li><strong>Программу дата-грамотности.</strong> Возвращаемся к ней, когда у аналитиков появится, с чем работать самостоятельно.</li>
-</ul><h2 id="index--что-требуется-от-спонсора">Что требуется от спонсора</h2>
-<p><strong>Одно решение в ноябре, до бюджетного цикла:</strong></p>
-<ul><li><strong>Дата-инженер в штат</strong>, 1 FTE. Без него стратегия остаётся планом работ для подрядчика, а не изменением в компании.</li>
-<li><strong>Владелец домена «продажи» от коммерции</strong> — имя, 20% времени, право подтверждать логику метрик.</li>
-</ul><p>Оба пункта — не деньги на инструменты, а люди. Инструментальная часть закрывается внутри уже идущей миграции.</p>
-<h2 id="index--первый-шаг-и-цена-бездействия">Первый шаг и цена бездействия</h2>
-<p><strong>90 дней:</strong> реестр мастер-источников по продажам и остаткам · замер adoption по фокусным ролям · согласованное определение трёх спорных метрик.</p>
-<p><strong>Цена бездействия:</strong> компания входит в миграцию BI-платформы без описанных витрин. Тогда миграция превращается в переписывание логики заново, силами того же подрядчика, по цене нового проекта — и на выходе получается та же нераспутанная модель на новом инструменте.</p>
-<h2 id="index--навигация">Навигация</h2>
-<p><a href="#01-контекст">01-Контекст</a> · <a href="#02-стримы">02-Стримы</a> · <a href="#03-инициативы">03-Инициативы</a> · <a href="#04-цели">04-Цели</a> · <a href="#05-риски">05-Риски</a> · <a href="#appendix-90-диагностика">Диагностика</a> · <a href="#appendix-91-рамка-анализа">Рамка анализа</a></p></section>
-<section id="01-контекст"><h1 id="01-контекст--01-контекст">01. Контекст</h1>
-<h2 id="01-контекст--внешний-контекст-тренды">🌍 Внешний контекст: тренды</h2>
-<table><thead><tr><th>Тренд</th><th>Надёжность</th><th>Что из этого следует для нас</th></tr></thead><tbody>
-<tr><td>Точность text-to-SQL на реальных корпоративных схемах около 40%; с семантическим слоем 85–95%, и при непокрытом вопросе система честно отказывается вместо выдумывания</td><td><code>benchmark</code></td><td>Ассистент без слоя метрик даст правдоподобно неверный ответ. Для нас это означает порядок: слой раньше ассистента, а не параллельно</td></tr>
-<tr><td>Качество ответа модели падает по мере роста поданного контекста задолго до заполнения окна</td><td><code>benchmark</code></td><td>«Загрузить в ИИ все наши отчёты» не работает как решение. Контекст нужно отбирать, а значит — описывать</td></tr>
-<tr><td>Приоритеты рынка на 2026: качество данных и безопасность выше AI и GenAI</td><td><code>benchmark</code></td><td>Наш порядок инвестиций совпадает с отраслевым, это защитимо перед правлением</td></tr>
-<tr><td>Уход зарубежных вендоров и вынужденная миграция BI-платформ</td><td><code>measured</code></td><td>Миграция у нас уже идёт. Она либо закрепит текущий беспорядок на новом инструменте, либо станет поводом описать модель</td></tr>
-<tr><td>Регуляторное давление на обработку персональных данных</td><td><code>measured</code></td><td>Программа лояльности делает нас обработчиком ПДн. Разделение данных — не гигиена, а требование</td></tr>
-</tbody></table>
-<h2 id="01-контекст--внутренний-контекст-проблемы">🏠 Внутренний контекст: проблемы</h2>
-<p>Собраны по четырём группам ролей.</p>
-<h3 id="01-контекст--p1-метрики-расходятся">P1 · Метрики расходятся</h3>
-<p><strong>Группа:</strong> аналитики в доменах, финансы. <strong>Подтверждение:</strong> три разных значения «средний чек» в отчётах категорий, финансов и маркетинга за один период; расхождение обсуждается на каждом коммерческом комитете. <strong>Цена бездействия:</strong> решения о промо принимаются на цифре, которую участники встречи не считают общей; время комитета уходит на сверку, а не на решение.</p>
-<h3 id="01-контекст--p2-витрины-через-подрядчика">P2 · Витрины через подрядчика</h3>
-<p><strong>Группа:</strong> все аналитики. <strong>Подтверждение:</strong> срок от заявки до витрины <code>[требует уточнения — выгрузить из системы заявок]</code>, по опросу аналитиков — «две-три недели». Каждая доработка — отдельная оплата по договору. <strong>Цена бездействия:</strong> аналитики обходят процесс и собирают данные выгрузками, из-за чего расхождение метрик воспроизводится на следующем витке.</p>
-<h3 id="01-контекст--p3-нет-владельцев-данных">P3 · Нет владельцев данных</h3>
-<p><strong>Группа:</strong> управление данными (отсутствует как функция). <strong>Подтверждение:</strong> нет ни одного домена с назначенным владельцем; спор о логике метрики решается тем, кто настойчивее. <strong>Цена бездействия:</strong> согласовать определение метрики физически не с кем, поэтому слой метрик построить невозможно — это блокирует S2.</p>
-<h3 id="01-контекст--p4-использование-не-измеряется">P4 · Использование не измеряется</h3>
-<p><strong>Группа:</strong> центральная BI-команда. <strong>Подтверждение:</strong> статистика по отчётам не собирается; на вопрос «сколько руководителей заходит хотя бы раз в месяц» ответа нет. <strong>Цена бездействия:</strong> нельзя отличить нужные отчёты от мёртвых, а значит — нельзя ни сократить поддержку, ни обосновать её.</p>
-<h3 id="01-контекст--p5-разный-уровень-аналитиков">P5 · Разный уровень аналитиков</h3>
-<p><strong>Группа:</strong> аналитики в доменах. <strong>Подтверждение:</strong> пятнадцать человек, от уверенного SQL до выгрузки в Excel руками. <strong>Цена бездействия:</strong> self-service, открытый всем сразу, даст поток отчётов разного качества и добавит к нераспутанным данным нераспутанный контент.</p>
-<h3 id="01-контекст--p6-пдн-в-витринах-продаж">P6 · ПДн в витринах продаж</h3>
-<p><strong>Группа:</strong> комплаенс. <strong>Подтверждение:</strong> идентификаторы участников программы лояльности присутствуют в витринах, к которым имеют доступ аналитики категорий. <strong>Цена бездействия:</strong> нарушение при первой же проверке и невозможность открыть self-service, не расширив доступ к персональным данным.</p>
-<h2 id="01-контекст--диагностика">🩺 Диагностика</h2>
-<p>Скоркард полностью — <a href="#appendix-90-диагностика">appendix/90-Диагностика</a>. Сводно: сильных категорий нет; средний уровень — управление контентом и проектное управление; слабые — управление данными, качество данных, governance.</p>
-<p><strong>Разрывы цепочки <code>core → семантика → контекст → точность AI → self-service</code>:</strong></p>
-<ul><li><strong>Нет core-слоя.</strong> Витрины делаются под задачу и не переиспользуются.</li>
-<li><strong>Нет семантики.</strong> Определения метрик живут внутри SQL отдельных отчётов.</li>
-<li><strong>Контекста нет как класса</strong> — и это следствие первых двух, а не отдельная проблема.</li>
-</ul><p>Разрыв на первом же звене. Всё, что правее, недостижимо, пока он открыт.</p>
-<h2 id="01-контекст--что-осталось-непокрытым-сознательно">Что осталось непокрытым сознательно</h2>
-<ul><li><strong>Мобильный доступ к отчётам.</strong> Спроса нет, руководители работают из офиса.</li>
-<li><strong>Прогнозная аналитика по спросу.</strong> Есть у категорийного подрядчика, дублировать не будем до появления core-слоя.</li></ul></section>
-<section id="02-стримы"><h1 id="02-стримы--02-стримы-изменений">02. Стримы изменений</h1>
-<h2 id="02-стримы--порядок-и-заморозка">Порядок и заморозка</h2>
-<p><strong>Stack-rank:</strong> S1 Доверенные данные → S5 Разделение чувствительных данных → S2 Слой метрик → S4 Платформенный переход → S3 Управляемый self-service.</p>
-<p>Режем справа налево. S5 стоит вторым не по важности, а потому что без него нельзя открывать доступы: он блокирует S3.</p>
+<p>→ in detail: <a href="#02-streams">02-Streams</a></p>
+<h2 id="index--what-we-deliberately-do-not-do">What we deliberately do not do</h2>
+<ul><li><strong>An AI sales assistant this year.</strong> Not because it is unnecessary, but because there is nothing for it to answer from: no certified core, no metric layer. An assistant on today&#x27;s data will confidently return wrong numbers, and that costs more than its absence. The opening gate is stated in <a href="#04-goals">04-Goals</a>.</li>
+<li><strong>A data catalog as a separate project.</strong> While there are fewer than a hundred objects worth cataloguing, a register in the wiki is cheaper than a platform.</li>
+<li><strong>A data literacy programme.</strong> We return to it once analysts have something to work with on their own.</li>
+</ul><h2 id="index--what-we-need-from-the-sponsor">What we need from the sponsor</h2>
+<p><strong>One decision in November, before the budget cycle:</strong></p>
+<ul><li><strong>A data engineer on staff</strong>, 1 FTE. Without one, the strategy stays a work plan for the contractor rather than a change in the company.</li>
+<li><strong>An owner for the &quot;sales&quot; domain from commerce</strong> — a name, 20% of their time, the authority to confirm metric logic.</li>
+</ul><p>Neither is money for tools. Both are people. The tooling side is covered inside the migration that is already running.</p>
+<h2 id="index--first-step-and-the-cost-of-inaction">First step and the cost of inaction</h2>
+<p><strong>90 days:</strong> a register of master data sources for sales and stock · an adoption baseline for focus roles · agreed definitions for three disputed metrics.</p>
+<p><strong>Cost of inaction:</strong> the company enters the BI platform migration with undescribed data marts. The migration then becomes a rewrite of the logic from scratch, done by the same contractor at the price of a new project — and what comes out is the same untangled model on a new tool.</p>
+<h2 id="index--navigation">Navigation</h2>
+<p><a href="#00-company-profile">00-Company-profile</a> · <a href="#01-context">01-Context</a> · <a href="#02-streams">02-Streams</a> · <a href="#03-initiatives">03-Initiatives</a> · <a href="#04-goals">04-Goals</a> · <a href="#05-risks">05-Risks</a> · <a href="#appendix-90-diagnostics">Diagnostics</a> · <a href="#appendix-91-analysis-frame">Analysis frame</a></p></section>
+<section id="00-company-profile"><h1 id="00-company-profile--00-company-profile-severnaya-pharmacy-chain">00. Company profile — Severnaya Pharmacy Chain</h1>
 <blockquote>
-<p><strong>Почему S1 впереди S2.</strong> Первый черновик ставил слой метрик вперёд. Ревью показало ошибку приоритета: слой метрик поверх подрядной модели разработки не ускоряет ничего — определения будут согласованы, а витрину под них всё равно ждать три недели. Сначала своя инженерная компетенция, потом семантика поверх неё.</p>
+<p>A fictional company. The profile is the <strong>input</strong> to the skill: what a participant tells you in the interview. The strategy assembled from it is in the neighbouring files.</p>
 </blockquote>
-<p>Список заморозки при потере ресурса — <a href="#05-риски--список-заморозки">Список заморозки</a>.</p>
-<hr>
-<h2 id="02-стримы--s1-доверенные-данные">S1 · Доверенные данные</h2>
-<p><strong>Описание.</strong> Собственный слой витрин по продажам и остаткам: ключевые сущности описаны, обновляются по расписанию, имеют владельца и проверки качества. Разработка переходит от заявок подрядчику к собственному инженеру, подрядчик остаётся на поддержке легаси.</p>
-<p><strong>Обоснование.</strong> Закрывает <a href="#01-контекст--p2-витрины-через-подрядчика">P2 · Витрины через подрядчика</a> — самую дорогую боль компании: любая витрина стоит недель и денег по договору. Отрабатывает тренд вынужденной миграции: описанная модель переживает смену платформы, недописанная — переписывается заново. Без этого стрима остальные четыре недостижимы: S2 нечего описывать, S3 нечего открывать, S4 нечего переносить.</p>
-<p><strong>Границы.</strong> Не входит: витрины по персоналу, финансовая отчётность, данные подрядчиков логистики. Только продажи и остатки — две сущности, дающие максимум переиспользования.</p>
-<p><strong>Владелец:</strong> руководитель ИТ. <strong>Инициативы:</strong> <code>S1</code> в <a href="#03-инициативы">03-Инициативы</a>.</p>
-<hr>
-<h2 id="02-стримы--s2-слой-метрик">S2 · Слой метрик</h2>
-<p><strong>Описание.</strong> Одно определение метрики на компанию, закреплённое в коде и в глоссарии, а не в SQL отдельных отчётов. Начинаем с трёх спорных: средний чек, оборачиваемость, наценка.</p>
-<p><strong>Обоснование.</strong> Закрывает <a href="#01-контекст--p1-метрики-расходятся">P1 · Метрики расходятся</a> и снимает предпосылку <a href="#01-контекст--p3-нет-владельцев-данных">P3 · Нет владельцев данных</a>: чтобы согласовать определение, нужен тот, кто его подтверждает. Отрабатывает тренд про точность агента — семантический слой это то, без чего ассистент выдаёт правдоподобно неверный ответ.</p>
-<p><strong>Границы.</strong> Не входит: перевод всех существующих отчётов на новые определения. Старые живут до плановой переработки; новые строятся только на слое.</p>
-<p><strong>Владелец:</strong> руководитель BI. <strong>Зависит от:</strong> S1.</p>
-<hr>
-<h2 id="02-стримы--s3-управляемый-self-service">S3 · Управляемый self-service</h2>
-<p><strong>Описание.</strong> Аналитики категорий работают сами на сертифицированных источниках, с понятным правилом, что можно публиковать, а что уходит на ревью.</p>
-<p><strong>Обоснование.</strong> Закрывает <a href="#01-контекст--p5-разный-уровень-аналитиков">P5 · Разный уровень аналитиков</a> — разный уровень аналитиков — и снимает нагрузку, из-за которой воспроизводится <a href="#01-контекст--p2-витрины-через-подрядчика">P2 · Витрины через подрядчика</a>. Отрабатывает наблюдение, что self-service, открытый всем сразу, добавляет к нераспутанным данным нераспутанный контент.</p>
-<p><strong>Границы.</strong> Открываем по одной категории, а не всем сразу. Не входит: разработка отчётов для руководителей — она остаётся централизованной.</p>
-<p><strong>Владелец:</strong> руководитель BI. <strong>Зависит от:</strong> S1, S5.</p>
-<hr>
-<h2 id="02-стримы--s4-платформенный-переход">S4 · Платформенный переход</h2>
-<p><strong>Описание.</strong> Миграция на российскую BI-платформу без переписывания логики: сначала описанная модель, потом перенос.</p>
-<p><strong>Обоснование.</strong> Отрабатывает тренд ухода вендоров, который для нас уже реальность. Обоснование стрима не в самой миграции — она случится в любом случае, — а в её <strong>порядке</strong>: миграция после S1 переносит модель, миграция до S1 переносит беспорядок.</p>
-<p><strong>Границы.</strong> Не входит выбор платформы: он сделан вне стратегии. Входит только последовательность и приёмка.</p>
-<p><strong>Владелец:</strong> руководитель ИТ. <strong>Зависит от:</strong> S1.</p>
-<hr>
-<h2 id="02-стримы--s5-разделение-чувствительных-данных">S5 · Разделение чувствительных данных</h2>
-<p><strong>Описание.</strong> ПДн участников программы лояльности отделяются от витрин продаж на уровне модели и прав доступа. Аналитик категории видит поведение сегмента, но не идентификаторы людей.</p>
-<p><strong>Обоснование.</strong> Закрывает <a href="#01-контекст--p6-пдн-в-витринах-продаж">P6 · ПДн в витринах продаж</a>. Появился не в первом черновике, а после проверки трассируемости: проблема была названа в контексте и не покрыта ни одним стримом. Отрабатывает регуляторный тренд. <strong>Блокирует S3</strong> — открывать self-service до разделения нельзя.</p>
-<p><strong>Границы.</strong> Не входит пересмотр согласий и юридической части программы лояльности.</p>
-<p><strong>Владелец:</strong> комплаенс совместно с ИТ. <strong>Зависит от:</strong> S1.</p>
-<hr>
-<h2 id="02-стримы--трассируемость">Трассируемость</h2>
-<table><thead><tr><th>Проблема</th><th>Покрыта стримом</th><th>Комментарий</th></tr></thead><tbody>
-<tr><td>P1 · метрика считается по-разному</td><td>S2</td><td></td></tr>
-<tr><td>P2 · витрина через подрядчика</td><td>S1</td><td>самая дорогая, поэтому стрим первый</td></tr>
-<tr><td>P3 · нет владельцев данных</td><td>S2</td><td>владелец назначается как предусловие, а не как отдельный стрим</td></tr>
-<tr><td>P4 · использование не измеряется</td><td>S1</td><td>замер входит в первые 90 дней</td></tr>
-<tr><td>P5 · разный уровень аналитиков</td><td>S3</td><td></td></tr>
-<tr><td>P6 · ПДн в витринах продаж</td><td>S5</td><td>добавлен после проверки трассируемости</td></tr>
-<tr><td>Мобильный доступ</td><td>—</td><td>сознательно не покрываем, спроса нет</td></tr>
-<tr><td>Прогнозная аналитика спроса</td><td>—</td><td>сознательно не покрываем до появления core-слоя</td></tr>
+<h2 id="00-company-profile--profile">Profile</h2>
+<table><thead><tr><th>Parameter</th><th>Value</th></tr></thead><tbody>
+<tr><td>Industry</td><td>pharmacy retail</td></tr>
+<tr><td>Scale</td><td>620 stores across seven regions, 4,800 employees</td></tr>
+<tr><td>Revenue</td><td>typical for a regional player; growth below market two years running</td></tr>
+<tr><td>Company type</td><td><strong>not a technology company</strong>: IT is a support function under the COO</td></tr>
+<tr><td>Regulatory perimeter</td><td>controlled-substance circulation, mandatory serialization, personal data in the loyalty programme</td></tr>
+</tbody></table>
+<h2 id="00-company-profile--team-and-infrastructure">Team and infrastructure</h2>
+<table><thead><tr><th>What</th><th>How it is</th></tr></thead><tbody>
+<tr><td>Central BI team</td><td>3 people: a lead and two report developers</td></tr>
+<tr><td>Analysts in domains</td><td>~15 across categories and logistics, ranging from confident SQL to manual Excel</td></tr>
+<tr><td>Data engineers</td><td><strong>none in-house</strong>; a contractor builds data marts on request, every change billed separately</td></tr>
+<tr><td>Data Governance</td><td>no team, no role, no projects</td></tr>
+<tr><td>ML / DS</td><td>none; demand forecasting is bought from a category contractor</td></tr>
+<tr><td>Warehouse</td><td>exists, populated by the contractor</td></tr>
+<tr><td>BI tool</td><td>legacy product of a vendor that left in 2022; a domestic replacement is being piloted in parallel</td></tr>
+<tr><td>Semantic layer</td><td>none; metric definitions live inside the SQL of individual reports</td></tr>
+<tr><td>Data catalog</td><td>none</td></tr>
+<tr><td>AI assistant</td><td>none; ChatGPT tried for one-off tasks</td></tr>
+</tbody></table>
+<h2 id="00-company-profile--analytics-demand">Analytics demand</h2>
+<p><strong>Key consumers:</strong> commercial director and category managers · logistics director · CFO · regional directors.</p>
+<p><strong>How it works today.</strong> Executives receive Excel extracts; some open dashboards. Category analysts build their own reports when their skill allows, otherwise they go to the BI team or the contractor. Which executives actually use what — <strong>nobody knows, no usage statistics are collected</strong>.</p>
+<h2 id="00-company-profile--what-hurts-in-participants-own-words">What hurts — in participants&#x27; own words</h2>
+<blockquote>
+<p>&quot;And yes, average basket doesn&#x27;t match between categories and finance. Every committee starts with a reconciliation.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Any new data mart is a ticket to the contractor. Two or three weeks and a separate invoice. The analysts gave up and pull extracts instead.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;We argue about a metric&#x27;s logic and there is nobody to confirm it. Whoever is more persistent wins.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;I can&#x27;t tell you how many executives open the reports. We don&#x27;t count it.&quot;</p>
+</blockquote>
+<h2 id="00-company-profile--constraints">Constraints</h2>
+<ul><li><strong>Next year&#x27;s budget is not allocated</strong>; the decision is made in November.</li>
+<li>IT hiring is frozen; exceptions are approved personally by the COO.</li>
+<li>The BI platform migration has already started and runs <strong>outside the BI team&#x27;s control</strong>.</li>
+<li>The data contractor is the sole holder of knowledge about how existing data marts work.</li>
+</ul><h2 id="00-company-profile--pressure-from-above">Pressure from above</h2>
+<p>The commercial director returned from an industry conference and wants <strong>an AI assistant that answers questions about sales</strong> — &quot;like everyone has&quot; — by the end of the quarter.</p>
+<h2 id="00-company-profile--the-sponsor-s-request-verbatim">The sponsor&#x27;s request, verbatim</h2>
+<blockquote>
+<p>&quot;We need a three-year BI strategy. And show where the AI is in it, otherwise we won&#x27;t get it approved.&quot;</p>
+</blockquote>
+<h2 id="00-company-profile--why-this-case-was-chosen-for-the-run">Why this case was chosen for the run</h2>
+<p>Every factor below breaks one of the knowledge base&#x27;s assumptions. A comfortable case proves nothing.</p>
+<table><thead><tr><th>Factor</th><th>What it tests</th></tr></thead><tbody>
+<tr><td>Non-tech company with no in-house engineering</td><td>the base is built on material from large technology companies</td></tr>
+<tr><td>Regulatory perimeter with personal data</td><td>the failure catalog has no family for regulated industries</td></tr>
+<tr><td>Break at the first link of the chain</td><td>everything to the right is unreachable — does the skill still propose AI first?</td></tr>
+<tr><td>Direct pressure for &quot;AI by end of quarter&quot;</td><td>does the kill-gate survive the sponsor&#x27;s request?</td></tr>
+<tr><td>No allocated budget</td><td>does an explicit ask to the sponsor appear instead of a list of work?</td></tr>
+<tr><td>Migration outside the team&#x27;s control</td><td>how the method handles a dependency the team does not own</td></tr>
 </tbody></table></section>
-<section id="03-инициативы"><h1 id="03-инициативы--03-проекты-и-инициативы">03. Проекты и инициативы</h1>
-<p><strong>Output</strong> — что сделано, проверяется фактом наличия. <strong>Outcome</strong> — что изменилось, проверяется замером.</p>
-<p>Числа-таргеты — заглушки <code>&lt;•&gt;</code> до замера бейзлайна.</p>
-<blockquote>
-<p>⚠️ Первый год конкретен. Второй и третий — рамочные, уточняются на пересборке стратегии через полгода.</p>
-</blockquote>
-<table><thead><tr><th>Инициатива</th><th>Стримы</th><th>Владелец</th><th>Год 1</th><th>Год 2</th><th>Год 3</th><th>Метрика</th><th>Kill-gate</th></tr></thead><tbody>
-<tr><td><strong>Реестр мастер-источников</strong> по продажам и остаткам</td><td><code>S1</code></td><td>руководитель ИТ</td><td>A: реестр из ~15 объектов, у каждого владелец и расписание&lt;br&gt;O: доля запросов аналитиков к объектам реестра <code>&lt;•&gt;</code>%</td><td>A: реестр покрывает логистику&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>—</td><td>доля обращений к реестровым объектам</td><td>если через квартал доля ниже <code>&lt;•&gt;</code>% — объекты выбраны не те, пересобрать список по фактическому usage</td></tr>
-<tr><td><strong>Дата-инженер в штат</strong></td><td><code>S1</code></td><td>руководитель ИТ</td><td>A: человек нанят и введён&lt;br&gt;O: доля витрин, сделанных без подрядчика, <code>&lt;•&gt;</code>%</td><td>A: вторая позиция при подтверждённой загрузке&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>—</td><td>доля витрин своими силами</td><td><strong>гейт стратегии:</strong> не нанят до марта — S2, S3 и S4 переносятся, стратегия пересобирается</td></tr>
-<tr><td><strong>Дата-контракты на продажи и остатки</strong></td><td><code>S1</code></td><td>дата-инженер</td><td>A: контракты на 5 ключевых объектов, порог свежести — сутки&lt;br&gt;O: инцидентов «данные не обновились» <code>&lt;•&gt;</code> в квартал</td><td>A: покрытие всего реестра&lt;br&gt;O: <code>&lt;•&gt;</code></td><td>—</td><td>число инцидентов свежести</td><td>—</td></tr>
-<tr><td><strong>Замер adoption</strong></td><td><code>S1</code></td><td>руководитель BI</td><td>A: сбор статистики использования, отчёт по фокусным ролям&lt;br&gt;O: бейзлайн зафиксирован</td><td>A: квартальный обзор&lt;br&gt;O: доля целевых ролей <code>&lt;•&gt;</code>%</td><td>O: <code>&lt;•&gt;</code>%</td><td>% фокусных ролей, заходящих ≥1 раз в месяц</td><td>—</td></tr>
-<tr><td><strong>Определения трёх спорных метрик</strong></td><td><code>S2</code></td><td>руководитель BI</td><td>A: средний чек, оборачиваемость, наценка согласованы и подписаны владельцем домена&lt;br&gt;O: расхождение значений между отчётами устранено</td><td>A: ещё <code>&lt;•&gt;</code> метрик&lt;br&gt;O: —</td><td>—</td><td>число метрик с подписанным определением</td><td>если владелец домена не назначен до апреля — стрим останавливается, а не согласуется «по факту»</td></tr>
-<tr><td><strong>Слой метрик поверх реестра</strong></td><td><code>S2</code></td><td>дата-инженер</td><td>—</td><td>A: метрики считаются в одном месте&lt;br&gt;O: доля отчётов на слое <code>&lt;•&gt;</code>%</td><td>A: покрытие ключевых доменов&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>доля отчётов, использующих слой</td><td>—</td></tr>
-<tr><td><strong>Разделение ПДн лояльности</strong></td><td><code>S5</code></td><td>комплаенс + ИТ</td><td>A: модель разделена, права нарезаны, аналитик видит сегмент без идентификаторов&lt;br&gt;O: доступ к ПДн только у ролей из матрицы</td><td>A: аудит прав&lt;br&gt;O: —</td><td>—</td><td>число ролей с доступом к ПДн</td><td><strong>блокирующий:</strong> без завершения не открываем self-service</td></tr>
-<tr><td><strong>Пилот self-service на одной категории</strong></td><td><code>S3</code></td><td>руководитель BI</td><td>A: одна категория работает на сертифицированных источниках&lt;br&gt;O: ad-hoc-запросов от категории <code>&lt;•&gt;</code>% от текущего</td><td>A: ещё <code>&lt;•&gt;</code> категорий&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>A: масштабирование&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>доля ad-hoc, закрываемых самостоятельно</td><td>если после пилота доля ad-hoc не падает — причина не в доступе, а в данных; вернуться в S1</td></tr>
-<tr><td><strong>Миграция на новую платформу</strong></td><td><code>S4</code></td><td>руководитель ИТ</td><td>A: перенос отчётов, построенных на реестре</td><td>A: перенос остального&lt;br&gt;O: легаси выведено из эксплуатации</td><td>—</td><td>доля отчётов на новой платформе</td><td>не начинать перенос объектов вне реестра — переносить нераспутанное дороже, чем описать</td></tr>
+<section id="01-context"><h1 id="01-context--01-context">01. Context</h1>
+<h2 id="01-context--external-context-trends">🌍 External context: trends</h2>
+<table><thead><tr><th>Trend</th><th>Reliability</th><th>What follows for us</th></tr></thead><tbody>
+<tr><td>Text-to-SQL accuracy on real enterprise schemas is around 40%; with a semantic layer 85–95%, and on an uncovered question the system refuses honestly instead of inventing</td><td><code>benchmark</code></td><td>An assistant without a metric layer will return a plausible wrong answer. For us this sets the order: the layer before the assistant, not alongside it</td></tr>
+<tr><td>Model answer quality degrades as the supplied context grows, well before the window is full</td><td><code>benchmark</code></td><td>&quot;Load all our reports into the AI&quot; does not work as a solution. Context has to be selected, which means it has to be described</td></tr>
+<tr><td>Market priorities for 2026 put data quality and security above AI and GenAI</td><td><code>benchmark</code></td><td>Our investment order matches the industry one — that is defensible to the board</td></tr>
+<tr><td>Foreign vendors leaving and forced BI platform migrations</td><td><code>measured</code></td><td>Our migration is already running. It will either cement the current mess on a new tool, or become the occasion to describe the model</td></tr>
+<tr><td>Regulatory pressure on personal data processing</td><td><code>measured</code></td><td>The loyalty programme makes us a personal-data processor. Separating the data is a requirement, not hygiene</td></tr>
 </tbody></table>
-<h2 id="03-инициативы--первые-90-дней">Первые 90 дней</h2>
-<ul><li>Реестр мастер-источников по продажам и остаткам — руководитель ИТ, проверка 15 ноября</li>
-<li>Замер adoption по фокусным ролям — руководитель BI, проверка 1 декабря</li>
-<li>Согласование трёх спорных определений — руководитель BI, проверка 15 декабря</li>
-<li>Решение по найму инженера — спонсор, ноябрьский бюджетный цикл</li>
+<h2 id="01-context--internal-context-problems">🏠 Internal context: problems</h2>
+<p>Collected across four role groups.</p>
+<h3 id="01-context--p1-metrics-disagree">P1 · Metrics disagree</h3>
+<p><strong>Group:</strong> analysts in domains, finance. <strong>Evidence:</strong> three different values of &quot;average basket&quot; in category, finance and marketing reports for the same period; the discrepancy is discussed at every commercial committee. <strong>Cost of inaction:</strong> promotion decisions are taken on a number the participants do not consider shared; committee time goes to reconciliation instead of decisions.</p>
+<h3 id="01-context--p2-data-marts-via-the-contractor">P2 · Data marts via the contractor</h3>
+<p><strong>Group:</strong> all analysts. <strong>Evidence:</strong> time from ticket to data mart <code>[requires clarification — export from the ticketing system]</code>; analysts say &quot;two or three weeks&quot;. Every change is billed separately. <strong>Cost of inaction:</strong> analysts bypass the process and assemble data through extracts, which reproduces the metric discrepancy on the next turn.</p>
+<h3 id="01-context--p3-no-data-owners">P3 · No data owners</h3>
+<p><strong>Group:</strong> data management (does not exist as a function). <strong>Evidence:</strong> not a single domain has a named owner; a dispute about metric logic is settled by whoever is more persistent. <strong>Cost of inaction:</strong> there is physically nobody to agree a metric definition with, which makes the metric layer impossible to build — this blocks S2.</p>
+<h3 id="01-context--p4-usage-is-not-measured">P4 · Usage is not measured</h3>
+<p><strong>Group:</strong> central BI team. <strong>Evidence:</strong> report usage statistics are not collected; the question &quot;how many executives open reports at least monthly&quot; has no answer. <strong>Cost of inaction:</strong> dead reports cannot be told from needed ones, so support can neither be reduced nor justified.</p>
+<h3 id="01-context--p5-analyst-skill-varies-widely">P5 · Analyst skill varies widely</h3>
+<p><strong>Group:</strong> analysts in domains. <strong>Evidence:</strong> fifteen people, from confident SQL to manual Excel. <strong>Cost of inaction:</strong> self-service opened to everyone at once produces a stream of reports of varying quality and adds untangled content on top of untangled data.</p>
+<h3 id="01-context--p6-personal-data-inside-sales-marts">P6 · Personal data inside sales marts</h3>
+<p><strong>Group:</strong> compliance. <strong>Evidence:</strong> loyalty member identifiers are present in marts that category analysts can access. <strong>Cost of inaction:</strong> a finding at the first inspection, and no way to open self-service without widening access to personal data.</p>
+<h2 id="01-context--diagnostics">🩺 Diagnostics</h2>
+<p>Full scorecard — <a href="#appendix-90-diagnostics">appendix/90-Diagnostics</a>. In summary: no strong categories; content management and project management are mid-level; data management, data quality and governance are weak.</p>
+<p><strong>Breaks in the chain <code>core → semantics → context → AI accuracy → self-service</code>:</strong></p>
+<ul><li><strong>No core layer.</strong> Marts are built per task and never reused.</li>
+<li><strong>No semantics.</strong> Metric definitions live inside the SQL of individual reports.</li>
+<li><strong>Context does not exist as a class</strong> — and that is a consequence of the first two, not a separate problem.</li>
+</ul><p>The break is at the very first link. Everything to the right is unreachable while it stays open.</p>
+<h2 id="01-context--what-we-deliberately-leave-uncovered">What we deliberately leave uncovered</h2>
+<ul><li><strong>Mobile access to reports.</strong> No demand; executives work from the office.</li>
+<li><strong>Demand forecasting.</strong> The category contractor already provides it; we will not duplicate before a core layer exists.</li></ul></section>
+<section id="02-streams"><h1 id="02-streams--02-streams-of-change">02. Streams of change</h1>
+<h2 id="02-streams--order-and-freeze">Order and freeze</h2>
+<p><strong>Stack-rank:</strong> S1 Trusted data → S5 Separating sensitive data → S2 Metric layer → S4 Platform migration → S3 Governed self-service.</p>
+<p>We cut right to left. S5 sits second not by importance but because permissions cannot be opened without it: it blocks S3.</p>
+<blockquote>
+<p><strong>Why S1 comes before S2.</strong> The first draft put the metric layer first. Review found a priority error: a metric layer on top of a contractor delivery model speeds up nothing — definitions get agreed and the data mart still takes three weeks. In-house engineering capability first, semantics on top of it second.</p>
+</blockquote>
+<p>Freeze list — <a href="#05-risks--freeze-list">Freeze list</a>.</p>
+<hr>
+<h2 id="02-streams--s1-trusted-data">S1 · Trusted data</h2>
+<p><strong>Description.</strong> Our own layer of data marts for sales and stock: key entities described, refreshed on schedule, each with an owner and quality checks. Development moves from contractor tickets to an in-house engineer; the contractor stays on legacy support.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--p2-data-marts-via-the-contractor">P2 · Data marts via the contractor</a> — the company&#x27;s most expensive pain: every data mart costs weeks and contract money. Addresses the forced-migration trend: a described model survives a platform switch, an undescribed one is rewritten. Without this stream the other four are unreachable: S2 has nothing to describe, S3 nothing to open, S4 nothing to move.</p>
+<p><strong>Boundaries.</strong> Out of scope: HR marts, financial reporting, logistics contractor data. Sales and stock only — the two entities that give the most reuse.</p>
+<p><strong>Owner:</strong> Head of IT. <strong>Initiatives:</strong> tagged <code>S1</code> in <a href="#03-initiatives">03-Initiatives</a>.</p>
+<hr>
+<h2 id="02-streams--s2-metric-layer">S2 · Metric layer</h2>
+<p><strong>Description.</strong> One definition per metric for the whole company, fixed in code and in the glossary rather than in the SQL of individual reports. We start with three disputed ones: average basket, stock turnover, margin.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--p1-metrics-disagree">P1 · Metrics disagree</a> and removes the precondition behind <a href="#01-context--p3-no-data-owners">P3 · No data owners</a>: agreeing a definition requires somebody who confirms it. Addresses the accuracy trend — the semantic layer is what an assistant needs to avoid returning a plausible wrong answer.</p>
+<p><strong>Boundaries.</strong> Out of scope: migrating every existing report onto the new definitions. Old reports live until their planned rework; new ones are built on the layer only.</p>
+<p><strong>Owner:</strong> Head of BI. <strong>Depends on:</strong> S1.</p>
+<hr>
+<h2 id="02-streams--s3-governed-self-service">S3 · Governed self-service</h2>
+<p><strong>Description.</strong> Category analysts work on certified sources themselves, under a clear rule about what may be published and what goes to review.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--p5-analyst-skill-varies-widely">P5 · Analyst skill varies widely</a> and removes the load that keeps reproducing <a href="#01-context--p2-data-marts-via-the-contractor">P2 · Data marts via the contractor</a>. Addresses the observation that self-service opened to everyone at once adds untangled content on top of untangled data.</p>
+<p><strong>Boundaries.</strong> We open one category at a time, not all at once. Out of scope: building reports for executives — that stays centralized.</p>
+<p><strong>Owner:</strong> Head of BI. <strong>Depends on:</strong> S1, S5.</p>
+<hr>
+<h2 id="02-streams--s4-platform-migration">S4 · Platform migration</h2>
+<p><strong>Description.</strong> Move to the domestic BI platform without rewriting logic: the described model first, the migration second.</p>
+<p><strong>Justification.</strong> Addresses the vendor-exit trend, which for us is already reality. The stream is justified not by the migration itself — it will happen regardless — but by its <strong>order</strong>: migrating after S1 moves a model, migrating before S1 moves a mess.</p>
+<p><strong>Boundaries.</strong> Platform choice is out of scope; it was made outside this strategy. Only sequencing and acceptance are in scope.</p>
+<p><strong>Owner:</strong> Head of IT. <strong>Depends on:</strong> S1.</p>
+<hr>
+<h2 id="02-streams--s5-separating-sensitive-data">S5 · Separating sensitive data</h2>
+<p><strong>Description.</strong> Loyalty programme personal data is separated from sales marts at the model and permission level. A category analyst sees segment behaviour but not individual identifiers.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--p6-personal-data-inside-sales-marts">P6 · Personal data inside sales marts</a>. It did not exist in the first draft and appeared after the traceability check: the problem was named in the context and covered by no stream. Addresses the regulatory trend. <strong>Blocks S3</strong> — self-service cannot be opened before the separation is done.</p>
+<p><strong>Boundaries.</strong> Out of scope: revising consents and the legal side of the loyalty programme.</p>
+<p><strong>Owner:</strong> Compliance with IT. <strong>Depends on:</strong> S1.</p>
+<hr>
+<h2 id="02-streams--traceability">Traceability</h2>
+<table><thead><tr><th>Problem</th><th>Covered by</th><th>Comment</th></tr></thead><tbody>
+<tr><td>P1 · metrics disagree</td><td>S2</td><td></td></tr>
+<tr><td>P2 · data marts via contractor</td><td>S1</td><td>most expensive, hence the first stream</td></tr>
+<tr><td>P3 · no data owners</td><td>S2</td><td>the owner is appointed as a precondition, not as a separate stream</td></tr>
+<tr><td>P4 · usage not measured</td><td>S1</td><td>the baseline measurement is in the first 90 days</td></tr>
+<tr><td>P5 · analyst skill varies</td><td>S3</td><td></td></tr>
+<tr><td>P6 · personal data in sales marts</td><td>S5</td><td>added after the traceability check</td></tr>
+<tr><td>Mobile access</td><td>—</td><td>deliberately uncovered, no demand</td></tr>
+<tr><td>Demand forecasting</td><td>—</td><td>deliberately uncovered until a core layer exists</td></tr>
+</tbody></table></section>
+<section id="03-initiatives"><h1 id="03-initiatives--03-projects-and-initiatives">03. Projects and initiatives</h1>
+<p><strong>Output</strong> — what was built, verified by its existence. <strong>Outcome</strong> — what changed, verified by measurement.</p>
+<p>An initiative without an outcome is work, not an initiative.</p>
+<blockquote>
+<p>⚠️ Year 1 is concrete. Years 2 and 3 are indicative and will be refined at the six-month re-assembly.</p>
+</blockquote>
+<table><thead><tr><th>Initiative</th><th>Streams</th><th>Owner</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Metric</th><th>Kill-gate</th></tr></thead><tbody>
+<tr><td><strong>Master data source register</strong> for sales and stock</td><td><code>S1</code></td><td>Head of IT</td><td>A: register of ~15 objects, each with an owner and a schedule&lt;br&gt;O: share of analyst queries hitting register objects <code>&lt;•&gt;</code>%</td><td>A: register covers logistics&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>—</td><td>share of queries on register objects</td><td>if after a quarter the share is below <code>&lt;•&gt;</code>%, the wrong objects were picked — rebuild the list from actual usage</td></tr>
+<tr><td><strong>Data engineer on staff</strong></td><td><code>S1</code></td><td>Head of IT</td><td>A: hired and onboarded&lt;br&gt;O: share of marts built without the contractor <code>&lt;•&gt;</code>%</td><td>A: second role if the load is confirmed&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>—</td><td>share of marts built in-house</td><td><strong>strategy gate:</strong> not hired by March — S2, S3 and S4 are postponed and the strategy is re-assembled</td></tr>
+<tr><td><strong>Data contracts on sales and stock</strong></td><td><code>S1</code></td><td>data engineer</td><td>A: contracts on 5 key objects, freshness threshold 24h&lt;br&gt;O: &quot;data did not refresh&quot; incidents <code>&lt;•&gt;</code> per quarter</td><td>A: coverage of the whole register&lt;br&gt;O: <code>&lt;•&gt;</code></td><td>—</td><td>freshness incidents</td><td>—</td></tr>
+<tr><td><strong>Adoption baseline</strong></td><td><code>S1</code></td><td>Head of BI</td><td>A: usage statistics collected, report by focus role&lt;br&gt;O: baseline fixed</td><td>A: quarterly review&lt;br&gt;O: focus-role share <code>&lt;•&gt;</code>%</td><td>O: <code>&lt;•&gt;</code>%</td><td>% of focus roles opening BI monthly</td><td>—</td></tr>
+<tr><td><strong>Definitions of three disputed metrics</strong></td><td><code>S2</code></td><td>Head of BI</td><td>A: average basket, turnover and margin agreed and signed off by the domain owner&lt;br&gt;O: discrepancy between reports eliminated</td><td>A: <code>&lt;•&gt;</code> more metrics&lt;br&gt;O: —</td><td>—</td><td>metrics with a signed definition</td><td>if no domain owner is named by April the stream stops rather than being agreed &quot;de facto&quot;</td></tr>
+<tr><td><strong>Metric layer on top of the register</strong></td><td><code>S2</code></td><td>data engineer</td><td>—</td><td>A: metrics computed in one place&lt;br&gt;O: share of reports on the layer <code>&lt;•&gt;</code>%</td><td>A: coverage of key domains&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>share of reports using the layer</td><td>—</td></tr>
+<tr><td><strong>Separating loyalty personal data</strong></td><td><code>S5</code></td><td>Compliance + IT</td><td>A: model split, permissions cut, analyst sees segments without identifiers&lt;br&gt;O: access to personal data only for roles in the matrix</td><td>A: permission audit&lt;br&gt;O: —</td><td>—</td><td>roles with access to personal data</td><td><strong>blocking:</strong> self-service is not opened until this completes</td></tr>
+<tr><td><strong>Self-service pilot in one category</strong></td><td><code>S3</code></td><td>Head of BI</td><td>A: one category working on certified sources&lt;br&gt;O: ad-hoc requests from that category at <code>&lt;•&gt;</code>% of today</td><td>A: <code>&lt;•&gt;</code> more categories&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>A: scale-out&lt;br&gt;O: <code>&lt;•&gt;</code>%</td><td>share of ad-hoc closed by analysts themselves</td><td>if ad-hoc does not fall after the pilot, the cause is the data rather than access — return to S1</td></tr>
+<tr><td><strong>Migration to the new platform</strong></td><td><code>S4</code></td><td>Head of IT</td><td>A: move the reports built on the register</td><td>A: move the rest&lt;br&gt;O: legacy decommissioned</td><td>—</td><td>share of reports on the new platform</td><td>do not migrate objects outside the register — moving the untangled costs more than describing it</td></tr>
+</tbody></table>
+<h2 id="03-initiatives--first-90-days">First 90 days</h2>
+<ul><li>Master data source register for sales and stock — Head of IT, checkpoint 15 November</li>
+<li>Adoption baseline for focus roles — Head of BI, checkpoint 1 December</li>
+<li>Agreement on three disputed definitions — Head of BI, checkpoint 15 December</li>
+<li>Hiring decision for the engineer — sponsor, November budget cycle</li>
 </ul><blockquote>
-<p><strong>Что не входит в первые 90 дней намеренно:</strong> ничего из S2, S3 и S4. Пока не подтверждён найм, начинать их — создавать обязательства, которые нечем закрыть.</p>
+<p><strong>Deliberately not in the first 90 days:</strong> anything from S2, S3 or S4. Until the hire is confirmed, starting them creates commitments there is nothing to meet.</p>
 </blockquote></section>
-<section id="04-цели"><h1 id="04-цели--04-цели-через-метрики">04. Цели через метрики</h1>
-<p>Цель формулируется метрикой. Словесная цель живёт в <a href="#index">index</a>, здесь только измеримое.</p>
+<section id="04-goals"><h1 id="04-goals--04-goals-as-metrics">04. Goals as metrics</h1>
+<p>A goal is stated as a metric. Verbal goals live in <a href="#index">index</a>; only the measurable belongs here.</p>
 <blockquote>
-<p><strong>Правило порядка.</strong> Раздел читается после портфеля, но формулируется до него. Проверка: убери инициативу — цель должна остаться. Все цели ниже её проходят: они описывают состояние компании, а не объём работ.</p>
+<p><strong>Order rule.</strong> This section is read after the portfolio but <strong>formulated before it</strong>. Test: remove the initiative — the goal must remain. All goals below pass it: they describe a state of the company, not a volume of work.</p>
 </blockquote>
-<table><thead><tr><th>Стрим</th><th>Метрика</th><th>Бейзлайн</th><th>Год 1</th><th>Год 2</th><th>Год 3</th><th>Владелец</th><th>Как меряется</th></tr></thead><tbody>
-<tr><td>S1</td><td>Доля витрин, сделанных без подрядчика</td><td>0%</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>рук. ИТ</td><td>реестр задач разработки</td></tr>
-<tr><td>S1</td><td>Доля обращений аналитиков к объектам реестра</td><td><code>[требует уточнения]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>дата-инженер</td><td>логи запросов</td></tr>
-<tr><td>S1</td><td>Инцидентов «данные не обновились» за квартал</td><td><code>[требует уточнения]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>дата-инженер</td><td>дата-контракты</td></tr>
-<tr><td>S1</td><td>Срок от заявки до витрины</td><td><code>[требует уточнения — выгрузить из системы заявок]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>рук. ИТ</td><td>система заявок</td></tr>
-<tr><td>S2</td><td>Метрик с подписанным определением</td><td>0</td><td>3</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>рук. BI</td><td>глоссарий</td></tr>
-<tr><td>S2</td><td>Доля отчётов, считающих метрику через слой</td><td>0%</td><td>—</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>дата-инженер</td><td>код отчётов</td></tr>
-<tr><td>S3</td><td>Доля фокусных ролей, заходящих в BI ≥1 раз в месяц</td><td><code>[требует уточнения — замер в первые 90 дней]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>рук. BI</td><td>статистика платформы</td></tr>
-<tr><td>S3</td><td>Доля ad-hoc, закрываемых аналитиком самостоятельно</td><td><code>[требует уточнения]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>рук. BI</td><td>учёт обращений</td></tr>
-<tr><td>S5</td><td>Ролей с доступом к идентификаторам ПДн</td><td><code>[требует уточнения — аудит прав]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>комплаенс</td><td>матрица прав</td></tr>
-<tr><td>S4</td><td>Доля отчётов на новой платформе</td><td>0%</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>100%</td><td>рук. ИТ</td><td>инвентаризация</td></tr>
+<table><thead><tr><th>Stream</th><th>Metric</th><th>Baseline</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Owner</th><th>How measured</th></tr></thead><tbody>
+<tr><td>S1</td><td>Share of data marts built without the contractor</td><td>0%</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>Head of IT</td><td>development backlog</td></tr>
+<tr><td>S1</td><td>Share of analyst queries hitting register objects</td><td><code>[requires clarification]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>data engineer</td><td>query logs</td></tr>
+<tr><td>S1</td><td>&quot;Data did not refresh&quot; incidents per quarter</td><td><code>[requires clarification]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>data engineer</td><td>data contracts</td></tr>
+<tr><td>S1</td><td>Time from ticket to data mart</td><td><code>[requires clarification — export from the ticketing system]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>Head of IT</td><td>ticketing system</td></tr>
+<tr><td>S2</td><td>Metrics with a signed definition</td><td>0</td><td>3</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>Head of BI</td><td>glossary</td></tr>
+<tr><td>S2</td><td>Share of reports computing the metric through the layer</td><td>0%</td><td>—</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>data engineer</td><td>report code</td></tr>
+<tr><td>S3</td><td>Share of focus roles opening BI at least monthly</td><td><code>[requires clarification — measured in the first 90 days]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>Head of BI</td><td>platform statistics</td></tr>
+<tr><td>S3</td><td>Share of ad-hoc closed by the analyst alone</td><td><code>[requires clarification]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>Head of BI</td><td>request log</td></tr>
+<tr><td>S5</td><td>Roles with access to personal identifiers</td><td><code>[requires clarification — permission audit]</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>Compliance</td><td>permission matrix</td></tr>
+<tr><td>S4</td><td>Share of reports on the new platform</td><td>0%</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>100%</td><td>Head of IT</td><td>inventory</td></tr>
 </tbody></table>
-<p><strong>Группы метрик.</strong> Вовлечение — доля фокусных ролей и доля самостоятельных ad-hoc. Качество сервиса — срок от заявки до витрины, инциденты свежести. Качество процессов — метрики с подписанным определением, доля отчётов на слое. Влияние на бизнес — доля витрин без подрядчика (прямая экономия по договору) и роли с доступом к ПДн (снятие регуляторного риска).</p>
-<h2 id="04-цели--потолок-и-достаточность">Потолок и достаточность</h2>
-<table><thead><tr><th>Метрика</th><th>Практический потолок</th><th>Где отдача выравнивается</th></tr></thead><tbody>
-<tr><td>Доля витрин без подрядчика</td><td>не 100%: легаси остаётся на подрядчике до вывода из эксплуатации</td><td>когда закрыты продажи, остатки и логистика</td></tr>
-<tr><td>Доля фокусных ролей в BI</td><td>не 100%: часть руководителей получает цифры на комитете, и это нормально</td><td><code>&lt;•&gt;</code>% — дальше растёт стоимость вовлечения, а не польза</td></tr>
-<tr><td>Метрик с определением</td><td>не все метрики компании, только спорные и кросс-функциональные</td><td>когда закончились споры на комитете</td></tr>
+<p><strong>Metric groups.</strong> Engagement — focus-role share and share of self-served ad-hoc. Quality of service — time from ticket to data mart, freshness incidents. Process quality — metrics with a signed definition, share of reports on the layer. Business impact — share of marts built without the contractor (direct saving on the contract) and roles with access to personal data (regulatory risk removed).</p>
+<h2 id="04-goals--ceiling-and-sufficiency">Ceiling and sufficiency</h2>
+<table><thead><tr><th>Metric</th><th>Practical ceiling</th><th>Where the return flattens</th></tr></thead><tbody>
+<tr><td>Share of marts without the contractor</td><td>not 100%: legacy stays with the contractor until decommissioned</td><td>once sales, stock and logistics are covered</td></tr>
+<tr><td>Share of focus roles in BI</td><td>not 100%: some executives get their numbers at the committee, and that is fine</td><td>at <code>&lt;•&gt;</code>% — beyond it the cost of engagement grows faster than the benefit</td></tr>
+<tr><td>Metrics with a definition</td><td>not every metric, only the disputed and cross-functional ones</td><td>when committee arguments stop</td></tr>
 </tbody></table>
-<p><strong>Осознанный отказ.</strong> Категорию «дата-грамотность» в этом горизонте не улучшаем и не измеряем: без данных, с которыми можно работать самостоятельно, обучение не конвертируется.</p>
-<h2 id="04-цели--дисконт-целей">Дисконт целей</h2>
-<p>Все цели уценены по трём рискам:</p>
-<table><thead><tr><th>Риск</th><th>Что уценяет</th></tr></thead><tbody>
-<tr><td>Зависимость от чужой поставки</td><td>миграция платформы идёт вне контроля BI; цели S4 и часть S1 зависят от её сроков</td></tr>
-<tr><td>Обеспеченность мощностью</td><td>все цели года 1 предполагают найм одного инженера; без него достижима только метрика замера adoption</td></tr>
-<tr><td>Необходимость менять поведение</td><td>цели S3 требуют, чтобы аналитики перестали делать выгрузки; это не настраивается доступами</td></tr>
+<p><strong>Deliberate refusal.</strong> We do not improve or measure the &quot;data literacy&quot; category in this horizon: without data people can work with on their own, training does not convert.</p>
+<h2 id="04-goals--discounting-the-goals">Discounting the goals</h2>
+<p>Every goal is written down against three risks:</p>
+<table><thead><tr><th>Risk</th><th>What it discounts</th></tr></thead><tbody>
+<tr><td>Dependency on someone else&#x27;s delivery</td><td>the platform migration runs outside BI&#x27;s control; S4 goals and part of S1 depend on its timing</td></tr>
+<tr><td>Capacity</td><td>all Year 1 goals assume one engineer is hired; without them only the adoption baseline is achievable</td></tr>
+<tr><td>Adoption</td><td>S3 goals require analysts to stop making extracts, and that is not configured through permissions</td></tr>
 </tbody></table>
-<h2 id="04-цели--гейт-открытия-ai-ассистента">Гейт открытия AI-ассистента</h2>
-<p>Ассистент по продажам выносится за горизонт. <strong>Условие пересмотра — все три одновременно:</strong></p>
-<ul><li>Реестр мастер-источников покрывает продажи и остатки, объекты под дата-контрактами</li>
-<li>Определения ключевых метрик подписаны владельцем домена и вынесены в слой</li>
-<li>Собран эталонный набор вопросов с известными правильными ответами — не менее нескольких десятков</li>
-</ul><p><strong>Kill-gate после запуска:</strong> если точность на эталонном наборе не превышает <code>&lt;•&gt;</code>%, ассистент остаётся в режиме черновика для аналитика и не публикуется бизнесу.</p>
+<h2 id="04-goals--gate-for-opening-the-ai-assistant">Gate for opening the AI assistant</h2>
+<p>The sales assistant is placed beyond the horizon. <strong>All three conditions must hold to reconsider:</strong></p>
+<ul><li>The master data source register covers sales and stock, with objects under data contracts</li>
+<li>Key metric definitions are signed off by the domain owner and moved into the layer</li>
+<li>A golden set of questions with known correct answers exists — at least several dozen</li>
+</ul><p><strong>Kill-gate after launch:</strong> if accuracy on the golden set does not exceed <code>&lt;•&gt;</code>%, the assistant stays a draft tool for analysts and is not published to the business.</p>
 <blockquote>
-<p>Эффект AI меряется только на эталонном наборе с бейзлайном, зафиксированным до старта. Самооценка команды и ощущение «стало удобнее» доказательством не являются.</p>
+<p>The effect of AI is measured only on a golden set with a baseline fixed before the start. Team self-assessment and a feeling that &quot;it got easier&quot; are not evidence.</p>
 </blockquote>
-<h2 id="04-цели--если-спросят-сколько-это-в-деньгах">Если спросят «сколько это в деньгах»</h2>
-<p>Экономическая модель считается отдельно, до ноябрьского решения. Три строки, где эффект для нас реален:</p>
-<ul><li><strong>Прекращение оплаты витрин по договору</strong> — прямая экономия, атрибуции не требует</li>
-<li><strong>Прекращение производства отчётов, которые не читают</strong> — считается после замера adoption</li>
-<li><strong>Прикрепление к уже профинансированным инициативам коммерции</strong> — доля согласуется, а не вычисляется</li>
-</ul><p>Остальное — ускорение решений, «время аналитиков», рост качества — не считается и в модель не входит.</p></section>
-<section id="05-риски"><h1 id="05-риски--05-риски">05. Риски</h1>
-<table><thead><tr><th>Риск</th><th>Вероятность / влияние</th><th>Фактор снижения</th><th>Владелец</th><th>Триггер</th></tr></thead><tbody>
-<tr><td><strong>Инженера не нанимают</strong> — стратегия остаётся планом для подрядчика</td><td>высокая / критическое</td><td>гейт стратегии: без найма до марта S2–S4 переносятся и стратегия пересобирается, а не исполняется наполовину</td><td>спонсор</td><td>1 марта позиция не закрыта</td></tr>
-<tr><td><strong>Подрядчик — единая точка отказа</strong></td><td>средняя / высокое</td><td>реестр мастер-источников описывает объекты так, чтобы их мог поддержать не автор; передача знаний в договор</td><td>рук. ИТ</td><td>срок по заявке вырос вдвое либо ушёл ключевой человек подрядчика</td></tr>
-<tr><td><strong>Миграция платформы съедает год</strong></td><td>высокая / высокое</td><td>миграция не начинается по объектам вне реестра; сначала описание, потом перенос</td><td>рук. ИТ</td><td>план миграции содержит объекты, которых нет в реестре</td></tr>
-<tr><td><strong>Владелец домена не назначен</strong> — S2 некому подтверждать</td><td>средняя / критическое для S2</td><td>стрим останавливается явно, а не согласуется «по факту»</td><td>рук. BI</td><td>1 апреля имени нет</td></tr>
-<tr><td><strong>Governance объявлен без ресурса</strong></td><td>средняя / высокое</td><td>не заводим DG-функцию; правила живут внутри S1 и S5 как часть работы инженера и комплаенса</td><td>рук. BI</td><td>появляется регламент, у которого нет исполнителя</td></tr>
-<tr><td><strong>Домен держится на одном человеке</strong></td><td>средняя / высокое</td><td>второй человек в контуре продаж со второго года; запись передачи знаний с первого дня</td><td>рук. ИТ</td><td>единственный носитель знания уходит в отпуск и работа встаёт</td></tr>
-<tr><td><strong>Смена приоритета после ноября</strong></td><td>средняя / высокое</td><td>список заморозки опубликован заранее; сокращение исполняется по нему, а не переговорами</td><td>спонсор</td><td>бюджет урезан либо сменился спонсор</td></tr>
-<tr><td><strong>Self-service открыт до разделения ПДн</strong></td><td>низкая / критическое</td><td>S5 объявлен блокирующим для S3 в <a href="#02-стримы">02-Стримы</a></td><td>комплаенс</td><td>появилась заявка на доступ категории до завершения S5</td></tr>
+<h2 id="04-goals--if-asked-how-much-money-is-this">If asked &quot;how much money is this&quot;</h2>
+<p>The economic model is built separately, before the November decision. Three lines where the effect is real for us:</p>
+<ul><li><strong>Stopping payment for data marts under the contract</strong> — a direct saving that needs no attribution argument</li>
+<li><strong>Stopping the production of reports nobody reads</strong> — computable once adoption is measured</li>
+<li><strong>Attaching to already-funded commercial initiatives</strong> — the share is negotiated, not calculated</li>
+</ul><p>Everything else — faster decisions, &quot;analyst time&quot;, higher quality — is not counted and does not enter the model.</p></section>
+<section id="05-risks"><h1 id="05-risks--05-risks">05. Risks</h1>
+<table><thead><tr><th>Risk</th><th>Likelihood / impact</th><th>Mitigation</th><th>Owner</th><th>Trigger</th></tr></thead><tbody>
+<tr><td><strong>The engineer is not hired</strong> — the strategy stays a work plan for the contractor</td><td>high / critical</td><td>strategy gate: without the hire by March, S2–S4 are postponed and the strategy is re-assembled rather than executed half-way</td><td>sponsor</td><td>1 March, the role is not filled</td></tr>
+<tr><td><strong>The contractor is a single point of failure</strong></td><td>medium / high</td><td>the register describes objects so that someone other than the author can maintain them; knowledge transfer written into the contract</td><td>Head of IT</td><td>ticket turnaround doubles, or a key contractor person leaves</td></tr>
+<tr><td><strong>The platform migration consumes the year</strong></td><td>high / high</td><td>migration does not start on objects outside the register; description first, move second</td><td>Head of IT</td><td>the migration plan contains objects absent from the register</td></tr>
+<tr><td><strong>No domain owner</strong> — nobody to confirm S2</td><td>medium / critical for S2</td><td>the stream stops explicitly instead of being agreed &quot;de facto&quot;</td><td>Head of BI</td><td>1 April, no name</td></tr>
+<tr><td><strong>Governance declared without resource</strong></td><td>medium / high</td><td>we do not create a DG function; the rules live inside S1 and S5 as part of the engineer&#x27;s and compliance&#x27;s work</td><td>Head of BI</td><td>a policy appears with no one to execute it</td></tr>
+<tr><td><strong>A domain rests on one person</strong></td><td>medium / high</td><td>a second person in the sales perimeter from year two; knowledge transfer recorded from day one</td><td>Head of IT</td><td>the sole holder of the knowledge goes on leave and work stops</td></tr>
+<tr><td><strong>Priority changes after November</strong></td><td>medium / high</td><td>the freeze list is published in advance; cuts follow it rather than negotiation</td><td>sponsor</td><td>budget cut, or the sponsor changes</td></tr>
+<tr><td><strong>Self-service opened before personal data is separated</strong></td><td>low / critical</td><td>S5 is declared blocking for S3 in <a href="#02-streams">02-Streams</a></td><td>Compliance</td><td>an access request from a category arrives before S5 completes</td></tr>
 </tbody></table>
-<h2 id="05-риски--список-заморозки">Список заморозки</h2>
-<p>Публикуется заранее. При потере трети ресурса замораживается сверху вниз:</p>
-<ul><li><strong>S3 · Управляемый self-service</strong> — первым. Даёт эффект только после S1, а без ресурса S1 не завершится. Замораживается целиком, а не «пилотом на одной категории».</li>
-<li><strong>S4 · Платформенный переход</strong> — в части сроков, не отменяется: миграция внешняя. Замораживается наша приёмка сверх минимума.</li>
-<li><strong>S2 · Слой метрик</strong> — сокращается до трёх согласованных определений без вынесения в код.</li>
-</ul><p><strong>Не замораживаются ни при каком сокращении:</strong> S1 в части реестра и дата-контрактов и S5 целиком. Первое — потому что без него сокращение обнуляет всё остальное; второе — потому что это регуляторное требование, а не улучшение.</p>
+<h2 id="05-risks--freeze-list">Freeze list</h2>
+<p>Published in advance. If a third of the resource is lost, we freeze top-down:</p>
+<ul><li><strong>S3 · Governed self-service</strong> — first. It only pays off after S1, and without resource S1 will not finish. Frozen entirely, not reduced to &quot;a pilot in one category&quot;.</li>
+<li><strong>S4 · Platform migration</strong> — in scope of our timeline, not cancelled: the migration is external. What freezes is our acceptance work beyond the minimum.</li>
+<li><strong>S2 · Metric layer</strong> — reduced to three agreed definitions without moving them into code.</li>
+</ul><p><strong>Never frozen, under any cut:</strong> S1 in the part covering the register and data contracts, and S5 in full. The first because without it a cut nullifies everything else; the second because it is a regulatory requirement, not an improvement.</p>
 <blockquote>
-<p><strong>Проверка честности списка.</strong> Если сокращение бюджета наступит, а список окажется неудобным — значит, он составлен правильно. Список, с которым все согласны заранее, обычно не резал ничего.</p>
+<p><strong>Honesty check for this list.</strong> If the budget cut arrives and the list turns out to be uncomfortable, it was written correctly. A list everyone agrees with in advance has usually cut nothing.</p>
 </blockquote></section>
-<section id="appendix-90-диагностика"><h1 id="appendix-90-диагностика--90-диагностика-зрелости">90. Диагностика зрелости</h1>
-<p>Шкала 0–4: 0 нет · 1 запланировано · 2 частично · 3 сделано, нужны улучшения · 4 полностью и оптимизировано.</p>
-<table><thead><tr><th>Уровень</th><th>Категории</th><th>Что это значит</th></tr></thead><tbody>
-<tr><td>🔴 <strong>1</strong></td><td>Управление данными · Качество данных · Governance и владение</td><td>Функции нет: ни ролей, ни процессов, ни инструментов. Разрыв на первом звене цепочки</td></tr>
-<tr><td>🟡 <strong>2</strong></td><td>Управление BI-контентом · Проектное управление · Безопасность и доступы</td><td>Процессы есть по факту, но не описаны; безопасность закрыта на уровне платформы, не на уровне модели</td></tr>
-<tr><td>🟡 <strong>2</strong></td><td>Связь с бизнесом</td><td>Заказчики есть и активны, но требования приходят как заявки на отчёт, а не как вопросы</td></tr>
-<tr><td>🔴 <strong>1</strong></td><td>Adoption и удовлетворённость</td><td>Не измеряется</td></tr>
-<tr><td>🔴 <strong>1</strong></td><td>Self-service доставка</td><td>Доступы есть у части аналитиков, правил нет</td></tr>
-<tr><td>🟡 <strong>2</strong></td><td>Guided-доставка</td><td>Отчёты для руководителей делаются централизованно и стабильно — единственное, что работает как процесс</td></tr>
+<section id="appendix-90-diagnostics"><h1 id="appendix-90-diagnostics--90-maturity-diagnostics">90. Maturity diagnostics</h1>
+<p>Scale 0–4: 0 none · 1 planned · 2 partial · 3 done, needs improvement · 4 complete and optimized.</p>
+<table><thead><tr><th>Level</th><th>Categories</th><th>What it means</th></tr></thead><tbody>
+<tr><td>🔴 <strong>1</strong></td><td>Data management · Data quality · Governance and ownership</td><td>The function does not exist: no roles, no processes, no tooling. The break is at the first link of the chain</td></tr>
+<tr><td>🟡 <strong>2</strong></td><td>BI content management · Project management · Security and access</td><td>Processes exist de facto but are undocumented; security is handled at the platform level, not at the model level</td></tr>
+<tr><td>🟡 <strong>2</strong></td><td>Connection with the business</td><td>Stakeholders exist and are active, but requirements arrive as report tickets rather than as questions</td></tr>
+<tr><td>🔴 <strong>1</strong></td><td>Adoption and satisfaction</td><td>Not measured</td></tr>
+<tr><td>🔴 <strong>1</strong></td><td>Self-service delivery</td><td>Some analysts have access, there are no rules</td></tr>
+<tr><td>🟡 <strong>2</strong></td><td>Guided delivery</td><td>Executive reports are produced centrally and reliably — the only thing that works as a process</td></tr>
 </tbody></table>
-<p><strong>Средний уровень: 1,5.</strong> Сильных категорий нет.</p>
-<h2 id="appendix-90-диагностика--ai-readiness">AI-readiness</h2>
-<table><thead><tr><th>Измерение</th><th>Оценка</th><th>Комментарий</th></tr></thead><tbody>
-<tr><td>Семантическое покрытие</td><td>0</td><td>слоя нет</td></tr>
-<tr><td>Сертифицированное ядро</td><td>0</td><td>витрины делаются под задачу</td></tr>
-<tr><td>Доменный контекст</td><td>0</td><td>не существует как класс</td></tr>
-<tr><td>Готовность процессов к «AI генерирует — человек проверяет»</td><td>1</td><td>ревью отчётов есть, но неформальное</td></tr>
-<tr><td>Замер качества ответов</td><td>0</td><td>эталонного набора нет</td></tr>
+<p><strong>Average level: 1.5.</strong> No strong categories.</p>
+<h2 id="appendix-90-diagnostics--ai-readiness">AI readiness</h2>
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Comment</th></tr></thead><tbody>
+<tr><td>Semantic coverage</td><td>0</td><td>no layer</td></tr>
+<tr><td>Certified core</td><td>0</td><td>marts are built per task</td></tr>
+<tr><td>Domain context</td><td>0</td><td>does not exist as a class</td></tr>
+<tr><td>Process readiness for &quot;AI drafts — humans validate&quot;</td><td>1</td><td>report review exists but is informal</td></tr>
+<tr><td>Answer-quality measurement</td><td>0</td><td>no golden set</td></tr>
 </tbody></table>
-<h2 id="appendix-90-диагностика--разрывы-цепочки">Разрывы цепочки</h2>
-<p><code>core → семантика → контекст → точность AI → self-service</code></p>
-<p>Разрыв на <strong>первом звене</strong>. Два дорогих следствия: любая витрина стоит недель и денег, а построить слой метрик не на чем. Всё правее первого звена недостижимо, пока он открыт — отсюда порядок стримов в <a href="#02-стримы">02-Стримы</a>.</p></section>
-<section id="appendix-91-рамка-анализа"><h1 id="appendix-91-рамка-анализа--91-рабочая-рамка-анализа">91. Рабочая рамка анализа</h1>
-<p>Семь блоков рамки — инструмент проработки. В документ вынесен результат; здесь фиксируется, что выяснили по каждому блоку и куда это ушло.</p>
-<table><thead><tr><th>Блок</th><th>Что выяснили</th><th>Куда ушло</th></tr></thead><tbody>
-<tr><td><strong>1. Бизнес-основа</strong></td><td>Домены не выделены, владельцев нет. Ключевые сущности — продажи, остатки, лояльность. Потребители: коммерция, категории, логистика, финансы</td><td>Проблемы P1, P3 → S1, S2</td></tr>
-<tr><td><strong>2. Оценка ландшафта</strong></td><td>Средний уровень 1,5; AI-readiness ноль по трём измерениям из пяти; adoption не измеряется</td><td><a href="#appendix-90-диагностика">90-Диагностика</a>, проблема P4</td></tr>
-<tr><td><strong>3. Целевая операционная модель</strong></td><td>Сейчас чистый centralized с элементами стихийного self-service. Целевая — guided для руководителей, управляемый self-service для категорий</td><td>S3, границы в <a href="#02-стримы">02-Стримы</a></td></tr>
-<tr><td><strong>4.1 Управление данными</strong></td><td>Процессов нет ни в одной из шести областей; ближе всего к существующему — мониторинг обновлений</td><td>S1: реестр и дата-контракты</td></tr>
-<tr><td><strong>4.2 Управление контентом</strong></td><td>Валидация и релиз есть неформально; сертификации, архивации и замера использования нет</td><td>Частично S3; архивация отложена до замера adoption</td></tr>
-<tr><td><strong>4.3 Управление инсайтами</strong></td><td>Не существует. Запрос коммерческого директора на ассистента — попытка перепрыгнуть сюда сразу</td><td>Гейт открытия ассистента в <a href="#04-цели">04-Цели</a></td></tr>
-<tr><td><strong>5. Технологическая основа</strong></td><td>DWH есть, слоя метрик нет, каталога нет. Миграция BI идёт вне контроля BI-команды</td><td>S1, S2, S4</td></tr>
-<tr><td><strong>6. Операционная основа</strong></td><td>Регулярных встреч по governance нет, матрицы прав нет, стандартов нет. Компетенции аналитиков не описаны</td><td>S5 в части прав; остальное отложено осознанно</td></tr>
-<tr><td><strong>7. Управление изменениями</strong></td><td>Бюджет не выделен, решение в ноябре — это и есть главная развилка стратегии</td><td><a href="#index">index</a> запрос к спонсору, <a href="#05-риски">05-Риски</a></td></tr>
+<h2 id="appendix-90-diagnostics--breaks-in-the-chain">Breaks in the chain</h2>
+<p><code>core → semantics → context → AI accuracy → self-service</code></p>
+<p>The break is at the <strong>first link</strong>. Two expensive consequences: every data mart costs weeks and money, and there is nothing to build a metric layer on. Everything right of the first link is unreachable while it stays open — hence the stream order in <a href="#02-streams">02-Streams</a>.</p></section>
+<section id="appendix-91-analysis-frame"><h1 id="appendix-91-analysis-frame--91-analysis-frame">91. Analysis frame</h1>
+<p>The seven blocks of the frame are a working instrument. The document carries the result; this page records what each block established and where it went.</p>
+<table><thead><tr><th>Block</th><th>What we established</th><th>Where it went</th></tr></thead><tbody>
+<tr><td><strong>1. Business foundation</strong></td><td>Domains are not defined, there are no owners. Key entities: sales, stock, loyalty. Consumers: commerce, categories, logistics, finance</td><td>Problems P1, P3 → S1, S2</td></tr>
+<tr><td><strong>2. Landscape assessment</strong></td><td>Average level 1.5; AI readiness zero on three dimensions out of five; adoption not measured</td><td><a href="#appendix-90-diagnostics">90-Diagnostics</a>, problem P4</td></tr>
+<tr><td><strong>3. Target operating model</strong></td><td>Today it is pure centralized delivery with pockets of spontaneous self-service. The target is guided for executives, governed self-service for categories</td><td>S3, boundaries in <a href="#02-streams">02-Streams</a></td></tr>
+<tr><td><strong>4.1 Data management</strong></td><td>No processes in any of the six areas; the closest thing that exists is refresh monitoring</td><td>S1: register and data contracts</td></tr>
+<tr><td><strong>4.2 Content management</strong></td><td>Validation and release happen informally; there is no certification, no archiving, no usage measurement</td><td>Partly S3; archiving deferred until adoption is measured</td></tr>
+<tr><td><strong>4.3 Insight management</strong></td><td>Does not exist. The commercial director&#x27;s request for an assistant is an attempt to jump straight here</td><td>Assistant opening gate in <a href="#04-goals">04-Goals</a></td></tr>
+<tr><td><strong>5. Technology foundation</strong></td><td>The warehouse exists, the metric layer and catalog do not. The BI migration runs outside the BI team&#x27;s control</td><td>S1, S2, S4</td></tr>
+<tr><td><strong>6. Operational foundation</strong></td><td>No governance cadence, no permission matrix, no standards. Analyst competencies are not described</td><td>S5 for permissions; the rest deliberately deferred</td></tr>
+<tr><td><strong>7. Change management</strong></td><td>The budget is unallocated and the decision falls in November — that is the strategy&#x27;s central fork</td><td><a href="#index">index</a> sponsor ask, <a href="#05-risks">05-Risks</a></td></tr>
 </tbody></table>
-<h2 id="appendix-91-рамка-анализа--блоки-не-попавшие-ни-в-один-стрим">Блоки, не попавшие ни в один стрим</h2>
-<ul><li><strong>Управление инсайтами (4.3)</strong> — сознательное решение: инсайты недостижимы до закрытия первого звена цепочки. Записано в «чего мы не делаем».</li>
-<li><strong>Часть операционной основы (6)</strong> — стандарты, компетенции, регулярный менеджмент. Отложены не по важности, а по ресурсу: команда из трёх человек не потянет их параллельно с S1. Возвращаемся на пересборке через полгода.</li></ul></section></main></div><script>
+<h2 id="appendix-91-analysis-frame--blocks-that-reached-no-stream">Blocks that reached no stream</h2>
+<ul><li><strong>Insight management (4.3)</strong> — a deliberate decision: insights are unreachable until the first link of the chain is closed. Recorded under &quot;what we deliberately do not do&quot;.</li>
+<li><strong>Part of the operational foundation (6)</strong> — standards, competencies, regular management. Deferred by capacity rather than importance: a team of three cannot run them alongside S1. Revisited at the six-month re-assembly.</li></ul></section></main></div><script>
 const secs=[...document.querySelectorAll('section')],links=[...document.querySelectorAll('nav a')];
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
  links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-10% 0px -80% 0px'});

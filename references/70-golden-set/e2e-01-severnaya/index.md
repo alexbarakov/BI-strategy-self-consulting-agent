@@ -1,57 +1,57 @@
-# BI+AI стратегия — «Северная аптека»
+# BI+AI Strategy — Severnaya Pharmacy Chain
 
-> Вымышленная компания · горизонт 3 года · драфт 1.1 после гейтов · 2026-08-29
-> ⚠️ Демонстрационный артефакт скилла. Числа — заглушки `<•>`, бейзлайны помечены `[требует уточнения]`.
+> Fictional company · three-year horizon · draft 1.1, after the gates · 2026-08-29
+> ⚠️ A demonstration artifact of the skill. Figures are placeholders `<•>`; baselines are marked `[requires clarification]`.
 
-## Куда идём
+## Where we are going
 
-Через три года решения о закупке, ценообразовании и логистике принимаются на одних и тех же цифрах, а не на выгрузках, которые каждая функция считает по-своему. Аналитики категорий берут данные из готового слоя, а не заказывают витрину у подрядчика и ждут неделями.
+Within three years, decisions on purchasing, pricing and logistics are made on the same numbers — not on extracts each function computes its own way. Category analysts take data from a ready layer instead of ordering a data mart from the contractor and waiting weeks.
 
-Это не про инструмент. Инструмент сменится в ходе миграции; ценность создаёт описанный и поддерживаемый слой данных, который переживёт смену платформы.
+This is not about the tool. The tool will change during the migration; the value is created by a described and maintained data layer that outlives the platform switch.
 
-## Какие проблемы закрываем
+## Which problems we are closing
 
-| Проблема | Кого бьёт | → |
+| Problem | Who it hits | → |
 |---|---|---|
-| Одна метрика считается по-разному в категориях и в финансах | коммерция, финансы | [[01-Контекст#P1 · Метрики расходятся]] |
-| Любая новая витрина идёт через подрядчика: недели и деньги по договору | все аналитики | [[01-Контекст#P2 · Витрины через подрядчика]] |
-| Нет владельцев данных — некому подтвердить логику | вся компания | [[01-Контекст#P3 · Нет владельцев данных]] |
-| Никто не знает, кто из руководителей чем пользуется | BI-команда | [[01-Контекст#P4 · Использование не измеряется]] |
-| ПДн лояльности лежат в тех же витринах, что продажи | комплаенс | [[01-Контекст#P6 · ПДн в витринах продаж]] |
+| One metric is computed differently in categories and in finance | commerce, finance | [[01-Context#P1 · Metrics disagree]] |
+| Every new data mart goes through the contractor: weeks and a separate invoice | all analysts | [[01-Context#P2 · Data marts via the contractor]] |
+| No data owners — nobody to confirm the logic | the whole company | [[01-Context#P3 · No data owners]] |
+| Nobody knows which executive uses what | BI team | [[01-Context#P4 · Usage is not measured]] |
+| Loyalty personal data sits in the same marts as sales | compliance | [[01-Context#P6 · Personal data inside sales marts]] |
 
-## Стримы изменений
+## Streams of change
 
-| Стрим | Одной строкой | Владелец |
+| Stream | In one line | Owner |
 |---|---|---|
-| **S1 · Доверенные данные** | свои витрины по продажам и остаткам вместо заявок подрядчику | руководитель ИТ |
-| **S2 · Слой метрик** | одно определение метрики на компанию, закреплённое в коде | руководитель BI |
-| **S3 · Управляемый self-service** | аналитики категорий работают сами на сертифицированных источниках | руководитель BI |
-| **S4 · Платформенный переход** | миграция на российский BI без переписывания логики заново | руководитель ИТ |
-| **S5 · Разделение чувствительных данных** | ПДн лояльности отделены от продаж на уровне модели и прав | комплаенс + ИТ |
+| **S1 · Trusted data** | our own marts for sales and stock instead of tickets to the contractor | Head of IT |
+| **S2 · Metric layer** | one definition per metric for the whole company, fixed in code | Head of BI |
+| **S3 · Governed self-service** | category analysts work on certified sources themselves | Head of BI |
+| **S4 · Platform migration** | move to the domestic BI tool without rewriting the logic from scratch | Head of IT |
+| **S5 · Separating sensitive data** | loyalty personal data separated from sales in the model and in permissions | Compliance + IT |
 
-→ подробно: [[02-Стримы]]
+→ in detail: [[02-Streams]]
 
-## Чего мы сознательно не делаем
+## What we deliberately do not do
 
-- **AI-ассистента по продажам в этом году.** Не потому что не нужен, а потому что отвечать ему не на чем: нет ни сертифицированного ядра, ни слоя метрик. Ассистент на текущих данных будет уверенно выдавать неверные числа, и это дороже его отсутствия. Гейт открытия назван в [[04-Цели]].
-- **Дата-каталог как отдельный проект.** Пока объектов, которые стоит каталогизировать, меньше сотни, реестр в вики дешевле платформы.
-- **Программу дата-грамотности.** Возвращаемся к ней, когда у аналитиков появится, с чем работать самостоятельно.
+- **An AI sales assistant this year.** Not because it is unnecessary, but because there is nothing for it to answer from: no certified core, no metric layer. An assistant on today's data will confidently return wrong numbers, and that costs more than its absence. The opening gate is stated in [[04-Goals]].
+- **A data catalog as a separate project.** While there are fewer than a hundred objects worth cataloguing, a register in the wiki is cheaper than a platform.
+- **A data literacy programme.** We return to it once analysts have something to work with on their own.
 
-## Что требуется от спонсора
+## What we need from the sponsor
 
-**Одно решение в ноябре, до бюджетного цикла:**
+**One decision in November, before the budget cycle:**
 
-1. **Дата-инженер в штат**, 1 FTE. Без него стратегия остаётся планом работ для подрядчика, а не изменением в компании.
-2. **Владелец домена «продажи» от коммерции** — имя, 20% времени, право подтверждать логику метрик.
+1. **A data engineer on staff**, 1 FTE. Without one, the strategy stays a work plan for the contractor rather than a change in the company.
+2. **An owner for the "sales" domain from commerce** — a name, 20% of their time, the authority to confirm metric logic.
 
-Оба пункта — не деньги на инструменты, а люди. Инструментальная часть закрывается внутри уже идущей миграции.
+Neither is money for tools. Both are people. The tooling side is covered inside the migration that is already running.
 
-## Первый шаг и цена бездействия
+## First step and the cost of inaction
 
-**90 дней:** реестр мастер-источников по продажам и остаткам · замер adoption по фокусным ролям · согласованное определение трёх спорных метрик.
+**90 days:** a register of master data sources for sales and stock · an adoption baseline for focus roles · agreed definitions for three disputed metrics.
 
-**Цена бездействия:** компания входит в миграцию BI-платформы без описанных витрин. Тогда миграция превращается в переписывание логики заново, силами того же подрядчика, по цене нового проекта — и на выходе получается та же нераспутанная модель на новом инструменте.
+**Cost of inaction:** the company enters the BI platform migration with undescribed data marts. The migration then becomes a rewrite of the logic from scratch, done by the same contractor at the price of a new project — and what comes out is the same untangled model on a new tool.
 
-## Навигация
+## Navigation
 
-[[01-Контекст]] · [[02-Стримы]] · [[03-Инициативы]] · [[04-Цели]] · [[05-Риски]] · [[appendix/90-Диагностика|Диагностика]] · [[appendix/91-Рамка-анализа|Рамка анализа]]
+[[00-Company-profile]] · [[01-Context]] · [[02-Streams]] · [[03-Initiatives]] · [[04-Goals]] · [[05-Risks]] · [[appendix/90-Diagnostics|Diagnostics]] · [[appendix/91-Analysis-frame|Analysis frame]]
