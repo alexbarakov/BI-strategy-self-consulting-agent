@@ -1,34 +1,34 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Пересборка уровня 1 голден-сета из ../faq-participants.md.
+"""Rebuild tier 1 of the golden set from ../faq-participants.md.
 
-Уровень 1 генерируется, уровни 2 и 3 ведутся руками.
-Запуск:  python3 build.py
+Tier 1 is generated; tiers 2 and 3 are maintained by hand.
+Run with:  python3 build.py
 """
 import re, sys, pathlib
 
 SRC = pathlib.Path(__file__).parent / ".." / "faq-participants.md"
 DST = pathlib.Path(__file__).parent / "goldenset-tier1.yaml"
 
-HEAD = """# Голден-сет скилла bi-strategy — уровень 1: retrieval
+HEAD = """# The bi-strategy skill's golden set - tier 1: retrieval
 #
-# Что меряет: нашёл ли агент нужные атомы базы знаний. Проверяется детерминированно,
-# без LLM-судьи: сравниваются множества атомов, на которые агент сослался.
+# What it measures: did the agent find the right knowledge base atoms. Checked deterministically,
+# with no LLM judge: the sets of atoms the agent cited are compared.
 #
-# ПРАВИЛО ФИКСАЦИИ: набор фиксируется до изменений в KB и НЕ переформулируется под то,
-# что агент нашёл. Переформулировка под поиск — это подгонка под тест.
+# THE FREEZE RULE: the set is frozen before any change to the KB and is NOT rephrased to match
+# what the agent found. Rephrasing to suit retrieval is fitting to the test.
 #
-# Генерируется из ../faq-participants.md скриптом build.py — руками не править.
-# Правки вносятся в FAQ, затем пересборка.
+# Generated from ../faq-participants.md by build.py - do not edit by hand.
+# Make the edits in the FAQ, then rebuild.
 #
-# mark: ◆ реальный вопрос участника · ◇ вынесен автором на обсуждение · ○ достроен из KB
-# status: needs_review до вычитки автором; в зачёт идут только confirmed
+# mark: ◆ a real participant question · ◇ put up by the author for discussion · ○ constructed from the KB
+# status: needs_review until the author has read it through; only confirmed counts
 
 meta:
   tier: 1
   kind: retrieval
   generated_from: ../faq-participants.md
-  scoring: "expected_atoms ⊆ cited_atoms → hit; метрика = recall по атомам и доля вопросов с полным попаданием"
+  scoring: "expected_atoms is a subset of cited_atoms -> hit; the metric is atom recall plus the share of questions hit in full"
   items: {n}
 
 items:"""
@@ -80,12 +80,12 @@ def render(items):
 def main():
     items = parse(SRC.read_text(encoding="utf-8"))
     if not items:
-        sys.exit("не удалось разобрать FAQ — проверь формат заголовков вопросов")
+        sys.exit("could not parse the FAQ - check the question heading format")
     empty = [i["question"] for i in items if not i["atoms"] and not i["files"]]
     DST.write_text(render(items), encoding="utf-8")
-    print(f"собрано {len(items)} позиций → {DST.name}")
+    print(f"built {len(items)} items -> {DST.name}")
     if empty:
-        print("БЕЗ ССЫЛОК НА АТОМЫ (такие вопросы не скорятся):")
+        print("NO ATOM REFERENCES (these questions cannot be scored):")
         for q in empty:
             print("  -", q)
 

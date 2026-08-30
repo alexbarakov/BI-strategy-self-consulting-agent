@@ -1,634 +1,634 @@
-# Голден-сет скилла bi-strategy — уровень 1: retrieval
+# The bi-strategy skill's golden set - tier 1: retrieval
 #
-# Что меряет: нашёл ли агент нужные атомы базы знаний. Проверяется детерминированно,
-# без LLM-судьи: сравниваются множества атомов, на которые агент сослался.
+# What it measures: did the agent find the right knowledge base atoms. Checked deterministically,
+# with no LLM judge: the sets of atoms the agent cited are compared.
 #
-# ПРАВИЛО ФИКСАЦИИ: набор фиксируется до изменений в KB и НЕ переформулируется под то,
-# что агент нашёл. Переформулировка под поиск — это подгонка под тест.
+# THE FREEZE RULE: the set is frozen before any change to the KB and is NOT rephrased to match
+# what the agent found. Rephrasing to suit retrieval is fitting to the test.
 #
-# Генерируется из ../faq-participants.md скриптом build.py — руками не править.
-# Правки вносятся в FAQ, затем пересборка.
+# Generated from ../faq-participants.md by build.py - do not edit by hand.
+# Make the edits in the FAQ, then rebuild.
 #
-# mark: ◆ реальный вопрос участника · ◇ вынесен автором на обсуждение · ○ достроен из KB
-# status: needs_review до вычитки автором; в зачёт идут только confirmed
+# mark: ◆ a real participant question · ◇ put up by the author for discussion · ○ constructed from the KB
+# status: needs_review until the author has read it through; only confirmed counts
 
 meta:
   tier: 1
   kind: retrieval
   generated_from: ../faq-participants.md
-  scoring: "expected_atoms ⊆ cited_atoms → hit; метрика = recall по атомам и доля вопросов с полным попаданием"
+  scoring: "expected_atoms is a subset of cited_atoms -> hit; the metric is atom recall plus the share of questions hit in full"
   items: 101
 
 items:
   - id: gs1-001
-    section: 1   # Проблемы BI, тренды, структура стратегии
+    section: 1   # BI problems, trends, the structure of a strategy
     mark: "◇"
-    question: "Можно ли жить без BI-стратегии?"
+    question: "Can you live without a BI strategy?"
     expected_atoms: [bi-strategy-purpose]
     status: needs_review
   - id: gs1-002
-    section: 1   # Проблемы BI, тренды, структура стратегии
+    section: 1   # BI problems, trends, the structure of a strategy
     mark: "◇"
-    question: "Можно ли написать стратегию с помощью GenAI?"
+    question: "Can you write a strategy with GenAI?"
     expected_atoms: [bi-strategy-purpose]
     expected_files: [review-gates.md]
     status: needs_review
   - id: gs1-003
-    section: 1   # Проблемы BI, тренды, структура стратегии
+    section: 1   # BI problems, trends, the structure of a strategy
     mark: "○"
-    question: "С чего начать, если стратегии не было никогда?"
+    question: "Where do you start if there has never been a strategy?"
     expected_atoms: [guide-structure, painpoints-analysis]
     status: needs_review
   - id: gs1-004
-    section: 1   # Проблемы BI, тренды, структура стратегии
+    section: 1   # BI problems, trends, the structure of a strategy
     mark: "◆"
-    question: "У нас нет единой стратегии: ИТ не драйвит процессы, а бизнес не знает как. Кто должен быть драйвером?"
+    question: "We have no single strategy: IT does not drive the processes and the business does not know how. Who should be the driver?"
     expected_atoms: [bi-adoption-stats, bi-org-structure]
     status: needs_review
   - id: gs1-005
-    section: 1   # Проблемы BI, тренды, структура стратегии
+    section: 1   # BI problems, trends, the structure of a strategy
     mark: "○"
-    question: "Как понять, что наш BI-проект действительно приносит пользу?"
+    question: "How do we know our BI project actually delivers?"
     expected_atoms: [bi-project-metrics, bi-value-illusion]
     status: needs_review
   - id: gs1-006
-    section: 1   # Проблемы BI, тренды, структура стратегии
+    section: 1   # BI problems, trends, the structure of a strategy
     mark: "○"
-    question: "AI обесценит BI-функцию?"
+    question: "Will AI devalue the BI function?"
     expected_atoms: [bi-value-illusion, data-utility-gap]
     status: needs_review
   - id: gs1-007
-    section: 1   # Проблемы BI, тренды, структура стратегии
+    section: 1   # BI problems, trends, the structure of a strategy
     mark: "◆"
-    question: "Мы одновременно импортозамещаемся и внедряем AI. Как не порваться?"
+    question: "We are doing import substitution and rolling out AI at the same time. How do we not tear ourselves apart?"
     expected_atoms: [ai-in-bi-approaches, bi-tool-selection]
     status: needs_review
   - id: gs1-008
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "◇"
-    question: "Зачем мне глобальная картина, я же просто BI-менеджер: админю сервер и делаю отчёты по запросу?"
+    question: "Why do I need the global picture - I am just a BI manager who administers the server and builds reports on request?"
     expected_atoms: [info-supply-demand]
     status: needs_review
   - id: gs1-009
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "◇"
-    question: "Как вы определяете приоритеты?"
+    question: "How do you set priorities?"
     expected_atoms: [info-supply-demand]
     status: needs_review
   - id: gs1-010
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "○"
-    question: "Сколько доменов надо покрыть, чтобы закрыть большинство кейсов?"
+    question: "How many domains do we have to cover to close most of the cases?"
     expected_atoms: [data-domains-classification, info-supply-demand]
     status: needs_review
   - id: gs1-011
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "◆"
-    question: "Бизнес не понимает, какими данными владеет компания и зачем ими управлять. С чего заходить?"
+    question: "The business does not understand what data the company holds or why it should be managed. Where do we start?"
     expected_atoms: [data-domains-classification, pain-fronts-2026]
     status: needs_review
   - id: gs1-012
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "◆"
-    question: "Бизнес не берёт ответственность за методологию метрик. Что делать?"
+    question: "The business will not take responsibility for metric methodology. What do we do?"
     expected_atoms: [glossary-vs-dictionary, ssbi-failure-causes]
     status: needs_review
   - id: gs1-013
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "○"
-    question: "Как собирать информационные потребности, если бизнес не приходит?"
+    question: "How do we gather information needs if the business does not come to us?"
     expected_atoms: [info-supply-demand]
     status: needs_review
   - id: gs1-014
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "○"
-    question: "Как классифицировать пользователей, чтобы это не осталось табличкой?"
+    question: "How do we classify users so it does not stay a spreadsheet?"
     expected_atoms: [user-classification]
     status: needs_review
   - id: gs1-015
-    section: 2   # Vision, спрос и предложение аналитики
+    section: 2   # Vision, the supply and demand of analytics
     mark: "○"
-    question: "Как зафиксировать статус критичных данных, чтобы это было решением, а не отчётом?"
+    question: "How do we record the status of critical data so that it is a decision, not a report?"
     expected_atoms: [critical-data-status]
     status: needs_review
   - id: gs1-016
-    section: 3   # Ассессмент и зрелость
+    section: 3   # Assessment and maturity
     mark: "◇"
-    question: "Кто и когда последний раз делал ассессмент своей BI-системы, и как?"
+    question: "Who last assessed their BI system, when, and how?"
     expected_atoms: [maturity-models]
     expected_files: [diagnostic.md]
     status: needs_review
   - id: gs1-017
-    section: 3   # Ассессмент и зрелость
+    section: 3   # Assessment and maturity
     mark: "○"
-    question: "Мы застряли — вроде всё есть, а зрелость не растёт. Почему?"
+    question: "We are stuck - we seem to have everything, but maturity does not grow. Why?"
     expected_atoms: [maturity-models]
     status: needs_review
   - id: gs1-018
-    section: 3   # Ассессмент и зрелость
+    section: 3   # Assessment and maturity
     mark: "○"
-    question: "Дашбордов много, а решения не меняются. В чём разрыв?"
+    question: "We have plenty of dashboards but decisions do not change. Where is the gap?"
     expected_atoms: [ai-cases-in-prod, maturity-models]
     status: needs_review
   - id: gs1-019
-    section: 3   # Ассессмент и зрелость
+    section: 3   # Assessment and maturity
     mark: "◆"
-    question: "Как считать adoption, если цифры нет?"
+    question: "How do we compute adoption if we have no number?"
     expected_atoms: [content-promotion-monitoring, participants-2026-benchmark]
     status: needs_review
   - id: gs1-020
-    section: 3   # Ассессмент и зрелость
+    section: 3   # Assessment and maturity
     mark: "○"
-    question: "Как измерить AI-готовность, а не просто заявить её?"
+    question: "How do we measure AI readiness rather than merely declare it?"
     expected_atoms: [ai-ready-domain-score]
     status: needs_review
   - id: gs1-021
-    section: 3   # Ассессмент и зрелость
+    section: 3   # Assessment and maturity
     mark: "◆"
-    question: "Почему у нас нет ни семантического слоя, ни каталога, ни разметки — это нормально?"
+    question: "We have no semantic layer, no catalog and no labelling - is that normal?"
     expected_atoms: [participants-2026-benchmark]
     status: needs_review
   - id: gs1-022
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "◇"
-    question: "Self-Service BI — это вообще работает?"
+    question: "Does self-service BI actually work?"
     expected_atoms: [ssbi-vs-guided]
     status: needs_review
   - id: gs1-023
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "◆"
-    question: "Доступ на разработку выдали всем без критериев, теперь надо наводить порядок. Как?"
+    question: "We gave everyone development access with no criteria and now have to sort it out. How?"
     expected_atoms: [content-certification, ssbi-workflow]
     status: needs_review
   - id: gs1-024
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "○"
-    question: "Где self-service неэффективен в принципе?"
+    question: "Where is self-service ineffective in principle?"
     expected_atoms: [ssbi-failure-causes]
     status: needs_review
   - id: gs1-025
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "○"
-    question: "Мы дали пользователям инструмент, а они не пользуются. Что не так?"
+    question: "We gave users a tool and they do not use it. What is wrong?"
     expected_atoms: [ssbi-workflow]
     status: needs_review
   - id: gs1-026
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "◆"
-    question: "Малый штат против желания навести порядок во всём. Что делать сначала?"
+    question: "A small headcount against a wish to put everything in order. What comes first?"
     expected_atoms: [action-plan]
     expected_files: [review-gates.md]
     status: needs_review
   - id: gs1-027
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "○"
-    question: "Централизованный BI и self-service конфликтуют. Как их помирить?"
+    question: "Centralized BI and self-service conflict. How do we reconcile them?"
     expected_atoms: [bi-org-structure, ssbi-vs-guided]
     status: needs_review
   - id: gs1-028
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "○"
-    question: "Какие практики сообщества брать, если ресурса мало?"
+    question: "Which community practices do we take if we have little resource?"
     expected_atoms: [selfservice-practices]
     status: needs_review
   - id: gs1-029
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "○"
-    question: "Что должен уметь централизованный BI, кроме разработки отчётов?"
+    question: "What should centralized BI be able to do besides building reports?"
     expected_atoms: [centralized-practices]
     status: needs_review
   - id: gs1-030
-    section: 4   # Governance: Self-Service, Guided, Agentic
+    section: 4   # Governance: self-service, guided, agentic
     mark: "○"
-    question: "Что заставляет людей пользоваться нашим data product, а что мешает?"
+    question: "What makes people use our data product, and what gets in the way?"
     expected_atoms: [bi-adoption-barriers]
     status: needs_review
   - id: gs1-031
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "◇"
-    question: "Сертификация отчётов — нормальная тема или оверинжиниринг?"
+    question: "Report certification - a sensible topic or over-engineering?"
     expected_atoms: [content-certification]
     status: needs_review
   - id: gs1-032
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "◇"
-    question: "Что происходит после ухода автора отчёта?"
+    question: "What happens after a report's author leaves?"
     expected_atoms: [bi-value-illusion, content-hygiene-loop]
     status: needs_review
   - id: gs1-033
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "◆"
-    question: "Постоянно появляются отчёты, которыми никто не владеет. Как это остановить?"
+    question: "Reports with no owner keep appearing. How do we stop it?"
     expected_atoms: [content-hygiene-loop]
     status: needs_review
   - id: gs1-034
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "◇"
-    question: "Как вы делите среды для контента?"
+    question: "How do you separate the content environments?"
     expected_atoms: [content-catalog-ux]
     status: needs_review
   - id: gs1-035
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "◆"
-    question: "Мусорные отчёты в проде, портянки кода в датасорсах, тировые отчёты лезут в песочницы. С чего начать разбор?"
+    question: "Junk reports in production, walls of code in the data sources, production-grade reports creeping into the sandboxes. Where do we start?"
     expected_atoms: [content-hygiene-loop, content-mgmt-processes]
     status: needs_review
   - id: gs1-036
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "○"
-    question: "Health-score сделали, а пользователи всё равно не находят нужное. Почему?"
+    question: "We built a health score and users still cannot find what they need. Why?"
     expected_atoms: [content-catalog-ux]
     status: needs_review
   - id: gs1-037
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "◇"
-    question: "Дизайнер в BI-команде — перебор или спасение?"
+    question: "A designer in the BI team - overkill or salvation?"
     expected_atoms: [visual-style-guide]
     status: needs_review
   - id: gs1-038
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "◇"
-    question: "Как у вас приживается дизайн-гайд?"
+    question: "How does a design guide take root with you?"
     expected_atoms: [visual-style-guide]
     status: needs_review
   - id: gs1-039
-    section: 5   # Управление контентом: сертификация, гигиена, находимость
+    section: 5   # Content management: certification, hygiene, findability
     mark: "○"
-    question: "Как понять, что промо отчёта сработало?"
+    question: "How do we know a report's promotion worked?"
     expected_atoms: [content-promotion-monitoring]
     status: needs_review
   - id: gs1-040
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "◆"
-    question: "Высокий TTM по витринам — аналитики идут в обход регламентов. Что первично: ускорять или закручивать?"
+    question: "High time to market on marts - analysts go around the rules. What comes first, speeding up or tightening up?"
     expected_atoms: [dg-launch-path, pain-fronts-2026]
     status: needs_review
   - id: gs1-041
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Нам отказали в бюджете на Data Governance. Направление закрыто?"
+    question: "We were refused the data governance budget. Is the direction dead?"
     expected_atoms: [dg-launch-path]
     status: needs_review
   - id: gs1-042
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Когда двигаться от MVP к программе?"
+    question: "When do we move from the MVP to a programme?"
     expected_atoms: [dg-launch-path]
     status: needs_review
   - id: gs1-043
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "◆"
-    question: "Кросс-доменная доступность данных — главная боль. Как её решать?"
+    question: "Cross-domain data availability is our main pain. How do we solve it?"
     expected_atoms: [access-automation, access-matrix]
     status: needs_review
   - id: gs1-044
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Что из управления доступами реально автоматизируется?"
+    question: "What in entitlement management genuinely automates?"
     expected_atoms: [access-automation]
     status: needs_review
   - id: gs1-045
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "◇"
-    question: "Когда пора внедрять дата-каталог?"
+    question: "When is it time to roll out a data catalog?"
     expected_atoms: [data-catalog-pitfalls]
     status: needs_review
   - id: gs1-046
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Каталог внедрили, он пустой. Что делать?"
+    question: "We rolled out a catalog and it is empty. Now what?"
     expected_atoms: [data-catalog-pitfalls]
     status: needs_review
   - id: gs1-047
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Каталог есть, но им не пользуются — конкурирует с вики и мессенджером."
+    question: "We have a catalog but nobody uses it - it competes with the wiki and the messenger."
     expected_atoms: [data-catalog-pitfalls]
     status: needs_review
   - id: gs1-048
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "◆"
-    question: "Как продать бизнесу ценность дата-ролей — DataOps, стюардов, QA?"
+    question: "How do we sell the business the value of data roles - DataOps, stewards, QA?"
     expected_atoms: [core-layer-project, infra-billing]
     status: needs_review
   - id: gs1-049
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "С каких витрин начинать core-слой?"
+    question: "Which marts do we start the core layer with?"
     expected_atoms: [core-layer-project]
     status: needs_review
   - id: gs1-050
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Где AI реально помогает в управлении данными, а где нет?"
+    question: "Where does AI genuinely help in data management, and where does it not?"
     expected_atoms: [ai-in-data-processes]
     status: needs_review
   - id: gs1-051
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Как описывать процессы управления данными, чтобы это не было пересказом DAMA?"
+    question: "How do we describe data management processes without it being a retelling of DAMA?"
     expected_atoms: [data-mgmt-processes]
     status: needs_review
   - id: gs1-052
-    section: 6   # Управление данными и Data Governance
+    section: 6   # Data management and data governance
     mark: "○"
-    question: "Наши боли уникальны?"
+    question: "Is our pain unique?"
     expected_atoms: [data-team-pain-points]
     status: needs_review
   - id: gs1-053
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "◆"
-    question: "Что из AI у людей реально доживает до прода?"
+    question: "What AI work actually survives to production for people?"
     expected_atoms: [participants-2026-benchmark]
     status: needs_review
   - id: gs1-054
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "◆"
-    question: "Какой процент ad-hoc реально можно отдать AI?"
+    question: "What percentage of ad-hoc can genuinely go to AI?"
     expected_atoms: [insight-management, participants-2026-benchmark]
     status: needs_review
   - id: gs1-055
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Почему демо text-to-SQL работает, а в проде врёт?"
+    question: "Why does a text-to-SQL demo work while production lies?"
     expected_atoms: [plausible-but-wrong]
     status: needs_review
   - id: gs1-056
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "С чего начинать триаду — семантика, core или база знаний?"
+    question: "Where do we start the triad - semantics, core or the knowledge base?"
     expected_atoms: [ai-triad-prerequisites]
     status: needs_review
   - id: gs1-057
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "◆"
-    question: "Нужно ли включать в семантический слой не только КХД, но и системы-источники прямо сейчас?"
+    question: "Should we put the source systems, not just the warehouse, into the semantic layer right now?"
     expected_atoms: [ai-triad-prerequisites, unified-bi-platform]
     status: needs_review
   - id: gs1-058
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Насколько семантический слой реально повышает точность?"
+    question: "How much does a semantic layer really raise accuracy?"
     expected_atoms: [semantic-layer-evidence]
     status: needs_review
   - id: gs1-059
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Text-to-SQL или text-to-semantic?"
+    question: "Text-to-SQL or text-to-semantic?"
     expected_atoms: [semantic-layer-evidence]
     status: needs_review
   - id: gs1-060
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Что вообще должно быть в архитектуре LLM-ассистента, чтобы он не врал?"
+    question: "What actually has to be in an LLM assistant's architecture so that it does not lie?"
     expected_atoms: [llm-assistant-architecture]
     status: needs_review
   - id: gs1-061
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Мы наполнили базу знаний. Почему точность не выросла?"
+    question: "We populated the knowledge base. Why did accuracy not rise?"
     expected_atoms: [context-governance, domain-knowledge-base]
     status: needs_review
   - id: gs1-062
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Больше контекста — лучше?"
+    question: "Is more context better?"
     expected_atoms: [context-layer-market]
     status: needs_review
   - id: gs1-063
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Кто должен верифицировать контекст и не станет ли это бутылочным горлышком?"
+    question: "Who should verify the context, and will that not become a bottleneck?"
     expected_atoms: [context-governance, context-layer-market]
     status: needs_review
   - id: gs1-064
-    section: 7   # AI-фундамент: семантика, core, контекст
+    section: 7   # The AI foundation: semantics, core, context
     mark: "○"
-    question: "Как понять, что пора остановить инициативу по контексту?"
+    question: "How do we know when to stop a context initiative?"
     expected_atoms: [context-layer-market]
     status: needs_review
   - id: gs1-065
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "◇"
-    question: "Кто с какими проблемами внедрения столкнулся?"
+    question: "Who ran into which rollout problems?"
     expected_atoms: [bi-tool-selection]
     status: needs_review
   - id: gs1-066
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Как сравнивать BI-системы, чтобы не спорить бесконечно?"
+    question: "How do we compare BI systems without arguing forever?"
     expected_atoms: [bi-tool-selection]
     status: needs_review
   - id: gs1-067
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Дашборд перестал быть единственным форматом. Что ещё?"
+    question: "The dashboard is no longer the only format. What else is there?"
     expected_atoms: [nextgen-report-formats]
     status: needs_review
   - id: gs1-068
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Покупать контекстную платформу или собирать самим?"
+    question: "Buy a context platform or build our own?"
     expected_atoms: [context-layer-market]
     status: needs_review
   - id: gs1-069
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "MCP есть у всех — чем тогда решения различаются?"
+    question: "Everyone has MCP - so what distinguishes the solutions?"
     expected_atoms: [context-layer-market]
     status: needs_review
   - id: gs1-070
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Как мерить качество агентной инфраструктуры, пока нет метрик точности?"
+    question: "How do we measure the quality of agent infrastructure while there are no accuracy metrics?"
     expected_atoms: [unified-bi-platform]
     status: needs_review
   - id: gs1-071
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Глоссарий и словарь данных — одно и то же?"
+    question: "Are a glossary and a data dictionary the same thing?"
     expected_atoms: [glossary-vs-dictionary]
     status: needs_review
   - id: gs1-072
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Нам нужно дерево метрик. С чего начать?"
+    question: "We need a metric tree. Where do we start?"
     expected_atoms: [glossary-vs-dictionary]
     status: needs_review
   - id: gs1-073
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Как оценивать перспективные направления вокруг BI, а не только сам инструмент?"
+    question: "How do we assess promising directions around BI rather than only the tool itself?"
     expected_atoms: [bi-toolset-landscape]
     status: needs_review
   - id: gs1-074
-    section: 8   # Инструменты и платформа
+    section: 8   # Tools and the platform
     mark: "○"
-    question: "Мы на какой стадии внедрения AI и что будет дальше?"
+    question: "Which stage of AI adoption are we at and what comes next?"
     expected_atoms: [ai-adoption-waves]
     status: needs_review
   - id: gs1-075
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "◇"
-    question: "Есть ли у вас BI-сообщество?"
+    question: "Do you have a BI community?"
     expected_atoms: [bi-community-management]
     status: needs_review
   - id: gs1-076
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Мы хотим программу чемпионов. Что нужно до запуска?"
+    question: "We want a champions programme. What is needed before the launch?"
     expected_atoms: [bi-community-management]
     status: needs_review
   - id: gs1-077
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Чемпионы выгорают, программа затухает. Это лечится?"
+    question: "Champions burn out and the programme fades. Is that curable?"
     expected_atoms: [bi-community-management]
     status: needs_review
   - id: gs1-078
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "◆"
-    question: "Нестандартизированный набор скиллов у разработчиков одного грейда. Как выровнять?"
+    question: "Developers on the same grade have wildly different skill sets. How do we level them?"
     expected_atoms: [bi-competency-matrix]
     status: needs_review
   - id: gs1-079
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "◆"
-    question: "Есть люди, которые застряли на джуне и годами не растут. Что с этим делать?"
+    question: "Some people are stuck at junior and have not grown for years. What do we do?"
     expected_atoms: [bi-competency-matrix]
     status: needs_review
   - id: gs1-080
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Как встроить LLM в матрицу компетенций?"
+    question: "How do we build the LLM into the competency matrix?"
     expected_atoms: [bi-competency-matrix]
     status: needs_review
   - id: gs1-081
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Матрицу переписали под AI, а найм остался прежним. Как чинить?"
+    question: "We rewrote the matrix for AI but hiring stayed the same. How do we fix it?"
     expected_atoms: [bi-hiring-ai-era]
     status: needs_review
   - id: gs1-082
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Что важнее на входе — SQL или мотивация?"
+    question: "What matters more at the door - SQL or motivation?"
     expected_atoms: [bi-hiring-ai-era]
     status: needs_review
   - id: gs1-083
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "◇"
-    question: "Удерживать синьоров, учить джунов или брать интернов?"
+    question: "Retain seniors, train juniors or take on interns?"
     expected_atoms: [bi-hiring-ai-era]
     status: needs_review
   - id: gs1-084
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Как не остаться с доменом, который держится на одном человеке?"
+    question: "How do we avoid a domain that rests on one person?"
     expected_atoms: [bi-competency-matrix]
     status: needs_review
   - id: gs1-085
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "◇"
-    question: "Какие ценности у команды централизованного BI?"
+    question: "What are the values of a centralized BI team?"
     expected_atoms: [centralized-bi-brand]
     status: needs_review
   - id: gs1-086
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "◆"
-    question: "BI в непродающем подразделении: эффект на бизнес не посчитать. Как быть?"
+    question: "BI in a non-revenue unit: the effect on the business cannot be computed. What do we do?"
     expected_atoms: [bi-project-metrics, centralized-bi-brand]
     status: needs_review
   - id: gs1-087
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Какие встречи реально нужны, а какие можно не заводить?"
+    question: "Which meetings are genuinely needed, and which can we skip?"
     expected_atoms: [regular-meetings]
     status: needs_review
   - id: gs1-088
-    section: 9   # Команда, роли, профессия
+    section: 9   # The team, the roles, the profession
     mark: "○"
-    question: "Зачем план онбординга новичка в стратегии?"
+    question: "Why is a newcomer's onboarding plan in the strategy?"
     expected_atoms: [onboarding-plan, rules-and-standards]
     status: needs_review
   - id: gs1-089
-    section: 10   # Эффективность и метрики
+    section: 10   # Efficiency and metrics
     mark: "○"
-    question: "Сколько метрик брать?"
+    question: "How many metrics do we take?"
     expected_atoms: [bi-project-metrics]
     status: needs_review
   - id: gs1-090
-    section: 10   # Эффективность и метрики
+    section: 10   # Efficiency and metrics
     mark: "○"
-    question: "Мы сэкономили аналитикам часы за счёт AI. Это эффект?"
+    question: "We saved analysts hours with AI. Is that the effect?"
     expected_atoms: [ai-time-saving-trap]
     status: needs_review
   - id: gs1-091
-    section: 10   # Эффективность и метрики
+    section: 10   # Efficiency and metrics
     mark: "○"
-    question: "Как вообще мерить эффект AI честно?"
+    question: "How do we measure AI's effect honestly at all?"
     expected_atoms: [ai-cases-in-prod, ai-in-data-processes]
     status: needs_review
   - id: gs1-092
-    section: 10   # Эффективность и метрики
+    section: 10   # Efficiency and metrics
     mark: "○"
-    question: "Рост числа вызовов агента — это успех?"
+    question: "Is a rise in agent calls a success?"
     expected_atoms: [ai-accelerator]
     status: needs_review
   - id: gs1-093
-    section: 10   # Эффективность и метрики
+    section: 10   # Efficiency and metrics
     mark: "○"
-    question: "Какие метрики выносить наверх как годовую витрину платформы?"
+    question: "Which metrics do we put on top as the platform's annual shop window?"
     expected_atoms: [unified-bi-platform]
     status: needs_review
   - id: gs1-094
-    section: 10   # Эффективность и метрики
+    section: 10   # Efficiency and metrics
     mark: "○"
-    question: "Что проверять регулярно, чтобы не разъехалось?"
+    question: "What do we check regularly so things do not drift?"
     expected_atoms: [bi-routine-calendar]
     status: needs_review
   - id: gs1-095
-    section: 11   # Action plan и внедрение
+    section: 11   # The action plan and rollout
     mark: "○"
-    question: "Чем инициатива в плане отличается от строчки в плане?"
+    question: "What makes an initiative in a plan different from a line in a plan?"
     expected_atoms: [action-plan]
     status: needs_review
   - id: gs1-096
-    section: 11   # Action plan и внедрение
+    section: 11   # The action plan and rollout
     mark: "○"
-    question: "Как ставить целевую зрелость, чтобы не нарисовать всё на четвёрки?"
+    question: "How do we set target maturity without drawing fours across the board?"
     expected_atoms: []
     expected_files: [review-gates.md]
     status: needs_review
   - id: gs1-097
-    section: 11   # Action plan и внедрение
+    section: 11   # The action plan and rollout
     mark: "○"
-    question: "Что писать в разделе «чего стратегия не делает»?"
+    question: "What goes into the \"what the strategy does not do\" section?"
     expected_atoms: [innovation-map]
     expected_files: [review-gates.md]
     status: needs_review
   - id: gs1-098
-    section: 11   # Action plan и внедрение
+    section: 11   # The action plan and rollout
     mark: "○"
-    question: "Как проверить, что стратегия не развалится при первом вопросе?"
+    question: "How do we check the strategy will not fall apart on the first question?"
     expected_atoms: []
     expected_files: [review-gates.md]
     status: needs_review
   - id: gs1-099
-    section: 11   # Action plan и внедрение
+    section: 11   # The action plan and rollout
     mark: "○"
-    question: "Как разгонять адопшен AI без «загона на курсы»?"
+    question: "How do we drive AI adoption without herding people onto courses?"
     expected_atoms: [ai-accelerator]
     status: needs_review
   - id: gs1-100
-    section: 11   # Action plan и внедрение
+    section: 11   # The action plan and rollout
     mark: "○"
-    question: "Чем закончить разговор про AI с бизнесом, если фундамента ещё нет?"
+    question: "How do we close a conversation about AI with the business when the foundation is not there yet?"
     expected_atoms: [ai-triad-prerequisites, semantic-layer-evidence]
     status: needs_review
   - id: gs1-101
-    section: 11   # Action plan и внедрение
+    section: 11   # The action plan and rollout
     mark: "○"
-    question: "Как написать vision, чтобы он не был набором слов?"
+    question: "How do we write a vision that is not just words?"
     expected_atoms: [vision-statement]
     status: needs_review
