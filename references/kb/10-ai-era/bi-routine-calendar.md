@@ -1,43 +1,43 @@
 ---
 id: bi-routine-calendar
-title: Календарь рутины BI-команды — что проверяется ежедневно, еженедельно, ежеквартально
+title: The BI team's routine calendar - what gets checked daily, weekly and quarterly
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 9"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 9"
+confidence: verifiable
 blocks: [6]
 ---
 
-Операционный чеклист с явным Definition of Done по каждой активности. Ценность в том, что это **готовый список того, что вообще должно проверяться** — большинство команд обнаруживают в нём дыры.
+An operational checklist with an explicit definition of done for each activity. Its value is that it is **a ready-made list of what ought to be checked at all** - most teams find holes in it.
 
-## Ежедневно (утро)
+## Daily (morning)
 
-| Активность | Definition of Done |
+| Activity | Definition of done |
 |---|---|
-| Проверить экстракты и актуальность мастер-источников | все источники обновились успешно |
-| Проверить корректность подписок | все подписки доставлены успешно |
-| Проверить самоподписку на ключевые отчёты | **дата обновления в отчёте = сегодня** |
-| Проверить доску сервис-деска: новые назначенные тикеты и их приоритет, завести Jira при необходимости | добавлены комментарии к назначенным тикетам, статус актуален |
-| План и ревью задач на день | план на день определён |
-| Daily BI meeting (вт, ср, пт) | открытые вопросы проговорены |
+| Check the extracts and the freshness of master sources | every source refreshed successfully |
+| Check that subscriptions are correct | every subscription delivered successfully |
+| Check your own subscription to the key reports | **the refresh date in the report is today** |
+| Check the service-desk board: new assigned tickets and their priority, raise a Jira issue if needed | comments added to assigned tickets, status current |
+| Plan and review the day's tasks | the day's plan is set |
+| Daily BI meeting (Tue, Wed, Fri) | open questions have been talked through |
 
-Приём с самоподпиской на ключевые отчёты — самый дешёвый способ поймать «данные не обновились» раньше пользователя.
+Subscribing yourself to the key reports is the cheapest way to catch "the data did not refresh" before the user does.
 
-## Еженедельно
+## Weekly
 
-Создать или проверить задачи DWH на следующий спринт (пятница EOD) · создать задачи, если заказчик обратился напрямую: в активный спринт при багфиксе, в рефайнмент для остального.
+Create or check the warehouse tasks for the next sprint (Friday EOD) · create tasks when a requester comes directly: into the active sprint for a bug fix, into refinement for everything else.
 
-## Раз в две недели
+## Fortnightly
 
-Проверить «отчёты в рабочем пространстве»: теги с назначением роли и домена — **DoD: все отчёты распределены по доменам и ролям, секция отчётов без роли пуста** · проверить неназначенные задачи в своём домене · оценить новые задачи в рефайнменте · проверить незакрытые задачи спринта · **разбить крупные задачи на истории, помещающиеся в один спринт**.
+Check "reports in the workspace": tags assigning a role and a domain - **DoD: every report is assigned to a domain and a role, and the section of reports without a role is empty** · check unassigned tasks in your domain · estimate new tasks in refinement · check unclosed sprint tasks · **split large tasks into stories that fit inside one sprint**.
 
-## Ежеквартально или по требованию
+## Quarterly or on demand
 
-| Проверка | Целевой порог |
+| Check | Target threshold |
 |---|---|
-| Длительность формирования экстрактов | **< 20 минут**, есть shame-list отчёт по нарушителям |
-| Производительность отчётов | нет аномалий в длительности запросов |
-| **Adoption отчётов** | **виден adoption: 30% фокусной аудитории** |
+| Extract build duration | **under 20 minutes**, with a shame-list report of the offenders |
+| Report performance | no anomalies in query duration |
+| **Report adoption** | **adoption is visible: 30% of the focus audience** |
 
-Три квартальные проверки — это фактически минимальный набор SLA, который команда даёт сама себе. Порог 30% фокусной аудитории — реалистичная планка, а не 100%.
+Those three quarterly checks are effectively the minimum SLA the team gives itself. The 30%-of-focus-audience threshold is a realistic bar, not 100%.
 
-Связи: [[bi-org-structure]] · [[regular-meetings]] · [[content-promotion-monitoring]] · [[bi-project-metrics]]
+Links: [[bi-org-structure]] · [[regular-meetings]] · [[content-promotion-monitoring]] · [[bi-project-metrics]]

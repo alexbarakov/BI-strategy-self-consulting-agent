@@ -1,47 +1,47 @@
 ---
 id: ssbi-vs-guided
-title: Два смысла Self-Service BI и почему нужен термин Guided BI
+title: The two meanings of self-service BI, and why the term guided BI is needed
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 3"
-confidence: оценка автора
+source: "Course \"BI+AI strategy 26\", Day 3"
+confidence: author estimate
 blocks: [3, 4.3]
 ---
 
-Ключевая терминологическая развилка метода: **под «self-service BI» в головах живут два разных сценария**, и их смешение — источник большинства провалов.
+The method's key terminological fork: **two different scenarios live inside people's heads under "self-service BI"**, and conflating them is the source of most failures.
 
-## Кейс 1 — обучить casual users собирать отчёты самим
+## Case 1 - teach casual users to build reports themselves
 
-Команда пытается научить бизнес-профессионалов перетаскивать данные в BI по шаблонам и сертифицированным источникам вместо экспорта в Excel и рисования графиков в PowerPoint.
+The team tries to teach business professionals to drag data into BI using templates and certified sources instead of exporting to Excel and drawing charts in PowerPoint.
 
-- Часто это **самообман, подстёгнутый вендорами** ради роста продаж
-- Принятие «explorer»-сценария практически нулевое и редко себя оправдывает
-- Продвижение NLP в BI-инструментах как основной надежды тоже оказалось неудачным
-- LLM-решения снимают часть ограничений UX запросов на естественном языке; есть значительный прорыв в принятии концепции, но на решение базовых проблем Data Assistant Chatbots — **доверие, качество данных, безопасность** — уйдут годы
+- This is often **self-deception, egged on by vendors** to grow sales
+- Uptake of the "explorer" scenario is close to zero and rarely justifies itself
+- Pushing NLP inside BI tools as the main hope also turned out badly
+- LLM-based solutions remove some of the UX constraints on natural-language querying; there is a substantial breakthrough in acceptance of the concept, but solving the basic problems of data assistant chatbots - **trust, data quality, security** - will take years
 
-Сценарий важен для adoption, но **это не self-service. Предложенный термин — Guided BI**: максимизация полезности готовых отчётов и источников.
+The scenario matters for adoption, but **it is not self-service. The proposed term is guided BI**: maximizing the usefulness of ready reports and sources.
 
-## Кейс 2 — дать инструменты power users внутри бизнес-команд
+## Case 2 - give power users inside the business teams the tools
 
-Команда даёт аналитикам в бизнес-командах доступ к инструментам, чтобы они делали отчёты для своего отдела.
+The team gives analysts inside business teams access to tools so they can build reports for their own department.
 
-- Это **тот самый Self-Service BI**: федеративная модель с распределёнными аналитиками на общей инфраструктуре
-- Они объединены в BI-сообщество и следуют практикам управления контентом, контролируемым командой BI
-- Ограничения: качество контента и отсутствие единой версии истины
-- **Доказывает эффективность в крупных предприятиях** (привет, data mesh)
+- This is **actual self-service BI**: a federated model with distributed analysts on shared infrastructure
+- They are joined into a BI community and follow the content management practices controlled by the BI team
+- The constraints: content quality and the absence of a single version of the truth
+- **It proves its worth in large enterprises** (hello, data mesh)
 
-## Два паттерна отношения BI-лидеров
+## Two patterns in how BI leaders position themselves
 
-- **Доминирование Centralized Report Factory (классика):** «Мы делаем отчёты под запрос, у нас большой бэклог, self-service — второстепенная задача, что-то делаем, но масштабного отклика от бизнеса нет»
-- **Доминирование SSBI:** «Мы развернули SSBI, записали курс, раздаём права, обновляем сервер, консультируем, мониторим трафик — люди пользуются, всё отлично»
+- **A dominant centralized report factory (the classic):** "We build reports on request, we have a large backlog, self-service is a secondary concern, we do something about it but there is no response from the business at scale."
+- **Dominant self-service BI:** "We rolled out SSBI, recorded a course, hand out entitlements, keep the server updated, consult, monitor traffic - people use it, everything is fine."
 
-Оба дают **недостаточное проникновение BI в бизнес**, но по разным причинам.
+Both produce **insufficient penetration of BI into the business**, for different reasons.
 
-| Чего не хватает Centralized | Чего не хватает SSBI |
+| What centralized lacks | What self-service lacks |
 |---|---|
-| низкая экспертиза в предметных областях · барьер заказчика и разработчика · bottleneck и борьба за приоритеты · shadow BI · SSBI-вспышки с затуханием | низкое кросс-функциональное использование · размножение правды · хаос контента · к некачественным данным добавились некачественные отчёты · риски защищённости · «нам некогда, нам сложно, мы опять забыли как» |
+| low subject-matter expertise · the barrier between requester and developer · a bottleneck and a fight over priorities · shadow BI · self-service flare-ups that fade | low cross-functional usage · the truth multiplies · content chaos · poor reports added on top of poor data · security risks · "we have no time, it is hard, we have forgotten how again" |
 
-## Вывод метода
+## The method's conclusion
 
-**SSBI не заместит Centralized Analytics, а без SSBI Centralized не достигнет единой версии правды.** Они не должны противопоставляться, но синергия требует усилий: стоимость прокачки любой метрики в какой-то момент становится запредельной, и для максимальной пользы нужно комбинировать драйверы, опытным путём находя точку, где дальнейшие инвестиции неразумны.
+**Self-service will not replace centralized analytics, and without self-service, centralized will not reach a single version of the truth.** They should not be set against each other, but the synergy takes effort: at some point the cost of pushing any one metric further becomes prohibitive, and getting the most out of it means combining drivers and finding empirically the point where further investment stops making sense.
 
-Связи: [[ssbi-failure-causes]] · [[ssbi-workflow]] · [[user-classification]] · [[selfservice-practices]] · [[centralized-practices]]
+Links: [[ssbi-failure-causes]] · [[ssbi-workflow]] · [[user-classification]] · [[selfservice-practices]] · [[centralized-practices]]

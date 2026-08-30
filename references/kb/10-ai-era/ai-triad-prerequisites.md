@@ -1,39 +1,39 @@
 ---
 id: ai-triad-prerequisites
-title: Триада пререквизитов AI-аналитики и порядок её сборки
+title: The triad of prerequisites for AI analytics, and the order to build it in
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 7"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 7"
+confidence: verifiable
 blocks: [5]
 ---
 
-Три слоя, без которых агент угадывает.
+Three layers without which the agent guesses.
 
-| Слой | Что это |
+| Layer | What it is |
 |---|---|
-| **Semantic layer** | слой метрик и разрезов — единое место расчёта, консистентность, *meaning lives in code* |
-| **Trusted core слой** | сертифицированные витрины плюс логическая и концептуальная модель данных ([[core-layer-project]]) |
-| **Доменная база знаний (ДБЗ)** | контекст поверх: фьюшоты, ловушки, глоссарий, дерево метрик ([[domain-knowledge-base]]) |
+| **The semantic layer** | the layer of metrics and cuts - a single place of computation, consistency, *meaning lives in code* |
+| **The trusted core layer** | certified marts plus a logical and conceptual data model ([[core-layer-project]]) |
+| **The domain knowledge base** | the context on top: few-shots, traps, glossary, metric tree ([[domain-knowledge-base]]) |
 
-**Без триады:** rework, потеря консистентности метрик, [[plausible-but-wrong]].
-**С ней:** 85–95% точности и честный отказ.
+**Without the triad:** rework, loss of metric consistency, [[plausible-but-wrong]].
+**With it:** 85-95% accuracy and an honest refusal.
 
-## Порядок сборки — по самой дорогой боли, а не «всё сразу»
+## The build order follows the most expensive pain, not "everything at once"
 
-Триаду **не строят параллельно**. Начинают с того слоя, который закрывает самую дорогую боль домена.
+The triad is **not built in parallel**. You start with the layer that closes the domain's most expensive pain.
 
-| Что болит | С чего начинать | Почему |
+| What hurts | Where to start | Why |
 |---|---|---|
-| **Консистентность метрик** — «у каждого своя цифра» | **semantic layer** | единое определение снимает большинство расхождений и споров о числах |
-| **Поиск данных и джойны** — аналитики тонут в витринах и джойнят вручную | **core-слой** | меньше витрин, чётче модель, меньше ошибок связывания |
-| **«Агент не понимает домен»** — данные есть, но агент путается в терминах | **доменная база знаний** | фьюшоты и глоссарий дают самый быстрый прирост точности |
+| **Metric consistency** - "everyone has their own number" | **the semantic layer** | a single definition removes most of the discrepancies and the arguments about numbers |
+| **Finding data and joining it** - analysts drown in marts and join by hand | **the core layer** | fewer marts, a clearer model, fewer join mistakes |
+| **"The agent does not understand the domain"** - the data is there but the agent muddles the terms | **the domain knowledge base** | few-shots and a glossary give the fastest accuracy gain |
 
-**Общее правило: один слой за раз, с eval до и после**, чтобы видеть реальный прирост. Пытаться построить всё сразу — верный способ не достроить ничего.
+**The general rule: one layer at a time, with an eval before and after**, so you can see the real gain. Trying to build all three at once is a reliable way to finish none.
 
-Это же правило — прямая операционализация kill-gate `no-assistant-without-foundation`: домашнее задание курса требует назвать, **кто gate и по какому kill-порогу инициатива останавливается**.
+This same rule directly operationalizes the `no-assistant-without-foundation` kill-gate: the course assignment requires naming **who the gate is and at which kill threshold the initiative stops**.
 
-## Практикум
+## The exercise
 
-Спроектировать триаду для одного домена: что уходит в semantic layer (метрики, разрезы) · что в trusted core (витрины, модель) · что в ДБЗ (фьюшоты, ловушки, глоссарий) · кто gate и по какому kill-порогу.
+Design the triad for one domain: what goes into the semantic layer (metrics, cuts) · what into the trusted core (marts, model) · what into the domain knowledge base (few-shots, traps, glossary) · who the gate is and at which kill threshold.
 
-Связи: [[core-layer-project]] · [[domain-knowledge-base]] · [[llm-assistant-architecture]] · [[ai-ready-domain-score]] · [[plausible-but-wrong]]
+Links: [[core-layer-project]] · [[domain-knowledge-base]] · [[llm-assistant-architecture]] · [[ai-ready-domain-score]] · [[plausible-but-wrong]]

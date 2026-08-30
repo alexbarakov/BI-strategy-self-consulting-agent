@@ -1,44 +1,44 @@
 ---
 id: ai-in-data-processes
-title: Где AI реально работает в управлении данными — маршрутизация, а не замена
+title: Where AI actually works in data management - routing, not replacement
 type: evidence
-source: "Курс «BI+AI стратегия 26», Занятие 6; развёрнуто в references/evidence-2026.md §2"
-confidence: смешанная — по каждой строке указан уровень
+source: "Course \"BI+AI strategy 26\", Day 6; expanded in references/evidence-2026.md §2"
+confidence: mixed - the level is stated per row
 blocks: [2, 4.1, 5]
 ---
 
-Единственная закономерность, которую метод считает надёжной:
+The one regularity the method considers dependable:
 
-> Чем ближе задача к «понять смысл», тем лучше результат. Чем ближе к «дать гарантию» — тем хуже. **Побеждает не замена процесса, а маршрутизация.**
+> The closer the task is to "make sense of meaning", the better the result. The closer it is to "give a guarantee", the worse. **What wins is not replacing the process but routing it.**
 
-## Работает — модель видит смысл там, где правило слепо
+## Works - the model sees meaning where a rule is blind
 
-| Задача | Замер | Комментарий |
+| Task | Measurement | Comment |
 |---|---|---|
-| **Классификация PII и конфиденциальности** | 52,7% → 95,0% | regex против модели на 1000 документов; на категории «конфиденциально» у regex ровно 0% |
-| **Сопоставление сущностей, дедупликация** | 35,5% → 95,4% precision | дешёвый блокинг + LLM только на спорных парах; ~$0,04 на датасет |
-| **Сопоставление схем при интеграции** | 88,7% против 51–56% | против COMA и CUPID; **выигрыш только на сложных схемах** — на простых классика не хуже |
-| **Парсинг сложных таблиц и сканов** | 90,2% против 64,6% | переменная вёрстка; **на фиксированных формах обычный OCR даёт до 99% и дешевле** |
+| **PII and confidentiality classification** | 52.7% -> 95.0% | regex versus the model on 1,000 documents; in the "confidential" category regex scores exactly 0% |
+| **Entity matching, deduplication** | 35.5% -> 95.4% precision | cheap blocking plus the LLM only on disputed pairs; ~$0.04 per dataset |
+| **Schema matching during integration** | 88.7% versus 51-56% | against COMA and CUPID; **the win exists only on complex schemas** - on simple ones the classics are no worse |
+| **Parsing complex tables and scans** | 90.2% versus 64.6% | variable layout; **on fixed forms ordinary OCR reaches up to 99% and costs less** |
 
-## Работает только под проверку — без исполняемого контроля результат не принимать
+## Works only under verification - do not accept the result without an executable check
 
-| Задача | Замер | Комментарий |
+| Task | Measurement | Comment |
 |---|---|---|
-| **Перевод SQL между диалектами** | 76% → 87% | сырой перевод против перевода с обратной связью по ошибкам исполнения |
-| **Описания и метаданные** | 19,6% против 6,3% ошибок | у модели против человека; мерить долю принятого стюардом без правок |
-| **Код пайплайнов** | скорость ↑, стабильность ↓ | DORA-2025: AI одинаково усиливает и зрелый конвейер, и хаос — узкое место уезжает в ревью |
+| **SQL translation between dialects** | 76% -> 87% | raw translation versus translation with feedback from execution errors |
+| **Descriptions and metadata** | 19.6% versus 6.3% error rate | model versus human; measure the share a steward accepts without edits |
+| **Pipeline code** | speed up, stability down | DORA-2025: AI amplifies a mature pipeline and chaos alike - the bottleneck moves into review |
 
-## Переоценено или не доказано — цифры вендорские либо их нет
+## Overrated or unproven - the figures are vendor-supplied or absent
 
-| Задача | Замер | Комментарий |
+| Task | Measurement | Comment |
 |---|---|---|
-| **Поиск причины инцидента** | 23,75% → 48,25% | сырая телеметрия против слияния источников; **отдавать ранжированные улики, а не вердикт** |
-| **Генерация правил качества данных** | независимых данных нет | «минус 60–80% ложных» — только вендорские блоги; мерить свой FP в shadow-режиме две недели |
+| **Incident root cause** | 23.75% -> 48.25% | raw telemetry versus fused sources; **hand over ranked evidence, not a verdict** |
+| **Generating data quality rules** | no independent data | "60-80% fewer false positives" appears only in vendor blogs; measure your own false-positive rate in shadow mode for two weeks |
 
-## Правило маршрутизации
+## The routing rule
 
-**Детерминированный слой — на массовый объём, модель — на спорные случаи.** И не измерять эффект самооценкой команды: в контролируемом замере разработчики оказались **на 19% медленнее, будучи уверены, что стали на 20% быстрее**.
+**The deterministic layer takes the bulk volume, the model takes the disputed cases.** And do not measure the effect by the team's self-assessment: in a controlled measurement developers turned out to be **19% slower while convinced they had become 20% faster**.
 
-Это же правило объясняет экономику: LLM на спорных 5% пар при дешёвом блокинге на остальных даёт и точность, и стоимость $0,04 на датасет.
+The same rule explains the economics: an LLM on the disputed 5% of pairs, with cheap blocking on the rest, delivers both the accuracy and a cost of $0.04 per dataset.
 
-Связи: [[data-team-pain-points]] · [[ai-time-saving-trap]] · [[data-catalog-pitfalls]] · [[ai-in-bi-approaches]]
+Links: [[data-team-pain-points]] · [[ai-time-saving-trap]] · [[data-catalog-pitfalls]] · [[ai-in-bi-approaches]]

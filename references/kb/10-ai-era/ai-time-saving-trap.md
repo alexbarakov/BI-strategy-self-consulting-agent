@@ -1,29 +1,29 @@
 ---
 id: ai-time-saving-trap
-title: Ловушка сэкономленных часов — почему «экономия времени» не равна эффекту
+title: The saved-hours trap - why "time saved" is not the effect
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 1"
-confidence: оценка автора, согласуется с evidence-2026 §1
+source: "Course \"BI+AI strategy 26\", Day 1"
+confidence: author estimate, consistent with evidence-2026 §1
 blocks: [6, 7]
 ---
 
-**Экономия времени у человека ≠ выгода для компании.** AI экономит время конкретному сотруднику сразу, но выгода на уровне организации сама не появляется.
+**Time saved by a person is not a gain for the company.** AI saves a specific employee time immediately, but the organizational gain does not appear on its own.
 
-## Два челленджа
+## Two challenges
 
-1. Доказать экономию времени на уровне человека — от AI
-2. **Управляемо перенаправить высвобожденное время** в увеличение velocity таргетных задач
+1. Prove the time saving at the individual level - and that it came from AI
+2. **Deliberately redirect the freed time** into higher velocity on the target work
 
-Освобождённое время у большинства «растворяется» — уходит в мелочи, а не в приоритеты. На уровне компании выгода возникает только при явном ре-аллокейте ресурса (do more with less).
+For most people the freed time "dissolves" - it goes into small things rather than priorities. At company level the gain only appears with an explicit reallocation of the resource (do more with less).
 
-## Вывод
+## The conclusion
 
-**«Часы сэкономлены» ≠ «эффект» — это метрика-ловушка.** Без управленческого решения, куда перенаправить время, экономия не конвертируется в результат.
+**"Hours saved" is not "effect" - it is a trap metric.** Without a management decision about where the time goes, the saving does not convert into a result.
 
-## Практическое следствие для стратегии
+## The practical consequence for a strategy
 
-Любая AI-инициатива в [[action-plan]] должна нести не только метрику экономии, но и **названное решение о ре-аллокейте**: что конкретно команда начнёт делать на высвободившемся ресурсе и кто это решение принимает. Инициатива без ответа на этот вопрос идёт в раздел «чего стратегия НЕ делает».
+Every AI initiative in [[action-plan]] must carry not only a saving metric but a **named reallocation decision**: what exactly the team will start doing with the freed resource, and who makes that call. An initiative with no answer to that question belongs in the "what the strategy does not do" section.
 
-Прямо связано с запретом измерять эффект самооценкой из `evidence-2026.md` §1: и «мне стало удобнее», и «я сэкономил три часа» — одинаково непригодны как доказательство.
+This ties directly to the ban on measuring effect by self-assessment in `evidence-2026.md` §1: "it feels easier now" and "I saved three hours" are equally unusable as proof.
 
-Связи: [[bi-project-metrics]] · [[ai-in-bi-approaches]] · [[action-plan]]
+Links: [[bi-project-metrics]] · [[ai-in-bi-approaches]] · [[action-plan]]

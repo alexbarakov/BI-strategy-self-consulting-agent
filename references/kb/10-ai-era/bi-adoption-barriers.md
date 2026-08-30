@@ -1,39 +1,39 @@
 ---
 id: bi-adoption-barriers
-title: Барьеры принятия BI — что заставляет пользоваться и что мешает
+title: BI adoption barriers - what makes people use it and what gets in the way
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 3; BI adoption diagnostics framework (44 фактора)"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 3; BI adoption diagnostics framework (44 factors)"
+confidence: verifiable
 blocks: [2, 4.2]
 ---
 
-Диагностика низкого adoption — отдельная рамка метода с **44 факторами**. Восемь ключевых вопросов, в которые она проваливается:
+Diagnosing low adoption is its own frame within the method, with **44 factors**. The eight key questions it drills into:
 
-- соответствуют ли отчёты текущим потребностям бизнеса и KPI менеджеров
-- не создаются ли лишние отчёты вместо ad-hoc поддержки
-- информированы ли пользователи и правильно ли онбордятся
-- отчёты понятны или слишком сложны
-- собирается ли фидбэк и внедряется ли он
-- отчёты медленные или труднодоступные
-- дают ли отчёты прозрачность качества данных, чтобы строить доверие
-- обучены ли пользователи и есть ли поддержка
+- do the reports match the current needs of the business and the managers' KPIs
+- are unnecessary reports being created instead of ad-hoc support
+- are users informed, and are they onboarded properly
+- are the reports understandable or too complex
+- is feedback collected, and is it acted on
+- are the reports slow or hard to reach
+- do the reports give visibility into data quality, so trust can be built
+- are users trained, and is there support
 
-## Что заставляет пользоваться data product
+## What makes people use a data product
 
-Уникальность и труднодоступность данных за его пределами · сложность воспроизвести трансформацию и логику самому · лёгкость поиска и обнаружения · предсказуемое и понятное качество · понятность и наличие документации · желание сэкономить ресурс своей команды.
+The data is unique and hard to get elsewhere · the transformation and logic are hard to reproduce yourself · it is easy to find and discover · quality is predictable and understood · it is comprehensible and documented · a wish to save your own team's resource.
 
-## Что мешает
+## What gets in the way
 
-Нет выстроенного доверия к владельцу data product · кейсы неуведомления при изменениях · нехватка отдельных полей · недостаточная частота обновления · неудобные инструменты · **незнание**.
+No established trust in the data product's owner · cases of not being notified about changes · missing individual fields · refresh frequency too low · awkward tooling · **simply not knowing it exists**.
 
-## Эффект, который метод называет отдельно
+## The effect the method calls out separately
 
-> «Нет доверия ничему, что сделали не мы и что мы не можем контролировать»
+> "There is no trust in anything we did not build and cannot control."
 
-Это не решается документацией — только ownership и предсказуемостью изменений.
+Documentation does not fix this - only ownership and predictable changes do.
 
-## Как собирать данные о барьерах
+## How to gather data about the barriers
 
-Постоянный сбор аналитики: **CustDev-интервью, опросы, анализ статистики обращений к данным**. Не разовый аудит, а регулярный контур.
+Continuous collection: **customer development interviews, surveys, analysis of data access statistics**. A regular circuit, not a one-off audit.
 
-Связи: [[bi-value-illusion]] · [[data-utility-gap]] · [[ssbi-failure-causes]] · [[content-mgmt-processes]]
+Links: [[bi-value-illusion]] · [[data-utility-gap]] · [[ssbi-failure-causes]] · [[content-mgmt-processes]]

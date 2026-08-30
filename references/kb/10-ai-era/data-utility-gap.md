@@ -1,41 +1,41 @@
 ---
 id: data-utility-gap
-title: Разрыв между обладанием данными и их использованием — шесть условий
+title: The gap between having data and using it - six conditions
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 1 (по DAMA-DMBOK, data utility)"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 1 (after DAMA-DMBOK, data utility)"
+confidence: verifiable
 blocks: [2, 4.1, 5]
 ---
 
-**Data utility** — полезность данных. Утилизация не происходит без utility. Низкая полезность создаёт разрыв между наличием данных и их использованием.
+**Data utility** is how usable data is. Utilization does not happen without utility. Low utility creates a gap between having data and using it.
 
-С одной стороны разрыва: базы данных, DWH, информационные системы, бизнес-метрики, отчёты. С другой: исследование, вопросы и ответы, изучение и анализ, инсайты, планирование, решения и действия.
+On one side of the gap: databases, the warehouse, information systems, business metrics, reports. On the other: exploration, questions and answers, study and analysis, insights, planning, decisions and actions.
 
-## Шесть условий, без которых данные не используют
+## The six conditions without which data goes unused
 
-| Условие | Что значит |
+| Condition | What it means |
 |---|---|
-| **Актуальность** | отражают сегодняшнее состояние |
-| **Доступность** | легко найти и открыть |
-| **Понятность** | ясно, что это и как посчитано |
-| **Доверие** | можно опереться без перепроверки |
-| **Своевременность** | приходят к моменту решения |
-| **Защищённость** | доступ строго по праву |
+| **Currency** | it reflects today's state |
+| **Accessibility** | easy to find and open |
+| **Comprehensibility** | it is clear what this is and how it was calculated |
+| **Trust** | you can rely on it without rechecking |
+| **Timeliness** | it arrives by the moment of decision |
+| **Protection** | access strictly by entitlement |
 
-## Почему AI поднимает ставки
+## Why AI raises the stakes
 
-- **Агент — тоже потребитель, но без интуиции**: ему нужны все шесть условий сразу, он не может «догадаться»
-- низкая utility → низкое использование и людьми, и агентами
-- text-to-SQL на «полу-данных» угадывает и роняет доверие
-- поэтому governance / DQ / семантика **не отмирают, а важнеют**
+- **An agent is a consumer too, but without intuition**: it needs all six conditions at once and cannot "work it out"
+- low utility means low usage, by people and by agents alike
+- text-to-SQL over half-formed data guesses, and knocks down trust
+- so governance, data quality and semantics **do not wither, they matter more**
 
-**Правило:** сначала закрыть разрыв «обладание → использование» по шести осям, потом накрывать AI-интерфейсом. Иначе ускоряем доступ к данным, которым нельзя доверять.
+**The rule:** first close the "having to using" gap along all six axes, then put an AI interface over it. Otherwise you are accelerating access to data that cannot be trusted.
 
-## Разделение труда между дисциплинами
+## The division of labour between the disciplines
 
-- **Data quality management** фокусируется на данных и системах
-- **Data governance** фокусируется на людях, стратегиях, процессах и практиках
+- **Data quality management** focuses on data and systems
+- **Data governance** focuses on people, strategies, processes and practices
 
-Обе включают одни и те же действия — постановку целей, измерение, мониторинг, анализ, настройку — и применяют их ко всем шести осям.
+Both involve the same activities - setting goals, measuring, monitoring, analysing, adjusting - and apply them across all six axes.
 
-Связи: [[ai-in-bi-approaches]] · [[data-mgmt-processes]] · [[critical-data-status]] · [[bi-adoption-barriers]]
+Links: [[ai-in-bi-approaches]] · [[data-mgmt-processes]] · [[critical-data-status]] · [[bi-adoption-barriers]]

@@ -1,36 +1,36 @@
 ---
 id: bi-value-illusion
-title: Иллюзии BI-лидера и реальная судьба отчётов
+title: The BI leader's illusions and what actually becomes of reports
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 1"
-evidence: "Eckerson Group / BARC — adoption rates; Roman Bunin — анализ времени жизни 34 305 дашбордов"
-confidence: проверяемо (внешние исследования), оценка автора (формулировки иллюзий)
+source: "Course \"BI+AI strategy 26\", Day 1"
+evidence: "Eckerson Group / BARC - adoption rates; Roman Bunin - lifetime analysis of 34,305 dashboards"
+confidence: verifiable (external research), author estimate (the wording of the illusions)
 blocks: [1, 2]
 ---
 
-Входной тезис курса, задающий тон всей диагностике: **ценность BI во многом самообман**, и стратегия начинается с готовности это признать.
+The course's opening thesis, which sets the tone for the whole diagnostic: **the value of BI is largely self-deception**, and a strategy starts with the willingness to admit it.
 
-## Цепочка затрат без проверки результата
+## A chain of costs with no check on the result
 
-Покупаем софт → платим поддержку → набираем команду → платим зарплату → делаем интеграции → делаем источники → делаем отчёты → раздаём доступы. Проверка эффекта в цепочке не предусмотрена.
+Buy the software -> pay for support -> hire the team -> pay the salaries -> build the integrations -> build the sources -> build the reports -> hand out access. Nowhere in the chain is there a check on the effect.
 
-## Что показывают замеры
+## What the measurements show
 
-- **88% отчётов умирают в течение 3 месяцев** — из-за изменения процесса, смены фокуса бизнеса, увольнения драйвера
-- **10% живут с минимальным трафиком** — единицы или десятки пользователей в месяц
-- **2% дают стабильный целевой результат**
-- Медианное время жизни дашборда — **~50 дней**; в подразделениях с зрелыми практиками — **136 дней**
-- Доля пользователей BI/аналитики по опросам BARC/Eckerson 2015–2022 держится в коридоре **22–25% (среднее) и 12,5–15% (медиана)** — за семь лет роста нет
+- **88% of reports die within 3 months** - because the process changed, the business shifted focus, or the driver left
+- **10% live on minimal traffic** - single or double digits of users per month
+- **2% deliver a stable, intended result**
+- The median dashboard lifetime is **~50 days**; in units with mature practices, **136 days**
+- The share of BI/analytics users in the BARC/Eckerson surveys from 2015 to 2022 stays in a band of **22-25% (mean) and 12.5-15% (median)** - no growth in seven years
 
-## Четыре иллюзии BI-лидера
+## The BI leader's four illusions
 
-1. **Иллюзия высокой ценности проекта.** Не хватает циничности и смелости критически оценить реальный value. Ни у кого нет общей картины: люди массово скрывают, что сами не пользуются отчётами, полагая, что у других иначе.
-2. **Иллюзия «всё пропало»** — скоро всё заменит GenAI.
-3. **Иллюзия «GenAI просто хайп»** — нас ничто не победит, учитывая, какое у нас в DWH.
-4. **Нехватка амбиций** у IT-ориентированной команды: взять на себя больше, чем поддержка системы, обучение и report factory.
+1. **The illusion of high project value.** There is not enough cynicism, or courage, to assess the real value critically. Nobody has the whole picture: people hide en masse that they do not use the reports themselves, assuming everyone else does.
+2. **The "it's all over" illusion** - GenAI will replace all of this shortly.
+3. **The "GenAI is just hype" illusion** - nothing can beat us, given what we have in the warehouse.
+4. **A shortage of ambition** in an IT-oriented team: taking on more than system support, training and the report factory.
 
-## Как использовать в диагностике
+## How to use this in a diagnostic
 
-Цифра 88/10/2 — самый эффективный вход в разговор о [[content-mgmt-processes]] и об архивации. Она же обосновывает, почему в [[bi-project-metrics]] есть «отчёты с падающим трафиком» и «пользователи, зашедшие один раз и не вернувшиеся»: без этих метрик команда не отличает 2% от 88%.
+The 88/10/2 figure is the most effective way into a conversation about [[content-mgmt-processes]] and archiving. It also explains why [[bi-project-metrics]] includes "reports with falling traffic" and "users who came once and never returned": without those metrics the team cannot tell the 2% from the 88%.
 
-Связи: [[pain-fronts-2026]] · [[bi-adoption-barriers]] · [[bi-project-metrics]] · [[content-mgmt-processes]]
+Links: [[pain-fronts-2026]] · [[bi-adoption-barriers]] · [[bi-project-metrics]] · [[content-mgmt-processes]]

@@ -1,33 +1,33 @@
 ---
 id: plausible-but-wrong
-title: Правдоподобно неверный ответ — главный риск AI-аналитики
+title: The plausible-but-wrong answer - the central risk of AI analytics
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 7"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 7"
+confidence: verifiable
 blocks: [2, 5]
 ---
 
-**Опаснее ошибки — правдоподобно неверный ответ.**
+**More dangerous than an error is a plausible wrong answer.**
 
-- Демо на игрушечной схеме всегда работает: маленькое пространство, очевидные джойны.
-- В проде агент угадывает и выдаёт **plausible but wrong**: синтаксически валидный SQL, но не та метрика, не тот период, не тот срез.
+- A demo on a toy schema always works: a small space, obvious joins.
+- In production the agent guesses and produces **plausible but wrong**: syntactically valid SQL, but the wrong metric, the wrong period, the wrong cut.
 
-## Механика падения доверия
+## The mechanics of trust collapse
 
-`Правдоподобный неверный ответ → падение доверия → возврат в Excel`
+`A plausible wrong answer -> trust falls -> back to Excel`
 
-Один правдоподобный неверный ответ бьёт по доверию сильнее, чем честное «не знаю». Теряется годами построенная консистентность метрик, а **доверие — самый дорогой актив BI-функции**.
+One plausible wrong answer damages trust more than an honest "I don't know". Metric consistency built over years is lost, and **trust is the BI function's most expensive asset**.
 
-## Три следствия для проектирования
+## Three design consequences
 
-1. **«Не могу» — валидный ответ.** Ассистент должен уметь отказываться, и отказ должен быть спроектирован как штатный сценарий, а не как сбой.
-2. **Уточняющий вопрос дешевле неверного ответа.** Если прочтений два — возвращаем вопрос пользователю; замер показывает разницу между режимами без уточнения и с уточнением как принципиальную.
-3. **Метка доверия и провенанс обязательны в ответе** — какая мера, какой запрос, на какую дату данные. См. runtime в [[llm-assistant-architecture]].
+1. **"I can't" is a valid answer.** The assistant must be able to refuse, and the refusal must be designed as a normal scenario rather than a failure.
+2. **A clarifying question is cheaper than a wrong answer.** If there are two readings, put the question back to the user; measurement shows the difference between the no-clarification and the clarification modes to be fundamental.
+3. **A trust marker and provenance are mandatory in the answer** - which measure, which query, as of what date. See the runtime in [[llm-assistant-architecture]].
 
-## Риск, ради которого строится вся архитектура
+## The risk the whole architecture exists for
 
-> Запрос отработал без ошибки и вернул неверное число — молча, сигнала об этом нет.
+> The query ran without an error and returned a wrong number - silently, with no signal.
 
-Именно из этого риска выводятся офлайн- и онлайн-валидация, голденсет и trust-плоскость. Всё остальное — детали реализации.
+Offline and online validation, the golden set and the trust plane are all derived from this one risk. Everything else is implementation detail.
 
-Связи: [[ai-triad-prerequisites]] · [[llm-assistant-architecture]] · [[context-governance]] · [[data-utility-gap]]
+Links: [[ai-triad-prerequisites]] · [[llm-assistant-architecture]] · [[context-governance]] · [[data-utility-gap]]

@@ -1,38 +1,38 @@
 ---
 id: glossary-vs-dictionary
-title: Глоссарий, словарь данных и три уровня метаданных
+title: The glossary, the data dictionary and the three levels of metadata
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 8"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 8"
+confidence: verifiable
 blocks: [4.1, 5]
 ---
 
-## Три уровня defining metadata
+## Three levels of defining metadata
 
-Концептуальный · логический · технический — у каждого свои формы метаданных, свои взаимосвязи и **свои роли, которые с ними работают**. Концептуальный уровень также называют семантическим или бизнес-уровнем; он валиден для конкретного use case.
+Conceptual · logical · technical - each with its own metadata forms, its own relationships and **its own roles working with them**. The conceptual level is also called the semantic or business level; it is valid for a specific use case.
 
-## Глоссарий против словаря данных
+## The glossary versus the data dictionary
 
-**Data glossary** — набор бизнес-терминов и их определений, и только.
+**A data glossary** is a set of business terms and their definitions, and nothing more.
 
-**Data dictionary** — обогащает каждую базу метаданными; коллекция информации о схемах, таблицах, колонках: тип данных · размер · значения по умолчанию · ограничения · связь с другими данными · **смысл и назначение колонки** · является ли информация PII.
+**A data dictionary** enriches each database with metadata; it is a collection of information about schemas, tables and columns: data type · size · default values · constraints · relation to other data · **the column's meaning and purpose** · whether the information is PII.
 
-По DAMA: словарь данных — место, где хранятся бизнес- и/или технические термины и определения; обычно спроектирован для ограниченного набора метаданных, сосредоточенного на именах и определениях физических данных и связанных объектов.
+Per DAMA, a data dictionary is where business and/or technical terms and definitions are held; it is usually designed for a limited set of metadata, centred on the names and definitions of physical data and related objects.
 
-Практический вывод: **это два разных артефакта с разными владельцами**, и попытка вести их в одном месте обычно ломает оба.
+The practical conclusion: **these are two different artifacts with different owners**, and trying to keep them in one place usually breaks both.
 
-## Как глоссарий доводится до пользователя
+## How the glossary reaches the user
 
-Рабочая связка из практики: глоссарий-мастер живёт в governance-платформе → **smart terms макрос в корпоративной вики** подсвечивает термины прямо в тексте страниц через поисково-подсвечивающий движок → из подсветки доступен тикет в сервис-деск к Data Steward.
+A working arrangement from practice: the master glossary lives in the governance platform -> **a smart-terms macro in the corporate wiki** highlights the terms right inside page text through a search-and-highlight engine -> from the highlight you can raise a service-desk ticket to the data steward.
 
-Смысл конструкции: **термин попадает пользователю в момент чтения**, а не требует похода в отдельную систему. Это тот же принцип «в потоке работы», что и в [[data-catalog-pitfalls]].
+The point of the construction: **the term reaches the user at the moment of reading** instead of requiring a trip to a separate system. It is the same "in the flow of work" principle as in [[data-catalog-pitfalls]].
 
-Аналогично на дашборде: описание метрики подтягивается к полю прямо в интерфейсе отчёта — pretty name плюс развёрнутое определение с формулой расчёта и оговорками.
+The same on a dashboard: the metric description is pulled up next to the field right in the report interface - a pretty name plus a full definition with the calculation formula and its caveats.
 
-## Дерево метрик — честное предупреждение
+## The metric tree - an honest warning
 
-> **Именно иерархизированное дерево у вас не получится.**
+> **A properly hierarchical tree is exactly what you will not get.**
 
-Полезная поправка к типовому ожиданию: метрики связаны сетью, а не деревом, и попытка построить строгую иерархию заканчивается либо натяжкой, либо остановкой работы. Строить стоит связи и уровни, а не единое дерево.
+A useful correction to the standard expectation: metrics are connected as a network, not a tree, and attempting a strict hierarchy ends either in a stretch or in the work stalling. What is worth building is relations and levels, not a single tree.
 
-Связи: [[semantic-layer-evidence]] · [[data-catalog-pitfalls]] · [[domain-knowledge-base]] · [[data-mgmt-processes]]
+Links: [[semantic-layer-evidence]] · [[data-catalog-pitfalls]] · [[domain-knowledge-base]] · [[data-mgmt-processes]]

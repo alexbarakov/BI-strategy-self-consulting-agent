@@ -1,55 +1,55 @@
 ---
 id: access-automation
-title: Автоматизация управления правами — пять элементов пазла
+title: Automating entitlement management - five pieces of the puzzle
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие «Content management» part 2"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session, part 2"
+confidence: verifiable
 blocks: [4.1, 6]
 ---
 
-> Доступы — монстр, жрущий ресурсы и мотивацию команды. **Инвестиции в автоматизацию окупаются на 100%.**
+> Access is a monster that eats the team's resource and its motivation. **Investment in automating it pays back 100%.**
 
-Метод называет это «прям сильно важной темой для развития BI-функции» и честно раскладывает, что автоматизируется, а что нет.
+The method calls this "a really important topic for developing the BI function" and lays out honestly what can be automated and what cannot.
 
-## Пять элементов и их автоматизируемость
+## The five pieces and how automatable they are
 
-| # | Элемент | Автоматизация |
+| # | Piece | Automation |
 |---|---|---|
-| 1 | Выдача лицензий | **да** |
-| 2 | Идентификация роли сотрудника | **да** |
-| 3 | Ролевая матрица прав | **нет** — только ручная выработка и sign off |
-| 4 | Навешивание доступов на BI-пространства и отчёты | **почти нет** |
-| 5 | Права на часть данных внутри отчёта (RLS) | **и да и нет** |
+| 1 | Issuing licences | **yes** |
+| 2 | Identifying an employee's role | **yes** |
+| 3 | The role-based entitlement matrix | **no** - hand-crafted and signed off, only |
+| 4 | Attaching access to BI spaces and reports | **barely** |
+| 5 | Rights to part of the data inside a report (RLS) | **yes and no** |
 
-## 1. Лицензии
+## 1. Licences
 
-Задачи: как с помощью 1000 лицензий пускать в систему 3000 пользователей · как полностью исключить ручную выдачу ключей · как контролировать расширенные лицензии разработчиков.
+The problems: how to let 3,000 users into a system on 1,000 licences · how to eliminate manual key issuance entirely · how to keep developers' extended licences under control.
 
-Решение — три автоматических правила: **автоматическая проверка права на ключ · автоматический грантинг при переходе на сервер · автоматический забор ключа после X дней без входа**. Плюс отбирать расширенные лицензии у тех, кто не пользуется; рассмотреть виртуальную машину или ферму.
+The solution is three automatic rules: **an automatic check of entitlement to a key · automatic granting when someone moves onto the server · automatic reclamation of the key after X days without a login**. Plus reclaiming extended licences from those who do not use them; consider a virtual machine or a farm.
 
-## 2. Идентификация роли
+## 2. Identifying the role
 
-Разовое сверхусилие на выявление правил плюс дальнейшая поддержка логики формирования групп.
+A one-off superhuman effort to derive the rules, plus ongoing maintenance of the group-formation logic.
 
-**Индикаторы того, что логика поехала:** дневные аномалии в численности групп · рост запросов в service desk. Оба ставятся на автопроверку.
+**Signs the logic has drifted:** daily anomalies in group sizes · a rise in service-desk requests. Both go on automatic monitoring.
 
-## 3. Матрица прав — то, что автоматизировать нельзя
+## 3. The entitlement matrix - the part that cannot be automated
 
-То, что нужно сверхусилием извлечь из менеджмента (владельцев данных), структурировать в формат нормативного документа и **получить sign off**.
+The thing you have to extract from management (the data owners) with a real effort, structure into the form of a governing document and **get signed off**.
 
-> **Матрица = мандат на ролевую раздачу прав на её основе без дополнительных апрувов.**
+> **The matrix is the mandate to hand out role-based access on its basis without further approvals.**
 
-Это и есть окупаемость: один раз согласованная матрица снимает поток индивидуальных согласований. Строится на основе [[info-supply-demand]] — берётся demand-матрица и в неё добавляются уровни доступа. Детали формата — [[access-matrix]].
+That is where the payback lies: a matrix agreed once removes the stream of individual approvals. It is built on top of [[info-supply-demand]] - you take the demand matrix and add access levels to it. Format details in [[access-matrix]].
 
-## 4. Навешивание доступов
+## 4. Attaching access
 
-Автоматизируется плохо, поэтому работают правилами:
-- **отказ от поимённых (не AD-групповых) доступов на продовые отчёты**
-- максимальное наследование доступов с верхних уровней (папка, проект, сайт, спейс)
-- автоматизация аудит-операций
+Automates poorly, so you work through rules instead:
+- **no per-person (non-AD-group) access on production reports**
+- maximum inheritance of access from the levels above (folder, project, site, space)
+- automation of the audit operations
 
-## Вопросы для самопроверки
+## Questions for self-assessment
 
-Ручные права против синхронизации с AD-группами, есть ли SSO · какой процесс license management, квоты и правила · есть ли группы, отвечающие за уровень доступных функций (просмотр, веб-редактирование, публикация, администрирование) · какова модель наследования прав с родительских пространств · **есть ли инструкция BI-чемпиону и SSBI-лидеру с простым гайдансом, что важно делать и не делать при администрировании прав**.
+Manual entitlements versus AD group sync, is there SSO · what the licence management process, quotas and rules are · are there groups covering the level of available functions (viewing, web editing, publishing, administration) · what the inheritance model from parent spaces looks like · **is there an instruction for the BI champion and the self-service lead with simple guidance on what matters and what to avoid when administering entitlements**.
 
-Связи: [[access-matrix]] · [[info-supply-demand]] · [[content-mgmt-processes]] · [[ssbi-workflow]]
+Links: [[access-matrix]] · [[info-supply-demand]] · [[content-mgmt-processes]] · [[ssbi-workflow]]

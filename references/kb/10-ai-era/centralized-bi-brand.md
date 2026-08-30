@@ -1,43 +1,43 @@
 ---
 id: centralized-bi-brand
-title: Централизованный BI как премиальный сервис — культура, брендинг, каталог услуг
+title: Centralized BI as a premium service - culture, branding, service catalog
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 9"
-confidence: оценка автора
+source: "Course \"BI+AI strategy 26\", Day 9"
+confidence: author estimate
 blocks: [4.3, 6]
 ---
 
-## Позиционирование
+## The positioning
 
-> **Centralized BI — премиальный сервис.** Как с точки зрения стоимости для компании, так и с точки зрения качества продукции. **Он не может быть доступным всем.**
+> **Centralized BI is a premium service.** Both in what it costs the company and in the quality of what it produces. **It cannot be available to everyone.**
 
-Прямое следствие: очередь и отказы — не дефект сервиса, а его конструкция. Это же снимает вечный спор «почему нам не сделали отчёт» — ответ лежит в приоритизации ([[info-supply-demand]]), а не в мощности.
+The direct consequence: a queue and refusals are not a defect of the service but its design. This also settles the perennial argument of "why did you not build our report" - the answer lies in prioritization ([[info-supply-demand]]), not in capacity.
 
-## Культура команды — вариант автора
+## The team culture - the author's version
 
-- Мы премиальный сервис — компания платит за него серьёзные деньги, и мы должны производить крутой продукт
-- Наш проект — лучший BI-проект в стране, **но это должно подтверждаться реальным трафиком, уровнем отчётов и автоматизацией процессов**
-- Мы лучшие BI-щики в компании и jedi в своём BI-продукте, и каждый должен соответствовать
+- We are a premium service - the company pays serious money for it, and we have to produce something excellent
+- Ours is the best BI project in the country, **but that has to be borne out by real traffic, the standard of the reports and the automation of the processes**
+- We are the best BI people in the company and jedi in our own BI product, and everyone has to live up to that
 
-Ценности: экспертность · драйв · гибкость · сервисность · перфекционизм · самоменеджмент · сверхусилия.
+Values: expertise · drive · flexibility · service orientation · perfectionism · self-management · going the extra mile.
 
-Вторая формулировка содержит встроенную защиту от самообмана: претензия на лучший проект обязана подтверждаться замером — это тот же принцип, что в [[bi-value-illusion]].
+The second statement has a defence against self-deception built into it: a claim to the best project has to be backed by a measurement - the same principle as in [[bi-value-illusion]].
 
-## Брендинг
+## Branding
 
-**Проблема доверия в report factory стоит острее, чем в self-service** — пользователь не видел, как делался отчёт, и не знает автора лично. Инструменты снятия:
+**The trust problem is sharper in a report factory than in self-service** - the user did not see the report being built and does not know its author personally. Ways to remove it:
 
-- **Публичные проектные доски** — что команда делает сейчас и что в бэклоге, по заказчикам
-- **Публичное качество** — демонстрация актуальности данных в ключевых отчётах и источниках; принципиальная деталь: показывать надо **три отметки времени** — дата-время обновления экстракта, дата-время формирования таблицы в базе и дата-время выгрузки из исходной системы. Одна общая отметка «обновлено» скрывает, где именно застряли данные.
+- **Public project boards** - what the team is doing now and what is in the backlog, by requester
+- **Public quality** - showing the freshness of data in the key reports and sources; one detail matters: you have to show **three timestamps** - when the extract refreshed, when the table in the database was built, and when the data was pulled from the source system. A single combined "updated" stamp hides where exactly the data got stuck.
 
-## Service catalog — интерфейс, где видно SLA
+## The service catalog - the interface where the SLA is visible
 
-Каталог сервисов — интерфейс, где пользователи видят доступные data/BI-сервисы **с SLA** и могут их заказать. Реальный состав каталога централизованной команды выходит далеко за «разработку отчётов»:
+The service catalog is the interface where users see the available data/BI services **with their SLAs** and can order them. The real contents of a centralized team's catalog go far beyond "report development":
 
-разработка отчётов по запросу и по планам АРМ · аналитические рабочие места (концепция развития отчётности по ролям + навигация и поиск + сертификация) · **market analysis** (исследования по запросу: рынок, клиенты, конкуренты; ежемесячный рыночный дайджест) · **infographic design** (оформление презентаций, приведение контента к корпоративному стилю) · **case studies и разбор проблем** · executive support и корпоративное governance · workshops support · **deep dives / R&D** (аналитические проекты по запросу с дата-инжинирингом, автоматизацией и информационным дизайном) · reporting workplaces и governance по линиям бизнеса · **client reporting** · DWH development и дата-каталог · data governance и data quality (проекты изменений в DWH и корпоративных системах под требования отчётности) · **BI trainings** (ad-hoc обучение команд и корпоративных функций) · **«reports makeover» — прокачка отчётов по запросу**.
+report development on request and under workplace plans · analytical workplaces (a concept for developing reporting by role, plus navigation, search and certification) · **market analysis** (research on request: market, customers, competitors; a monthly market digest) · **infographic design** (laying out presentations, bringing content into the corporate style) · **case studies and problem investigations** · executive support and corporate governance · workshop support · **deep dives / R&D** (analytical projects on request, with data engineering, automation and information design) · reporting workplaces and governance by line of business · **client reporting** · warehouse development and the data catalog · data governance and data quality (change projects in the warehouse and corporate systems driven by reporting requirements) · **BI training** (ad-hoc training for teams and corporate functions) · **a "reports makeover" - upgrading reports on request**.
 
-По каждому сервису в каталоге указан **заказчик** — фокусные роли, executive-менеджмент, delivery-менеджмент, все сотрудники.
+Each service in the catalog names its **requester** - focus roles, executive management, delivery management, all staff.
 
-Практический смысл: каталог превращает «BI-команда делает отчёты» в набор услуг с адресатом и SLA, и именно он делает возможным разговор о приоритетах и о бюджете.
+The practical point: the catalog turns "the BI team builds reports" into a set of services with an addressee and an SLA, and it is what makes a conversation about priorities and budget possible.
 
-Связи: [[centralized-practices]] · [[bi-value-illusion]] · [[info-supply-demand]] · [[bi-org-structure]]
+Links: [[centralized-practices]] · [[bi-value-illusion]] · [[info-supply-demand]] · [[bi-org-structure]]
