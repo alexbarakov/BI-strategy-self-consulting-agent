@@ -1,0 +1,428 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BI+AI Strategy — Vantage Mobility</title><style>
+:root{--bg:#fbfbfa;--fg:#1f2328;--mut:#5b6570;--line:#e4e6e8;--acc:#2fb9ca;--card:#fff;--code:#f3f4f6}
+@media(prefers-color-scheme:dark){:root{--bg:#14171a;--fg:#e6e8ea;--mut:#9aa4ad;--line:#282d33;--acc:#43cadb;--card:#1b1f23;--code:#22272c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:250px 1fr;gap:40px}
+nav{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:28px 0;font-size:14px}
+nav a{display:block;padding:7px 10px;color:var(--mut);text-decoration:none;border-radius:6px;border-left:2px solid transparent}
+nav a:hover{background:var(--card);color:var(--fg)}
+nav a.on{color:var(--acc);border-left-color:var(--acc);background:var(--card)}
+nav .grp{margin:16px 0 6px;padding-left:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);opacity:.7}
+main{padding:28px 0 96px;min-width:0}
+section{margin-bottom:56px;scroll-margin-top:20px}
+h1{font-size:30px;margin:.2em 0 .5em;line-height:1.25}
+h2,h3{scroll-margin-top:16px}
+h2{font-size:21px;margin:1.7em 0 .6em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+h3{font-size:17px;margin:1.4em 0 .4em}
+h4{font-size:15px;margin:1.2em 0 .3em;color:var(--mut)}
+p{margin:.6em 0}
+ul{margin:.5em 0;padding-left:22px}li{margin:.3em 0}
+code{background:var(--code);padding:.13em .4em;border-radius:4px;font-size:.87em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+blockquote{margin:1em 0;padding:.7em 1em;background:var(--card);border-left:3px solid var(--acc);border-radius:0 8px 8px 0}
+blockquote p{margin:.3em 0}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:14px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--card);font-weight:600;white-space:nowrap}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+a{color:var(--acc)}
+.hdr{padding:26px 0 6px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.hdr .t{font-size:13px;color:var(--mut)}
+@media(max-width:900px){.wrap{grid-template-columns:1fr;gap:0}nav{position:static;max-height:none;border-bottom:1px solid var(--line)}nav a{display:inline-block}}
+</style></head><body>
+<div class="wrap"><nav><div class="hdr"><div class="t">BI+AI strategy</div></div>
+<a href="#index">BI+AI Strategy — Vantage Mobility</a><a href="#00-company-profile">Vantage Mobility — the input to the run</a><a href="#01-context">🌍 Section 1. Context</a><a href="#02-streams">🧭 Section 2. Streams of change</a><a href="#03-initiatives">🗺️ Section 3. Projects and initiatives</a><a href="#04-goals">📊 Section 4. Goals as metrics</a><a href="#05-risks">⚠️ Section 5. Risks</a><div class="grp">Appendix</div><a href="#appendix-90-diagnostics">🩺 Diagnostics</a><a href="#appendix-91-analysis-frame">The seven blocks — what each established and where it went</a></nav><main><section id="index"><h1 id="index--bi-ai-strategy-vantage-mobility">BI+AI Strategy — Vantage Mobility</h1>
+<blockquote>
+<p>Fictional company · three-year horizon · draft 1.1, after the gates · 2026-08-30</p>
+<p>⚠️ A demonstration artifact of the skill. Figures are placeholders <code>&lt;•&gt;</code>; baselines are marked <code>[requires clarification]</code>.</p>
+</blockquote>
+<h2 id="index--where-we-are-going">Where we are going</h2>
+<p>Within three years the twelve metrics the board is graded on mean one thing across the company, and the AI assistant answers on them with a guarantee — or refuses and says who to ask. Not more answers than today. Answers that can be quoted.</p>
+<p>The assistant is not the project. It is already live, already paid for and already promised to the market. The project is giving it something true to answer from, and giving the company a way to tell whether it does.</p>
+<h2 id="index--which-problems-we-are-closing">Which problems we are closing</h2>
+<table><thead><tr><th>Problem</th><th>Who it hits</th><th>→</th></tr></thead><tbody>
+<tr><td>Three competing definitions of the twelve board metrics</td><td>commerce, analysts</td><td><a href="#01-context--p1-three-competing-definitions-of-the-twelve-commercial-metrics">P1 · Three competing definitions of the twelve commercial metrics</a></td></tr>
+<tr><td>The assistant answers questions it cannot answer correctly</td><td>ops, casual users</td><td><a href="#01-context--p2-the-assistant-answers-questions-it-cannot-answer-correctly">P2 · The assistant answers questions it cannot answer correctly</a></td></tr>
+<tr><td>Ops leads keep parallel spreadsheets</td><td>ops</td><td><a href="#01-context--p3-ops-leads-keep-parallel-spreadsheets">P3 · Ops leads keep parallel spreadsheets</a></td></tr>
+<tr><td>The assistant&#x27;s success is measured by call volume</td><td>the sponsor, the board</td><td><a href="#01-context--p4-the-assistant-x27-s-success-is-measured-by-call-volume">P4 · The assistant&#x27;s success is measured by call volume</a></td></tr>
+<tr><td>It reads the whole warehouse under one service account</td><td>security</td><td><a href="#01-context--p5-the-assistant-runs-under-a-service-account-with-warehouse-wide-read">P5 · The assistant runs under a service account with warehouse-wide read</a></td></tr>
+</tbody></table>
+<h2 id="index--streams-of-change">Streams of change</h2>
+<table><thead><tr><th>Stream</th><th>In one line</th><th>Owner</th></tr></thead><tbody>
+<tr><td><strong>S4 · Honest measurement</strong></td><td>a real accuracy number, and a public commitment restated in a unit that survives a question</td><td>Head of Analytics</td></tr>
+<tr><td><strong>S1 · One definition per metric</strong></td><td>twelve metrics defined once, in code, with named owners</td><td>Head of Data Platform</td></tr>
+<tr><td><strong>S3 · A guaranteed perimeter</strong></td><td>the assistant answers with provenance inside it and refuses outside it</td><td>Assistant PM</td></tr>
+<tr><td><strong>S2 · Trusted core</strong></td><td>from three certified domains to six, chosen by reuse</td><td>Data Platform lead</td></tr>
+<tr><td><strong>S5 · Dashboard hygiene</strong></td><td>an owner field and auto-archiving; nothing more</td><td>Data Platform lead</td></tr>
+</tbody></table>
+<p>→ in detail: <a href="#02-streams">02-Streams</a></p>
+<h2 id="index--what-we-deliberately-do-not-do">What we deliberately do not do</h2>
+<ul><li><strong>We do not switch the assistant off, and we do not rebuild it.</strong> It works, it is used, and the failure is not in the model — it is in what the model reads from.</li>
+<li><strong>We do not unify country-level metric variance.</strong> Where a country computes differently for regulatory or commercial reasons, we standardize the description of the difference, not the number. Erasing it would replace three wrong answers with one.</li>
+<li><strong>We do not build a data catalog this year.</strong> It entered the first draft and was removed at gate 0: no problem behind it.</li>
+<li><strong>We do not declare a governance function.</strong> One person at half-time with no mandate is not governance, and naming it would be the &quot;declared, not resourced&quot; pattern. The mandate is attached to twelve metrics instead. See the uncovered problem P7 in <a href="#02-streams">02-Streams</a>.</li>
+<li><strong>We do not touch 912 dashboards</strong> beyond an owner field and auto-archiving.</li>
+</ul><h2 id="index--what-we-need-from-the-sponsor">What we need from the sponsor</h2>
+<p>Three decisions, and the first one blocks the rest.</p>
+<ul><li><strong>Agree to restate the public commitment</strong> before the board pack is drafted — from &quot;50% of ad-hoc handled by AI&quot; to a share that is verified correct. This is a conversation with the CPO, not a budget line, and it is worth more than either of the others.</li>
+<li><strong>Two metric owners at 20% of their time</strong>, named individually, from commerce and ops. Not a team — two people with a weekly decision slot.</li>
+<li><strong>Authority to narrow the assistant&#x27;s perimeter</strong> without a squad veto, for the twelve metrics only.</li>
+</ul><p>Nothing here asks for headcount. The freeze is taken as given.</p>
+<h2 id="index--first-step-and-the-cost-of-inaction">First step and the cost of inaction</h2>
+<p><strong>90 days:</strong> measure the assistant&#x27;s real accuracy on a 60-question golden set built from live logs · agree the restated commitment · fix the first four definitions · publish perimeter 1 and turn refusal on · reconcile the assistant against the certified source. Detail in <a href="#03-initiatives">03-Initiatives</a>.</p>
+<p><strong>The cost of doing nothing</strong> is not that the assistant stays as it is. It is that in four months the board is shown a number that falls apart under its first question, and the ops shadow spreadsheets quietly become the system of record. The second is harder to reverse than the first.</p>
+<h2 id="index--navigation">Navigation</h2>
+<p><a href="#00-company-profile">Company profile</a> · <a href="#01-context">01-Context</a> · <a href="#02-streams">02-Streams</a> · <a href="#03-initiatives">03-Initiatives</a> · <a href="#04-goals">04-Goals</a> · <a href="#05-risks">05-Risks</a> · <a href="#appendix-90-diagnostics">Diagnostics</a> · <a href="#appendix-91-analysis-frame">Analysis frame</a></p></section>
+<section id="00-company-profile"><h1 id="00-company-profile--vantage-mobility-the-input-to-the-run">Vantage Mobility — the input to the run</h1>
+<blockquote>
+<p>A fictional company. The profile is the synthetic interview transcript the FORM run was executed against.</p>
+</blockquote>
+<h2 id="00-company-profile--the-company">The company</h2>
+<p>A car-subscription scale-up: customers take a car on a monthly subscription instead of buying or leasing it. Founded 2019, 1,300 employees, live in 11 European countries. Series D, an investor day held in June 2026.</p>
+<p>Not a company with a data problem in the usual sense. Engineering is strong, the warehouse is modern, and every product squad has its own analyst. The problem is that nothing means the same thing twice.</p>
+<h2 id="00-company-profile--what-makes-the-case-awkward">What makes the case awkward</h2>
+<table><thead><tr><th>Factor</th><th>Value</th></tr></thead><tbody>
+<tr><td>Engineering</td><td>strong: own platform, dbt, CI/CD, tracing, an MCP layer built in-house</td></tr>
+<tr><td>Analysts</td><td>~40, embedded in product and ops squads, reporting into the squads</td></tr>
+<tr><td>Central BI</td><td>6 people, a <strong>platform</strong> team — they do not build reports for the business</td></tr>
+<tr><td>Data governance</td><td>1 person at 50% of their time, no mandate, no policy signed</td></tr>
+<tr><td>Semantic layer</td><td>none. Metric logic lives in dbt models, in the BI tool&#x27;s own layer, and in the assistant&#x27;s few-shot examples</td></tr>
+<tr><td>Trusted core</td><td>3 domains of 11</td></tr>
+<tr><td><strong>AI assistant</strong></td><td><strong>already in production, 8 months, ~400 business users</strong></td></tr>
+<tr><td>Assistant usage</td><td>31% of ad-hoc questions go to it first — measured <strong>by call volume</strong>, not by correctness</td></tr>
+<tr><td>Trust</td><td>falling: ops leads keep parallel spreadsheets because the assistant and the dashboard disagree on &quot;active subscriptions&quot;</td></tr>
+<tr><td>Assistant identity</td><td>runs under one service account with read access to the whole warehouse</td></tr>
+<tr><td>Eval</td><td>none. No golden set, no accuracy measurement, no refusal path — it answers everything</td></tr>
+<tr><td>Content</td><td>~900 dashboards, no certification, no archiving, no owner field</td></tr>
+<tr><td>Headcount</td><td><strong>frozen</strong> until the next funding round</td></tr>
+<tr><td>Tooling budget</td><td>exists — the assistant is already paid for</td></tr>
+<tr><td><strong>Public commitment</strong></td><td>at the June investor day the CPO announced: <strong>&quot;50% of ad-hoc analytics handled by AI by the end of 2027&quot;</strong></td></tr>
+<tr><td>Deadline</td><td>a board review in four months will ask for progress against that number</td></tr>
+</tbody></table>
+<h2 id="00-company-profile--the-requester-s-ask-verbatim">The requester&#x27;s ask, verbatim</h2>
+<blockquote>
+<p>&quot;We already have the AI. We need the strategy that makes it work, and we need it to line up with what we told the market. Do not tell me to switch it off.&quot;</p>
+</blockquote>
+<h2 id="00-company-profile--self-assessment-0-4-collected-in-the-interview">Self-assessment, 0–4 (collected in the interview)</h2>
+<table><thead><tr><th>Category</th><th>Now</th><th>Target in a year</th></tr></thead><tbody>
+<tr><td>1 · Connection with business</td><td>2.5</td><td>3</td></tr>
+<tr><td>2 · Adoption and satisfaction</td><td>2.0</td><td>3</td></tr>
+<tr><td>3 · BI content management</td><td>1.5</td><td>2</td></tr>
+<tr><td>4 · Self-service delivery</td><td>3.0</td><td>3</td></tr>
+<tr><td>5 · Guided delivery / support</td><td>1.5</td><td>2</td></tr>
+<tr><td>6 · BI platform governance</td><td>1.5</td><td>2.5</td></tr>
+<tr><td>7 · Data quality management</td><td>2.0</td><td>3</td></tr>
+<tr><td>8 · Security and compliance</td><td>2.5</td><td>3</td></tr>
+<tr><td>9 · Project management</td><td>3.0</td><td>3</td></tr>
+<tr><td><strong>AI readiness (overlay)</strong></td><td><strong>1.4</strong></td><td><strong>2.5</strong></td></tr>
+</tbody></table>
+<p>Scored by the head of the data platform together with the head of analytics; the two disagreed on category 2 and settled on the lower number, because adoption of the assistant is measured by calls.</p>
+<h2 id="00-company-profile--what-was-measured-and-what-was-not">What was measured and what was not</h2>
+<p><strong>Measured:</strong> the number of dashboards (912) · the number of assistant calls and their growth · the share of ad-hoc questions starting in the assistant (31%) · the three competing definitions of &quot;active subscription&quot; (found by hand during the interview).</p>
+<p><strong>Not measured:</strong> the assistant&#x27;s accuracy · how many ops leads keep parallel spreadsheets · the share of queries hitting certified objects · time from question to trusted answer.</p>
+<p>Everything in the second list becomes <code>[requires clarification]</code> in the goals, and the first 90 days exist to close it.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#01-context">01-Context</a> · <a href="#appendix-90-diagnostics">Diagnostics</a></p></section>
+<section id="01-context"><h1 id="01-context--section-1-context">🌍 Section 1. Context</h1>
+<h2 id="01-context--1-1-external-context-trends">1.1 External context — trends</h2>
+<p>Six trends. Each carries the line &quot;what follows from it for us&quot;; a trend without one would be deleted.</p>
+<h3 id="01-context--t1-text-to-sql-on-a-real-enterprise-schema-is-around-40-and-a-semantic-layer-moves-it-to-85-95">T1 · Text-to-SQL on a real enterprise schema is around 40%, and a semantic layer moves it to 85–95%</h3>
+<p><code>benchmark</code> — paired measurements, one model, one question set, only the presence of semantics changes (<a href="https://spider2-sql.github.io/">Spider 2.0</a>; details in <code>kb/51-numbers.md</code>).</p>
+<p><strong>For us:</strong> our assistant has been running for eight months on a schema with no semantic layer at all. We have never measured which side of that range we are on. Until we do, every discussion about the assistant is a discussion about opinions.</p>
+<h3 id="01-context--t2-the-character-of-the-error-changes-with-a-semantic-layer">T2 · The character of the error changes with a semantic layer</h3>
+<p><code>benchmark</code> — on a question it does not cover, a layer answers &quot;I can&#x27;t&quot;; raw SQL generation returns a confidently wrong number in silence.</p>
+<p><strong>For us:</strong> our assistant has no refusal path. It answers every question, including the ones it should not. That is the mechanism behind the parallel spreadsheets, not a training problem.</p>
+<h3 id="01-context--t3-an-agent-is-a-new-class-of-identity">T3 · An agent is a new class of identity</h3>
+<p><code>author-estimate</code>, consistent with the 2026 governance material — private access plus untrusted input plus an outbound channel is exploitable.</p>
+<p><strong>For us:</strong> the assistant reads the whole warehouse under one service account. Access reviews currently see one account, not 400 users.</p>
+<h3 id="01-context--t4-the-market-shifted-from-data-catalogs-to-context-platforms">T4 · The market shifted from data catalogs to context platforms</h3>
+<p><code>vendor</code> in its framing (measured by the sellers), <code>benchmark</code> in the underlying finding: quality degrades as input grows, long before the window fills.</p>
+<p><strong>For us:</strong> we do not have a catalog, and we should not buy a context platform to compensate for the absence of definitions. The order is definitions first, delivery of them second.</p>
+<h3 id="01-context--t5-gartner-40-of-agentic-ai-projects-will-be-cancelled-by-end-of-2027">T5 · Gartner: 40% of agentic AI projects will be cancelled by end of 2027</h3>
+<p><code>vendor</code> — an analyst forecast built on a poll of 3,412 webinar attendees, not a measurement. Named causes: cost, unclear value, weak risk control.</p>
+<p><strong>For us:</strong> not grounds for an initiative, and not quotable as fact. Useful only as the register in which the board will ask its question in four months: what is this costing and what does it return.</p>
+<h3 id="01-context--t6-compressed-factory-teams-and-the-thinning-junior-tier">T6 · Compressed factory teams and the thinning junior tier</h3>
+<p><code>author-estimate</code> — the routine moves to agents and the entry route into the profession narrows.</p>
+<p><strong>For us:</strong> inverted. We never had a factory team, so nothing compresses. What we do have is 40 analysts whose squads now expect them to review the assistant&#x27;s output — a skill nobody has assessed them on.</p>
+<hr>
+<h2 id="01-context--1-2-internal-context-problems">1.2 Internal context — problems</h2>
+<p>Collected across four role groups. Each carries a symptom, evidence and a cost of inaction.</p>
+<h3 id="01-context--p1-three-competing-definitions-of-the-twelve-commercial-metrics">P1 · Three competing definitions of the twelve commercial metrics</h3>
+<p><strong>Group:</strong> analysts in squads, commerce.</p>
+<p><strong>Symptom:</strong> &quot;active subscriptions&quot; resolves differently in dbt, in the BI tool&#x27;s layer and in the assistant&#x27;s few-shot examples.</p>
+<p><strong>Evidence:</strong> <code>measured</code> — found by hand during the interview: three definitions, differing on paused subscriptions and on the last day of the month.</p>
+<p><strong>Cost of inaction:</strong> every number that reaches the board has to be reconciled by hand first. The reconciliation is currently done by two people in the week before each board meeting.</p>
+<h3 id="01-context--p2-the-assistant-answers-questions-it-cannot-answer-correctly">P2 · The assistant answers questions it cannot answer correctly</h3>
+<p><strong>Group:</strong> casual users, ops.</p>
+<p><strong>Symptom:</strong> no perimeter, no refusal, no provenance in the answer.</p>
+<p><strong>Evidence:</strong> <code>measured</code> — 31% of ad-hoc questions start in the assistant; accuracy has never been measured.</p>
+<p><strong>Cost of inaction:</strong> trust is spent down at an unknown rate on an unknown denominator. By the time it is visibly gone, it is not recoverable within a planning horizon.</p>
+<h3 id="01-context--p3-ops-leads-keep-parallel-spreadsheets">P3 · Ops leads keep parallel spreadsheets</h3>
+<p><strong>Group:</strong> casual users.</p>
+<p><strong>Symptom:</strong> the shadow file is treated as the real number for weekly operations.</p>
+<p><strong>Evidence:</strong> <code>author-estimate</code> — reported in the interview by two of four ops leads; not counted. <code>[requires clarification]</code> — an audit of shared drives would close it.</p>
+<p><strong>Cost of inaction:</strong> the shadow file quietly becomes the system of record, and the warehouse becomes the place where numbers are argued with rather than taken from.</p>
+<h3 id="01-context--p4-the-assistant-s-success-is-measured-by-call-volume">P4 · The assistant&#x27;s success is measured by call volume</h3>
+<p><strong>Group:</strong> the central team, the sponsor.</p>
+<p><strong>Symptom:</strong> the growth chart shown at the investor day was a call chart.</p>
+<p><strong>Evidence:</strong> <code>measured</code> — 31% is a share of questions started, not of questions answered correctly.</p>
+<p><strong>Cost of inaction:</strong> the public commitment is stated in a unit that cannot be defended. A rise in calls with no rise in solved tasks is not a result, and the board will find that out in one question.</p>
+<h3 id="01-context--p5-the-assistant-runs-under-a-service-account-with-warehouse-wide-read">P5 · The assistant runs under a service account with warehouse-wide read</h3>
+<p><strong>Group:</strong> the data management team, security.</p>
+<p><strong>Symptom:</strong> entitlements are applied around the assistant, not inside its queries.</p>
+<p><strong>Evidence:</strong> <code>measured</code> — one account, one grant.</p>
+<p><strong>Cost of inaction:</strong> an access review cannot answer who read what. The first regulated-data question stops the assistant entirely, and that stop is not on our schedule.</p>
+<h3 id="01-context--p6-912-dashboards-no-owner-field-and-no-archiving">P6 · 912 dashboards, no owner field and no archiving</h3>
+<p><strong>Group:</strong> the central team.</p>
+<p><strong>Symptom:</strong> nobody can say which of them are alive.</p>
+<p><strong>Evidence:</strong> <code>measured</code> — 912 objects; usage per object is not tracked.</p>
+<p><strong>Cost of inaction:</strong> the assistant is being asked to navigate a corpus that we ourselves cannot rank. Deliberately left mostly uncovered this year — see the traceability table in <a href="#02-streams">02-Streams</a>.</p>
+<h3 id="01-context--p7-data-governance-is-one-person-at-half-time-with-no-mandate">P7 · Data governance is one person at half-time with no mandate</h3>
+<p><strong>Group:</strong> the data management team.</p>
+<p><strong>Symptom:</strong> no policy is signed, and no decision can be made stick across squads.</p>
+<p><strong>Evidence:</strong> <code>measured</code> — 0.5 FTE, no signed document.</p>
+<p><strong>Cost of inaction:</strong> every definition agreed in one squad is re-litigated in the next. This is the reason P1 regenerates after each fix.</p>
+<hr>
+<h2 id="01-context--maturity-scorecard">Maturity scorecard</h2>
+<p>The full profile is in <a href="#appendix-90-diagnostics">Diagnostics</a>. The short read: <strong>tooling is strong and meaning is absent.</strong></p>
+<table><thead><tr><th>Strong (≥3)</th><th>Middle (2–2.5)</th><th>Weak (≤2)</th></tr></thead><tbody>
+<tr><td>Self-service delivery · project management</td><td>connection with business · adoption · data quality · security</td><td>content management · guided delivery · <strong>platform governance</strong> · <strong>AI readiness (1.4)</strong></td></tr>
+</tbody></table>
+<p>The skew is systemic and it is not the usual one: this company has the tools and the engineers, and it lacks the layer that says what the numbers mean. A second BI tool would change nothing here.</p>
+<hr>
+<h2 id="01-context--the-chain-breaks">The chain breaks</h2>
+<p><code>core → semantic → context → AI accuracy → self-service</code></p>
+<p><strong>Break 1 — between core and semantic, and it is total.</strong> The core layer exists for 3 domains of 11; the semantic layer does not exist at all. Nothing is defined once.</p>
+<p><strong>Break 2 — the assistant&#x27;s few-shot examples became the de facto semantic layer.</strong> They are editable, unversioned, unowned, and they are what the model actually reasons from. This is the most expensive break, because it looks like a solution.</p>
+<p><strong>Break 3 — the AI accuracy link was skipped, not broken.</strong> The assistant was launched ahead of both preceding links. The <code>no-assistant-without-foundation</code> gate would have stopped this launch; it was never applied, and the launch cannot now be undone.</p>
+<h2 id="01-context--position-in-the-channel-triangle">Position in the channel triangle</h2>
+<p>Self-service dominant, agentic launched prematurely, <strong>centralized effectively absent</strong>. The company never had a report factory and is not going to build one. The usual advice — grow centralized reporting to reach a single version of the truth — does not apply and would be rejected in a week.</p>
+<p>Agentic maturity: the sponsor believes it is at managed autonomy. Measured against the stages, it is at interoperability with no evals — the tools are connected and nothing checks the answers.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#02-streams">02-Streams</a> · <a href="#appendix-90-diagnostics">Diagnostics</a></p></section>
+<section id="02-streams"><h1 id="02-streams--section-2-streams-of-change">🧭 Section 2. Streams of change</h1>
+<h2 id="02-streams--the-stack-rank-and-the-freeze-order">The stack-rank and the freeze order</h2>
+<p>Priority runs governance → trusted data → AI readiness → BI content → self-service. Cut right to left.</p>
+<table><thead><tr><th>#</th><th>Stream</th><th>Rank</th><th>Frozen</th></tr></thead><tbody>
+<tr><td><strong>S4</strong></td><td>Honest measurement of the assistant</td><td>AI readiness, but <strong>first in time</strong></td><td>never — it is what makes the commitment defensible</td></tr>
+<tr><td><strong>S1</strong></td><td>One definition per commercial metric</td><td>governance + trusted data</td><td>never</td></tr>
+<tr><td><strong>S3</strong></td><td>A guaranteed perimeter for the assistant</td><td>AI readiness</td><td>perimeter 1 never; expansion beyond it freezes second</td></tr>
+<tr><td><strong>S2</strong></td><td>Extending the trusted core to 6 domains</td><td>trusted data</td><td>domains 5–6 freeze third</td></tr>
+<tr><td><strong>S5</strong></td><td>Dashboard hygiene</td><td>BI content</td><td><strong>freezes first</strong></td></tr>
+</tbody></table>
+<p>S4 sits ahead of S1 in time although it ranks lower: the board review is in four months and the semantic layer will not be finished by then. What can be finished by then is an honest number and a restated commitment. This ordering came out of the judge stage — see the rework log in <a href="../e2e-02-vantage.md"><code>e2e-02-vantage.md</code></a>.</p>
+<hr>
+<h2 id="02-streams--s1-one-definition-per-commercial-metric">S1 · One definition per commercial metric</h2>
+<p><strong>Description.</strong> Twelve metrics that reach the board get exactly one definition, expressed in code, with a named owner. Everything else keeps its current life until the twelve are done.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--p1-three-competing-definitions-of-the-twelve-commercial-metrics">P1 · Three competing definitions of the twelve commercial metrics</a> and answers <a href="#01-context--t1-text-to-sql-on-a-real-enterprise-schema-is-around-40-and-a-semantic-layer-moves-it-to-85-95">T1 · Text-to-SQL on a real enterprise schema is around 40%, and a semantic layer moves it to 85–95%</a>. Chosen over a full semantic-layer programme because twelve metrics can be finished inside the horizon and a full layer cannot.</p>
+<p><strong>Boundaries.</strong> Not a semantic layer for all metrics. Not a metric store purchase. <strong>Not the unification of country-level variance:</strong> where a country computes differently for regulatory or commercial reasons, we standardize the <em>description of the difference</em>, not the number.</p>
+<p><strong>Owner.</strong> Head of Data Platform. <strong>Dependencies.</strong> Two metric owners at 20% from commerce and ops — part of the ask to the sponsor.</p>
+<hr>
+<h2 id="02-streams--s2-extending-the-trusted-core-to-six-domains">S2 · Extending the trusted core to six domains</h2>
+<p><strong>Description.</strong> From 3 certified domains to 6, chosen by reuse rather than by pain: the entities that the most queries touch.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--the-chain-breaks">the core half of chain break 1</a> and is the precondition for widening the assistant&#x27;s perimeter beyond domain 1.</p>
+<p><strong>Boundaries.</strong> Not the remaining five domains this horizon. Not a rebuild of the three that already exist.</p>
+<p><strong>Owner.</strong> Data Platform lead. <strong>Dependencies.</strong> None outbound; S3&#x27;s expansion depends on it.</p>
+<hr>
+<h2 id="02-streams--s3-a-guaranteed-perimeter-for-the-assistant">S3 · A guaranteed perimeter for the assistant</h2>
+<p><strong>Description.</strong> The assistant stops answering everything. Inside the perimeter — the twelve metrics on certified sources — it answers with provenance and a trust marker. Outside it, it refuses and routes to an analyst with a stated turnaround. It also gets its own identity instead of the shared service account.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--p2-the-assistant-answers-questions-it-cannot-answer-correctly">P2 · The assistant answers questions it cannot answer correctly</a> and <a href="#01-context--p5-the-assistant-runs-under-a-service-account-with-warehouse-wide-read">P5 · The assistant runs under a service account with warehouse-wide read</a>; addresses <a href="#01-context--t2-the-character-of-the-error-changes-with-a-semantic-layer">T2 · The character of the error changes with a semantic layer</a> and <a href="#01-context--t3-an-agent-is-a-new-class-of-identity">T3 · An agent is a new class of identity</a>.</p>
+<p><strong>Boundaries.</strong> Not a switch-off, and not a rebuild. Not finance data this year.</p>
+<blockquote>
+<p>⚠️ Narrowing will be read as a rollback. The number that answers it is in <a href="#03-initiatives">03-Initiatives</a>: how many of today&#x27;s questions fall outside perimeter 1, and where they go instead.</p>
+</blockquote>
+<p><strong>Owner.</strong> Assistant PM. <strong>Dependencies.</strong> S1 for the definitions, S4 for the evidence that narrowing helped.</p>
+<hr>
+<h2 id="02-streams--s4-honest-measurement-of-the-assistant">S4 · Honest measurement of the assistant</h2>
+<p><strong>Description.</strong> A golden set built from real logs, an accuracy baseline, provenance on every answer, and a reporting unit that is not call volume. The public commitment is restated in that unit before the board review.</p>
+<p><strong>Justification.</strong> Closes <a href="#01-context--p4-the-assistant-x27-s-success-is-measured-by-call-volume">P4 · The assistant&#x27;s success is measured by call volume</a>. This is the stream that makes every other one defensible: without a baseline, no claim about improvement can be made in four months.</p>
+<p><strong>Boundaries.</strong> Not an eval platform purchase. Sixty questions, not six hundred.</p>
+<p><strong>Owner.</strong> Head of Analytics. <strong>Dependencies.</strong> Requires the CPO&#x27;s agreement to restate the number — the first item in the ask to the sponsor.</p>
+<hr>
+<h2 id="02-streams--s5-dashboard-hygiene">S5 · Dashboard hygiene</h2>
+<p><strong>Description.</strong> An owner field made mandatory, and automatic archiving of dashboards with no users and no updates. Nothing else.</p>
+<p><strong>Justification.</strong> Partially closes <a href="#01-context--p6-912-dashboards-no-owner-field-and-no-archiving">P6 · 912 dashboards, no owner field and no archiving</a>. Ranked last deliberately: 912 dashboards are a real problem and not this year&#x27;s most expensive one.</p>
+<p><strong>Boundaries.</strong> No certification programme. No health score. No review of the surviving dashboards.</p>
+<p><strong>Owner.</strong> Data Platform lead. <strong>Dependencies.</strong> None. <strong>Freezes first.</strong></p>
+<hr>
+<h2 id="02-streams--traceability">Traceability</h2>
+<table><thead><tr><th>Problem</th><th>Covered by</th></tr></thead><tbody>
+<tr><td>P1 · Three competing definitions</td><td>S1</td></tr>
+<tr><td>P2 · The assistant answers what it cannot</td><td>S3, S4</td></tr>
+<tr><td>P3 · Parallel spreadsheets</td><td>S1 + S3 indirectly — the outcome metric is in <a href="#04-goals">04-Goals</a></td></tr>
+<tr><td>P4 · Measured by call volume</td><td>S4</td></tr>
+<tr><td>P5 · Shared service account</td><td>S3</td></tr>
+<tr><td>P6 · 912 dashboards</td><td>S5, partially</td></tr>
+<tr><td>P7 · Governance at 0.5 FTE with no mandate</td><td><strong>not covered by a stream</strong></td></tr>
+</tbody></table>
+<p><strong>P7 is left uncovered deliberately, and this is the document&#x27;s least comfortable line.</strong> Headcount is frozen, so a governance function cannot be staffed this year. Instead of declaring one and not resourcing it, the mandate is attached to the twelve metrics: their owners are named individually and their decisions are binding for those twelve only. That is narrower than governance and it is real. The wider question returns when the hiring freeze lifts.</p>
+<p>Bottom-up: every stream references a named problem. No orphan streams.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#01-context">01-Context</a> · <a href="#03-initiatives">03-Initiatives</a></p></section>
+<section id="03-initiatives"><h1 id="03-initiatives--section-3-projects-and-initiatives">🗺️ Section 3. Projects and initiatives</h1>
+<p><strong>A</strong> = output, what was built. <strong>O</strong> = outcome, what changed. Year 1 is concrete; years 2–3 are indicative and marked so. <code>&lt;•&gt;</code> is a placeholder held open until a baseline exists — see <a href="#04-goals">04-Goals</a>.</p>
+<table><thead><tr><th>Initiative</th><th>Streams</th><th>Owner</th><th>Year 1</th><th>Year 2 <em>(indicative)</em></th><th>Year 3 <em>(indicative)</em></th><th>Metric</th><th>Kill-gate</th><th>Depends on</th></tr></thead><tbody>
+<tr><td><strong>I1 · Golden set of 60 questions from real logs</strong></td><td>S4</td><td>Head of Analytics</td><td><strong>A:</strong> 60 questions with verified answers&lt;br&gt;<strong>O:</strong> the assistant&#x27;s accuracy is known for the first time</td><td>A: extended to 120</td><td>—</td><td>G1 accuracy</td><td>— measurement, not a bet</td><td>—</td></tr>
+<tr><td><strong>I2 · Restate the public commitment</strong></td><td>S4</td><td>CPO + Head of Analytics</td><td><strong>A:</strong> the metric behind &quot;50% by 2027&quot; restated as verified-correct share, agreed before the board review&lt;br&gt;<strong>O:</strong> the board is given a number that survives its first question</td><td>O: reported quarterly on the new unit</td><td>—</td><td>G2</td><td>if the CPO declines, the strategy is rebuilt around the old unit and this is recorded as an accepted risk</td><td>I1</td></tr>
+<tr><td><strong>I3 · Twelve metric definitions in code</strong></td><td>S1</td><td>Head of Data Platform</td><td><strong>A:</strong> 12 definitions, one owner each, in dbt with tests&lt;br&gt;<strong>O:</strong> competing definitions for the twelve drop from 3 to 1</td><td>A: next 20 metrics&lt;br&gt;O: <code>&lt;•&gt;</code></td><td>O: <code>&lt;•&gt;</code></td><td>G3</td><td>if fewer than 8 of 12 are agreed within 5 months, the scope narrows to the 4 board metrics rather than slipping</td><td>metric owners from the sponsor</td></tr>
+<tr><td><strong>I4 · Named metric owners</strong></td><td>S1</td><td>Head of Analytics</td><td><strong>A:</strong> 2 owners at 20%, with a weekly decision slot&lt;br&gt;<strong>O:</strong> definition disputes are closed in the slot rather than in the board week</td><td>A: 4 owners</td><td>—</td><td>G4 gate load</td><td>if the slot regularly overruns its budget, the platform is what gets fixed, not the person</td><td>sponsor decision</td></tr>
+<tr><td><strong>I5 · Perimeter and refusal for the assistant</strong></td><td>S3</td><td>Assistant PM</td><td><strong>A:</strong> perimeter 1 published; refusal plus routing outside it; provenance on every in-perimeter answer&lt;br&gt;<strong>O:</strong> confidently wrong answers inside the perimeter fall to <code>&lt;•&gt;</code></td><td>A: perimeter 2 after S2&lt;br&gt;O: <code>&lt;•&gt;</code></td><td>O: <code>&lt;•&gt;</code></td><td>G5, G6</td><td><strong>if accuracy inside the perimeter is under 85% on the golden set two months after narrowing, the perimeter shrinks further rather than the threshold moving</strong></td><td>I1, I3</td></tr>
+<tr><td><strong>I6 · Own identity for the assistant</strong></td><td>S3</td><td>Data Platform lead</td><td><strong>A:</strong> the service account replaced by a per-user identity with an audit trail&lt;br&gt;<strong>O:</strong> an access review can answer who read what</td><td>—</td><td>—</td><td>G7</td><td>— a compliance precondition, not a bet</td><td>—</td></tr>
+<tr><td><strong>I7 · Trusted core, domains 4–6</strong></td><td>S2</td><td>Data Platform lead</td><td><strong>A:</strong> domain 4 certified&lt;br&gt;<strong>O:</strong> share of queries on certified objects rises from <code>&lt;•&gt;</code></td><td>A: domains 5–6</td><td>O: <code>&lt;•&gt;</code></td><td>G8</td><td>—</td><td>—</td></tr>
+<tr><td><strong>I8 · Owner field and auto-archiving</strong></td><td>S5</td><td>Data Platform lead</td><td><strong>A:</strong> the field is mandatory; dashboards with no users and no updates are archived&lt;br&gt;<strong>O:</strong> live dashboards become countable</td><td>—</td><td>—</td><td>G9</td><td>—</td><td>—</td></tr>
+</tbody></table>
+<h2 id="03-initiatives--deliberately-not-in-the-portfolio">Deliberately not in the portfolio</h2>
+<ul><li><strong>A data catalog.</strong> It entered the first draft and was removed at gate 0: no problem in section 1 stands behind it. Reconsidered when there is something worth cataloguing.</li>
+<li><strong>A semantic layer for all metrics.</strong> Twelve first; the rest is a year-2 conversation.</li>
+<li><strong>A certification programme for 912 dashboards.</strong> Ranked last and frozen first — see <a href="#02-streams">02-Streams</a>.</li>
+<li><strong>A data literacy programme.</strong> Forty analysts already have the skills; what they lack is a definition to work from.</li>
+</ul><h2 id="03-initiatives--the-first-90-days">The first 90 days</h2>
+<table><thead><tr><th>#</th><th>What</th><th>Owner</th><th>Check date</th></tr></thead><tbody>
+<tr><td>1</td><td>Build the golden set from logs and measure the assistant&#x27;s real accuracy</td><td>Head of Analytics</td><td>day 30</td></tr>
+<tr><td>2</td><td>Agree the restated commitment with the CPO <strong>before</strong> any engineering starts</td><td>CPO</td><td>day 20</td></tr>
+<tr><td>3</td><td>Fix the first 4 of 12 definitions — the ones that reach the board</td><td>Head of Data Platform</td><td>day 60</td></tr>
+<tr><td>4</td><td>Publish perimeter 1 and turn refusal on outside it</td><td>Assistant PM</td><td>day 75</td></tr>
+<tr><td>5</td><td>Reconcile the assistant against the certified source for those 4 metrics</td><td>metric owners</td><td>day 90</td></tr>
+</tbody></table>
+<p><strong>Explicitly not in the first 90 days:</strong> the trusted core beyond domain 4, dashboard hygiene, anything touching finance data. Item 2 is first in sequence and cheapest in effort, and it is the one the whole plan rests on.</p>
+<h2 id="03-initiatives--the-cost-of-narrowing-the-number-that-has-to-be-said-out-loud">The cost of narrowing — the number that has to be said out loud</h2>
+<p>From eight months of logs, questions currently answered by the assistant split as: <code>&lt;•&gt;</code>% inside perimeter 1 · <code>&lt;•&gt;</code>% outside it. <code>[requires clarification]</code> — the log analysis in I1 closes this by day 30.</p>
+<p>Whatever the split is, the questions outside the perimeter do not vanish: they route to a named analyst with a stated turnaround. Until that number exists, &quot;we are narrowing the assistant&quot; is not a proposal anyone can accept. The number is produced first and the narrowing is announced second.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#02-streams">02-Streams</a> · <a href="#04-goals">04-Goals</a></p></section>
+<section id="04-goals"><h1 id="04-goals--section-4-goals-as-metrics">📊 Section 4. Goals as metrics</h1>
+<p>Five primary and five secondary. The rest of the catalog is not taken.</p>
+<p><strong>Read this section after the portfolio, but note it was written before it.</strong> Test: remove the initiative and the goal must still stand. G1 through G5 survive that test — they describe the state of the company, not the work.</p>
+<h2 id="04-goals--primary">Primary</h2>
+<table><thead><tr><th>#</th><th>Metric</th><th>Baseline</th><th>Year 1</th><th>Year 2 <em>(ind.)</em></th><th>Owner</th><th>How it is measured</th></tr></thead><tbody>
+<tr><td><strong>G1</strong></td><td>Assistant accuracy inside the perimeter, on the golden set</td><td><code>[requires clarification]</code> — closed by I1, day 30</td><td>≥85%</td><td><code>&lt;•&gt;</code></td><td>Head of Analytics</td><td>60 questions from real logs, judged against the certified source; re-run on every definition change</td></tr>
+<tr><td><strong>G2</strong></td><td>Share of ad-hoc questions <strong>answered correctly</strong> by the assistant</td><td><code>[requires clarification]</code> — the existing 31% is a call share and is not this metric</td><td><code>&lt;•&gt;</code>, set once G1 exists</td><td><code>&lt;•&gt;</code></td><td>Head of Analytics</td><td>correct answers over questions asked, not calls over calls</td></tr>
+<tr><td><strong>G3</strong></td><td>Competing definitions of the twelve board metrics</td><td><strong>3</strong> <code>measured</code></td><td><strong>1</strong></td><td>1</td><td>Head of Data Platform</td><td>a quarterly hand audit across dbt, the BI layer and the assistant&#x27;s few-shots</td></tr>
+<tr><td><strong>G4</strong></td><td>Share of in-perimeter answers carrying provenance</td><td><strong>0%</strong> <code>measured</code></td><td>100%</td><td>100%</td><td>Assistant PM</td><td>an automatic check on the answer payload</td></tr>
+<tr><td><strong>G5</strong></td><td>Share of queries hitting certified core objects</td><td><code>[requires clarification]</code> — closed by query-log analysis</td><td><code>&lt;•&gt;</code></td><td><code>&lt;•&gt;</code></td><td>Data Platform lead</td><td>query log tagged against the certified object registry</td></tr>
+</tbody></table>
+<h2 id="04-goals--secondary">Secondary</h2>
+<table><thead><tr><th>#</th><th>Metric</th><th>Baseline</th><th>Year 1</th><th>Owner</th><th>Group</th></tr></thead><tbody>
+<tr><td>G6</td><td>Honest-refusal rate on out-of-perimeter questions</td><td>0% — it answers everything</td><td>≥95%</td><td>Assistant PM</td><td>quality of service</td></tr>
+<tr><td>G7</td><td>Access reviews that can answer &quot;who read what&quot;</td><td>0 of 1</td><td>1 of 1</td><td>Data Platform lead</td><td>process quality</td></tr>
+<tr><td>G8</td><td>Certified domains</td><td>3 of 11</td><td>4 of 11</td><td>Data Platform lead</td><td>process quality</td></tr>
+<tr><td>G9</td><td>Dashboards with a named owner</td><td><code>[requires clarification]</code></td><td><code>&lt;•&gt;</code></td><td>Data Platform lead</td><td>process quality</td></tr>
+<tr><td>G10</td><td>Ops leads keeping a parallel spreadsheet</td><td><code>[requires clarification]</code> — a shared-drive audit closes it</td><td><code>&lt;•&gt;</code></td><td>Head of Analytics</td><td>business impact</td></tr>
+</tbody></table>
+<h2 id="04-goals--metric-groups">Metric groups</h2>
+<p><strong>Engagement</strong> — deliberately thin this year. Adoption of the assistant is already high and is not the problem; measuring it harder would flatter us. <strong>Quality of service</strong> — G1, G4, G6. <strong>Process quality</strong> — G3, G5, G7, G8, G9. <strong>Business impact</strong> — G2, G10.</p>
+<p>The skew towards process quality is intentional and is a statement about the year: the company is not short of usage, it is short of things being true.</p>
+<h2 id="04-goals--ceiling-and-enough">Ceiling and &quot;enough&quot;</h2>
+<ul><li><strong>G1 · accuracy.</strong> Ceiling is not 100%. The published range with a semantic layer is 85–95% <code>benchmark</code>; a target above that on our own schema would be a promise nobody can keep. <strong>Enough is 85% plus an honest refusal outside the perimeter</strong> — the refusal matters more than the last five points.</li>
+<li><strong>G3 · definitions.</strong> Ceiling is 1 per metric, and it applies to twelve metrics, not to all of them. Attempting all of them is how this stalls.</li>
+<li><strong>G5 · certified consumption.</strong> No universal threshold exists. Measure the current value, take the median across domains and target the best quartile. A threshold lifted from another company is either unreachable or already passed.</li>
+<li><strong>G8 · certified domains.</strong> +1 domain in year one. Not 11 of 11: the remaining five have no demand behind them yet.</li>
+</ul><h2 id="04-goals--the-discount-applied">The discount applied</h2>
+<p>Each goal was moved before it was fixed.</p>
+<table><thead><tr><th>Risk</th><th>Which goals it hit</th><th>What changed</th></tr></thead><tbody>
+<tr><td><strong>Dependency</strong> — needs somebody else&#x27;s delivery</td><td>G1, G2</td><td>both depend on the CPO agreeing to restate the number. If that does not happen, G2 is not achievable in any unit and the strategy says so rather than carrying a target it cannot own</td></tr>
+<tr><td><strong>Capacity</strong> — funded or living on goodwill</td><td>G3, G5, G8</td><td>headcount is frozen. G3 dropped from 20 metrics to 12; G8 from 3 new domains to 1</td></tr>
+<tr><td><strong>Adoption</strong> — requires people to change behaviour</td><td>G6, G10</td><td>narrowing the assistant asks 400 people to accept fewer answers. G6 is stated as a system property (it refuses) rather than a satisfaction target, because satisfaction with a narrowing is not something to promise</td></tr>
+</tbody></table>
+<p><strong>+1 maturity level per year</strong> is applied throughout. The one exception is AI readiness, targeted at 1.4 → 2.5, and the named reason is that the assistant already exists and is already funded: the work is defining and measuring, not building.</p>
+<h2 id="04-goals--the-opening-gate-on-expansion">The opening gate on expansion</h2>
+<p>The assistant&#x27;s perimeter widens beyond the twelve metrics when all three hold:</p>
+<ul><li>G1 ≥ 85% sustained over two consecutive measurements;</li>
+<li>the target domain is in the certified core (G8);</li>
+<li>its metrics have a single definition with a named owner (G3).</li>
+</ul><p><strong>The kill-gate that applies after each widening:</strong> if accuracy inside the new perimeter falls below 85% on the golden set two months in, the perimeter shrinks back. The threshold does not move to accommodate the result — that is the one rule that makes every other number here worth reading.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#03-initiatives">03-Initiatives</a> · <a href="#05-risks">05-Risks</a></p></section>
+<section id="05-risks"><h1 id="05-risks--section-5-risks">⚠️ Section 5. Risks</h1>
+<p>Every risk carries a trigger — the observable sign that it has materialised. A risk without one is not noticed in time.</p>
+<table><thead><tr><th>Risk</th><th>Likelihood / impact</th><th>Mitigation</th><th>Owner</th><th>Trigger</th></tr></thead><tbody>
+<tr><td><strong>R1 · The public commitment cannot be met in the unit it was stated in</strong></td><td>high / high</td><td>restate the metric with the CPO before the board pack is drafted; report the new unit from the first quarter</td><td>CPO</td><td>the board pack is drafted using the call-share number</td></tr>
+<tr><td><strong>R2 · Narrowing the assistant is read as a rollback</strong></td><td>high / medium</td><td>publish the perimeter as a guarantee rather than a restriction; produce the outside-perimeter number and the routing before the announcement, not after</td><td>Assistant PM</td><td>the first executive complaint that &quot;it used to answer that&quot;</td></tr>
+<tr><td><strong>R3 · The twelve definitions live on the goodwill of two borrowed people</strong></td><td>medium / high</td><td>the metric owners get a weekly decision slot with an explicit time budget; overrunning it is treated as a platform problem, not a personal one</td><td>Head of Analytics</td><td>the slot overruns two weeks running, or a definition waits more than 10 days</td></tr>
+<tr><td><strong>R4 · Squad autonomy rejects central definitions</strong></td><td>medium / high</td><td>the mandate covers twelve metrics only, and those twelve are the ones the squads&#x27; own targets are graded on</td><td>Head of Data Platform</td><td>a squad ships a conflicting definition after the central one is published</td></tr>
+<tr><td><strong>R5 · The core outside the perimeter stays wrong, and the assistant looks trustworthy anyway</strong></td><td>medium / high</td><td>provenance on every answer; the perimeter is visible in the interface, not only in the policy</td><td>Assistant PM</td><td>an in-perimeter answer is quoted for a question that was outside it</td></tr>
+<tr><td><strong>R6 · The sponsor changes</strong></td><td>medium / high</td><td>the restated commitment is documented and agreed in writing, not verbally; the strategy is written to survive its author</td><td>Head of Analytics</td><td>the CPO&#x27;s remit changes, or the investor-day narrative is rewritten without us</td></tr>
+<tr><td><strong>R7 · A third of the resource is lost mid-year</strong></td><td>medium / high</td><td>the freeze list below, published in advance</td><td>Head of Data Platform</td><td>the funding round slips past Q2</td></tr>
+<tr><td><strong>R8 · A regulated-data question stops the assistant</strong></td><td>low / high</td><td>I6 gives it its own identity and an audit trail before the next access review</td><td>Data Platform lead</td><td>any request for a per-user read log</td></tr>
+</tbody></table>
+<h2 id="05-risks--what-is-not-on-this-list-and-why">What is not on this list, and why</h2>
+<p><strong>&quot;Insufficient funding&quot; and &quot;resistance to change&quot;</strong> are deliberately absent. Neither has a trigger or an owner, and a register that carries them reads as a formality. R3, R4 and R7 say the same things in a form somebody can act on.</p>
+<h2 id="05-risks--the-freeze-list">The freeze list</h2>
+<p>If a third of the resource is lost, this is the order — published now, not drawn up in the week of the cut.</p>
+<table><thead><tr><th>Order</th><th>What dies</th><th>Why it can</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>S5 · dashboard hygiene</strong> entirely</td><td>912 dashboards are a real problem and the cheapest one to postpone</td></tr>
+<tr><td>2</td><td><strong>Expansion of the assistant&#x27;s perimeter beyond perimeter 1</strong></td><td>perimeter 1 delivers the guarantee; everything past it is improvement</td></tr>
+<tr><td>3</td><td><strong>Trusted core domains 5–6</strong></td><td>domain 4 is the one the perimeter needs</td></tr>
+<tr><td>4</td><td><strong>Metric definitions 9–12</strong></td><td>scope narrows to the four board metrics</td></tr>
+</tbody></table>
+<p><strong>Never frozen:</strong> the golden set and the accuracy baseline (I1), and the restated commitment (I2). Both are cheap, and without them nothing else in this document can be defended in four months. If the resource is so short that even these go, the honest move is to say the commitment will not be met — not to keep working quietly.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#04-goals">04-Goals</a> · <a href="#appendix-90-diagnostics">Diagnostics</a></p></section>
+<section id="appendix-90-diagnostics"><h1 id="appendix-90-diagnostics--diagnostics">🩺 Diagnostics</h1>
+<p>Self-assessment on the Health Check 0–4 scale (0 no · 1 planned · 2 partially · 3 done, needs improvement · 4 optimized), plus the AI-readiness overlay. Bands: Beginning 0–1 · Learning 1–2 · Developing 2–3 · Mastering 3–4.</p>
+<p><strong>Phases of work:</strong> 🔎 AS-IS = frame blocks 1–2 · 🛠️ TO-BE = 3–6 · 🚀 Transformation = 7.</p>
+<h2 id="appendix-90-diagnostics--the-profile">The profile</h2>
+<table><thead><tr><th></th><th>Category</th><th>Score</th><th>Band</th><th>What it means here</th></tr></thead><tbody>
+<tr><td>🟢</td><td>4 · Self-service delivery</td><td>3.0</td><td>Developing</td><td>40 analysts embedded in squads with real tooling. The company&#x27;s genuine strength</td></tr>
+<tr><td>🟢</td><td>9 · Project management</td><td>3.0</td><td>Developing</td><td>strong agile practice; the work gets planned and shipped</td></tr>
+<tr><td>🟡</td><td>1 · Connection with business</td><td>2.5</td><td>Developing</td><td>use cases are registered inside squads; no metric tree, business impact untracked</td></tr>
+<tr><td>🟡</td><td>8 · Security and compliance</td><td>2.5</td><td>Developing</td><td>good RBAC from engineering — but the assistant sits outside it (P5)</td></tr>
+<tr><td>🟡</td><td>2 · Adoption and satisfaction</td><td>2.0</td><td>Developing</td><td>dashboards measured; assistant measured by calls, which flatters</td></tr>
+<tr><td>🟡</td><td>7 · Data quality management</td><td>2.0</td><td>Developing</td><td>contracts on 3 domains of 11</td></tr>
+<tr><td>🔴</td><td>3 · BI content management</td><td>1.5</td><td>Learning</td><td>912 dashboards, no owner field, no archiving</td></tr>
+<tr><td>🔴</td><td>5 · Guided delivery / support</td><td>1.5</td><td>Learning</td><td>no support path for casual users — the assistant became the support, badly</td></tr>
+<tr><td>🔴</td><td>6 · BI platform governance</td><td>1.5</td><td>Learning</td><td><strong>no semantic layer, no metric store.</strong> CI/CD is strong, meaning is absent</td></tr>
+<tr><td>🔴</td><td><strong>AI readiness (overlay)</strong></td><td><strong>1.4</strong></td><td>Learning</td><td>see the breakdown below</td></tr>
+</tbody></table>
+<h2 id="appendix-90-diagnostics--the-ai-readiness-overlay">The AI-readiness overlay</h2>
+<table><thead><tr><th>Component</th><th>Score</th><th>Note</th></tr></thead><tbody>
+<tr><td>Semantic coverage</td><td>0.5</td><td>of the twelve board metrics, none has a single definition</td></tr>
+<tr><td>Trusted core</td><td>2.0</td><td>3 domains of 11</td></tr>
+<tr><td>Domain context</td><td>1.0</td><td>the assistant&#x27;s few-shots are the only context, and they are unowned</td></tr>
+<tr><td>Process readiness for &quot;AI drafts — humans validate&quot;</td><td>1.0</td><td>no verify gate, no eval, no golden set</td></tr>
+<tr><td>Agentic infrastructure</td><td>2.5</td><td>MCP, tracing and CI exist — engineering&#x27;s strength again</td></tr>
+<tr><td><strong>Average</strong></td><td><strong>1.4</strong></td><td></td></tr>
+</tbody></table>
+<blockquote>
+<p>The <code>ai-ready-domain-score</code> from the knowledge base could not be computed for this company: its first part needs a domain knowledge base, which does not exist. Stated as a target for later rather than dressed up as a current-state number. This is a limitation of the instrument, recorded in the run report.</p>
+</blockquote>
+<h2 id="appendix-90-diagnostics--the-systemic-skew">The systemic skew</h2>
+<p>Cut across the solution categories, the picture is unusual and it is the diagnosis:</p>
+<p><strong>Tools and automation: high. Processes and standards: low. Data culture: mixed.</strong></p>
+<p>The company can build anything and agrees on nothing. Almost every standard recommendation aimed at the opposite skew — buy a tool, hire engineers, modernize the platform — would be spent here on something that is already strong.</p>
+<h2 id="appendix-90-diagnostics--the-chain-breaks">The chain breaks</h2>
+<p>```</p>
+<p>core → semantic → context → AI accuracy → self-service</p>
+<p>  ●       ✗          ✗          skipped        ●</p>
+<p>```</p>
+<ul><li><strong>Core → semantic, total.</strong> 3 domains certified; no semantic layer at all.</li>
+<li><strong>The few-shots became the de facto semantic layer.</strong> Editable, unversioned, unowned — and it is what the model reasons from. The most expensive break, because it looks like a solution.</li>
+<li><strong>The AI accuracy link was skipped rather than broken.</strong> The launch happened ahead of both preceding links, and it cannot be undone. Everything in this strategy is the retroactive form of a gate that was never applied.</li>
+</ul><h2 id="appendix-90-diagnostics--the-channel-triangle">The channel triangle</h2>
+<p>Self-service dominant · agentic launched early · <strong>centralized effectively absent, and deliberately so</strong>.</p>
+<p>The textbook answer here — build centralized reporting to reach a single version of the truth — is not available: there is no factory team and there will not be one. The single version of the truth has to be reached through definitions rather than through a team, which is why S1 carries the weight that a report factory would carry elsewhere.</p>
+<p><strong>Agentic maturity:</strong> claimed at managed autonomy, measured at interoperability. Tools are connected; nothing checks the answers.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#01-context">01-Context</a> · <a href="#appendix-91-analysis-frame">Analysis frame</a></p></section>
+<section id="appendix-91-analysis-frame"><h1 id="appendix-91-analysis-frame--the-seven-blocks-what-each-established-and-where-it-went">The seven blocks — what each established and where it went</h1>
+<p>The frame is the instrument, not the document. Two lines per block: what the analysis found, and which stream or initiative carries it.</p>
+<table><thead><tr><th>#</th><th>Block</th><th>What it established</th><th>Where it went</th></tr></thead><tbody>
+<tr><td><strong>1</strong></td><td>Business foundation</td><td>Subscription economics: the board is graded on twelve commercial metrics, and those twelve are what everything else has to be true about</td><td>narrowed S1 from &quot;a semantic layer&quot; to &quot;twelve definitions&quot;</td></tr>
+<tr><td><strong>2</strong></td><td>Landscape assessment</td><td>Tools strong, meaning absent. Centralized reporting does not exist and will not</td><td><a href="#01-context">01-Context</a>, [[appendix/90-Diagnostics</td><td>Diagnostics]]</td></tr>
+<tr><td><strong>3</strong></td><td>Target operating model</td><td>The single version of truth has to come from definitions with owners, not from a central team</td><td>S1, and the deliberate non-coverage of P7 in <a href="#02-streams">02-Streams</a></td></tr>
+<tr><td><strong>4</strong></td><td>Process foundation</td><td>No verify gate, no eval, no refusal path. The few-shots are the de facto semantic layer</td><td>S3, S4</td></tr>
+<tr><td><strong>5</strong></td><td>Technology</td><td>Nothing needs buying. The gaps are a semantic layer and an identity for the assistant — both build, not buy</td><td>I3, I6</td></tr>
+<tr><td><strong>6</strong></td><td>Operations</td><td>Governance at 0.5 FTE cannot be made real this year under a hiring freeze</td><td>the mandate narrowed to twelve metrics; P7 recorded as uncovered</td></tr>
+<tr><td><strong>7</strong></td><td>Change management</td><td>400 users are about to be given fewer answers, and that has to be sold before it is shipped</td><td>R2, and the cost-of-narrowing number in <a href="#03-initiatives">03-Initiatives</a></td></tr>
+</tbody></table>
+<h2 id="appendix-91-analysis-frame--blocks-that-reached-no-stream">Blocks that reached no stream</h2>
+<p><strong>None went entirely unused</strong>, but block 6 reached only a narrowed form. That is a deliberate decision under a hiring freeze rather than unfinished analysis, and it appears on the front page under what we do not do.</p>
+<hr>
+<p>→ <a href="#index">index</a> · <a href="#appendix-90-diagnostics">Diagnostics</a></p></section></main></div><script>
+const secs=[...document.querySelectorAll('section')],links=[...document.querySelectorAll('nav a')];
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+ links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-10% 0px -80% 0px'});
+secs.forEach(s=>io.observe(s));
+</script></body></html>
