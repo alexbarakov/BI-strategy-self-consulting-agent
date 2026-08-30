@@ -1,42 +1,42 @@
 ---
 id: insight-management
-title: Управление инсайтами — три модели и место LLM
+title: Insight management - three models and where the LLM fits
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие «Content management» part 2"
-confidence: проверяемо (модели), мерил продавец (концепты вендоров)
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session, part 2"
+confidence: verifiable (the models), vendor-measured (the vendor concepts)
 blocks: [4.3, 5]
 ---
 
-**Insight** — ценное осознание, дополнение знаний или новое знание, полученное из анализа данных, которое инициирует новое исследование или приводит к полезному для компании действию.
+**An insight** is a valuable realization, an addition to knowledge or a new piece of knowledge obtained from analysing data, which either starts a new investigation or leads to an action useful to the company.
 
-## Три модели управления инсайтами
+## Three models of insight management
 
-| Модель | Метафора | Что делает BI-команда |
+| Model | Metaphor | What the BI team does |
 |---|---|---|
-| **Прямое** | «Готовим еду и кормим» — ресторан | берём use cases и метрики → выявляем для каждой метрики область значений, требующую решений → строим дерево решений и анализ «что если» → **автоматизируем выявление триггерных событий в данных** → настраиваем таргетированную доставку сообщения менеджеру с описанием события и рекомендацией решения (инсайт-дайджест, инсайт-бот) |
-| **Косвенное** | «Учим готовить еду» — продовольственный рынок | разработка BI-отчётов · ищем и автоматизируем доменные аналитические сценарии, даём пользователю инструмент для самостоятельного поиска инсайтов · программа data literacy · прокачиваем в менеджерах способность и мотивацию извлекать инсайт из отчётов · BI community management |
-| **Делегированное** | «Даём огород, инструмент, семена» | помогаем создавать аналитические команды, которые дают своему менеджменту персональное прямое и косвенное управление инсайтами (дата-аналитики, инсайт-менеджеры) |
+| **Direct** | "We cook the food and feed you" - a restaurant | take the use cases and metrics -> identify, for each metric, the value range that calls for a decision -> build a decision tree and what-if analysis -> **automate the detection of trigger events in the data** -> set up targeted delivery of a message to the manager describing the event and recommending a decision (an insight digest, an insight bot) |
+| **Indirect** | "We teach you to cook" - a food market | building BI reports · finding and automating domain analytical scenarios, giving the user a tool to look for insights themselves · a data literacy programme · growing managers' ability and motivation to extract insight from reports · BI community management |
+| **Delegated** | "We give you the plot, the tools and the seeds" | helping to build analytics teams that give their own management personal direct and indirect insight management (data analysts, insight managers) |
 
-Три модели — не стадии, а сосуществующие режимы под разные роли; выбор режима на роль делается так же, как выбор BI-модели в [[ssbi-vs-guided]].
+The three models are not stages but coexisting modes for different roles; picking a mode for a role works the same way as picking a BI model in [[ssbi-vs-guided]].
 
-## Концепция анти-дашборда и LLM
+## The anti-dashboard concept and the LLM
 
-Все крупные вендоры исследуют новые модели взаимодействия с casual-пользователями. Оценка автора: **вопросов больше, чем ответов**, но одно очевидно —
+Every large vendor is exploring new models of interaction with casual users. The author's assessment: **there are more questions than answers**, but one thing is clear -
 
-> BI-командам необходимо начать учитывать, как они будут управлять метаданными своих моделей данных и логикой. Вскоре им, возможно, придётся предоставлять эти модели неким BI-ботам, независимо от того, с какой BI-системой бот интегрирован, и **нести ответственность за результаты**.
+> BI teams need to start thinking about how they will manage the metadata of their data models and their logic. Before long they may have to hand those models to some BI bot, whatever BI system the bot is integrated with, and **carry responsibility for the results**.
 
-**Правило выбора между оценками.** База несёт две цифры потолка, расходящиеся вчетверо: субъективные 70–80% участников и 15–25% из практики. Выбор не произвольный — **при отсутствии семантического слоя и сертифицированного ядра берётся нижняя граница**: высокая оценка обычно означает, что базовая потребность в данных ещё не закрыта, а не что агент готов её закрыть.
+**The rule for choosing between the estimates.** The base carries two ceiling figures that differ fourfold: the participants' subjective 70-80% and the 15-25% from practice. The choice is not arbitrary - **with no semantic layer and no certified core, take the lower bound**: a high estimate usually means the basic data need is not yet met, not that the agent is ready to meet it.
 
-Реалистичная оценка потолка: в идеальном сценарии это может закрыть **15–25% запросов пользователя** — заметно скромнее, чем 70–80% из субъективных оценок участников в [[participants-2026-benchmark]]. Расхождение стоит показывать вместе.
+A realistic ceiling: in the ideal scenario this could close **15-25% of a user's queries** - noticeably more modest than the 70-80% from the participants' subjective estimates in [[participants-2026-benchmark]]. The divergence is worth showing alongside.
 
-## Архитектурная связка
+## The architectural chain
 
-`Запрос на «готовую» аналитику и алерты по метрикам` ← **BI Insight Bot** (новый UI, сокращающий время от данных до инсайта) ← **LLM** как, возможно, лучший интерфейс извлечения и доставки ← **Semantic Layer** (техническая репрезентация унифицированных метрик) + **глоссарий метрик** (бизнес-логика унифицированных метрик).
+`A request for "ready" analytics and metric alerts` <- **the BI insight bot** (a new UI shortening the time from data to insight) <- **the LLM** as possibly the best interface for extraction and delivery <- **the semantic layer** (the technical representation of unified metrics) plus **the metric glossary** (the business logic of those unified metrics).
 
-Ключевое здесь: LLM стоит **над** семантическим слоем и глоссарием, а не вместо них. Это та же цепочка, что в kill-gate `no-assistant-without-foundation`.
+The key point: the LLM sits **above** the semantic layer and the glossary, not instead of them. It is the same chain as in the `no-assistant-without-foundation` kill-gate.
 
-## Эволюция классов решений
+## The evolution of solution classes
 
-`Чат-боты` (фиксированные правила, повторяющиеся задачи) → `Копайлоты` (умная адресная помощь) → `Агенты` (знают бизнес, планируют и рассуждают, **совершают действия**, масштабируются). Отличие агента формулируется одной строкой: агенты не просто помогают — они действуют. Отсюда и требование к identity, узким правам и audit trail.
+`Chatbots` (fixed rules, repeating tasks) -> `copilots` (smart, targeted help) -> `agents` (know the business, plan and reason, **take actions**, scale). The distinction of an agent fits in one line: agents do not merely help, they act. Hence the requirements around identity, narrow entitlements and an audit trail.
 
-Связи: [[ai-in-bi-approaches]] · [[ai-cases-in-prod]] · [[content-catalog-ux]] · [[bi-project-metrics]]
+Links: [[ai-in-bi-approaches]] · [[ai-cases-in-prod]] · [[content-catalog-ux]] · [[bi-project-metrics]]

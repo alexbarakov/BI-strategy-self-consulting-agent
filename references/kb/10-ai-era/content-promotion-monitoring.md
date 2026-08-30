@@ -1,60 +1,60 @@
 ---
 id: content-promotion-monitoring
-title: Промоушен контента и мониторинг утилизации
+title: Content promotion and utilization monitoring
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие «Content management» part 2"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session, part 2"
+confidence: verifiable
 blocks: [4.2, 6]
 ---
 
-## Промоушен: вопрос, который решает всё
+## Promotion: the question that settles everything
 
-Помимо формальных («кто участвует», «есть ли чеклист», «какие каналы», «какие события — инфоповод») метод задаёт вопрос по существу: **заинтересован ли автор отчёта, чтобы его отчётом пользовались другие, и готов ли учитывать чужие мнения и требования?** Если нет — промоушен не сработает никакими каналами.
+Beyond the formal ones ("who takes part", "is there a checklist", "which channels", "which events are news hooks") the method asks the substantive question: **does the report's author actually want other people to use their report, and are they willing to take other people's opinions and requirements on board?** If not, no channel will make promotion work.
 
-## Каналы коммуникации
+## Communication channels
 
-User group, канал, SSBI-портал · email-уведомления о релизах и обновлениях · **месячные дайджесты** · тренинги (по продукту, по АРМ, по новому отчёту, «отчёт месяца, о котором вы забыли») · промо-видео и база записей тренингов · онбординг новых пользователей · посты · **личное вовлечение инфлюенсеров и чемпионов в рабочие группы**.
+A user group, a channel, the self-service portal · email notifications about releases and updates · **monthly digests** · training (on the product, on the workplace, on a new report, "the report of the month you forgot about") · promotional videos and an archive of training recordings · onboarding of new users · posts · **drawing influencers and champions personally into the working groups**.
 
-## Анатомия релизной рассылки
+## The anatomy of a release announcement
 
-Единый стандартный стиль, краткое описание, бизнес-ориентированный месседж, ссылки на инструкции; цель — информировать сотни пользователей. Структура работающего письма:
-1. на какие вопросы отвечает отчёт (списком)
-2. что внутри — перечисление дашбордов с назначением каждого
-3. на каких данных построен, с какой частотой обновляется, где детальное описание
-4. **какие старые отчёты он заменяет и когда они уйдут в архив** — критично, иначе дублирование не схлопнется
-5. что важно помнить, открывая отчёт: ограничения по периодам, по охвату, по правам доступа
-6. ближайшие планы развития
+One consistent style, a short description, a business-oriented message, links to instructions; the goal is to inform hundreds of users. The structure of a letter that works:
+1. which questions the report answers (as a list)
+2. what is inside - the dashboards enumerated, each with its purpose
+3. which data it is built on, how often it refreshes, where the detailed description lives
+4. **which old reports it replaces and when those go to the archive** - critical, or the duplication never collapses
+5. what to keep in mind when opening it: limits on periods, on coverage, on entitlements
+6. the near-term development plans
 
-Затем — **анализ эффективности релиза** по трафику.
+Then comes **an analysis of the release's effectiveness** by traffic.
 
-## Месячный дайджест — разделы
+## The monthly digest - the sections
 
-Топовые отчёты для хайлайта · новые отчёты и важные апдейты · релиз новых сервисов, политик, стандартов · старт новых проектов · coming soon · премии, награждения, итоги конкурсов · **Voice of customer — цитаты и фидбэк заказчиков**.
+Top reports to highlight · new reports and important updates · releases of new services, policies, standards · new projects starting · coming soon · awards, recognition, competition results · **voice of the customer - quotes and feedback from requesters**.
 
-Правило: кратко, привлекательно, инфографично. Скучные дайджесты никто не читает.
+The rule: short, appealing, graphic. Nobody reads boring digests.
 
-## Мониторинг утилизации — что реально смотрят
+## Utilization monitoring - what people actually look at
 
-**Adoption:** число уникальных пользователей · просмотров на уникального пользователя · % вовлечённых в BI · число сертифицированных отчётов · трафик по ролям · трафик в течение дня · число подписок.
+**Adoption:** unique users · views per unique user · share engaged in BI · number of certified reports · traffic by role · traffic across the day · number of subscriptions.
 
-**Динамика и риски:** топ людей, резко переставших ходить в BI · **топ отчётов, резко потерявших трафик** · когортный анализ как анализ эффективности промо · отток пользователей.
+**Trends and risks:** the top people who abruptly stopped coming to BI · **the top reports that abruptly lost traffic** · cohort analysis as a measure of promotion effectiveness · user churn.
 
-**Быстрый анализ в трёх разрезах:** всё по отчёту · всё по пользователю · всё по роли.
+**Quick analysis in three cuts:** everything about a report · everything about a user · everything about a role.
 
-**Доступы:** у кого есть доступ к отчёту · к каким отчётам есть доступ у пользователя или группы.
+**Entitlements:** who has access to a report · which reports a user or group has access to.
 
-**Производительность:** статистика длительности загрузки в динамике, какие отчёты начали резко тормозить.
+**Performance:** load duration statistics over time, which reports suddenly started to lag.
 
-## Продвинутый уровень: матрица роль × домен
+## The advanced level: the role-by-domain matrix
 
-Сводка вовлечения целевых ролей: уникальные активные пользователи · размер группы · % вовлечённых в BI — по каждой паре «роль × домен». Это исполняемая версия [[info-supply-demand]].
+A summary of engagement across target roles: unique active users · group size · share engaged in BI - for each role-and-domain pair. This is the executable version of [[info-supply-demand]].
 
-## Метрики целевых групп — самая честная пара
+## Target group metrics - the most honest pair
 
-- **Target group engagement rate** — % целевой группы, посмотревшей дашборд в этом месяце
-- **Target audience match rate** — % всей аудитории, попадающей в целевые группы
-- **Coverage** — доля объектов, у которых целевая группа вообще определена
+- **Target group engagement rate** - the share of the target group that viewed the dashboard this month
+- **Target audience match rate** - the share of the total audience that falls inside the target groups
+- **Coverage** - the share of objects that have a target group defined at all
 
-Разрез отдельно по сертифицированному контенту. Смысл конструкции: **engagement без match rate обманывает** — можно иметь высокий трафик от людей, которым отчёт не предназначен. Оба показателя нужны вместе, и «растим оба» — корректная формулировка цели.
+Cut separately for certified content. The point of the construction: **engagement without match rate deceives** - you can have high traffic from people the report was never meant for. Both indicators are needed together, and "we grow both" is the correct way to state the goal.
 
-Связи: [[content-hygiene-loop]] · [[content-catalog-ux]] · [[bi-project-metrics]] · [[info-supply-demand]]
+Links: [[content-hygiene-loop]] · [[content-catalog-ux]] · [[bi-project-metrics]] · [[info-supply-demand]]

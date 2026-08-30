@@ -1,60 +1,60 @@
 ---
 id: context-governance
-title: Управление контекстом — Context Unit, trust-плоскость, гейт-роли
+title: Context governance - the context unit, the trust plane, the gate roles
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 7 — внутренняя практика"
-confidence: проверяемо (внутренние замеры)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 7 - internal practice"
+confidence: verifiable (internal measurements)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [5, 6]
 ---
 
-Следующий уровень после наполнения ДБЗ: **агент физически не пишет SQL без контекста** — не по договорённости, а по инфраструктуре.
+The level after populating the domain knowledge base: **the agent physically cannot write SQL without context** - not by agreement but by infrastructure.
 
-## Атом — Context Unit
+## The atom - the context unit
 
-Статусы: **inferred → candidate → verified → deprecated**. У каждого юнита: provenance, freshness TTL и **ссылка на источник правды вместо копии**.
+Statuses: **inferred -> candidate -> verified -> deprecated**. Each unit carries provenance, a freshness TTL and **a reference to the source of truth instead of a copy**.
 
-## Trust-плоскость
+## The trust plane
 
-Три режима выдачи, определяемые статусом юнита, свежестью и риском запроса:
-- **SERVE_AS_FACT** — отдаём как факт
-- **SERVE_WITH_CAVEAT** — отдаём с оговоркой
-- **WITHHOLD** — не отдаём
+Three serving modes, determined by the unit's status, its freshness and the query's risk:
+- **SERVE_AS_FACT** - hand it over as fact
+- **SERVE_WITH_CAVEAT** - hand it over with a caveat
+- **WITHHOLD** - do not hand it over
 
-Правило риска, названное явно: **число, идущее на борд, — это high risk**. То есть один и тот же контекст может быть достаточен для разведочного вопроса и недостаточен для публикации в отчёт.
+The risk rule, stated explicitly: **a number going onto a board is high risk**. That is, the same context can be sufficient for an exploratory question and insufficient for publication in a report.
 
-## PreToolUse-хук — превращение практики в инфраструктуру
+## The PreToolUse hook - turning practice into infrastructure
 
-Агент физически не может вызвать инструмент записи SQL, не пройдя через контекст. Формулировка эффекта: **adoption переезжает из «агент решил» в «инфраструктура»**. Это тот же принцип, что «матрица прав без механизма реализации — декларация» ([[access-matrix]]).
+The agent physically cannot call a SQL-writing tool without going through context. The effect, as phrased: **adoption moves from "the agent decided to" into "the infrastructure"**. It is the same principle as "an access matrix with no implementation mechanism is a declaration" ([[access-matrix]]).
 
-## Три принципа
+## Three principles
 
-1. **SSOT не дублируется, а ссылается** — копия протухает молча
-2. **Добыча не доверяет себе** — извлечённое знание не становится фактом автоматически
-3. **Наполнение ≠ доверие ≠ эффект** — три разные величины, которые нельзя мерить одной метрикой
+1. **The single source of truth is referenced, not duplicated** - a copy goes stale silently
+2. **Extraction does not trust itself** - extracted knowledge does not become fact automatically
+3. **Population is not trust is not effect** - three different quantities that cannot be measured with one metric
 
-Третий принцип — самый практичный: он объясняет, почему в [[domain-knowledge-base]] полнота, статус `confirmed` и accuracy бота считаются раздельно.
+The third principle is the most practical: it explains why in [[domain-knowledge-base]] completeness, the `confirmed` status and the bot's accuracy are counted separately.
 
-## Замеренный эффект на простых запросах
+## The measured effect on simple queries
 
-Контекст, поданный управляемо вместо «всё в промпт», в разобранном кейсе дал на простых запросах кратное улучшение сразу по трём осям: **объём подаваемых токенов сократился примерно втрое · число шагов агента — втрое · время ответа — на порядок** (с минут до секунд).
+Context delivered under governance instead of "everything into the prompt" produced, in the case walked through, a multiple improvement on simple queries along three axes at once: **the volume of tokens supplied fell roughly threefold · the number of agent steps threefold · the response time by an order of magnitude** (from minutes to seconds).
 
-Здесь важно не абсолютное значение, а то, что выигрывает не только стоимость, но и латентность и число шагов: управляемый контекст улучшает экономику и качество одновременно. Свои величины меряются на своём наборе типовых запросов.
+What matters here is not the absolute value but the fact that it is not only cost that wins but latency and step count too: governed context improves the economics and the quality at the same time. Your own values are measured on your own set of typical queries.
 
-## Governance контекста: кто держит гейт
+## Context governance: who holds the gate
 
-| Роль | Что держит |
+| Role | What they hold |
 |---|---|
-| **BI Partner** | verify-gate домена с **явным недельным бюджетом времени** (в разобранном кейсе — меньше часа в неделю); если очередь съедает больше — чинит платформа |
-| **Куратор метрик** | семантику домена |
-| **GenAI Champion** | владелец AI-направления в домене |
+| **BI partner** | the domain's verify gate with **an explicit weekly time budget** (in the case walked through, under an hour a week); if the queue eats more, the platform is what gets fixed |
+| **Metrics curator** | the domain's semantics |
+| **GenAI champion** | the owner of the AI direction in the domain |
 
-**Нагрузка гейта = метрика здоровья платформы.** Это самая изящная конструкция в блоке: гейт не просто назначен, у него есть бюджет времени, и превышение бюджета — не проблема человека, а сигнал платформе. Без такого правила verify-gate тихо превращается в бутылочное горлышко и перестаёт работать.
+**The gate's load is a platform health metric.** This is the most elegant construction in the block: the gate is not merely assigned, it has a time budget, and going over that budget is not the person's problem but a signal to the platform. Without such a rule the verify gate quietly turns into a bottleneck and stops working.
 
-Три роли из этой таблицы — те же, что требует критерий Roles в [[ai-ready-domain-score]].
+The three roles in that table are the same ones the Roles criterion in [[ai-ready-domain-score]] requires.
 
-## Типы контекста
+## Types of context
 
-Отдельное упражнение курса: **проанализировать доступные типы контекста и источники, удалить лишнее и адаптировать целевую карту контекста под себя**. Слои, которые различает референсная модель: LLM model context · business context · domain context · data context · user context — над ними context engine, а метаданные подмешиваются послойно.
+A separate course exercise: **analyse the available context types and sources, remove what is redundant, and adapt the target context map to yourself**. The layers the reference model distinguishes: LLM model context · business context · domain context · data context · user context - with a context engine above them, and metadata blended in layer by layer.
 
-Связи: [[domain-knowledge-base]] · [[llm-assistant-architecture]] · [[ai-ready-domain-score]] · [[plausible-but-wrong]]
+Links: [[domain-knowledge-base]] · [[llm-assistant-architecture]] · [[ai-ready-domain-score]] · [[plausible-but-wrong]]

@@ -1,59 +1,59 @@
 ---
 id: data-catalog-pitfalls
-title: Дата-каталог — когда внедрять, типовые провалы и MCP как перелом
+title: The data catalog - when to roll it out, the classic failures, and MCP as the turning point
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 6"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 6"
+confidence: verifiable
 blocks: [4.1, 5]
 ---
 
-## Когда пора внедрять
+## When it is time to roll one out
 
-Рост размера и сложности дата-платформы всегда приводит к снижению time to value:
+Growth in the size and complexity of a data platform always drives time to value down:
 
-`[Project Delivery Date] − [Project Committed Date] = [Time to Value]`
+`[Project Delivery Date] - [Project Committed Date] = [Time to Value]`
 
-**Есть точка, когда суммарная потеря эффективности power users в компании становится выше затрат на решение дата-каталога.** Это при желании можно замерить экспериментами — и метод предлагает именно замерить, а не решать по ощущению.
+**There is a point at which the aggregate efficiency loss of the company's power users exceeds the cost of a data catalog solution.** This can be measured with experiments if you want it to be - and the method suggests measuring rather than deciding by feel.
 
-## Ghost town — каталог без описаний и метаданных
+## The ghost town - a catalog with no descriptions and no metadata
 
-Самый частый провал. Три противоядия:
+The most frequent failure. Three antidotes:
 
-1. **Максимально автоматизируйте.** Получить как можно больше метаданных автоматически. Нет причин, по которым кто-то должен заполнять ключи для каждого отдельного датасета. И это не всё про ML: домен и стюардов можно вычислять алгоритмически и предзаполнять.
-2. **Документация вносится в потоке работы с активом.** Работающий паттерн — **проверки документации в CI/CD с прерыванием сборки**, если документация не предоставлена.
-3. **Курируйте топ-20%.** Океан вскипятить нельзя; понимание того, какие таблицы запрашиваются и какие отчёты просматриваются чаще всего, задаёт скоуп курирования.
+1. **Automate as far as you can.** Get as much metadata automatically as possible. There is no reason anyone should be filling in keys for each individual dataset by hand. And this is not all about ML: domain and stewards can be computed algorithmically and pre-filled.
+2. **Documentation is entered in the flow of work with the asset.** A pattern that works is **documentation checks in CI/CD that break the build** when documentation is missing.
+3. **Curate the top 20%.** You cannot boil the ocean; knowing which tables are queried and which reports are viewed most often sets the curation scope.
 
-## Фрагментация золотого пути
+## Fragmentation of the golden path
 
-> Ваш каталог слишком широк и недостаточно глубок, что приводит к фрагментации UX.
+> Your catalog is too broad and not deep enough, which fragments the UX.
 
-Пользователям приходится выяснять, какой инструмент для чего, а дата-команде — поддерживать оба варианта. **Противоядие: осознанно выбрать золотой путь и отключить дублирующие функции**, чтобы остался один предложенный вариант.
+Users end up working out which tool is for what, and the data team ends up supporting both options. **The antidote: deliberately choose the golden path and switch off the duplicating functions**, so that one option remains on offer.
 
-Три типовые точки фрагментации:
-- **Обсуждения** — в мессенджере или в каталоге. *Не нужно верить во встроенный мессенджер дата-каталога. Это самообман.*
-- **База знаний** — статьи в вики или в каталоге. Выберите одно и интегрируйте в другое.
-- **Запросы** — в BI-инструменте, в IDE или через каталог.
+Three classic fragmentation points:
+- **Discussions** - in the messenger or in the catalog. *Do not believe in the data catalog's built-in messenger. That is self-deception.*
+- **The knowledge base** - articles in the wiki or in the catalog. Pick one and integrate it into the other.
+- **Queries** - in the BI tool, in the IDE, or through the catalog.
 
-## Открытые вопросы, на которые придётся ответить самому
+## The open questions you will have to answer yourself
 
-- Сколько там должно быть контента: чтобы можно было найти **всё** или чтобы там лучше находился **сертифицированный**?
-- Инструмент для power users или для casual тоже?
-- Развивать ли в нём каталог отчётов — там пользователь casual, и лишний функционал мешает ему находить отчёты?
-- Как «завлекать»: **принудительно** (таблица не ставится на расписание, если нет карточки с заполненной метой) или **побудительно** (насыщая ценностью, облегчая шаринг)?
-- Какие продуктовые метрики использовать и как собрать команду, которая будет их растить?
+- How much content should be in there: enough to find **everything**, or set up so that the **certified** is what gets found?
+- A tool for power users, or for casual users too?
+- Should the report catalog be grown inside it - where the user is casual and extra functionality gets in the way of finding reports?
+- How to draw people in: **compulsion** (a table does not get put on a schedule without a card with metadata filled in) or **incentive** (saturating it with value, making sharing easier)?
+- Which product metrics to use, and how to assemble a team that will grow them?
 
-Первый вопрос — развилка философии: «найти всё» и «найти доверенное» требуют разного ранжирования и разного UX.
+The first question is a philosophical fork: "find everything" and "find the trusted" call for different ranking and a different UX.
 
-## Что важно в lineage
+## What matters in lineage
 
-1. Широта нативных интеграций
-2. **Поколоночная связь**
-3. …и только потом красота
+1. Breadth of native integrations
+2. **Column-level linkage**
+3. ...and only then, looks
 
-## Перелом: MCP + Data Catalog
+## The turning point: MCP plus the data catalog
 
-Model Context Protocol — открытый стандарт интеграции LLM с внешними инструментами и источниками, стандартизованный способ для AI-приложений получать и использовать информацию из разных систем (аналогия из курса: как USB-C даёт стандартный разъём для устройств).
+The Model Context Protocol is an open standard for integrating LLMs with external tools and sources - a standardized way for AI applications to obtain and use information from different systems (the course's analogy: the way USB-C gives devices a standard connector).
 
-Оценка автора: **MCP + дата-каталог = game changer**. Каталог перестаёт быть витриной для человека и становится интерфейсом контекста для агента — то есть все инвестиции в метаданные окупаются повторно. Это же переводит ghost town из «неприятно» в «блокирует»: пустой каталог означает, что агенту нечего читать.
+The author's assessment: **MCP plus the data catalog is a game changer**. The catalog stops being a shop window for humans and becomes the context interface for an agent - meaning all the investment in metadata pays back a second time. It also moves the ghost town from "unpleasant" to "blocking": an empty catalog means the agent has nothing to read.
 
-Связи: [[core-layer-project]] · [[data-team-pain-points]] · [[data-mgmt-processes]] · [[ai-in-data-processes]]
+Links: [[core-layer-project]] · [[data-team-pain-points]] · [[data-mgmt-processes]] · [[ai-in-data-processes]]

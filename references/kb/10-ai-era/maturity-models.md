@@ -1,43 +1,43 @@
 ---
 id: maturity-models
-title: Модели зрелости D&A — TDWI и стадии аналитики
+title: D&A maturity models - TDWI and the stages of analytics
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 3; TDWI Analytics Maturity Model; TDWI BI Maturity Model"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 3; TDWI Analytics Maturity Model; TDWI BI Maturity Model"
+confidence: verifiable
 blocks: [2]
 ---
 
-## TDWI Analytics Maturity Model — пять стадий и «пропасть»
+## The TDWI analytics maturity model - five stages and the chasm
 
-Оценка по пяти измерениям: **Organization · Resources · Data Infrastructure · Analytics · Governance**. Стадии: Зарождающийся → Ранний → **Пропасть** → Сформированный → Зрелый → Продвинутый.
+Assessment across five dimensions: **organization · resources · data infrastructure · analytics · governance**. The stages: nascent -> early -> **the chasm** -> established -> mature -> advanced.
 
-| Стадия | Признаки |
+| Stage | Signs |
 |---|---|
-| **Зарождающийся** | руководители не знают или не заботятся о силе аналитики · IT и бизнес не работают вместе · культура электронных таблиц · качество и согласованность данных низкие · собрать датасет для анализа — глобальная задача · аналитика в разрозненных карманах, одна группа не знает, что делает другая · нет массового доступа к данным для решений |
-| **Ранний** | компания поняла, что нужна инфраструктура данных · данные в основном структурированы, объёмы низкие · правят отчёты и дашборды · бизнес-аналитики осознают силу self-service визуализации · инвестиции в инструменты визуализации · очаги продвинутой аналитики и ML · обсуждения аналитики начинаются, культура ещё не сформировалась |
-| **Сформированный** | руководители увлечены аналитикой и считают её критически важной · IT и бизнес работают как команда над выбранными проектами · есть DWH или витрины · тестируют облачные хранилища/озёра · сформирована группа управления данными · найм data scientists и data engineers |
-| **Зрелый** | компания внедряет аналитическую стратегию · быстрый онбординг новых данных · CoE, обслуживающий разные части организации · аналитика автоматизирована и интегрирована в бизнес-процесс · ML-модели в проде · программа DG · переход к прогнозной аналитике |
-| **Продвинутый** | инновации в данных — основная ценность, преобладает аналитическая культура · есть CAO или CDO и бюджет на команды · инфраструктура для расширенной аналитики, а не только BI · быстрое поглощение новых источников · ML, deep learning, NLP в проде — сотни и тысячи версионируемых, управляемых и мониторимых моделей |
+| **Nascent** | leaders do not know about, or do not care about, the power of analytics · IT and the business do not work together · a spreadsheet culture · data quality and consistency are low · assembling a dataset for analysis is a major undertaking · analytics sits in disconnected pockets, and one group does not know what another is doing · there is no broad access to data for decisions |
+| **Early** | the company has realized it needs data infrastructure · data is mostly structured, volumes are low · reports and dashboards get built · business analysts see the power of self-service visualization · investment in visualization tools · pockets of advanced analytics and ML · conversations about analytics are starting, the culture has not formed yet |
+| **Established** | leaders are enthusiastic about analytics and consider it critical · IT and the business work as one team on selected projects · a warehouse or marts exist · cloud warehouses and lakes are being trialled · a data management group has been formed · data scientists and data engineers are being hired |
+| **Mature** | the company is executing an analytics strategy · new data is onboarded quickly · a centre of excellence serves different parts of the organization · analytics is automated and embedded in the business process · ML models in production · a governance programme · a move towards predictive analytics |
+| **Advanced** | data innovation is the core value, an analytical culture prevails · there is a CAO or CDO and a budget for the teams · infrastructure for advanced analytics, not only BI · new sources absorbed quickly · ML, deep learning and NLP in production - hundreds and thousands of versioned, governed, monitored models |
 
-**Пропасть** между Ранним и Сформированным — самое ценное место модели: там останавливается большинство.
+**The chasm** between early and established is the model's most valuable feature: that is where most stop.
 
-## Что мешает пройти пропасть (TDWI BI Maturity)
+## What blocks the crossing (TDWI BI maturity)
 
-Нехватка гибкости в дата-инструментах · ментальная разрозненность — нехватка доверия и скиллов · неадекватные задачам BI-инструменты · политические дрязги.
+Not enough flexibility in the data tooling · mental fragmentation - a shortage of trust and of skills · BI tools inadequate to the tasks · political infighting.
 
-## Стадии аналитики по ролям и доменам
+## The stages of analytics by role and domain
 
-Отдельное упражнение: разложить текущее состояние доменов по лестнице **Descriptive (что произошло) → Diagnostic (почему) → Forecasting (что точно произойдёт) → Predictive (что может произойти) → Prescriptive (что делать) → Cognitive (сделать так, чтобы произошло)** и отметить среднесрочные перспективы.
+A separate exercise: lay the current state of the domains out on the ladder **descriptive (what happened) -> diagnostic (why) -> forecasting (what will definitely happen) -> predictive (what might happen) -> prescriptive (what to do) -> cognitive (make it happen)** and mark the medium-term prospects.
 
-## Diagnostic analytics gap — главный разрыв
+## The diagnostic analytics gap - the central break
 
-Большинство компаний останавливаются на описательной аналитике и не анализируют причины:
-- дашборды показывают данные, но не помогают действовать, потому что не объясняют причины изменений KPI
-- **люди:** дата-специалисты не понимают бизнес, бизнес-специалисты не владеют инструментами
-- **инструменты:** дашборды не подходят для анализа причин, проверка гипотез требует много времени
-- **процессы:** нет структурированного подхода к выявлению первопричин и документированию результатов
-- **культура:** компании ограничиваются поверхностными выводами, что замедляет реакцию на изменения
+Most companies stop at descriptive analytics and never analyse causes:
+- dashboards show data but do not help you act, because they do not explain why the KPI moved
+- **people:** data specialists do not understand the business, business specialists cannot use the tools
+- **tools:** dashboards are not suited to cause analysis, and testing hypotheses takes a lot of time
+- **processes:** there is no structured approach to identifying root causes and documenting the results
+- **culture:** companies settle for surface-level conclusions, which slows their response to change
 
-Именно этот разрыв — самая понятная точка приложения AI: root-cause и объяснение относятся к слоям 4 и 6 из [[ai-in-bi-approaches]].
+This gap is the clearest place to apply AI: root cause and explanation belong to layers 4 and 6 in [[ai-in-bi-approaches]].
 
-Связи: [[ai-ready-domain-score]] · [[bi-adoption-barriers]] · [[data-utility-gap]] · [[guide-structure]]
+Links: [[ai-ready-domain-score]] · [[bi-adoption-barriers]] · [[data-utility-gap]] · [[guide-structure]]

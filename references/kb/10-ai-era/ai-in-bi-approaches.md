@@ -1,45 +1,45 @@
 ---
 id: ai-in-bi-approaches
-title: Четыре подхода к AI в BI и российский регуляторный контур
+title: Four approaches to AI in BI, and the Russian regulatory perimeter
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 1; «AI в BI. Круг Громова 2026», russianbi.ru"
-confidence: проверяемо (классификация), мерил продавец (примеры вендоров)
+source: "Course \"BI+AI strategy 26\", Day 1; \"AI in BI. Gromov's circle 2026\", russianbi.ru"
+confidence: verifiable (the classification), vendor-measured (the vendor examples)
 blocks: [5]
 ---
 
-Спектр от AI внутри ядра платформы до внешнего автономного агента. Тезис М. Лака, который метод принимает: **серебряной пули нет — подход выбирают под задачу и регуляторный контур**.
+A spectrum from AI inside the platform core to an external autonomous agent. M. Lak's thesis, which the method accepts: **there is no silver bullet - the approach is chosen to fit the task and the regulatory perimeter**.
 
-## Четыре подхода
+## The four approaches
 
-| Подход | Как устроен | Сильно | Осторожно |
+| Approach | How it works | Strong | Careful |
 |---|---|---|---|
-| **Embedded** — встроенный сервис | AI в ядре BI, работает «под капотом» при любом запросе, без плагинов. Открыл дашборд — AI поясняет цифры прямо в интерфейсе | надёжность, юридическая чистота, глубокая интеграция | сложно сменить LLM без пересборки ядра, vendor-lock |
-| **Semantic-Layer** — on-prem на семантике | AI-ядро работает только со смыслом, не с сырыми данными; всё on-prem. Спросил метрику на русском — точный ответ по модели, без интернета | полная изоляция данных, 152-ФЗ, работа без VPN | нет графиков (только таблицы), нет проактивных цепочек |
-| **Assisted** — UI-помощник | плагин поверх интерфейса, помогает с тем, что сейчас на экране. Чат сбоку строит график по текущему дашборду | просто и быстро внедрить, не меняя ядро | реактивен, нет многошаговых автономных цепочек |
-| **Agentic** — внешний агент AI-first | агент живёт снаружи и сам создаёт/меняет отчёты, витрины и SQL через MCP. «Собери отчёт по продажам» — агент сам пишет SQL и строит дашборд | end-to-end автоматизация, максимум гибкости | при иностранной LLM — санкционные риски и 152-ФЗ |
+| **Embedded** - a built-in service | AI in the BI core, working under the hood on any request, with no plugins. You open a dashboard and the AI explains the numbers right in the interface | reliability, legal cleanliness, deep integration | hard to swap the LLM without rebuilding the core, vendor lock-in |
+| **Semantic layer** - on-prem over semantics | the AI core works only with meaning, never with raw data; everything on-prem. You ask for a metric in natural language and get an exact answer from the model, with no internet | complete data isolation, personal-data law compliance, works without a VPN | no charts (tables only), no proactive chains |
+| **Assisted** - a UI helper | a plugin over the interface, helping with whatever is on screen right now. A side chat builds a chart from the current dashboard | simple and fast to roll out without changing the core | reactive, no multi-step autonomous chains |
+| **Agentic** - an external AI-first agent | the agent lives outside and creates or changes reports, marts and SQL itself through MCP. "Assemble a sales report" and the agent writes the SQL and builds the dashboard | end-to-end automation, maximum flexibility | with a foreign LLM: sanctions risk and personal-data law exposure |
 
-## Шесть слоёв, где AI работает в BI
+## The six layers where AI works in BI
 
-1. **Доступ и понимание** — NLQ, поиск дашбордов, семантический поиск
-2. **Подготовка данных** — генерация ETL, очистка, дедупликация
-3. **Семантика и метаданные** — глоссарий, описания, lineage, синонимы
-4. **Визуализация и анализ** — NL2Viz, разбор дашборда, root-cause
-5. **Планирование и прогноз** — what-if, прогнозные модели, оптимизация
-6. **Качество и наблюдаемость** — аномалии, проактивные алерты, объяснение
+1. **Access and comprehension** - natural-language querying, dashboard search, semantic search
+2. **Data preparation** - ETL generation, cleansing, deduplication
+3. **Semantics and metadata** - glossary, descriptions, lineage, synonyms
+4. **Visualization and analysis** - NL2Viz, dashboard interpretation, root cause
+5. **Planning and forecasting** - what-if, forecast models, optimization
+6. **Quality and observability** - anomalies, proactive alerts, explanation
 
-Каждый слой оценивается по циклу SPAR и уровню автономии 0–5 (классификация Паскаля Борне).
+Each layer is assessed against the SPAR cycle and an autonomy level of 0 to 5 (Pascal Bornet's classification).
 
-## Российский контур: выбор = функции × юрисдикция × геополитика
+## The Russian perimeter: the choice is features by jurisdiction by geopolitics
 
-- **152-ФЗ** — локализация персданных в РФ; иностранные облачные LLM для ПДн нельзя
-- **187-ФЗ (КИИ)** — только российское ПО из реестра для критической инфраструктуры
-- **ФСТЭК №117** — требования к защите, сертификация платформы
-- **Санкционный риск** — иностранная LLM без замены на российскую даёт высокий риск блокировки API; on-prem плюс отечественная LLM (GigaChat, YandexGPT, Qwen) — низкий
+- **Federal Law 152-FZ** - personal data must be localized in Russia; foreign cloud LLMs are off-limits for personal data
+- **Federal Law 187-FZ (critical infrastructure)** - only Russian software from the register, for critical infrastructure
+- **FSTEC order 117** - protection requirements, platform certification
+- **Sanctions risk** - a foreign LLM with no Russian substitute carries a high risk of API blocking; on-prem plus a domestic LLM (GigaChat, YandexGPT, Qwen) is low
 
-**Вывод:** подход выбирают под тип организации (госсектор/КИИ → крупная коммерция → малый бизнес), регуляторный контур и зрелость данных, а не по рейтингу «лучшего».
+**The conclusion:** the approach is chosen to fit the type of organization (public sector / critical infrastructure -> large commercial -> small business), the regulatory perimeter and data maturity, not by a "best of" ranking.
 
-## Глобальная рамка и цифры вендоров
+## The global frame and the vendors' numbers
 
-Gartner: три силы — AI-ready данные и семантика · агентная аналитика и decision intelligence · governance/AI-TRiSM как гейт доверия. Заявленные числа (пометка: **мерил вендор**): 40% агентных AI-проектов свернут к концу 2027 из-за стоимости, размытой ценности и слабого контроля рисков; +80% точности и −60% стоимости GenAI при приоритете семантики в AI-ready данных к 2027; 50% провалов агентов к 2030 — из-за нехватки runtime-enforcement governance.
+Gartner names three forces: AI-ready data and semantics · agentic analytics and decision intelligence · governance and AI TRiSM as the trust gate. The claimed figures (flagged: **vendor-measured**): 40% of agentic AI projects will be cancelled by end of 2027 because of cost, unclear value and weak risk control; 80% better accuracy and 60% lower GenAI cost when semantics is prioritized within AI-ready data, by 2027; 50% of agent failures by 2030 will come from insufficient runtime-enforcement governance.
 
-Связи: [[bi-toolset-landscape]] · [[ai-time-saving-trap]] · [[ai-ready-domain-score]] · [[data-utility-gap]]
+Links: [[bi-toolset-landscape]] · [[ai-time-saving-trap]] · [[ai-ready-domain-score]] · [[data-utility-gap]]

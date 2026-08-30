@@ -1,52 +1,52 @@
 ---
 id: content-hygiene-loop
-title: Контент-гигиена — автомониторинг, content-бот и BI-субботник
+title: Content hygiene - automated monitoring, a content bot and a BI clean-up day
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие «Content management»"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session"
+confidence: verifiable
 blocks: [4.2, 6]
 ---
 
-Три механизма поддержания чистоты прода — автоматический, ботовый и социальный.
+Three mechanisms for keeping production clean - automatic, bot-driven and social.
 
-## 1. Автомониторинг
+## 1. Automated monitoring
 
-Мониторинг подключений между отчётами и таблицами БД — поиск легаси и дублей · удаление уволенных пользователей с сервера · удаление ручных прав и прав all users на продовых отчётах · поиск отчётов с подозрением на архитектурные неоптимальности (число подключений больше X, длительность формирования экстрактов, быстродействие) · отчёты-кандидаты на архивацию (нет пользователей, нет апдейтов) · отчёты на проде без описания.
+Monitoring the connections between reports and database tables - hunting legacy and duplicates · removing departed users from the server · removing manual entitlements and all-users entitlements on production reports · finding reports suspected of architectural inefficiency (more than X connections, extract build duration, responsiveness) · reports that are candidates for archiving (no users, no updates) · reports in production with no description.
 
-Выход: **регулярные рассылки дайджестов, алертов и shame-lists для авторов**.
+The output: **regular digests, alerts and shame-lists sent to the authors**.
 
-## 2. BI Content management BOT
+## 2. The BI content management bot
 
-Инструмент, прогоняющий по отчёту много проверок сразу.
+A tool that runs many checks over a report at once.
 
-**По отчёту:** размер извлечения против порога · производительность против порога и предыдущих значений, с прокликиванием фильтров · ссылки на документацию да/нет · метка времени актуальности данных да/нет · использование шаблона style guide (иконки, ссылки, шрифты) · качество макета (фиксированный размер, контейнеры) · использование цветов из брендового диапазона · использование сертифицированных источников против неэффективных кастомных SQL · проблемы с именованием полей · соответствие названия отчёта стандартам · проблемы с калькуляциями (количество и каскадирование уровней детализации) · правильная настройка прав с конкретными группами · добавлены ли нужные теги.
+**Per report:** extract size against a threshold · performance against a threshold and against previous values, clicking through the filters · links to documentation, yes/no · a data freshness timestamp, yes/no · use of the style guide template (icons, links, fonts) · layout quality (fixed size, containers) · use of colours from the brand range · use of certified sources versus inefficient custom SQL · problems with field naming · whether the report name follows the standards · problems with calculations (the number of level-of-detail expressions and their cascading) · entitlements set up correctly with specific groups · whether the required tags have been added.
 
-**По папкам и проектам:** прод-папка содержит все необходимые атрибуты (описание, домен, роль безопасности) · DEV-папка содержит отчёты не старше месяца · архивная папка не содержит рабочих расписаний обновления и подписок.
+**Per folder and project:** the production folder holds all the required attributes (description, domain, security role) · the DEV folder holds no reports older than a month · the archive folder holds no live refresh schedules or subscriptions.
 
-Бот отправляет оповещения создателю с призывом к действию, показывает статистику проблем администратору BI-сервера и запускается по расписанию из административной консоли.
+The bot sends notifications to the creator with a call to action, shows problem statistics to the BI server administrator, and runs on a schedule from the admin console.
 
-Естественное развитие в AI-эру: генерация readme по кнопке «Fill with AI» с шаблоном и превью, поверх которой человек вычитывает.
+The natural extension in the AI era: generating a readme from a "Fill with AI" button, with a template and a preview, on top of which a human reads through.
 
-## 3. BI-субботник — социальный механизм
+## 3. The BI clean-up day - the social mechanism
 
-Онлайн-мероприятие или марафон от 4 часов до нескольких дней, раз в квартал или полгода. Два масштаба: внутри BI-команды и company-wide для всех BI-чемпионов и авторов.
+An online event or marathon lasting from four hours to several days, once a quarter or twice a year. Two scales: inside the BI team, and company-wide for all BI champions and authors.
 
-**Промо:** напоминание о важности, призы участникам, соревновательный элемент, ссылка на описание процесса.
+**Promotion:** a reminder of why it matters, prizes for participants, a competitive element, a link to the process description.
 
-**Что делают:** проверяют свой контент по чеклисту — качество данных, актуальность, обновляемость · неоптимальные запросы, коннекты к неверным источникам · нейминг, метаданные, ссылки · перенос контента между средами, архивация · удаление ручных прав · **peer-review чужих отчётов, баг-тестинг**.
+**What people do:** check their own content against the checklist - data quality, freshness, refreshability · inefficient queries, connections to the wrong sources · naming, metadata, links · moving content between environments, archiving · removing manual entitlements · **peer review of other people's reports, bug testing**.
 
-> **Цель не сделать всё, а создать привычку.**
+> **The goal is not to do everything but to build the habit.**
 
-Субботник же служит точкой ежегодного подтверждения сертификации ([[content-certification]]).
+The clean-up day also serves as the point of annual re-confirmation of certification ([[content-certification]]).
 
-## Фидбэк-контур
+## The feedback circuit
 
-Feedback tool на всех интерфейсах, включая сами отчёты, с выводом в **CSAT-дашборд в разрезе факторов** и динамикой со скользящим окном 30 дней. Факторы, по которым замеряется удовлетворённость: overall · navigation · speed · documentation · data update · data accuracy · visualization · download availability · training · support and updates · report turnaround.
+A feedback tool on every interface, including the reports themselves, feeding **a CSAT dashboard cut by factor** with a trend on a 30-day rolling window. The factors satisfaction is measured across: overall · navigation · speed · documentation · data update · data accuracy · visualization · download availability · training · support and updates · report turnaround.
 
-Такой разрез сразу показывает, **какой именно фактор тянет CSAT вниз**, вместо общего «пользователи недовольны».
+That cut immediately shows **which factor specifically is dragging CSAT down**, instead of a general "users are unhappy".
 
-## Уход автора
+## When the author leaves
 
-Прямой вопрос метода: что происходит после ухода автора отчёта — передача прав собственности на контент или ничего, то есть смерть отчёта? Второй вариант метод называет вслух, потому что он и есть фактический ответ у большинства и одна из причин 88% смертности из [[bi-value-illusion]].
+The method asks directly: what happens after a report's author leaves - content ownership is handed over, or nothing happens, meaning the report dies? The method says the second option out loud, because it is the actual answer for most, and one of the reasons behind the 88% mortality in [[bi-value-illusion]].
 
-Связи: [[content-certification]] · [[content-mgmt-processes]] · [[bi-value-illusion]] · [[content-catalog-ux]]
+Links: [[content-certification]] · [[content-mgmt-processes]] · [[bi-value-illusion]] · [[content-catalog-ux]]
