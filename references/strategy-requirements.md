@@ -1,248 +1,248 @@
-# Требования к структуре и содержанию BI+AI стратегии
+# Requirements for the structure and content of a BI+AI strategy
 
-Спека приёмки документа. Отвечает на два вопроса: **когда раздел можно считать написанным** и **что делает документ непринимаемым**.
+An acceptance spec for the deliverable. It answers two questions: **when a section can be considered written**, and **what makes a document unacceptable**.
 
-Шесть разделов документа плюс сквозное требование к языку. Порядок разделов — порядок чтения, а не порядок работы: анализ ведётся по 7-блочной рамке (`strategy-template.md`), а читателю выдаётся то, что ниже.
+Six document sections plus a cross-cutting requirement on language. The order of sections is the order of reading, not the order of work: the analysis runs on the seven-block frame (`strategy-template.md`), and what the reader gets is what follows.
 
 ---
 
-## Требование 0. Отточенность формулировок
+## Requirement 0. Precision of wording
 
-Действует на каждое предложение документа. Это не стилистика: расплывчатая формулировка не проходит комитет и не превращается в задачу, поэтому она дороже отсутствующей.
+Applies to every sentence in the document. This is not style: a vague formulation does not survive a committee and does not turn into a task, which makes it more expensive than an absent one.
 
-### Шесть тестов
+### Six tests
 
-| Тест | Формулировка не проходит, если |
+| Test | The wording fails if |
 |---|---|
-| **Переносимости** | предложение можно без правок вставить в стратегию другой компании |
-| **Цитаты** | утверждение разваливается, будучи вырванным из абзаца и процитированным на комитете |
-| **Прилагательного** | прилагательное стоит без числа или без последствия: «значительный рост», «высокое качество», «низкая зрелость» |
-| **Понедельника** | после раздела непонятно, что делать в понедельник и кому |
-| **Чтения вслух** | формулировку неловко прочесть вслух спонсору, потому что она ничего не утверждает |
-| **Оспоримости** | утверждение невозможно оспорить — значит, оно ничего не сообщает |
+| **Portability** | the sentence could be pasted into another company's strategy unchanged |
+| **Quotation** | the claim falls apart once lifted out of its paragraph and quoted at a committee |
+| **Adjective** | an adjective stands without a number or a consequence: "significant growth", "high quality", "low maturity" |
+| **Monday** | after reading the section it is unclear what to do on Monday, and by whom |
+| **Read aloud** | the phrasing is awkward to read out to a sponsor because it asserts nothing |
+| **Arguability** | the claim cannot be disputed — which means it says nothing |
 
-### Бан-лист
+### Ban list
 
-Формулировки, которые вычёркиваются или дополняются до проверяемых: «повысить эффективность» · «улучшить качество данных» · «внедрить культуру данных» · «обеспечить прозрачность» · «синергия» · «оптимизировать процессы» · «ускорить time-to-insight» без указания, у кого и с чего на что · «выстроить процессы» без указания, какие именно.
+Phrases to delete or extend into something checkable: "improve efficiency" · "improve data quality" · "build a data culture" · "ensure transparency" · "synergy" · "optimize processes" · "accelerate time-to-insight" without saying for whom and from what to what · "establish processes" without saying which.
 
-### Правила письма
+### Writing rules
 
-- Одно предложение — одна мысль. Термин определяется при первом употреблении.
-- Число вместо оценки количества: не «много мёртвых отчётов», а сколько.
-- Каждое число несёт тег надёжности `measured` / `benchmark` / `vendor` / `author-estimate` / `disputed`; тег переносится вместе с числом.
-- Отсутствие данных фиксируется пометкой `[требует уточнения]` с указанием источника, который её закроет. Вдохновляющее число, поставленное чтобы закрыть дыру, переживёт стратегию и будет цитироваться год.
-- Язык документа — язык компании. Материалы метода это источник, а не шаблон вывода.
-
----
-
-## Раздел 1. Контекст
-
-Два подраздела, оба обязательны. Раздел отвечает на вопрос «почему сейчас», и ни один из подразделов сам по себе на него не отвечает: тренды без проблем — обзор рынка, проблемы без трендов — операционный отчёт.
-
-### 1.1 Внешний контекст: тренды
-
-**Обязательный минимум:** 5–8 трендов, каждый с источником и уровнем доказательности · по каждому — **что из этого следует для нас**.
-
-**Признак заполненности:** у каждого тренда есть строка следствия, привязанная к нашей ситуации. Тренд без следствия удаляется — он занимает место и создаёт впечатление, что документ про рынок.
-
-**Типовая подмена:** пересказ вендорских прогнозов. Цифра с тегом `vendor` может присутствовать, но подаётся с указанием, кто мерил, и не является основанием для инициативы.
-
-### 1.2 Внутренний контекст: проблемы
-
-**Обязательный минимум:** проблемы, собранные **по четырём группам ролей** — центральная команда, аналитики в доменах, команда управления данными, casual-пользователи · по каждой проблеме: симптом, доказательство, **цена бездействия** · диагностический скоркард зрелости 0–4 · названные 2–3 разрыва цепочки `core → семантика → контекст → точность AI → self-service`.
-
-**Признак заполненности:** проблема сформулирована так, что её можно предъявить владельцу и он либо согласится, либо оспорит фактом. У каждой есть цена бездействия хотя бы качественная.
-
-**Типовая подмена:** боли собраны только у своей команды — тогда стратегия отвечает на самую интересную боль, а не на самую дорогую. Вторая подмена: «низкая зрелость» вместо названных разрывов.
+- One sentence, one idea. A term is defined at first use.
+- A number instead of an estimate of quantity: not "many dead reports", but how many.
+- Every figure carries a reliability tag: `measured` / `benchmark` / `vendor` / `author-estimate` / `disputed`. The tag travels with the number.
+- Missing data is recorded as `[requires clarification]` naming the source that would close it. An inspiring number placed to fill a hole will outlive the strategy and be quoted for a year.
+- The document is written in the company's language. The method's material is a source, not an output template.
 
 ---
 
-## Раздел 2. Видение — саммари
+## Section 1. Context
 
-**Читается автономно.** Проверка простая: если человек прочёл только этот раздел, он должен понимать, куда идём, что решаем и чего от него хотят.
+Two subsections, both mandatory. The section answers "why now", and neither subsection answers it alone: trends without problems are a market review, problems without trends are an operations report.
 
-**Обязательный минимум:** куда идём и как это выглядит через горизонт планирования · какие проблемы раздела 1 закрываем · перечень стримов одной строкой каждый · **что мы сознательно не делаем и почему** · **какое решение требуется от спонсора** · первый шаг · цена бездействия.
+### 1.1 External context: trends
 
-**Объём:** одна страница. Раздел, который не помещается на страницу, не саммари.
+**Minimum required:** five to eight trends, each with a source and an evidence level · for each — **what follows from it for us**.
 
-**Признак заполненности:** есть явный запрос к спонсору — деньги, люди, полномочия или решение. Видение без запроса не требует ответа и потому не получает его.
+**Sign it is complete:** every trend carries a consequence line tied to our situation. A trend without a consequence is deleted — it takes space and makes the document look like it is about the market.
 
-**Типовая подмена:** вдохновляющий абзац про data-driven компанию. Тест оспоримости он не проходит.
+**The usual substitution:** a retelling of vendor forecasts. A figure tagged `vendor` may appear, but with the measurer named, and it is never grounds for an initiative.
+
+### 1.2 Internal context: problems
+
+**Minimum required:** problems collected **across four role groups** — the central team, analysts in domains, the data management team, casual users · for each: symptom, evidence, **cost of inaction** · a 0–4 maturity scorecard · the two or three named breaks in the chain `core → semantic → context → AI accuracy → self-service`.
+
+**Sign it is complete:** the problem is phrased so that it can be put to an owner who will either agree or dispute it with a fact. Each carries a cost of inaction, qualitative at minimum.
+
+**The usual substitution:** pains collected only from your own team — then the strategy answers the most *interesting* pain rather than the most *expensive* one. The second substitution: "low maturity" instead of named breaks.
 
 ---
 
-## Раздел 3. Стримы изменений
+## Section 2. Vision — the summary
 
-Стрим — направление изменений, объединяющее инициативы общей логикой и общим владельцем. Стримов обычно 4–7: меньше — не структура, больше — не приоритеты.
+**It reads standalone.** The test is simple: someone who read only this section must understand where we are going, what we are solving and what is wanted from them.
 
-**По каждому стриму обязательны:**
+**Minimum required:** where we are going and what that looks like at the planning horizon · which problems from section 1 we close · the streams, one line each · **what we deliberately do not do, and why** · **what decision is required from the sponsor** · the first step · the cost of inaction.
 
-| Поле | Требование |
+**Length:** one page. A section that does not fit on a page is not a summary.
+
+**Sign it is complete:** there is an explicit ask of the sponsor — money, people, authority or a decision. A vision without an ask requires no answer and therefore does not get one.
+
+**The usual substitution:** an inspiring paragraph about becoming a data-driven company. It fails the arguability test.
+
+---
+
+## Section 3. Streams of change
+
+A stream is a direction of change uniting initiatives under one logic and one owner. There are usually four to seven: fewer is not a structure, more is not a set of priorities.
+
+**Mandatory per stream:**
+
+| Field | Requirement |
 |---|---|
-| Название | называет изменение, а не область: «перевод потребления на доверенные объекты», а не «данные» |
-| Описание | что меняется и как выглядит результат |
-| **Обоснование** | какую проблему из 1.2 закрывает и какой тренд из 1.1 отрабатывает — **со ссылкой, а не по смыслу** |
-| Границы | что в стрим сознательно не входит |
-| Владелец | имя |
-| Место в очереди | позиция в stack-rank и что замораживается первым при сокращении |
+| Name | names the change, not the area: "moving consumption onto trusted objects", not "data" |
+| Description | what changes and what the result looks like |
+| **Justification** | which problem from 1.2 it closes and which trend from 1.1 it addresses — **by reference, not by implication** |
+| Boundaries | what is deliberately out of scope |
+| Owner | a name |
+| Position in the queue | its place in the stack-rank and what freezes first under a cut |
 
-**Требование трассируемости — двустороннее:**
-- каждый стрим ссылается минимум на одну названную проблему;
-- каждая значимая проблема покрыта минимум одним стримом, а непокрытые перечислены явно с причиной.
+**Traceability is required both ways:**
+- every stream references at least one named problem;
+- every significant problem is covered by at least one stream, and those left uncovered are listed explicitly with a reason.
 
-**Признак заполненности:** обоснование отвечает на вопрос «почему этот стрим, а не другой», а не описывает его содержание второй раз.
+**Sign it is complete:** the justification answers "why this stream rather than another", instead of describing its contents a second time.
 
-**Типовая подмена:** стримы названы по слоям архитектуры или по разделам гайда. Это оглавление, а не изменения.
-
----
-
-## Раздел 4. Проекты и инициативы
-
-Портфель. Формат — таблица, потому что он предназначен для сравнения и сокращения, а не для чтения подряд.
-
-**Обязательные колонки:**
-
-`инициатива` · `теги стримов` · `владелец` · `output по годам` · `outcome по годам` · `метрика` · `kill-gate` · `зависимости`
-
-### Output и outcome разводятся жёстко
-
-- **Output — что сделано.** Витрина, регламент, дашборд, обученная группа, запущенный сервис. Проверяется фактом наличия.
-- **Outcome — что изменилось.** Доля запросов, время, поведение людей, снятая нагрузка. Проверяется замером.
-
-Инициатива без outcome — это работа, а не инициатива, и в портфель она попадает только как зависимость другой.
-
-### Требования к горизонту
-
-Output и outcome указываются **по годам** горизонта. Первый год конкретен, дальние — рамочны и помечены как рамочные. Outcome, поставленный на первый год без бейзлайна на старте, не считается: его нечем будет закрыть.
-
-### Прочие требования
-
-- Теги стримов множественные: инициатива может работать на два стрима, но не должна работать на все.
-- У каждой AI-инициативы **kill-gate с порогом на своих данных**.
-- Outcome инициативы ссылается на цель из раздела 5, а не вводит собственную метрику.
-- Зависимости названы явно; инициатива, стоящая раньше своего звена цепочки, переносится или получает гейт.
-- Инициатива без владельца — строка в плане, а не изменение.
-
-**Типовая подмена:** список задач команды на год, помеченный тегами задним числом. Признак: у инициатив нет outcome, только output.
+**The usual substitution:** streams named after architecture layers or after the sections of a guide. That is a table of contents, not a set of changes.
 
 ---
 
-## Раздел 5. Цели через метрики
+## Section 4. Projects and initiatives
 
-Цель формулируется метрикой, а не словами. Словесная цель попадает в раздел 2 как видение; здесь только измеримое.
+The portfolio. A table, because it exists to be compared and cut, not read end to end.
 
-**Формат каждой цели:** `метрика` · `бейзлайн` · `таргет` · `срок` · `владелец` · `как меряется`.
+**Mandatory columns:**
 
-**Обязательные требования:**
+`initiative` · `stream tags` · `owner` · `output by year` · `outcome by year` · `metric` · `kill-gate` · `dependencies`
 
-- **Бейзлайн обязателен.** Нет замера — цель остаётся `[требует уточнения]` до замера, а не заменяется правдоподобным числом.
-- Метрики покрывают четыре группы: вовлечение · качество сервиса · качество процессов · влияние на бизнес. Отбор — **5 основных и 5 дополнительных**, остальные не берутся.
-- **+1 уровень зрелости за год — честный дефолт.** Больший сдвиг требует названной причины: выделенная мощность, профинансированная смена платформы, регуляторный срок.
-- Каждая цель дисконтирована по трём рискам: зависимость от чужой поставки, обеспеченность мощностью, необходимость менять поведение людей.
-- **Эффект AI не измеряется самооценкой команды** — только замер на эталонном наборе с бейзлайном, зафиксированным до старта.
-- У каждой метрики назван потолок и отметка «достаточно»: где практический предел и где отдача выравнивается.
+### Output and outcome are kept strictly apart
 
-**Правило порядка.** Раздел читается после портфеля, но **формулируется до него**: цель существует независимо от инициативы. Проверка — убрать инициативу: цель должна остаться. Если не остаётся, это не цель, а описание работы, и место ей в разделе 4. Раздел 5, оказавшийся суммой раздела 4, означает, что цели выведены из плана, а не план из целей.
+- **Output — what was built.** A data mart, a policy, a dashboard, a trained group, a launched service. Verified by its existence.
+- **Outcome — what changed.** A share of queries, a duration, people's behaviour, load removed. Verified by measurement.
 
-**Типовая подмена:** метрика без бейзлайна и метрика, которая меряет активность вместо результата — число вызовов вместо числа решённых задач, число сертифицированных объектов вместо доли потребления на них.
+An initiative without an outcome is work, not an initiative, and it enters the portfolio only as another initiative's dependency.
 
----
+### Horizon requirements
 
-## Раздел 6. Риски
+Output and outcome are stated **by year** across the horizon. Year one is concrete; later years are indicative and marked as such. An outcome placed in year one without a baseline at the start does not count: there will be nothing to close it against.
 
-**Формат:** `риск` · `вероятность и влияние` · `фактор снижения` · `владелец` · `триггер` — наблюдаемый признак, по которому поймём, что риск реализовался.
+### Other requirements
 
-**Обязательные к рассмотрению категории** (включаются или явно снимаются с причиной):
+- Stream tags are multiple: an initiative may serve two streams, but it must not serve all of them.
+- Every AI initiative carries a **kill-gate with a threshold measured on your own data**.
+- Dependencies are named explicitly; an initiative standing ahead of its link in the chain is moved or gated.
+- The outcome of an initiative references a goal from section 5 rather than introducing its own metric.
+- An initiative without an owner is a line in a plan, not a change.
 
-- хрупкость цепочки: AI зависит от семантики, семантика от ядра, ядро от каталога и владельцев;
-- агенты умножают существующий беспорядок, а не компенсируют его;
-- governance объявлен без выделенного ресурса;
-- ключевой домен держится на одном человеке;
-- потеря части ресурса в середине года;
-- смена спонсора или приоритета сверху.
-
-**Обязательный артефакт раздела: список заморозки.** Что умирает первым при потере трети ресурса — опубликованный заранее, а не составленный в момент сокращения. Стратегия без отрепетированного сокращения не переживает первый бюджетный пересмотр: она тихо проваливается везде сразу.
-
-**Признак заполненности:** у каждого риска есть триггер. Риск без триггера не будет замечен вовремя.
-
-**Типовая подмена:** реестр рисков как формальность — «недостаточное финансирование», «сопротивление изменениям» без факторов снижения и владельцев.
+**The usual substitution:** the team's task list for the year, tagged after the fact. The tell: the initiatives have outputs only, no outcomes.
 
 ---
 
-## Сквозная трассируемость
+## Section 5. Goals as metrics
 
-Цепочка, по которой проверяется целостность документа:
+A goal is stated as a metric, not in words. A verbal goal belongs in section 2; only the measurable belongs here.
+
+**Format per goal:** `metric` · `baseline` · `target` · `deadline` · `owner` · `how it is measured`.
+
+**Mandatory requirements:**
+
+- **A baseline is required.** With no measurement, the goal stays `[requires clarification]` until one exists rather than being replaced by a plausible number.
+- Metrics cover the four groups: engagement · quality of service · process quality · business impact. Selection is **five primary and five secondary**; the rest are not taken.
+- **+1 maturity level per year is the honest default.** A larger shift requires a named reason: funded capacity, an already-financed platform change, a regulatory deadline.
+- Every goal is discounted against three risks: dependency on someone else's delivery, capacity, and the need to change people's behaviour.
+- **The effect of AI is not measured by the team's self-assessment** — only by measurement against a golden set with a baseline fixed before the start.
+- For every metric, name the ceiling and the "enough" mark: where the practical limit is and where the return flattens.
+
+**Order rule.** The section is read after the portfolio but **formulated before it**: a goal exists independently of an initiative. Test — remove the initiative: the goal must remain. If it does not, it is not a goal but a description of work, and it belongs in section 4. A section 5 that turns out to be the sum of section 4 means the goals were derived from the plan rather than the plan from the goals.
+
+**The usual substitution:** a metric without a baseline, and a metric that measures activity rather than result — call counts instead of solved tasks, certified objects instead of the share of consumption on them.
+
+---
+
+## Section 6. Risks
+
+**Format:** `risk` · `likelihood and impact` · `mitigation` · `owner` · `trigger` — the observable sign that tells you it has materialised.
+
+**Categories that must be considered** (included, or explicitly dismissed with a reason):
+
+- the fragility of the chain: AI depends on semantics, semantics on the core, the core on the catalog and its owners;
+- agents multiply the existing disorder rather than compensating for it;
+- governance declared without an allocated resource;
+- a key domain resting on a single person;
+- losing part of the resource mid-year;
+- a change of sponsor or of priority from above.
+
+**A mandatory artifact of this section: the freeze list.** What dies first if a third of the resource is lost — published in advance, not drawn up at the moment of the cut. A strategy without a rehearsed cut does not survive the first budget review: it fails quietly everywhere at once.
+
+**Sign it is complete:** every risk has a trigger. A risk without one will not be noticed in time.
+
+**The usual substitution:** a risk register as a formality — "insufficient funding", "resistance to change" — with no mitigations and no owners.
+
+---
+
+## Cross-cutting traceability
+
+The chain along which the document's integrity is checked:
 
 ```
-тренд (1.1) ─┐
-             ├─→ стрим (3) ─→ инициатива (4) ─→ метрика-цель (5)
-проблема (1.2)┘                    │
-                                   └─→ риск (6) ─→ список заморозки
+trend (1.1) ─┐
+             ├─→ stream (3) ─→ initiative (4) ─→ goal as metric (5)
+problem (1.2)┘                     │
+                                   └─→ risk (6) ─→ freeze list
 ```
 
-**Правило сироты.** Любой элемент документа должен быть достижим по этой цепочке. Элемент, который не привязан ни к чему, либо удаляется, либо получает явное объяснение, почему он здесь.
+**The orphan rule.** Every element of the document must be reachable along this chain. An element attached to nothing is either deleted or given an explicit reason to be there.
 
-Проверяется в обе стороны: сверху вниз — покрыта ли каждая проблема; снизу вверх — обоснована ли каждая инициатива.
+Checked in both directions: top-down, is every problem covered; bottom-up, is every initiative justified.
 
 ---
 
 ## Definition of Done
 
-Документ готов к защите, когда выполнены все двенадцать.
+The document is ready to defend when all twelve hold.
 
-1. Оба подраздела контекста заполнены; у каждого тренда есть следствие, у каждой проблемы — цена бездействия
-2. Названы 2–3 разрыва цепочки, а не «низкая зрелость в целом»
-3. Видение читается автономно, помещается на страницу и содержит явный запрос к спонсору
-4. Есть раздел «чего мы сознательно не делаем» с причинами
-5. У каждого стрима есть обоснование со ссылкой на проблему или тренд
-6. Двусторонняя трассируемость проверена: непокрытые проблемы перечислены явно
-7. У каждой инициативы есть владелец, теги стримов, output и outcome по годам
-8. Минимум одна AI-инициатива имеет kill-gate с порогом на своих данных
-9. У каждой цели есть бейзлайн либо пометка `[требует уточнения]`
-10. У каждого риска есть фактор снижения, владелец и триггер; список заморозки опубликован
-11. Пройден тест отточенности: в документе нет формулировок из бан-листа
-12. Пройдена стадия судьи, блокирующие находки исправлены или превращены в явные решения, показано «было → стало»
-
----
-
-## Дисквалифицирующие признаки
-
-Наличие любого возвращает документ на доработку независимо от объёма.
-
-- **Стримы без обоснования** — набор направлений, не связанный с проблемами.
-- **Инициативы без outcome** — портфель работ вместо портфеля изменений.
-- **Цели без бейзлайна** — нечем будет закрыть.
-- **Инициативы без владельцев** — ни одна не будет сделана.
-- **Тренды без следствий** — обзор рынка, выданный за контекст.
-- **Видение без запроса к спонсору** — не требует ответа и не получит его.
-- **Числа без источника** или вендорские цифры, поданные как факт.
-- **AI-инициатива раньше своего звена цепочки** без явного гейта.
-- **Нет списка заморозки.**
-- **Текст переносится в другую компанию без правок** — значит, он не про вашу.
+1. Both context subsections are filled; every trend has a consequence, every problem a cost of inaction
+2. Two or three chain breaks are named, rather than "low maturity overall"
+3. The vision reads standalone, fits one page and contains an explicit ask of the sponsor
+4. There is a "what we deliberately do not do" section with reasons
+5. Every stream has a justification referencing a problem or a trend
+6. Two-way traceability has been run; uncovered problems are listed explicitly
+7. Every initiative has an owner, stream tags, and output and outcome by year
+8. At least one AI initiative has a kill-gate with a threshold on your own data
+9. Every goal has a baseline or a `[requires clarification]` marker
+10. Every risk has a mitigation, an owner and a trigger; the freeze list is published
+11. The wording pass is done: no phrases from the ban list remain
+12. The judge stage is complete, blocking findings fixed or turned into explicit decisions, with before → after shown
 
 ---
 
-## Чего в документе быть не обязано
+## Disqualifiers
 
-- **Пересказ фреймворков.** DAMA, TDWI и прочие — источник структуры, а не содержание разделов; достаточно ссылки.
-- **Полный каталог практик.** Берутся 3–5 позиций с назначенным драйвером, остальное помечается как сознательно не взятое.
-- **Технические спецификации.** Стратегия называет решение и обоснование, детали живут в проектной документации.
-- **Экономическая модель как обязательный раздел.** Нужна, когда защищается бюджет; её отсутствие не делает стратегию неполной, но требует ответа, почему бизнес-кейса нет. **Если вопрос «сколько это денег» задан прямо** — назвать три строки, где эффект для BI вообще возможен (высвобожденная инфраструктура · прекращение производства контента, который не читают · прикрепление к профинансированным бизнес-кейсам), и честно сказать, что остальное не считается. Ответ «посчитаем позже» без этого перечня читается как отсутствие ответа.
-- **Единое иерархизированное дерево метрик.** Метрики связаны сетью; строятся связи и уровни, строгая иерархия не получится.
-- **Описание всех семи блоков рабочей рамки.** Рамка — инструмент анализа; в документ попадает результат, а не ход работы.
+Any one of these sends the document back regardless of its size.
+
+- **Streams without justification** — a set of directions unconnected to the problems.
+- **Initiatives without outcomes** — a portfolio of work instead of a portfolio of change.
+- **Goals without baselines** — nothing to close them against.
+- **Initiatives without owners** — none of them will be done.
+- **Trends without consequences** — a market review presented as context.
+- **A vision without an ask of the sponsor** — it requires no answer and will not get one.
+- **Figures without sources**, or vendor numbers presented as fact.
+- **An AI initiative ahead of its link in the chain** without an explicit gate.
+- **No freeze list.**
+- **The text transfers to another company unchanged** — which means it is not about yours.
 
 ---
 
-## Соотношение с рабочей рамкой
+## What the document need not contain
 
-`strategy-template.md` описывает **как анализировать** — семь блоков от бизнес-основы до управления изменениями. Настоящая спека описывает **что показывать**. Одно ложится на другое так:
+- **A retelling of frameworks.** DAMA, TDWI and the rest are a source of structure, not the content of sections; a reference is enough.
+- **A full catalog of practices.** Take three to five with a named driver; mark the rest as deliberately not taken.
+- **Technical specifications.** The strategy names the decision and its justification; the detail lives in project documentation.
+- **An economic model as a mandatory section.** It is needed when a budget is being defended; its absence does not make the strategy incomplete, but it does require an answer to why there is no business case. **If the "how much money is this" question is asked directly** — name the three lines where an effect is possible for BI at all (infrastructure freed · stopping production of content nobody reads · attaching to already-funded business cases) and say honestly that the rest does not count. "We will calculate it later" without that list reads as no answer.
+- **A single hierarchical metric tree.** Metrics form a network; build links and levels, because a strict hierarchy will not hold.
+- **A description of all seven blocks of the analysis frame.** The frame is an instrument; the document carries the result, not the working.
 
-| Блок рабочей рамки | Куда попадает в документе |
+---
+
+## Relationship to the analysis frame
+
+`strategy-template.md` describes **how to analyse** — seven blocks from the business foundation to change management. This spec describes **what to show**. They map onto each other like this:
+
+| Block of the frame | Where it lands in the document |
 |---|---|
-| 1. Бизнес-основа · 2. Оценка ландшафта | Раздел 1.2 — внутренний контекст |
-| 3. Целевая операционная модель | Раздел 3 — как отдельный стрим или как рамка для нескольких |
-| 4. Процессная основа · 5. Технологическая · 6. Операционная | Разделы 3 и 4 — распределяются по стримам и инициативам |
-| 7. Управление изменениями | Разделы 4, 5, 6 — портфель, цели, риски |
-| Сквозные артефакты | Раздел 2 (stack-rank), 5 (дерево метрик), 6 (реестр рисков и заморозка) |
+| 1. Business foundation · 2. Landscape assessment | Section 1.2 — internal context |
+| 3. Target operating model | Section 3 — as its own stream, or as the frame for several |
+| 4. Process foundation · 5. Technology · 6. Operations | Sections 3 and 4 — distributed across streams and initiatives |
+| 7. Change management | Sections 4, 5, 6 — portfolio, goals, risks |
+| Cross-cutting artifacts | Section 2 (stack-rank), 5 (metric tree), 6 (risk register and freeze list) |
 
-Блок рабочей рамки, не попавший ни в один стрим, — это либо неотработанный анализ, либо сознательное решение не трогать эту область. Второе записывается в раздел «чего мы не делаем».
+A block of the frame that reaches no stream is either unfinished analysis or a deliberate decision not to touch that area. The second is recorded under "what we do not do".

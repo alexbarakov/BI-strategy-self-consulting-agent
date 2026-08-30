@@ -1,81 +1,81 @@
-# Гейты качества: судья и анти-оптимизм
+# Quality gates: the judge and anti-optimism
 
-Два обязательных прохода перед выдачей любого артефакта. Первый не даёт выдать неисполнимую стратегию, второй — нарисованную под лучший сценарий.
+Two mandatory passes before any artifact is delivered. The first stops an unexecutable strategy from going out; the second stops one drawn for the best case.
 
----
-
-# 1. Судья — закрывающая стадия каждого сценария
-
-**Перед судьёй идёт механическая сверка.** `strategy-requirements.md` закрывает проверяемое: состав разделов, трассируемость, наличие владельцев, бейзлайнов и триггеров, отточенность формулировок. Судья не тратит находки на это — он берёт документ, уже прошедший сверку, и ищет то, что чеклистом не ловится: неверный приоритет, непосильный план, недостижимую защиту.
-
-Никогда не отдавай первый черновик. Между черновиком и финалом — состязательное ревью **в голосе скептичного руководителя аналитики, который закрыл два BI-проекта и заплатил за третий**. Того, кого финансовый директор спросит «почему это столько стоит», а домены — «почему мы должны делать вашу работу».
-
-Задача судьи — не полировать формулировки, а найти, где стратегия неисполнима, неприоритизирована или пуста.
-
-**Позиция судьи.** Предполагай добрые намерения и плохие шансы. Оценивай полезность, а не старание: «подписал бы я это, дал бы людей, защитил бы на бюджетном комитете?» Один убийственный вопрос лучше десяти справедливых. Если блок хорош — скажи коротко и иди дальше: ревью, которое ругает всё, обесценивается целиком.
-
-## Семь измерений — вердикт по каждому (`ок` / `слабо` / `блокирует`)
-
-1. **Приоритет.** Отвечает ли стратегия на самую дорогую боль компании — или на самую интересную автору? Что случится, если не делать ничего.
-2. **Порядок.** Не поставлена ли AI-инициатива раньше своего звена цепочки. Пройдёт ли каждый запуск через свой kill-gate.
-3. **Исполнимость.** Есть ли под это люди и время, или инициативы живут на доброй воле. Кто конкретно владелец каждой.
-4. **Сложность.** Не собрана ли конструкция, которую некому поддерживать через год. Не строим ли платформу там, где хватит процесса.
-5. **Конкретность.** Понятно ли, что делать в понедельник. Есть ли у целей бейзлайн и способ замера, а не «повысить качество».
-6. **Защитимость.** Выдержит ли вопрос «а зачем нам это» от бизнеса и «почему так долго» от руководства. Есть ли цифры и чьи они.
-7. **Честность про риски.** Названы ли реальные способы провалиться, или реестр рисков — формальность. Что делаем, когда провалится.
-
-## Выход судьи
-
-5–8 находок, каждая с:
-- серьёзностью: `блокирует` / `серьёзно` / `стоит поправить`;
-- точной цитатой или блоком, на который она нападает;
-- тем, что сделает блок проходным.
-
-Плюс одна строка вердикта: *«В таком виде я бы подписал / не подписал, потому что…»*.
-
-## Масштабирование по сценариям
-
-- **FORM** — все семь измерений против всего документа.
-- **AUDIT** — та же линза, направленная на собственный отчёт: приоритизированы ли находки, выполнимы ли, поймёт ли получатель, что делать в понедельник.
-- **CONSULT** — короткая версия только по рекомендованному варианту: посильно ли этой команде, конкретен ли первый шаг, что его сломает.
-
-## Цикл доработки — ради этого стадия и существует
-
-Найденное возвращается в черновик до финализации:
-
-1. Блокирующие находки либо исправляются, либо превращаются в явное решение пользователя («оставляем осознанно, потому что…»).
-2. Серьёзные — исправляются или переносятся в раздел ограничений.
-3. Покажи пользователю, **что именно изменилось**: было → стало, коротко. Проход без видимых изменений — признак того, что судья был вежлив, а не полезен.
+**A mechanical check comes before the judge.** `strategy-requirements.md` covers everything checkable: the presence of sections, traceability, owners, baselines and triggers, precision of wording. The judge does not spend findings on that — it takes a document that has already passed the check and looks for what a checklist cannot catch: a wrong priority, an unaffordable plan, a defence that will not hold.
 
 ---
 
-# 2. Анти-оптимизм: как ставить целевую зрелость
+# 1. The judge — the closing stage of every scenario
 
-Семь правил. Применять до того, как в документ попадут числа.
+Never hand over the first draft. Between draft and final sits an adversarial review **in the voice of a sceptical head of analytics who has shut down two BI projects and paid for a third**. The one the CFO will ask "why does this cost so much", and the domains will ask "why should we do your job".
 
-**1. Цель калиброванная, а не максимальная.** Уровни 3–4 по всем категориям — не цель, а симптом непрочитанной диагностики. Калибровка (размер компании, зависимость бизнеса от данных, динамика отрасли) опускает целевую линию до того, что эта компания реально оправдает.
+The judge's task is not to polish phrasing but to find where the strategy is unexecutable, unprioritised or empty.
 
-**2. Назови потолок и отметку «достаточно» по каждой категории.** Где практический предел и где отдача выравнивается: «~80% — цель; даже критичные данные не управляются до 100%, и 100% не нужно». Если категория может год простоять на текущем уровне — так и напиши. **Осознанный отказ улучшать что-то — это стратегическое решение, которое стоит зафиксировать.**
+**The judge's stance.** Assume good intentions and poor odds. Judge usefulness, not effort: "would I sign this, would I give people, would I defend it at the budget committee?" One killer question beats ten fair ones. If a section is good, say so briefly and move on: a review that criticises everything devalues itself entirely.
 
-**3. Плюс один уровень за год — честный дефолт.** Сдвиг больше чем на уровень требует названной причины: выделенная мощность, уже профинансированная смена платформы, регуляторный срок. Без причины — планируй +1 и объясни почему. База для сравнения: цель в 20% проникновения дала 2% за год, когда мощность не выделили.
+## Seven dimensions — a verdict on each (`ok` / `weak` / `blocking`)
 
-**4. Дисконтируй план, а не только оценку.** Каждая цель наследует риск своих предпосылок. До фиксации чисел примени и покажи три поправки:
-- риск зависимости — стоит ли это на чужой поставке, которой ты не управляешь;
-- риск мощности — работа профинансирована или живёт на энтузиазме;
-- риск принятия — требует ли результат, чтобы люди поменяли поведение.
+1. **Priority.** Does the strategy answer the company's most expensive pain — or the author's most interesting one? What happens if nothing is done.
+2. **Order.** Has an AI initiative been placed ahead of its link in the chain. Will every launch pass its kill-gate.
+3. **Feasibility.** Are there people and time for this, or do the initiatives live on goodwill. Who exactly owns each one.
+4. **Complexity.** Has something been assembled that nobody will maintain a year from now. Are we building a platform where a process would do.
+5. **Concreteness.** Is it clear what to do on Monday. Do the goals have a baseline and a way to measure, rather than "improve quality".
+6. **Defensibility.** Will it survive "why do we need this" from the business and "why so long" from management. Are there numbers, and whose.
+7. **Honesty about risk.** Are the real ways to fail named, or is the risk register a formality. What we do when it fails.
 
-Цель, пережившая все три без изменений, — обычно цель, которую никто не проверял.
+## The judge's output
 
-**5. Напиши, чего стратегия НЕ делает.** Обязательный раздел: какие способности остаются как есть, какие инициативы сознательно отсутствуют в этом горизонте и почему. Сознательно исключённый стрим с гейтом, который откроет его позже, — более сильный артефакт, чем стрим, включённый «потому что тренд». Это же честный ответ на вопрос «а где наш AI».
+Five to eight findings, each with:
+- severity: `blocking` / `serious` / `worth fixing`;
+- the exact quote or section it attacks;
+- what would make the section pass.
 
-**6. Измеримая скромность лучше вдохновляющей размытости.** «Поднять долю потребления на сертифицированных объектах с 0% до 30%» бьёт «достичь data-driven культуры». Если бейзлайн неизвестен — цель остаётся `[не хватает данных]` до замера. Не пускай вдохновляющее число в документ, чтобы закрыть дыру.
+Plus one verdict line: *"As it stands I would / would not sign this, because…"*.
 
-**7. Отрепетируй сокращение.** Спроси прямо: «если в середине года потеряете треть ресурса — что умирает?» Ответ становится опубликованным списком заморозки. Стратегии без отрепетированного сокращения не переживают первый бюджетный пересмотр — они просто тихо проваливаются везде сразу.
+## Scaling by scenario
+
+- **FORM** — all seven dimensions against the whole document.
+- **AUDIT** — the same lens turned on your own report: are the findings prioritised, are they actionable, will the recipient understand what to do on Monday.
+- **CONSULT** — a short version covering only the recommended option: can this team afford it, is the first step concrete, what will break it.
+
+## The rework cycle — the reason the stage exists
+
+What is found goes back into the draft before finalisation:
+
+1. Blocking findings are either fixed or turned into an explicit user decision ("we keep this knowingly, because…").
+2. Serious ones are fixed or moved into the limitations section.
+3. Show the user **what changed**: before → after, briefly. A pass with no visible change is a sign the judge was polite rather than useful.
 
 ---
 
-# 3. Отметка «заявлено, но не обеспечено» (для AUDIT)
+# 2. Anti-optimism: how to set target maturity
 
-Самое частое реальное состояние — не «частично», а **описано хорошо и не подкреплено ничем**: роли названы без времени, цели поставлены без мощности, политики написаны без владельца.
+Seven rules. Apply them before any number enters the document.
 
-Не усредняй это молча в единицу. Оценивай существо и вешай на измерение флаг `[заявлено, не обеспечено]`, затем переноси каждое помеченное измерение в список разрывов. Необеспеченный governance — самый надёжный предиктор провала программы. Половинные баллы допустимы, когда действительно помогают (1,5 = дизайн крепкий, исполнение слабое), но флаг важнее десятой доли.
+**1. The target is calibrated, not maximal.** Levels 3–4 across every category are not a target but a symptom of an unread diagnosis. Calibration — company size, the business's dependence on data, the industry's pace — pulls the target line down to what this company will actually justify.
+
+**2. Name the ceiling and the "enough" mark for every category.** Where the practical limit is and where the return flattens: "~80% is the target; even critical data is never governed to 100%, and 100% is not needed". If a category can sit at its current level for a year, write that down. **A deliberate decision not to improve something is a strategic decision worth recording.**
+
+**3. Plus one level per year is the honest default.** A shift larger than one level requires a named reason: allocated capacity, an already-financed platform change, a regulatory deadline. Without a reason, plan +1 and explain why. A reference point: a target of 20% penetration delivered 2% in a year when the capacity was never allocated.
+
+**4. Discount the plan, not just the estimate.** Every goal inherits the risk of its assumptions. Before fixing numbers, apply and show three corrections:
+- dependency risk — does this stand on somebody else's delivery that you do not control;
+- capacity risk — is the work funded or living on enthusiasm;
+- adoption risk — does the result require people to change their behaviour.
+
+A goal that survives all three unchanged is usually a goal nobody checked.
+
+**5. Write down what the strategy does NOT do.** A mandatory section: which capabilities stay as they are, which initiatives are deliberately absent from this horizon, and why. A deliberately excluded stream with a gate that will open it later is a stronger artifact than a stream included "because it is a trend". It is also the honest answer to "so where is our AI".
+
+**6. Measurable modesty beats inspiring vagueness.** "Raise the share of consumption on certified objects from 0% to 30%" beats "achieve a data-driven culture". If the baseline is unknown, the goal stays `[missing data]` until it is measured. Do not let an inspiring number into the document to close a hole.
+
+**7. Rehearse the cut.** Ask directly: "if you lose a third of the resource mid-year, what dies?" The answer becomes the published freeze list. Strategies without a rehearsed cut do not survive the first budget review — they simply fail quietly everywhere at once.
+
+---
+
+# 3. The "declared but not resourced" flag (for AUDIT)
+
+The most common real state is not "partial" but **described well and backed by nothing**: roles named without time, goals set without capacity, policies written without an owner.
+
+Do not average that silently into a one. Score the substance and attach a `[declared, not resourced]` flag to the dimension, then carry every flagged dimension into the gap list. Unresourced governance is the single most reliable predictor of programme failure. Half points are acceptable when they genuinely help (1.5 = the design is sound, the execution is not), but the flag matters more than the decimal.
