@@ -1,228 +1,150 @@
-# Вики-приложение — структура вывода
+# The wiki output — page structure
 
-Стратегия собирается как **связанная мини-вики по шести разделам** из `strategy-requirements.md`: главная-видение + пять страниц + приложение. Соединяется `[[wiki-ссылками]]` (Obsidian: граф, клики), экспортируется в сайт (MkDocs) или один HTML.
+The strategy is assembled as **a linked mini-wiki across the six sections** of `strategy-requirements.md`: a vision front page, five section pages and an appendix. Pages are joined with Obsidian wiki-links (graph view, click-through) and export to a site (MkDocs) or a single HTML file.
 
-**Семь блоков рабочей рамки (`strategy-template.md`) — не структура документа.** Это инструмент анализа: его результат распределяется по стримам и инициативам, а сама рамка живёт в приложении и линкуется оттуда, где нужна детализация.
+**The seven blocks of the analysis frame (`strategy-template.md`) are not the structure of the document.** They are an instrument: their result is distributed across streams and initiatives, and the frame itself lives in the appendix, linked from wherever detail is needed.
 
-## Папка и файлы
+## Folder and files
 
-Папка: `BI-AI-Strategy — <Company>/`.
+Folder: `BI-AI-Strategy — <Company>/`.
 
 ```
-index.md                  — Видение: саммари, читается автономно + навигация
-01-Контекст.md            — внешний (тренды) и внутренний (проблемы) + скоркард
-02-Стримы.md              — стримы изменений: описание, обоснование, границы, владелец
-03-Инициативы.md          — портфель: теги стримов, output/outcome по годам, гейты
-04-Цели.md                — цели через метрики: бейзлайн, таргет, срок, владелец
-05-Риски.md               — реестр с триггерами + список заморозки
+index.md                  — Vision: the summary, reads standalone, plus navigation
+01-Context.md             — external (trends) and internal (problems) + scorecard
+02-Streams.md             — streams of change: description, justification, boundaries, owner
+03-Initiatives.md         — portfolio: stream tags, output/outcome by year, gates
+04-Goals.md               — goals as metrics: baseline, target, deadline, owner
+05-Risks.md               — register with triggers + the freeze list
 appendix/
-  90-Диагностика.md       — профиль зрелости 0–4, AI-readiness, разрывы цепочки
-  91-Рамка-анализа.md     — семь блоков: что выяснили по каждому и куда это ушло
+  90-Diagnostics.md       — 0–4 maturity profile, AI readiness, chain breaks
+  91-Analysis-frame.md    — the seven blocks: what each established and where it went
 ```
 
-**Лайт-режим:** `index`, `01-Контекст`, `02-Стримы`, `04-Цели`, `05-Риски`, `appendix/90-Диагностика`. Инициативы сворачиваются в таблицу внутри `02-Стримы`, рамка анализа не выносится.
+**Light mode:** `index`, `01-Context`, `02-Streams`, `04-Goals`, `05-Risks`, `appendix/90-Diagnostics`. Initiatives collapse into a table inside `02-Streams`; the analysis frame is not exported.
 
-**Правило единственного источника.** Портфель живёт в `03-Инициативы`, метрики — в `04-Цели`, риски — в `05-Риски`. Остальные страницы на них ссылаются и не копируют.
+**Single source rule.** The portfolio lives in `03-Initiatives`, the metrics in `04-Goals`, the risks in `05-Risks`. Other pages link to them and never copy.
 
 ---
 
-## `index.md` — видение как саммари
+## `index.md` — the vision as a summary
 
-Главная и есть раздел «Видение». Проверка: человек, прочитавший только её, понимает, куда идём, что решаем и чего от него хотят.
+The front page *is* the vision section. Test: someone who read only this page understands where you are going, what you are solving and what is wanted from them.
 
 ```markdown
-# BI+AI стратегия — <Company>
-> <профиль · горизонт · дата · статус драфта>
+# BI+AI Strategy — <Company>
+> <profile · horizon · date · draft status>
 
-## Куда идём
-<2–4 фразы: как выглядит целевое состояние через горизонт планирования. Без «повысить эффективность».>
+## Where we are going
+<two to four sentences: what the target state looks like at the planning horizon. No "improve efficiency".>
 
-## Какие проблемы закрываем
-<3–5 строк, каждая — ссылка на конкретную проблему из [[01-Контекст]]>
+## Which problems we close
+<three to five lines, each linking to a specific problem in [[01-Context]]>
 
-## Стримы изменений
-| Стрим | Одной строкой | Владелец |
+## Streams of change
+| Stream | In one line | Owner |
 |---|---|---|
-| <название> | <что меняется> | <имя> |
-→ подробно: [[02-Стримы]]
+| <name> | <what changes> | <name> |
+→ in detail: [[02-Streams]]
 
-## Чего мы сознательно не делаем
-<перечень с причинами. Обязательный раздел: он же ответ на вопрос «а где наш AI»>
+## What we deliberately do not do
+<a list with reasons. A mandatory section: it is also the answer to "so where is our AI">
 
-## Что требуется от спонсора
-<явный запрос: деньги, люди, полномочия или решение — с формулировкой, что именно решить>
+## What we need from the sponsor
+<the explicit ask: money, people, authority or a decision — stating exactly what is to be decided>
 
-## Первый шаг и цена бездействия
-<90 дней: что делаем и по какому kill-gate останавливаемся · что стоит ничего не делать>
+## First step and the cost of inaction
+<90 days: what we do and on which kill-gate we stop · what it costs to do nothing>
 
-## Навигация
-[[01-Контекст]] · [[02-Стримы]] · [[03-Инициативы]] · [[04-Цели]] · [[05-Риски]] · [[appendix/90-Диагностика|Диагностика]]
+## Navigation
+[[01-Context]] · [[02-Streams]] · [[03-Initiatives]] · [[04-Goals]] · [[05-Risks]] · [[appendix/90-Diagnostics|Diagnostics]]
 ```
 
-Объём — одна страница. Раздел, который не помещается на страницу, не саммари.
+Length: one page. A section that does not fit on a page is not a summary.
 
 ---
 
-## `01-Контекст.md`
+## `01-Context.md`
 
-```markdown
-[[index|← BI+AI стратегия]] · 🏢 <Company>
+Two subsections. Trends carry a **consequence line for this company** — a trend without one is deleted. Problems are collected across four role groups, and each carries **evidence and a cost of inaction**.
 
-# 01. Контекст
-
-## 🌍 Внешний контекст: тренды
-| Тренд | Источник | Надёжность | Что из этого следует для нас |
-|---|---|---|---|
-| <тренд> | <ссылка> | `benchmark` / `vendor` / … | <следствие для этой компании> |
-
-> Тренд без строки следствия удаляется. Обзор рынка — не контекст стратегии.
-
-## 🏠 Внутренний контекст: проблемы
-Собраны по четырём группам ролей: центральная команда · аналитики в доменах · управление данными · casual-пользователи.
-
-| Проблема | Группа | Чем подтверждается | Цена бездействия |
-|---|---|---|---|
-| <симптом конкретно> | <группа> | <замер, цитата, статистика> | <что теряем, если не трогать> |
-
-## 🩺 Диагностика
-<скоркард 0–4 кратко + AI-readiness; полностью — [[appendix/90-Диагностика]]>
-
-**Разрывы цепочки `core → семантика → контекст → точность AI → self-service`:**
-1. <разрыв конкретно, а не «низкая зрелость»>
-2. …
-
-## Что осталось непокрытым
-<проблемы, под которые сознательно не заводится стрим, с причиной>
-```
+Close the page with the chain breaks stated concretely (not "low maturity") and with a list of problems deliberately left uncovered, each with a reason.
 
 ---
 
-## `02-Стримы.md`
+## `02-Streams.md`
 
-```markdown
-# 02. Стримы изменений
+Open with the stack-rank and the freeze order, then one section per stream:
 
-Стримов 4–7: меньше — не структура, больше — не приоритеты.
+**Description** — what changes and what the result looks like.
+**Justification** — which problem it closes and which trend it addresses, **by reference, not by implication**; it must answer "why this stream rather than another".
+**Boundaries** — what is deliberately out of scope.
+**Owner** — a name. **Dependencies** — on which streams.
 
-## Порядок и заморозка
-Stack-rank: <стрим 1> → <стрим 2> → … Режем справа налево.
-При потере трети ресурса первым замораживается <…> — см. [[05-Риски]].
-
----
-## <Название стрима: называет изменение, а не область>
-
-**Описание.** <что меняется и как выглядит результат>
-
-**Обоснование.** Закрывает проблему <ссылка на строку в [[01-Контекст]]>; отрабатывает тренд <ссылка>. <Почему именно этот стрим, а не другой — не пересказ описания.>
-
-**Границы.** В стрим сознательно не входит: <…>
-
-**Владелец:** <имя> · **Инициативы:** <теги → [[03-Инициативы]]> · **Цели:** <→ [[04-Цели]]>
-
----
-## Трассируемость
-| Проблема из 01 | Покрыта стримом | Если не покрыта — почему |
-|---|---|---|
-```
+Close with a two-way traceability table: problem → covering stream, and problems with no stream listed explicitly with a reason.
 
 ---
 
-## `03-Инициативы.md`
+## `03-Initiatives.md`
 
-```markdown
-# 03. Проекты и инициативы
+A table, because it exists to be compared and cut:
 
-**Output** — что сделано, проверяется фактом наличия. **Outcome** — что изменилось, проверяется замером.
-Инициатива без outcome — это работа, а не инициатива.
+`initiative` · `stream tags` · `owner` · `Year 1` · `Year 2` · `Year 3` · `metric` · `kill-gate` · `depends on`
 
-| Инициатива | Стримы | Владелец | Год 1 | Год 2 | Год 3 | Метрика | Kill-gate | Зависит от |
-|---|---|---|---|---|---|---|---|---|
-| <название> | `<стрим-а>` `<стрим-б>` | <имя> | A: <output><br>O: <ауткам `<•>`> | A: …<br>O: `<•>` | A: …<br>O: `<•>` | → [[04-Цели]] | <порог остановки> | <инициатива / звено цепочки> |
+In each year cell: **A** for output (what was built) and **O** for outcome (what changed), with number targets as placeholders `<•>` until a baseline exists.
 
-Числа-таргеты — заглушки `<•>` до замера бейзлайна.
+Requirements: year one concrete, later years marked as indicative · an outcome in year one requires a baseline at the start · every AI initiative carries a kill-gate with a threshold on your own data · an initiative ahead of its link in the chain is moved or gated.
 
-**Требования к таблице:**
-- первый год конкретен, дальние помечены как рамочные;
-- outcome первого года без бейзлайна на старте не ставится — его нечем закрыть;
-- у каждой AI-инициативы kill-gate с порогом на своих данных;
-- инициатива, стоящая раньше своего звена цепочки, переносится или получает гейт.
-
-## Первые 90 дней
-<3–5 пунктов из первого года, с владельцем и датой проверки>
-```
+Finish with a "first 90 days" list — three to five items with owners and check dates, and an explicit note on what is deliberately *not* in it.
 
 ---
 
-## `04-Цели.md`
+## `04-Goals.md`
 
-```markdown
-# 04. Цели через метрики
+`stream` · `metric` · `baseline` · `Year 1` · `Year 2` · `Year 3` · `owner` · `how it is measured`
 
-Цель формулируется метрикой. Словесная цель живёт в [[index]], здесь только измеримое.
+Baselines are either measured or written as `[requires clarification]` with the source that would close them — never replaced by a plausible number.
 
-| Стрим | Метрика | Бейзлайн | Год 1 | Год 2 | Год 3 | Владелец | Как меряется |
-|---|---|---|---|---|---|---|---|
-| <стрим> | <метрика> | <текущее или `[требует уточнения]`> | `<•>` | `<•>` | `<•>` | <имя> | <источник замера> |
-
-**Группы метрик:** вовлечение · качество сервиса · качество процессов · влияние на бизнес. Отбор — 5 основных и 5 дополнительных.
-
-**Правило порядка.** Цель существует до инициативы, а не выводится из неё. Проверка: убери инициативу — цель должна остаться. Если не остаётся, это не цель, а описание работы.
-
-**Потолок и достаточность.** По каждой метрике: где практический предел и где отдача выравнивается. Осознанный отказ улучшать категорию — стратегическое решение, его фиксируем.
-
-**Дисконт.** Каждая цель уценена на три риска: зависимость от чужой поставки · обеспеченность мощностью · необходимость менять поведение людей.
-
-> Эффект AI — только замер на эталонном наборе с бейзлайном, зафиксированным до старта. Никогда не самооценка команды.
-```
+Add three blocks: **the metric groups** (engagement, quality of service, process quality, business impact), **ceiling and sufficiency** per metric, and **the discount** applied for dependency, capacity and adoption risk. Where an AI assistant is deferred, state its **opening gate** here — the conditions under which it is reconsidered, and the kill-gate that applies after launch.
 
 ---
 
-## `05-Риски.md`
+## `05-Risks.md`
 
-```markdown
-# 05. Риски
+`risk` · `likelihood / impact` · `mitigation` · `owner` · `trigger`
 
-| Риск | Вероятность / влияние | Фактор снижения | Владелец | Триггер |
-|---|---|---|---|---|
-| <риск> | <оценка> | <что делаем заранее> | <имя> | <наблюдаемый признак, что реализовался> |
+The trigger is the observable sign that the risk has materialised; a risk without one will not be noticed in time.
 
-Обязательные к рассмотрению (включить или явно снять с причиной): хрупкость цепочки · агенты умножают беспорядок · governance без ресурса · домен на одном человеке · потеря части ресурса · смена спонсора.
-
-## Список заморозки
-Что умирает первым при потере трети ресурса — опубликовано заранее, а не составлено в момент сокращения.
-1. <замораживаем> — <почему первым>
-2. …
-```
+Close with **the freeze list** — what dies first if a third of the resource is lost, published in advance. Name explicitly what is never frozen, and why.
 
 ---
 
-## Приложение
+## Appendix
 
-**`90-Диагностика.md`** — профиль зрелости таблицей, не прозой: `Уровень (🟢/🟡/🔴 + балл) | Категории | Что это значит`, с группировкой на сильное / среднее / слабое. Плюс AI-readiness оверлей и разрывы цепочки.
+**`90-Diagnostics.md`** — the maturity profile as a table rather than prose: `level (🟢/🟡/🔴 + score) | categories | what it means`, grouped into strong / medium / weak. Plus the AI-readiness overlay and the chain breaks.
 
-**`91-Рамка-анализа.md`** — семь блоков рабочей рамки, по каждому две строки: что выяснили и в какой стрим или инициативу это ушло. Блок, не попавший никуда, — либо неотработанный анализ, либо сознательное решение не трогать область; второе переезжает в «чего мы не делаем» на главной.
+**`91-Analysis-frame.md`** — the seven blocks, two lines each: what was established and which stream or initiative it went into. A block that went nowhere is either unfinished analysis or a deliberate decision not to touch the area; the second moves into "what we do not do" on the front page.
 
 ---
 
-## Оформление
+## Presentation
 
-- **Эмодзи в заголовках:** 🌍 внешний контекст · 🏠 внутренний · 🩺 диагностика · 🧭 стримы · 🗺️ инициативы · 📊 цели · ⚠️ риски · 🔑 первый шаг.
-- **Callout'ы** блокквотом (портативно для Obsidian): `> ⚠️ **Черновик** — валидировать с командой`. MkDocs конвертирует их в admonition.
-- Таблицы для всего перечислимого; переносы в ячейках — `<br>`.
-- Разделять `##` и `---`, не лить простынёй.
-- Шаблоны xlsx — в `<Company>/templates/`, линкуются относительным путём.
+- **Emoji in headings:** 🌍 external context · 🏠 internal · 🩺 diagnostics · 🧭 streams · 🗺️ initiatives · 📊 goals · ⚠️ risks · 🔑 first step.
+- **Callouts** as blockquotes, which stays portable in Obsidian: `> ⚠️ **Draft** — validate with the team`. MkDocs converts them into admonitions.
+- Tables for anything enumerable; line breaks inside cells with `<br>`.
+- Separate with `##` and `---`; do not run pages as a wall of text.
+- xlsx templates go into `<Company>/templates/` and are linked by relative path.
 
-## Дисциплина доказательств на страницах
+## Evidence discipline on the pages
 
-- Любая цифра — с тегом: `measured` · `benchmark` · `vendor` · `author-estimate` · `disputed`. Тег переносится вместе с числом.
-- Вендорскую цифру не подавать как факт: рядом всегда «кто мерил и на чьих данных».
-- «Нет данных» писать прямо и предлагать замер, а не заменять оценкой.
-- Источник фактуры — `evidence-2026.md` и `kb/51-numbers.md`; ставить инлайн-ссылки на первоисточники.
+- Every figure carries its tag: `measured` · `benchmark` · `vendor` · `author-estimate` · `disputed`. The tag travels with the number.
+- Never present a vendor figure as fact: "who measured it, and on whose data" goes alongside.
+- Write "no data" plainly and propose a measurement instead of substituting an estimate.
+- The source of figures is `evidence-2026.md` and `kb/51-numbers.md`; put inline links to primary sources rather than only a materials block at the end.
 
-## Правила
+## Rules
 
-- Obsidian-ссылки `[[Имя]]`; каждая страница ссылается на `index` и на связанные разделы.
-- Черновики помечены явно: `> ⚠️ Черновик`.
-- SSOT не копируется — связывается ссылкой.
-- Статусы в навигации: ✅ / 🟡 / ⬜.
-- Перед выдачей — сверка по `strategy-requirements.md`: дисквалификаторы → DoD → трассируемость → отточенность.
+- Obsidian links; every page links back to `index` and across to related sections.
+- Drafts are marked explicitly: `> ⚠️ Draft`.
+- The single source is never copied — it is linked.
+- Navigation statuses: ✅ / 🟡 / ⬜.
+- Before delivery, run the check in `strategy-requirements.md`: disqualifiers → Definition of Done → traceability → wording precision.
