@@ -1,157 +1,164 @@
-# Фактура 2026: что проверяемо, что вендорское, чего нет
+# Evidence 2026: what is verifiable, what the vendor measured, what nobody knows
 
-Опорный файл для **грамотных и честных рекомендаций**. Всё ниже — из публичных источников со ссылками. Задача файла: не дать скиллу пересказывать маркетинг как факт.
+The grounding file for **competent and honest recommendations**. Everything below comes from public sources with links. Its job is to stop the skill from retelling marketing as fact.
 
-## Дисциплина доказательств (применять всегда)
+## Evidence discipline (always applied)
 
-Любую цифру в стратегии помечать одним из трёх уровней:
+Tag every figure in the strategy with one of three levels:
 
-| Уровень | Что это | Как подавать |
+| Level | What it is | How to present it |
 |---|---|---|
-| **Проверяемо** | рецензируемая работа, воспроизводимый бенчмарк, независимый замер | можно опираться, ставить ссылку |
-| **Мерил продавец** | бенчмарк вендора на своих данных, кейс-стади, заказанный опрос | подавать как «заявлено», рядом — кто мерил |
-| **Нет данных** | независимых исследований не существует | так и писать; предлагать замер у себя |
+| **Verifiable** | peer-reviewed work, a reproducible benchmark, an independent measurement | safe to rely on; add the link |
+| **Vendor-measured** | a vendor benchmark on their own data, a case study, a commissioned survey | present as "claimed", with the measurer named alongside |
+| **No data** | no independent research exists | say exactly that; propose measuring it yourself |
 
-Правило: **«нет данных» ≠ «не работает»**. Это приглашение измерить у себя, а не приговор.
+The rule: **"no data" ≠ "does not work".** It is an invitation to measure, not a verdict.
 
-Второе правило: **эффект AI нельзя измерять самооценкой команды** (см. METR ниже).
+The second rule: **the effect of AI cannot be measured by the team's self-assessment** (see METR below).
 
 ---
 
-## 1. Разрыв восприятия — самый важный факт для kill-gate
+## 1. The perception gap — the single most important fact for a kill-gate
 
-- Рандомизированный эксперимент: 16 опытных разработчиков, 246 реальных задач в проектах, где они работали в среднем 5 лет. Ожидали ускорения на 24%, после работы оценили своё ускорение в 20%. Замер показал **на 19% медленнее** — [METR](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), [arXiv:2507.09089](https://arxiv.org/abs/2507.09089).
-  Оговорки автора: малая выборка, широкий доверительный интервал (+2% до +39%), тяжёлые для AI условия (зрелый код, высокие требования). В [обновлении 2026](https://metr.org/blog/2026-02-24-uplift-update/) на новых инструментах у той же группы получилось ускорение ~18%, у новых участников ~4%. **Устойчивый вывод — не знак эффекта, а расхождение самооценки и замера.**
-- [DORA 2025](https://dora.dev/insights/balancing-ai-tensions/) (~5000 респондентов): 90% используют AI, >80% считают себя продуктивнее, **~30% не доверяют сгенерированному коду**. Рост внедрения связан одновременно с ростом скорости поставки **и ростом нестабильности**. AI — усилитель: зрелому конвейеру даёт скорость, хаосу — больше хаоса.
+- A randomized trial: 16 experienced developers, 246 real tasks in projects they had worked on for about five years. They expected a 24% speed-up and, after the work, estimated their own speed-up at 20%. The measurement showed them **19% slower** — [METR](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/), [arXiv:2507.09089](https://arxiv.org/abs/2507.09089).
+  The authors' own caveats: a small sample, a wide confidence interval, and conditions hostile to AI (mature code, high standards). In a [2026 update](https://metr.org/blog/2026-02-24-uplift-update/) on newer tools the same group showed a speed-up of roughly 18%, and new participants about 4%. **The durable finding is not the sign of the effect but the divergence between self-assessment and measurement.**
+- [DORA 2025](https://dora.dev/insights/balancing-ai-tensions/) (~5,000 respondents): 90% use AI, more than 80% believe they are more productive, and **around 30% do not trust the generated code**. Higher adoption correlates with both faster delivery **and greater instability**. AI is an amplifier: it gives speed to a mature pipeline and more chaos to a chaotic one.
 
-**Как использовать в стратегии:** в блок метрик — запрет на измерение эффекта опросом; в kill-gate — требование замера на эталонном наборе.
+**How to use this in the strategy:** in the metrics section, a prohibition on measuring effect by survey; in the kill-gate, a requirement to measure against a golden set.
 
 ---
 
-## 2. Где AI реально работает в дата-процессах
+## 2. Where AI actually works in data processes
 
-Закономерность: **чем ближе задача к «понять смысл», тем лучше результат; чем ближе к «дать гарантию» — тем хуже.** Побеждает не замена процесса, а маршрутизация: детерминированный слой на массовый объём, модель — на спорные случаи.
+The pattern: **the closer a task is to "understand the meaning", the better the result; the closer to "provide a guarantee", the worse.** What wins is routing rather than replacement — a deterministic layer on the bulk, the model on the disputed cases.
 
-### Работает
-| Процесс | Цифра | Оговорка |
+### Works
+
+| Process | Figure | Caveat |
 |---|---|---|
-| Классификация PII и конфиденциальности | regex 52,7% → модель 95,0% на 1000 документов; на «конфиденциальном» у regex 0% ([arXiv 2605.20368](https://arxiv.org/pdf/2605.20368)) | regex быстрее примерно в 28 000 раз при сопоставимой точности на структурных полях; при переносе в чужой домен открытые деидентификаторы пропускают >50% |
-| Сопоставление сущностей, дедупликация | блокинг 35,5% → +LLM-судья 95,4% precision за $0,04 на датасет | нельзя крутить порог precision/recall под задачу; побеждает гибрид: модель только на спорных парах |
-| Сопоставление схем при интеграции | LLM 88,7% против COMA 56,2% и CUPID 51,3% ([GRAM](https://arxiv.org/pdf/2406.01876)) | на простых схемах классика не хуже и дешевле ([LLMatch](https://arxiv.org/pdf/2507.10897)) |
-| Парсинг сложных таблиц и сканов | 90,2% против 64,6% у классического движка | на фиксированных формах обычный OCR даёт до 99% и дешевле; разброс качества парсеров огромен ([arXiv 2603.18652](https://arxiv.org/html/2603.18652)) |
+| Classifying PII and confidential content | regex 52.7% → model 95.0% across 1,000 documents; on "confidential" regex scores 0% ([arXiv 2605.20368](https://arxiv.org/pdf/2605.20368)) | regex is roughly 28,000× faster at comparable accuracy on structured fields; ported to another domain, open de-identifiers miss over 50% |
+| Entity resolution and deduplication | blocking 35.5% → with an LLM judge 95.4% precision at $0.04 per dataset | you cannot tune the precision/recall threshold to the task; the hybrid wins — the model only on disputed pairs |
+| Schema matching during integration | LLM 88.7% against COMA 56.2% and CUPID 51.3% ([GRAM](https://arxiv.org/pdf/2406.01876)) | on simple schemas the classics are no worse and cheaper ([LLMatch](https://arxiv.org/pdf/2507.10897)) |
+| Parsing complex tables and scans | 90.2% against 64.6% for a classical engine | on fixed forms ordinary OCR reaches 99% and costs less; parser quality varies enormously ([arXiv 2603.18652](https://arxiv.org/html/2603.18652)) |
 
-### Работает только под проверку
-| Процесс | Цифра | Условие |
+### Works only under verification
+
+| Process | Figure | Condition |
 |---|---|---|
-| Перевод SQL между диалектами | 76,2% сырым переводом → 86,7% с обратной связью по ошибкам исполнения ([RISE](https://arxiv.org/pdf/2601.05579)) | обязательна исполняемая сверка результатов ([Horizon, VLDB](https://www.vldb.org/pvldb/vol18/p5259-emani.pdf)) |
-| Описания и метаданные | 19,6% проблемных описаний у модели против 6,3% у человека ([arXiv 2411.05409](https://arxiv.org/pdf/2411.05409)) | метрика — доля принятого стюардом без правок, а не покрытие описаниями |
-| Код пайплайнов | скорость вверх, стабильность вниз (DORA) | узкое место переезжает в ревью и тестирование |
+| Translating SQL between dialects | 76.2% raw → 86.7% with feedback from execution errors ([RISE](https://arxiv.org/pdf/2601.05579)) | an executable comparison of results is mandatory ([Horizon, VLDB](https://www.vldb.org/pvldb/vol18/p5259-emani.pdf)) |
+| Descriptions and metadata | 19.6% problematic descriptions from the model against 6.3% from a human ([arXiv 2411.05409](https://arxiv.org/pdf/2411.05409)) | the metric is the share accepted by a steward without edits, not description coverage |
+| Pipeline code | speed up, stability down (DORA) | the bottleneck moves into review and testing |
 
-### Переоценено или не доказано
-| Процесс | Что известно |
+### Overrated or unproven
+
+| Process | What is known |
 |---|---|
-| Поиск причины инцидента | сырая телеметрия — 23,75% точности, слияние источников — 48,25% ([arXiv 2602.08804](https://arxiv.org/html/2602.08804v1)); большое контролируемое исследование называется [«Stalled, Biased, and Confused»](https://arxiv.org/html/2601.22208v1); на реальной телеметрии точность [практически ограничена сверху](https://arxiv.org/html/2607.13548). **Отдавать ранжированные улики, а не вердикт.** Ограничение — не размер модели, а граф зависимостей и таксономия компонентов |
-| Генерация правил качества данных | независимых исследований нет; «минус 60–80% ложных срабатываний» — только вендорские блоги. Мерить свой FP в shadow-режиме две недели |
-| Очистка и синтетика табличных данных | модель [оптимизирует связность текста, а не статистику](https://arxiv.org/html/2505.02659); [ни один метод не даёт неотличимый датасет](https://arxiv.org/pdf/2410.03411). Синтетику **накапливать, а не заменять** ею реальные данные |
+| Incident root cause | raw telemetry gives 23.75% accuracy, fused sources 48.25% ([arXiv 2602.08804](https://arxiv.org/html/2602.08804v1)); a large controlled study is titled ["Stalled, Biased, and Confused"](https://arxiv.org/html/2601.22208v1); on real telemetry accuracy is [effectively capped](https://arxiv.org/html/2607.13548). **Return ranked evidence, not a verdict.** The limit is not model size but the dependency graph and component taxonomy |
+| Generating data quality rules | no independent research exists; "60–80% fewer false positives" appears only in vendor blogs. Measure your own false-positive rate in shadow mode for two weeks |
+| Cleaning and synthesizing tabular data | the model [optimizes textual coherence rather than statistics](https://arxiv.org/html/2505.02659); [no method produces an indistinguishable dataset](https://arxiv.org/pdf/2410.03411). Accumulate synthetic data, **do not replace** real data with it |
 
 ---
 
-## 3. Context rot — почему «дать агенту больше контекста» не работает
+## 3. Context rot — why "give the agent more context" does not work
 
-Качество ответа падает по мере роста поданного текста, **задолго до заполнения окна**.
+Answer quality degrades as the supplied text grows, **long before the window is full**.
 
-- 18 моделей, восемь длин ввода: деградация на каждом шаге, а не только у предела. Модель с окном 200К заметно теряет точность уже на 50К — [Chroma](https://www.trychroma.com/research/context-rot).
-- Позиционный эффект: точность падает более чем на 30%, если нужное лежит в середине контекста.
-- Падение не плавное: до ~51 тысячи токенов точность держится, к 64 тысячам обваливается почти вдвое — [arXiv 2601.15300](https://arxiv.org/pdf/2601.15300).
-- Усиливают эффект дистракторы (похожие, но не те куски) и расхождение формулировок вопроса и источника.
-- Тесты «иголка в стоге сена» **занижают** проблему: реальные задачи требуют синтеза.
+- 18 models, eight input lengths: degradation at every step, not only near the limit. A model with a 200K window loses noticeable accuracy already at 50K — [Chroma](https://www.trychroma.com/research/context-rot).
+- A positional effect: accuracy drops by more than 30% when the needed passage sits in the middle of the context.
+- The decline is not smooth: accuracy holds to roughly 51K tokens and then falls by almost half by 64K — [arXiv 2601.15300](https://arxiv.org/pdf/2601.15300).
+- Distractors — passages that look right but are not — and a mismatch between the question's wording and the source amplify the effect.
+- "Needle in a haystack" tests **understate** the problem: real tasks require synthesis.
 
-**Следствия для архитектуры контекста:** отдавать по запросу, а не насыпать заранее; отсекать похожее-но-не-то; рост окон не отменяет отбор.
-
----
-
-## 4. Тренды управления данными в AI-эпоху
-
-1. **Каталог стал точкой контроля, а не витриной поиска.** Формат победил один, зависимость переехала на каталог: он резолвит имена, арбитрирует коммиты, хранит права и выдаёт движкам временные ключи. REST-спека стандартизирует протокол, но **не права, маскирование и lineage** — политики не переносятся между каталогами. Практика: выбрать один каталог как границу governance ([разбор состояния каталогов](https://amdatalakehouse.substack.com/p/the-state-of-apache-iceberg-catalogs)).
-2. **Агент — новая identity.** Формула уязвимости: приватный доступ + недоверенный ввод + внешний канал вывода. В бенчмарке MCPTox самая устойчивая модель отказывалась от отравленного инструмента менее чем в 3% случаев. Статичных ролей мало: нужны своя identity, узкие временные ключи, allowlist инструментов и наблюдение за поведением в рантайме.
-3. **Единицей governance стал кусок документа.** Права из базы и бакетов не переезжают в векторное пространство; проверять их надо **до** поиска. Один и тот же пайплайн даёт 85–92% на управляемых данных и 45–60% на неуправляемом корпусе.
-4. **Удаление сломалось.** Векторные базы делают мягкое удаление; удалённые векторы [физически восстановимы чтением индекса в обход API](https://arxiv.org/html/2606.18497). Вопрос вендору: остаётся ли вектор в индексе между запросом на удаление и следующей перестройкой.
-5. **Происхождение ответа не покрыто стандартом.** Колоночный lineage зрелый, но цепочка «промпт → извлечённые куски → ответ» в стандарт не входит — нужны самодельные расширения ([обзор provenance у агентов](https://arxiv.org/pdf/2606.04990)).
-6. **Контракты: спецификацию выиграли, исполнение — нет.** [ODCS](https://bitol.io/) стал фактическим стандартом, но типовой провал — контракты написаны и ни к чему не подключены. Дешёвый рабочий слой — гейт в CI; дорогой — проверка на брокере. И это [организационная вещь](https://www.dataengineeringweekly.com/p/data-contracts-a-missed-opportunity), а не техническая.
-7. **Экономика не там, где ищут.** 90% запросов у платящих клиентов сканируют менее 100 МБ; независимо: [более 99% пользователей никогда не сканируют больше 1 ТБ за раз](https://motherduck.com/blog/redshift-files-hunt-for-big-data/). Счёт растёт от неиспользуемых объектов и регламентного пересчёта, а не от объёма аналитики.
+**Consequences for context architecture:** serve on request rather than pre-loading; filter out the similar-but-wrong; a bigger window does not remove the need to select.
 
 ---
 
-## 5. Контекстный слой («LLM wiki»)
+## 4. Data management trends in the AI era
 
-### Референсная архитектура — пять слоёв плюс петля
-1. **Источники** — хранилище, логи запросов, BI-использование, документы, переписки, код.
-2. **Сбор** — коннекторы, происхождение до колонок, майнинг истории запросов, разбор документов на куски, событийная синхронизация.
-3. **Сборка знания** — склейка дублей, описания от модели с проверкой человеком, глоссарий и определения метрик, пары «вопрос → SQL», ловушки, эталонные вопросы.
-4. **Хранение** — граф метаданных и контекста, семантический слой, векторы кусков с правами, статус узла, срок годности, ссылка на оригинал.
-5. **Подача** — MCP: агент берёт сам, права те же, что у людей, проверка прав до поиска, отдаётся только релевантное.
-6. **Петля** — агент пишет обратно, чего не нашёл; спрос задаёт приоритет описаний; эталонные вопросы ловят поломку после смены определения; провал проверки снимает статус «проверено».
-
-### Атом знания — обязательные поля узла
-происхождение · статус (выведено → кандидат → проверено → устарело) · ссылка на источник истины (формула не копируется) · срок годности · объект-источник с его сертификацией и health-score · владелец, проверки, статистика обращений.
-
-Закрывает четыре корневые проблемы «сырой» базы знаний: откуда факт, проверено или выведено, не протухло ли, не копия ли определения. **Доверие наследуется от объекта-источника**, а не изобретается заново.
-
-### Рынок (состояние 2026)
-- **Atlan** — позиционируется как context layer; граф предприятия, онтология, студия контекста, хранение на открытом формате, протоколы MCP/A2A/OSI, двунаправленная память.
-- **DataHub** — от открытого каталога: граф метаданных дорос до графа контекста, событийная синхронизация, шесть инструментов MCP, агент берёт сам, те же политики доступа, открытое ядро.
-- **Collibra, Alation** — тяжёлые governance-платформы, MCP есть у обоих, длинное внедрение и высокий ценник.
-- **Secoda → Atlassian** (декабрь 2025), **Select Star → Snowflake** (ноябрь 2025) — поглощены, вопрос выживания дорожной карты.
-- **OpenMetadata** — MCP встроен по умолчанию, тот же движок авторизации; цена смещается из лицензии в人-часы сопровождения.
-- **Нативные** (каталоги платформ) — сильны внутри своего периметра.
-
-Наличие MCP перестало быть отличием. Различия ушли в архитектуру хранения, переносимость прав и стоимость владения.
-
-### Протоколы
-- **MCP** — переносит контекст, не производит его.
-- **A2A** — как агенты договариваются между собой.
-- **OSI → Apache Ossie** — формат обмена определениями метрик, «USB-C для семантики», не новый семантический слой; передан в Apache Software Foundation в 2026.
-
-**Не решено ни одним:** переносимость прав между каталогами и сквозное происхождение ответа.
+1. **The catalog became a control point rather than a search surface.** One format won, and the dependency moved to the catalog: it resolves names, arbitrates commits, holds permissions and issues short-lived keys to engines. The REST specification standardizes the protocol but **not permissions, masking or lineage** — policies do not transfer between catalogs. The practice: pick one catalog as the governance boundary ([state of catalogs](https://amdatalakehouse.substack.com/p/the-state-of-apache-iceberg-catalogs)).
+2. **The agent is a new identity.** The vulnerability formula: private access + untrusted input + an external output channel. In the MCPTox benchmark the most resilient model refused a poisoned tool in under 3% of cases. Static roles are not enough: an agent needs its own identity, narrow short-lived keys, an allowlist of tools, and runtime behaviour monitoring.
+3. **The unit of governance became the document fragment.** Permissions from databases and buckets do not travel into vector space; they must be checked **before** retrieval. The same pipeline scores 85–92% on governed data and 45–60% on an ungoverned corpus.
+4. **Deletion broke.** Vector stores do soft deletes; deleted vectors are [physically recoverable by reading the index around the API](https://arxiv.org/html/2606.18497). The question to ask a vendor: does the vector remain in the index between the deletion request and the next rebuild?
+5. **Answer provenance is not covered by any standard.** Column-level lineage is mature, but the chain "prompt → retrieved chunks → answer" is outside the standard and needs custom extensions ([survey of agent provenance](https://arxiv.org/pdf/2606.04990)).
+6. **Contracts: the specification was won, the enforcement was not.** [ODCS](https://bitol.io/) became the de facto standard, but the typical failure is contracts written and wired to nothing. The cheap working layer is a CI gate; the expensive one is a check at the broker. And it is an [organizational problem](https://www.dataengineeringweekly.com/p/data-contracts-a-missed-opportunity), not a technical one.
+7. **The economics are not where people look.** 90% of queries from paying customers scan under 100 MB; independently, [more than 99% of users never scan over 1 TB at once](https://motherduck.com/blog/redshift-files-hunt-for-big-data/). The bill grows from unused objects and scheduled recomputation, not from the volume of analysis.
 
 ---
 
-## 6. Next-gen отчёты: третий формат рядом с дашбордом
+## 5. The context layer ("LLM wiki")
 
-**Три формата по смыслу:** дашборд (мониторинг, read-only, живёт долго) → data app (ввод данных, сценарий, действие) → ноутбук (разовое исследование).
+### Reference architecture — five layers plus a loop
 
-**Три подхода к сборке** (другое измерение — каждый покрывает несколько форматов):
-- **Реактивные ноутбуки** — пересчёт по зависимостям, нет скрытого состояния; часть хранится как обычный код и ревьюится в git. Цена: питон-навык и свой рантайм.
-- **Code-first фреймворки** — полный контроль интерфейса, статическая сборка из SQL и разметки дёшева в хостинге. Цена: авторизация, права, деплой и запись остаются на вас.
-- **Warehouse-native** — права наследуются от хранилища и применяются на уровне запроса, запись идёт в таблицы склада, определения метрик из каталога. Цена: строите из кубиков вендора.
+1. **Sources** — the warehouse, query logs, BI usage, documents, threads, code.
+2. **Collection** — connectors, lineage down to columns, mining query history, parsing documents into chunks, event-driven synchronization.
+3. **Knowledge assembly** — deduplication, model-written descriptions with a human gate, glossary and metric definitions, "question → SQL" pairs, traps, golden-set questions.
+4. **Storage** — a metadata and context graph, the semantic layer, chunk vectors with ACLs, node status, freshness TTL, a reference to the original.
+5. **Serving** — MCP: the agent pulls, the permissions are the same as for people, the permission check happens before retrieval, and only what is relevant is returned.
+6. **The loop** — the agent writes back what it could not find; demand sets the priority for descriptions; golden-set questions catch breakage after a definition changes; a failed test removes the "verified" status.
 
-**Отрезвляющая цифра:** из 1,45 млн ноутбуков на GitHub только **24% запустились без ошибок и 4% повторили собственный результат** ([Pimentel et al., MSR 2019](https://leomurta.github.io/papers/pimentel2019a.pdf)). Ноутбук без реактивности — черновик, а не отчёт.
+### The knowledge atom — mandatory node fields
 
-**Водораздел:** не «дашборд или приложение», а два вопроса — **пишет ли артефакт обратно** и **кто применяет права**. Для стратегии data app — четвёртый канал доставки рядом с центральным, self-service и агентным, и ему нужны свои владелец, сертификация и health-score.
+provenance · status (inferred → candidate → verified → deprecated) · a reference to the source of truth (the formula is never copied) · freshness TTL · the source object with its certification and health score · owner, tests, serving statistics.
+
+This closes the four root problems of a raw knowledge base: where the fact came from, whether it was verified or inferred, whether it has gone stale, and whether it is a copy of a definition that has since diverged. **Trust is inherited from the source object** rather than invented anew.
+
+### The market, as of 2026
+
+- **Atlan** — positioned as a context layer; an enterprise graph, an ontology, a context studio, storage in an open format, MCP/A2A/OSI protocols, bidirectional memory.
+- **DataHub** — coming from the open catalog side: the metadata graph grew into a context graph, event-driven sync, six MCP tools, the agent pulls, the same access policies, an open core.
+- **Collibra, Alation** — heavy governance platforms; both have MCP, both take long to implement and cost a lot.
+- **Secoda → Atlassian** (December 2025), **Select Star → Snowflake** (November 2025) — acquired; the question is whether their roadmaps survive.
+- **OpenMetadata** — MCP built in by default, the same authorization engine; the cost moves from licence into maintenance hours.
+- **Native platform catalogs** — strong inside their own perimeter.
+
+Having MCP has stopped being a differentiator. The differences moved into storage architecture, permission portability and total cost of ownership.
+
+### Protocols
+
+- **MCP** — carries context, does not produce it.
+- **A2A** — how agents negotiate with one another.
+- **OSI → Apache Ossie** — a format for exchanging metric definitions, "USB-C for semantics" rather than a new semantic layer; moved to the Apache Software Foundation in 2026.
+
+**Solved by none of them:** permission portability between catalogs, and end-to-end answer provenance.
 
 ---
 
-## 7. Сертификация: паспорт объекта против поведения артефакта
+## 6. Next-gen reports: a third format beside the dashboard
 
-Два разных вопроса, которые часто путают:
+**Three formats by purpose:** dashboard (monitoring, read-only, long-lived) → data app (data entry, a scenario, an action) → notebook (one-off investigation).
 
-| | Паспорт (governance) | Тесты (поведение) |
+**Three build approaches** — a different dimension, since each covers several formats:
+- **Reactive notebooks** — recomputation by dependency, no hidden state; some store as ordinary code and are reviewed in git. The price: Python skill and your own runtime.
+- **Code-first frameworks** — full control of the interface, and a static build from SQL and markup is cheap to host. The price: authorization, permissions, deployment and writes remain yours.
+- **Warehouse-native** — permissions inherited from the warehouse and applied at query level, writes go into warehouse tables, metric definitions come from the catalog. The price: you build from the vendor's blocks.
+
+**The sobering figure:** out of 1.45 million notebooks on GitHub only **24% ran without errors and 4% reproduced their own result** ([Pimentel et al., MSR 2019](https://leomurta.github.io/papers/pimentel2019a.pdf)). A notebook without reactivity is a draft, not a report.
+
+**The real dividing line** is not "dashboard or app" but two questions: **does the artifact write back**, and **who applies the permissions**. For a strategy, the data app is a fourth delivery channel beside centralized, self-service and agentic — and it needs its own owner, certification and health score.
+
+---
+
+## 7. Certification: the object passport versus artifact behaviour
+
+Two different questions that are often confused:
+
+| | Passport (governance) | Tests (behaviour) |
 |---|---|---|
-| Что есть сертификат | владелец + здоровье + описание + использование | прохождение автотестов в пайплайне |
-| Как проверяется | правила по метаданным и логам, покрывают весь контент | тест исполняется: сравнение до/после, сверка с источником, замер производительности |
-| Триггер | событие или календарь | каждый релиз и апдейт платформы |
-| Отвечает на вопрос | «за объектом кто-то следит?» | «цифры сходятся и ничего не сломалось?» |
+| What the certificate is | owner + health + description + usage | passing automated tests in the pipeline |
+| How it is checked | rules over metadata and logs, covering all content | the test executes: before/after comparison, reconciliation with the source, a performance measurement |
+| Trigger | an event or the calendar | every release and platform update |
+| Answers the question | "is somebody watching this object?" | "do the numbers reconcile and did anything break?" |
 
-Паспорт масштабируется на весь контент, но слеп к содержательным ошибкам; тесты ловят регрессию и расхождение с источником, но дороги на каждый объект. **Рабочая связка — паспорт везде, тесты на критичном ядре.** Для AI-ответов это та же пара: health-score как фильтр источника и эталонный набор как тест.
+The passport scales across all content but is blind to substantive errors; tests catch regressions and divergence from the source but are expensive per object. **The working combination is a passport everywhere and tests on the critical core.** For AI answers it is the same pair: the health score as a source filter and the golden set as the test.
 
 ---
 
-## Как этим пользоваться в блоках стратегии
+## How to use this in the sections of a strategy
 
-- **Блок 2 (ландшафт)** — карта «где AI работает в наших процессах» вместо общих слов про автоматизацию.
-- **Блок 3 (операционная модель)** — data app как четвёртый канал; агент как отдельная identity.
-- **Блок 4.1** — права на уровне куска, удаление производных, контракты через гейт в CI.
-- **Блок 4.2** — сертификация двумя измерениями: паспорт и тесты.
-- **Блок 5 (технология)** — контекстный слой поверх триады; каталог как граница governance; отдача по запросу против context rot.
-- **Блок 6 (операции)** — запрет измерять эффект самооценкой; замер на эталонном наборе.
-- **Блок 7 (план)** — kill-gate с порогом, полученным на своих данных, а не из чужого бенчмарка.
+- **Landscape** — a map of "where AI works in our processes" instead of general words about automation.
+- **Operating model** — the data app as a fourth channel; the agent as a separate identity.
+- **Data processes** — permissions at fragment level, deletion of derivatives, contracts through a CI gate.
+- **Content processes** — certification along two dimensions: passport and tests.
+- **Technology** — the context layer on top of the triad; the catalog as the governance boundary; serving on request against context rot.
+- **Operations** — a prohibition on measuring effect by self-assessment; measurement against a golden set.
+- **Plan** — a kill-gate with a threshold derived from your own data, never from somebody else's benchmark.

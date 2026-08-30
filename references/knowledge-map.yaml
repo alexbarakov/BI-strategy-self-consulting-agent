@@ -1,77 +1,77 @@
-# Машиночитаемая карта знаний BI+AI Strategy Builder.
-# Назначение: агент по номеру блока находит, что читать локально и что взять
-# из companion-репозитория DG Board KB. Аналог 30_graph/objects.yaml у companion.
+# Machine-readable knowledge map for the BI+AI Strategy Builder.
+# Purpose: given a block number, the agent finds what to read locally and what to take
+# from the DG Board KB companion. The analogue of the companion's 30_graph/objects.yaml.
 
 meta:
   skill: bi-strategy
-  kb: "references/kb/  # 66 атомов, граф — references/kb/30-graph.yaml"
-  document: "6 разделов: контекст, видение, стримы, инициативы, цели через метрики, риски (strategy-requirements.md)"
-  frame: "7 блоков рабочей рамки анализа (D&A Strategy & Tactics Planner) + диагностика Health Check"
-  phases: "AS-IS = блоки 1–2 · TO-BE = блоки 3–6 · Трансформация = блок 7"
+  kb: "references/kb/  # 66 atoms; graph in references/kb/30-graph.yaml"
+  document: "6 sections: context, vision, streams, initiatives, goals as metrics, risks (strategy-requirements.md)"
+  frame: "7 blocks of the analysis frame (D&A Strategy & Tactics Planner) + Health Check diagnosis"
+  phases: "AS-IS = blocks 1-2 · TO-BE = blocks 3-6 · Transformation = block 7"
 
 companion:
   id: DG-strategy-self-consulting-agent
   url: "https://github.com/alexbarakov/DG-strategy-self-consulting-agent"
   entry: "README.md"
   graph: "30_graph/objects.yaml"
-  role: "grounds governance, DG-практики и AI-фундамент; визуальный источник — публичный Miro-борд"
+  role: "grounds governance, DG practice and the AI foundation; the visual source is the public Miro board"
   precedence:
-    bi_ai_questions: "этот скилл ведёт, companion даёт governance-подложку"
-    dg_questions: "companion ведёт, этот скилл даёт BI/AI-стрим"
-    conflict: "по governance выигрывает companion, по BI/AI — этот скилл; инварианты общие"
+    bi_ai_questions: "this skill leads, the companion supplies the governance layer"
+    dg_questions: "the companion leads, this skill supplies the BI/AI stream"
+    conflict: "on governance the companion wins, on BI/AI this skill does; the invariants are shared"
   shared_invariants:
-    - "stack-rank и порядок заморозки"
-    - "kill-gates перед запуском AI-инициатив"
-    - "AI генерирует черновик — человек проверяет"
-    - "цепочка core → semantic → контекст → точность AI → self-service"
+    - "the stack-rank and the freeze order"
+    - "kill-gates before launching AI initiatives"
+    - "AI drafts - humans validate"
+    - "the chain core -> semantic -> context -> AI accuracy -> self-service"
 
-# Порядок заморозки: режем справа налево
+# Freeze order: we cut right to left
 stack_rank:
   - governance-and-ownership
   - trusted-data
-  - ai-readiness-triad      # certified core → semantic layer → доменная база знаний
+  - ai-readiness-triad      # certified core -> semantic layer -> domain knowledge base
   - bi-content
   - self-service-and-agentic
 
 kill_gates:
   - id: no-assistant-without-foundation
-    rule: "нет AI-ассистента без семантического покрытия целевых доменов и сертифицированного ядра"
+    rule: "no assistant without semantic coverage of the target domains and a certified core"
   - id: no-selfservice-without-governance
-    rule: "нет масштабирования self-service без governance-гейта и мониторинга качества"
+    rule: "no self-service scaling without a governance gate and quality monitoring"
   - id: no-semantic-without-core
-    rule: "нет семантического слоя без core-слоя под ним"
+    rule: "no semantic layer without a core layer beneath it"
   - id: no-agent-write-without-identity
-    rule: "нет операций записи агентом без своей identity, узких ключей и audit trail"
+    rule: "no agent write operations without its own identity, narrow keys and an audit trail"
 
 blocks:
   - id: 1
-    title: "Бизнес Основа"
+    title: "Business foundation"
     phase: as-is
     local: [strategy-template.md, question-bank.md]
     companion:
-      - "11_dg_program_themes/getting-started.md   # тест 5 из 12: нужна ли программа вообще"
+      - "11_dg_program_themes/getting-started.md   # the 5-of-12 test: is a programme needed at all"
       - "11_dg_program_themes/dg-kitchen-research.md"
     evidence: []
     kb: "30-graph.yaml → blocks[1]"
 
   - id: 2
-    title: "Оценка D&A ландшафта"
+    title: "D&A landscape assessment"
     phase: as-is
     local: [diagnostic.md, question-bank.md, make-maturity-svg.py, evidence-2026.md]
     companion:
       - "11_dg_program_themes/maturity-and-metrics.md"
       - "11_dg_program_themes/dg-frameworks.md"
-    evidence: ["карта «где AI работает в дата-процессах» — evidence-2026.md §2"]
+    evidence: ["the map of where AI works in data processes - evidence-2026.md, section 2"]
     kb: "30-graph.yaml → blocks[2]"
 
   - id: 3
-    title: "Целевая Операционная Модель"
+    title: "Target operating model"
     phase: to-be
     local: [strategy-template.md, course-knowledge.md]
     companion:
       - "11_dg_program_themes/roles-and-operating-model.md"
       - "11_dg_program_themes/domains-and-data-mesh.md"
-    evidence: ["data app как четвёртый канал — evidence-2026.md §6", "агент как identity — §4.2"]
+    evidence: ["the data app as a fourth channel - evidence-2026.md, section 6", "the agent as an identity - section 4.2"]
     kb: "30-graph.yaml → blocks[3]"
 
   - id: 4.1
@@ -83,7 +83,7 @@ blocks:
       - "11_dg_program_themes/data-catalog.md"
       - "11_dg_program_themes/domains-and-data-mesh.md"
       - "10_ai_era_themes/certified-core-layer.md"
-    evidence: ["права на уровне куска, удаление производных, контракты через CI — §4"]
+    evidence: ["fragment-level permissions, deleting derivatives, contracts through a CI gate - section 4"]
     kb: "30-graph.yaml → blocks[4.1]"
 
   - id: 4.2
@@ -92,7 +92,7 @@ blocks:
     local: [strategy-template.md, evidence-2026.md]
     companion:
       - "10_ai_era_themes/bi-content-management.md"
-    evidence: ["сертификация паспорт vs тесты — §7"]
+    evidence: ["certification: passport versus tests - section 7"]
     kb: "30-graph.yaml → blocks[4.2]"
 
   - id: 4.3
@@ -106,7 +106,7 @@ blocks:
     kb: "30-graph.yaml → blocks[4.3]"
 
   - id: 5
-    title: "Технологическая Основа"
+    title: "Technology foundation"
     phase: to-be
     local: [strategy-template.md, course-knowledge.md, evidence-2026.md]
     companion:
@@ -117,38 +117,38 @@ blocks:
       - "10_ai_era_themes/context-governance.md"
       - "10_ai_era_themes/llm-assistant-architecture.md"
       - "10_ai_era_themes/enterprise-ontology.md"
-    evidence: ["контекстный слой и референсная архитектура — §5", "context rot — §3"]
+    evidence: ["the context layer and its reference architecture - section 5", "context rot - section 3"]
     kb: "30-graph.yaml → blocks[5]"
 
   - id: 6
-    title: "Операционная Основа"
+    title: "Operational foundation"
     phase: to-be
     local: [strategy-template.md, evidence-2026.md]
     companion:
       - "10_ai_era_themes/skills-hub.md"
       - "11_dg_program_themes/roles-and-operating-model.md"
       - "11_dg_program_themes/maturity-and-metrics.md"
-    evidence: ["запрет измерять эффект самооценкой — §1"]
+    evidence: ["the ban on measuring effect by self-assessment - section 1"]
     kb: "30-graph.yaml → blocks[6]"
 
   - id: 7
-    title: "Управление изменениями"
+    title: "Change management"
     phase: transformation
     local: [strategy-template.md, review-gates.md]
     companion:
       - "11_dg_program_themes/dg-program-roadmap.md"
       - "10_ai_era_themes/ai-governance.md"
-    evidence: ["kill-gate с порогом на своих данных — §1, §2"]
+    evidence: ["a kill-gate with a threshold from your own data - sections 1 and 2"]
     kb: "30-graph.yaml → blocks[7]"
 
-# Инструменты и источники companion-репозитория, полезные в любом блоке
+# Companion tools and sources useful in any block
 cross_cutting:
-  eval: "references/70-golden-set/   # голден-сет 3 уровней; правило: набор фиксируется до правок и не переформулируется под поиск"
-  requirements: "references/strategy-requirements.md   # спека приёмки: 6 разделов документа, DoD, дисквалификаторы; гейт 0 в FORM и скоркард в AUDIT"
-  faq: "references/faq-participants.md   # 101 вопрос участников с ответами, размеченными по провенансу"
-  kb_entry: "references/kb/30-graph.yaml   # блок → атомы; key_evidence — числа для защиты приоритетов"
+  eval: "references/70-golden-set/   # a three-tier golden set; the rule: the set is frozen before changes and never reworded to fit retrieval"
+  requirements: "references/strategy-requirements.md   # acceptance spec: 6 document sections, DoD, disqualifiers; gate 0 in FORM, scorecard in AUDIT"
+  faq: "references/faq-participants.md   # 101 participant questions with provenance-tagged answers"
+  kb_entry: "references/kb/30-graph.yaml   # block -> atoms; key_evidence holds the numbers for defending priorities"
   kb_always_read: [guide-structure, innovation-map, plausible-but-wrong, ai-time-saving-trap, participants-2026-benchmark]
-  kb_internal_only: "атомы со списком internal_only в 30-graph.yaml содержат внутренние замеры — переносим конструкцию, не числа"
-  workshop_templates: "12_templates/templates.md   # анализ болей, классификатор доменов, vision statement, канвасы"
+  kb_anonymized: "atoms listed under anonymized_cases in 30-graph.yaml are worked cases with anonymized thresholds - carry the mechanics, not the numbers"
+  workshop_templates: "12_templates/templates.md   # pain analysis, domain classifier, vision statement, canvases"
   reading_library: "10_ai_era_themes/library.md"
   source_verification: "40_sources.md"
