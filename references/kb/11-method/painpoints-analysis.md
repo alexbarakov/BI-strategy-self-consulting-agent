@@ -1,33 +1,33 @@
 ---
 id: painpoints-analysis
-title: 1.1 Анализ болей D&A по группам ролей
+title: 1.1 Analysis of D&A pain points by role group
 type: method
-source: "Guide 2.0, лист «1. D&A PainPoints»"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"1. D&A PainPoints\""
+confidence: verifiable
 blocks: [1]
 ---
 
-Первое упражнение метода и вход во всю стратегию. Боли собираются **не общим списком, а по группам ролей** — одна и та же боль у центральной команды и у casual-пользователя означает разные инициативы.
+The method's first exercise and the entry point to the whole strategy. Pain points are gathered **not as one general list but by role group** - the same pain felt by the central team and by a casual user implies different initiatives.
 
-## Группы, по которым собираются боли
+## The groups the pain points are gathered across
 
-| Группа | Кто это |
+| Group | Who they are |
 |---|---|
-| Central BI team | центральная команда BI |
-| Data people / Embedded power user | аналитики и power-юзеры в бизнес-доменах |
-| Data management team | DWH / DG / DQ |
-| Casual users | бизнес-потребители готовой аналитики |
+| Central BI team | the central BI team |
+| Data people / embedded power users | analysts and power users inside the business domains |
+| Data management team | warehouse / governance / data quality |
+| Casual users | business consumers of finished analytics |
 
-## Второй проход — обязательный
+## The second pass is mandatory
 
-После сбора боли **группируются**, и напротив каждой группы пишется «Ideas of Initiatives to fix them». Лист заполнен только тогда, когда у каждой группы болей есть кандидат-инициатива. Это первичный источник для [[action-plan]].
+Once gathered, the pain points are **grouped**, and against each group you write "ideas of initiatives to fix them". The sheet is only complete when every group of pains has a candidate initiative. This is the primary input for [[action-plan]].
 
-## Типовая ошибка
+## The classic mistake
 
-Собрать боли только у своей команды. Тогда стратегия отвечает на самую *интересную* боль, а не на самую *дорогую* — ровно то, что ловит измерение «Приоритет» в `review-gates.md`.
+Gathering pain points only from your own team. The strategy then answers the most *interesting* pain rather than the most *expensive* one - exactly what the "priority" dimension in `review-gates.md` is there to catch.
 
-## Полевая калибровка
+## Field calibration
 
-Как реально распределяются боли в выборке российских BI-проектов — [[pain-fronts-2026]]. Полезно на воркшопе, когда участник считает свою боль уникальной.
+How pain points actually distribute across a sample of Russian BI projects: [[pain-fronts-2026]]. Useful in a workshop when a participant is convinced their pain is unique.
 
-Связи: [[guide-structure]] · [[pain-fronts-2026]] · [[action-plan]] · [[bi-adoption-stats]]
+Links: [[guide-structure]] · [[pain-fronts-2026]] · [[action-plan]] · [[bi-adoption-stats]]

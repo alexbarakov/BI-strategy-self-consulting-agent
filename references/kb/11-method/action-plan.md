@@ -1,32 +1,32 @@
 ---
 id: action-plan
-title: 4 Action plan — план трансформации по семи областям
+title: 4 Action plan - the transformation plan across seven areas
 type: method
-source: "Guide 2.0, лист «4. Action plan»"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"4. Action plan\""
+confidence: verifiable
 blocks: [7]
 ---
 
-Сборка всего заполненного: пройти по всем предыдущим листам и сформулировать инициативы, **проставив старт и дедлайн каждой**.
+The assembly of everything filled in so far: walk through all the earlier sheets and phrase the initiatives, **giving each one a start date and a deadline**.
 
-## Области плана и примеры инициатив из метода
+## Plan areas and example initiatives from the method
 
-| Область | Примеры |
+| Area | Examples |
 |---|---|
-| **Planning** | подготовка воркшопа и сборка стратегии v1 · формирование vision и целей · планирование доработок драфта |
-| **D&A анализ ландшафта** | анализ информационных требований ключевых ролей · анализ статистики и паттернов использования BI · анализ ограничений и перспективных решений |
-| **Процессы и сервисы — Data management** | отбор и создание слоя мастер-источников, критичных для каталога и центрального репортинга · описание и назначение ответственности за поддержку и мониторинг · запуск DQ-проектов с владельцами систем |
-| **Процессы и сервисы — Content management** | стандарты архивации и первичная архивация · style guide и план внедрения · выбор инструмента для корпоративного бизнес-глоссария |
-| **Роли и практики — Self-Service D&A** | классификация пользователей по SS-уровню и календарь событий · формирование и запуск D&A Council · программа BI-чемпионов в финансовом департаменте |
-| **Роли и практики — Centralized D&A** | аналитические рабочие места под три ключевые роли · разработка и презентация каталога сервисов команды · разделение разработки по доменам и регулярные статусы с владельцами данных |
-| **Tools** | интеграция BI и мессенджера с промо-функциями · процесс тюнинга моделей под цели корпоративной аналитики · своё решение для умного гибкого алертинга |
-| **BI Operations** | матрица ролевой авторизации для зарплатных данных · переход команды на спринты и логирование времени · стандарты сертификации источников и аудита |
-| **BI Efficiency** | отчёты для мониторинга метрик эффективности BI · чеклист релиза нового продового отчёта · опрос удовлетворённости сообщества power-пользователей |
+| **Planning** | preparing the workshop and assembling strategy v1 · shaping the vision and goals · planning the revisions to the draft |
+| **D&A landscape analysis** | analysing the information requirements of key roles · analysing BI usage statistics and patterns · analysing constraints and promising solutions |
+| **Processes and services - data management** | selecting and building the layer of master sources critical to the catalog and central reporting · documenting and assigning responsibility for support and monitoring · launching data quality projects with system owners |
+| **Processes and services - content management** | archiving standards and a first archiving pass · a style guide and a rollout plan · choosing a tool for the corporate business glossary |
+| **Roles and practices - self-service D&A** | classifying users by self-service level and an events calendar · forming and launching the D&A Council · a BI champions programme in the finance department |
+| **Roles and practices - centralized D&A** | analytical workplaces for the three key roles · building and presenting the team's service catalog · splitting development by domain and running regular status meetings with data owners |
+| **Tools** | integrating BI with the messenger, including promotional features · a process for tuning models to corporate analytics goals · an in-house solution for smart, flexible alerting |
+| **BI operations** | a role authorization matrix for payroll data · moving the team to sprints and time logging · certification standards for sources and audit |
+| **BI efficiency** | reports for monitoring BI performance metrics · a release checklist for a new production report · a satisfaction survey of the power-user community |
 
-## Что метод требует, а что добавляет скилл
+## What the method requires, and what the skill adds
 
-Метод требует область, инициативу и даты. Скилл сверху требует по каждой инициативе **владельца, метрику и kill-gate** — см. `strategy-template.md` и `review-gates.md`. Инициатива без названного владельца — строка в плане, а не изменение.
+The method requires an area, an initiative and dates. On top of that the skill requires an **owner, a metric and a kill-gate** for every initiative - see `strategy-template.md` and `review-gates.md`. An initiative with no named owner is a line in a plan, not a change.
 
-Обязательное дополнение из анти-оптимизма: **отрепетированное сокращение**. К плану прикладывается ответ на «если потеряете треть ресурса в середине года — что умирает первым», и этот ответ публикуется.
+A mandatory addition from the anti-optimism rules: **the rehearsed cut**. The plan carries an answer to "if you lose a third of the resource mid-year, what dies first" - and that answer is published.
 
-Связи: [[guide-structure]] · [[painpoints-analysis]] · [[bi-project-metrics]] · [[vision-statement]] · [[onboarding-plan]]
+Links: [[guide-structure]] · [[painpoints-analysis]] · [[bi-project-metrics]] · [[vision-statement]] · [[onboarding-plan]]

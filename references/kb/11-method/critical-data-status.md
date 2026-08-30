@@ -1,36 +1,36 @@
 ---
 id: critical-data-status
-title: 2.1 Статус критичных данных по доменам и Master Data Sources
+title: 2.1 The status of critical data by domain, and master data sources
 type: method
-source: "Guide 2.0, лист «2.1 Critical data»; курс, Занятие 2"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"2.1 Critical data\"; course, Day 2"
+confidence: verifiable
 blocks: [4.1, 5]
 ---
 
-Фиксация статуса: что для нас критично · как критичное представлено в виде надёжных поддерживаемых таблиц в хранилище · что сейчас не так с качеством и что конкретно планируем.
+Recording the status: what is critical for us · how the critical part is represented as reliable, maintained tables in the warehouse · what is currently wrong with quality and what exactly we plan to do.
 
-## Скоркард по доменам
+## The domain scorecard
 
-`Домен / сабдомен · критичность для бизнеса (экспертная оценка 1–10) · покрытие master data sources · ключевые витрины для BI · статус по качеству данных · планы на квартал / полгода / год`
+`Domain / subdomain · business criticality (expert judgement, 1-10) · master data source coverage · the key marts for BI · data quality status · plans for the quarter / half-year / year`
 
-Градация статуса качества из примеров курса: «Высокое — нет критических проблем» · «Среднее — использование с ограничениями: полнота ~70%, нет данных из системы X» · «Среднее — актуальность, периодическое падение ночных обновлений».
+The quality status grading from the course examples: "High - no critical problems" · "Medium - usable with limitations: completeness ~70%, no data from system X" · "Medium - freshness, nightly loads fail periodically".
 
-## Master Data Source Management
+## Master data source management
 
-**Не путать с Master Data Management.** Здесь речь об идентификации, оптимизации и ownership мастер-источников и процедур внутри DWH.
+**Not to be confused with master data management.** This is about identifying, optimizing and owning the master sources and procedures inside the warehouse.
 
-Реестр: `Master Data Source · домен · описание · для кого · заказчик · Data Steward · владелец · разработчик · расписание · DQ rules · SS rules · открытые задачи`
+The registry: `master data source · domain · description · for whom · requester · data steward · owner · developer · schedule · DQ rules · SS rules · open issues`
 
-Что даёт:
-- отбор витрин, оптимальных для анализа конкретного домена
-- **сокращение дублирующих источников**
-- MDS как основа и для дата-каталога self-service, и для централизованного репортинга
-- фокусировка ownership, проверок и мониторинга на MDS, а не на всём подряд
+What it buys you:
+- the selection of marts best suited to analysing a specific domain
+- **fewer duplicate sources**
+- master data sources as the foundation for both the self-service data catalog and centralized reporting
+- ownership, checks and monitoring focused on master data sources rather than on everything indiscriminately
 
-Реестр лучше вести в дата-каталоге, а не в таблице.
+The registry is better kept in the data catalog than in a spreadsheet.
 
-## Почему это гейт для AI
+## Why this is the gate for AI
 
-Именно этот лист отвечает на вопрос «на чём агент имеет право отвечать». Сертифицированное ядро = MDS с подтверждённым ownership и статусом качества. Без него `no-semantic-without-core` не проходится.
+This is the sheet that answers "what is the agent allowed to answer on". A certified core equals master data sources with confirmed ownership and a quality status. Without it, `no-semantic-without-core` does not pass.
 
-Связи: [[data-domains-classification]] · [[data-mgmt-processes]] · [[guide-structure]]
+Links: [[data-domains-classification]] · [[data-mgmt-processes]] · [[guide-structure]]

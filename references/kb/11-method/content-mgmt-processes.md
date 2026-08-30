@@ -1,42 +1,42 @@
 ---
 id: content-mgmt-processes
-title: 2.2 Процессы управления BI-контентом — шесть процессов в двух моделях
+title: 2.2 BI content management processes - six processes in two models
 type: method
-source: "Guide 2.0, листы «2.2 Content Mgmt Processes» и «2.2 Content Mgmt questionnaire»"
+source: "Guide 2.0, sheets \"2.2 Content Mgmt Processes\" and \"2.2 Content Mgmt questionnaire\""
 board_ref: "https://miro.com/app/board/o9J_lha8MnM=/?moveToWidget=3458764567544624352"
-confidence: проверяемо
+confidence: verifiable
 blocks: [4.2]
 ---
 
-Зеркало [[data-mgmt-processes]] для контента. Та же конструкция: каждый процесс описывается в Centralized и в Self-Governing реализации, по каждому — pain points и целевой подход с ролями и инструментами.
+The mirror of [[data-mgmt-processes]] for content. The same construction: every process is described in both a centralized and a self-governing implementation, each with its pain points and a target approach naming roles and tools.
 
-## Шесть процессов
+## The six processes
 
-| Процесс | Centralized | Self-Governing |
+| Process | Centralized | Self-governing |
 |---|---|---|
-| **Content Management** | создание и поддержка сред хранения контента, навигация для авторов и пользователей | поддержание релевантности своего контента, следование требованиям дизайна и архитектуры |
-| **Authorization** | формализация политик прав, инструменты и выдача доступов по правилам, роли, конфиденциальности | разграничение прав на свой контент в рамках правил организации |
-| **Content Validation** | определение корректного процесса валидации, валидация контента | валидация своего контента, помощь в проверке достоверности |
-| **Content Promotion** | процесс продвижения, промоушен централизованных и кросс-функциональных отчётов | продвижение своего проверенного контента в централизованной среде по процессу |
-| **Content Certification** | процесс сертификации, работа с авторами по кросс-функциональным отчётам | сертификация своего доверенного контента и отделение его от недоверенного в той же среде |
-| **Content Utilization** | измерение использования отчётов по департаментам и ролям, инструменты аудита | измерение использования своего контента |
+| **Content management** | building and maintaining content storage environments, navigation for authors and users | keeping your own content relevant, following the design and architecture requirements |
+| **Authorization** | formalizing entitlement policies, tooling, and granting access by rule, role and confidentiality | controlling access to your own content within the organization's rules |
+| **Content validation** | defining the correct validation process, validating content | validating your own content, helping check trustworthiness |
+| **Content promotion** | the promotion process, promoting centralized and cross-functional reports | promoting your own validated content into the centralized environment through the process |
+| **Content certification** | the certification process, working with authors on cross-functional reports | certifying your own trusted content and separating it from untrusted content in the same environment |
+| **Content utilization** | measuring report usage by department and role, audit tooling | measuring the usage of your own content |
 
-## Анкета — самое рабочее
+## The questionnaire is the most useful part
 
-**Content Management.** Шарится ли контент на всю компанию или внутри ролей · чем изолируется чувствительный контент (сайты, папки, проекты) · организационный, функциональный или гибридный принцип папок · **разделены ли песочница, прод и архив** · конвенция именования отчётов и папок · практикуется ли публикация нескольких копий одного отчёта с разными фильтрами · есть ли описания и теги · есть ли style guide и guide по архитектуре отчёта · **есть ли максимально допустимое время загрузки отчёта и процедура при его превышении** · как передаётся владение контентом при уходе сотрудника.
+**Content management.** Is content shared company-wide or within roles · what isolates sensitive content (sites, folders, projects) · are folders organized on an organizational, functional or hybrid principle · **are the sandbox, production and archive separated** · the naming convention for reports and folders · is it a practice to publish several copies of one report with different filters · are there descriptions and tags · is there a style guide and a report architecture guide · **is there a maximum acceptable report load time and a procedure for when it is exceeded** · how content ownership is handed over when someone leaves.
 
-**Authorization.** Минимальная роль для синхронизации с AD/LDAP · выставлены ли права группы All Users в дефолтном проекте в None · нужны ли явные Deny · созданы ли группы под наборы возможностей авторинга и просмотра для каждого проекта · проверялись ли эффективные права на выборке пользователей · залочены ли права на родительском проекте · заведены ли сервисные аккаунты для published data sources.
+**Authorization.** The minimal role for AD/LDAP sync · are the All Users group's rights on the default project set to None · are explicit Denies needed · have groups been created for the authoring and viewing capability sets of each project · have effective permissions been checked on a sample of users · are permissions locked on the parent project · have service accounts been created for published data sources.
 
-**Content Validation.** Кто участвует · какие критерии качества применяются в проде (полнота, надёжность, безопасность, своевременность) и все ли отчёты в проде им соответствуют · заменяются ли предыдущие версии · корректны ли данные и расчёты · насколько отчёт корректен архитектурно · соответствует ли визуальному style guide · грузится ли за разумное время · разумно ли ведут себя actions · остаётся ли дашборд валидным при разных фильтрах (все / ни одного / одно значение).
+**Content validation.** Who takes part · which quality criteria apply in production (completeness, reliability, security, timeliness) and do all production reports meet them · are previous versions replaced · are the data and calculations correct · how architecturally sound is the report · does it follow the visual style guide · does it load in a reasonable time · do the actions behave sensibly · does the dashboard stay valid under different filters (all / none / a single value).
 
-**Content Promotion.** Кто участвует · есть ли чеклист с критериями · какие каналы информирования · какие события — инфоповод.
+**Content promotion.** Who takes part · is there a checklist of criteria · which communication channels · which events count as news hooks.
 
-**Content Certification.** Знают ли о процессе авторы и пользователи · кто отвечает за проставление признака · каковы критерии · выполнены ли все критерии · заполнены ли все поля (о себе, заметки сертификации, теги).
+**Content certification.** Do authors and users know the process exists · who is responsible for setting the flag · what the criteria are · have all criteria been met · are all fields filled in (about yourself, certification notes, tags).
 
-**Content Utilization.** Сколько трафика нужно отчётам · что считается устаревшим контентом и как часто он удаляется · сколько непрямого использования (алерты и подписки) · доставляются ли подписки вовремя · каков целевой размер аудитории и соответствует ли фактический · как ведёт себя трафик по неделям/месяцам/кварталам и что его драйвит · частота визитов на пользователя по группам, ролям, отчётам · какие когорты выделяются по дате входа · какие паттерны использования BI и их динамика.
+**Content utilization.** How much traffic reports need · what counts as stale content and how often it is deleted · how much indirect usage there is (alerts and subscriptions) · are subscriptions delivered on time · what the target audience size is and whether the actual one matches · how traffic behaves week over week, month over month, quarter over quarter, and what drives it · visit frequency per user by group, role and report · which cohorts stand out by first-visit date · which BI usage patterns exist and how they change.
 
-## Связь с сертификацией в AI-эру
+## The tie to certification in the AI era
 
-Вопрос «каковы критерии сертификации» — точка, где классический метод расходится с подходом «сертификация через тесты». Разница и trade-off — в `evidence-2026.md` §7.
+The question "what are the certification criteria" is where the classical method diverges from the "certification through tests" approach. The difference and the trade-off are in `evidence-2026.md` §7.
 
-Связи: [[data-mgmt-processes]] · [[centralized-practices]] · [[bi-project-metrics]] · [[guide-structure]]
+Links: [[data-mgmt-processes]] · [[centralized-practices]] · [[bi-project-metrics]] · [[guide-structure]]

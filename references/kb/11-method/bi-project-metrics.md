@@ -1,32 +1,32 @@
 ---
 id: bi-project-metrics
-title: 3.3 Типология метрик эффективности BI-проекта — четыре группы
+title: 3.3 A typology of BI project performance metrics - four groups
 type: method
-source: "Guide 2.0, лист «3. BI Project Metrics»"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"3. BI Project Metrics\""
+confidence: verifiable
 blocks: [6, 7]
 ---
 
-Каталог метрик с жёстким правилом отбора: **выбрать 5 основных и 5 дополнительных**, остальные не брать. Если нужного нет в списке — дописать своё.
+A catalog of metrics with a hard selection rule: **pick 5 primary and 5 secondary**, and leave the rest. If what you need is missing from the list, write your own.
 
-## Группа 1. Engagement
+## Group 1. Engagement
 
-Активные casual-пользователи: количество, активности, % вовлечённых по ролям/доменам/функциям, MAU/DAU, взвешенный трафик по рангу пользователя · активные power-пользователи в том же разрезе · число обращений в поддержку и сообщений в чат · интенсивность и частота: % дней с BI-активностью, активностей на пользователя · число обучений и событий · аудитория обучений · число коммуникаций (рассылки, релизы, дайджесты) · визиты и уникальные пользователи BI-вики и style guide · **дата-грамотность как % грамотного персонала и число перешедших из casual в power** · **динамические метрики: пользователи в деградации и в прогрессе использования, отчёты с падающим и растущим трафиком** · число BI-чемпионов, сертифицированных пользователей, размер сообщества.
+Active casual users: count, activity, share engaged by role/domain/function, MAU/DAU, traffic weighted by user rank · active power users cut the same way · number of support tickets and chat messages · intensity and frequency: share of days with BI activity, activities per user · number of training sessions and events · training audience · number of communications (mailings, releases, digests) · visits and unique users of the BI wiki and style guide · **data literacy as the share of literate staff and the number who moved from casual to power** · **dynamic metrics: users whose usage is degrading and users whose usage is growing, reports with falling and rising traffic** · number of BI champions, certified users, community size.
 
-## Группа 2. Quality of service
+## Group 2. Quality of service
 
-Удовлетворённость в заявках сервис-деска и опросах · CSAT, CES, NPS · **среднее время обработки ad-hoc запроса** · среднее время ответа в SD, почте, чате · % запросов, отвеченных после истечения SLA · доступность сервисов и инструментов · скорость: средняя скорость отклика отчёта, число и % отчётов с откликом выше SLA · число источников в каталоге и **% сертифицированного контента** · **число пользователей, зашедших один раз и не вернувшихся** · пользователи, потерянные из-за качества сервиса.
+Satisfaction in service-desk tickets and surveys · CSAT, CES, NPS · **average handling time for an ad-hoc request** · average response time in the service desk, email and chat · share of requests answered after the SLA expired · availability of services and tools · speed: average report response time, number and share of reports slower than SLA · number of sources in the catalog and **share of certified content** · **number of users who came once and never returned** · users lost to service quality.
 
-## Группа 3. Process quality
+## Group 3. Process quality
 
-Нагрузка: среднее число задач на сотрудника, индекс активности, число писем, сообщений, пушей кода, действий на сервере · качество логирования работы · число и % перенесённых задач с причинами (недооценка, перебивший приоритет, ресурсный конфликт, внешняя зависимость) · **число багов, найденных в продовых отчётах** · показатель полноты и объёма метаданных · результаты внутренней проверки на соответствие собственным стандартам · число ошибок и падений в BI-инфраструктуре.
+Load: average number of tasks per person, activity index, number of emails, messages, code pushes, server actions · quality of work logging · number and share of carried-over tasks with reasons (underestimation, a priority that cut in, a resource conflict, an external dependency) · **number of bugs found in production reports** · a measure of metadata completeness and volume · results of the internal check against your own standards · number of errors and failures in the BI infrastructure.
 
-## Группа 4. Business impact
+## Group 4. Business impact
 
-Число дата-инцидентов и решённых · **% встреч, на которых используются BI-отчёты** · экономия: объём и стоимость ручных операций, автоматизированных BI · оценка роста производительности аналитика в бизнес-кейсах · % процессов и функций, использующих BI · **% аналитических задач, решаемых вручную** · число централизованных deep-dive проектов · число централизованных отчётов, алертов, рассылок · **% покрытия информационного спроса по ролям и доменам** ([[info-supply-demand]]) · скорость и соблюдение сроков обязательной отчётности · осязаемые выгоды на уровне бизнес-процессов · бюджет: стоимость владения комплексом BI-систем (покупка, внедрение, поддержка, обучение), план/факт.
+Number of data incidents and of those resolved · **share of meetings where BI reports are used** · savings: volume and cost of manual operations automated by BI · estimated analyst productivity growth in business cases · share of processes and functions using BI · **share of analytical tasks still solved by hand** · number of centralized deep-dive projects · number of centralized reports, alerts and mailings · **coverage of information demand by role and domain** ([[info-supply-demand]]) · speed and punctuality of mandatory reporting · tangible benefits at the business-process level · budget: total cost of ownership of the BI stack (purchase, rollout, support, training), plan versus actual.
 
-## Правило AI-эры
+## The AI-era rule
 
-Ни одна метрика в списке не измеряется самооценкой участника. Это же правило переносится на AI-инициативы: эффект агента меряется доставкой ответа, а не ощущением пользователя. Сэкономленные часы — метрика-ловушка: [[ai-time-saving-trap]].
+Not one metric on this list is measured by participant self-assessment. The same rule carries over to AI initiatives: an agent's effect is measured by the answer it delivers, not by how the user felt about it. Hours saved is a trap metric: [[ai-time-saving-trap]].
 
-Связи: [[info-supply-demand]] · [[content-mgmt-processes]] · [[ai-time-saving-trap]] · [[action-plan]]
+Links: [[info-supply-demand]] · [[content-mgmt-processes]] · [[ai-time-saving-trap]] · [[action-plan]]

@@ -1,30 +1,30 @@
 ---
 id: access-matrix
-title: 3.1 Матрица прав доступа по ролям и доменам
+title: 3.1 The access matrix by role and domain
 type: method
-source: "Guide 2.0, лист «3. Access Matrix»"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"3. Access Matrix\""
+confidence: verifiable
 blocks: [4.1, 6]
 ---
 
-Матрица правил доступа к отчётам и данным: **строки — домены/сабдомены, колонки — роли**, в ячейке — не «да/нет», а **область видимости**.
+A matrix of access rules for reports and data: **rows are domains and subdomains, columns are roles**, and each cell holds not a yes/no but a **visibility scope**.
 
-## Словарь областей видимости
+## The vocabulary of visibility scopes
 
-`COMPANY-WIDE` · `LOB` (линия бизнеса) · `FBU` (функциональная бизнес-единица) · `LM` (line manager — свои подчинённые) · `Chapter` · `Account` · `Person` · `Offering` · `x` (доступа нет) · плюс формулировки «в зоне ответственности», «по назначению владения бюджетом».
+`COMPANY-WIDE` · `LOB` (line of business) · `FBU` (functional business unit) · `LM` (line manager - their own reports) · `Chapter` · `Account` · `Person` · `Offering` · `x` (no access) - plus phrasings such as "within their area of responsibility" and "by budget ownership".
 
-Ключевая деталь реального примера: рядом с областью видимости указан **механизм реализации** — конкретная visibility-таблица или AD-фильтр (`dbo.BU_VISIBILITY_LOGINS_WITHOUT_FULL`, `LoginString_FBU_owners_delegates in FBU_VISIBILITY_LOGINS_UNIFIED`, `oebs.VisibilityFromOracle`, `User filters based on AD group`). Матрица без механизма реализации — декларация; матрица с механизмом — работающий RLS.
+The telling detail in a real example: next to the visibility scope sits the **implementation mechanism** - a specific visibility table or AD filter (`dbo.BU_VISIBILITY_LOGINS_WITHOUT_FULL`, `LoginString_FBU_owners_delegates in FBU_VISIBILITY_LOGINS_UNIFIED`, `oebs.VisibilityFromOracle`, `User filters based on AD group`). A matrix without a mechanism is a declaration; a matrix with one is working row-level security.
 
-## Что фиксируется в шапке
+## What the header records
 
-По каждому источнику: система · домен · **Data Owner (sign off)** · Business Data Steward · R&A Data Steward · тип данных (regular / sensitive) · уровень детализации · **дата последнего ревью**.
+For every source: system · domain · **Data Owner (sign off)** · Business Data Steward · R&A Data Steward · data type (regular / sensitive) · level of detail · **date of last review**.
 
-По каждой роли: группа ролей · роль · AD-группы, из которых она собирается.
+For every role: role group · role · the AD groups it is assembled from.
 
-## Правило
+## The rule
 
-Матрица заполняется от домена, а не от отчёта. Допустимо на первом заходе взять **одну роль или один домен** — метод это явно разрешает. Дата последнего ревью обязательна: матрица прав без даты ревью протухает молча.
+The matrix is filled in from the domain, not from the report. On a first pass it is acceptable to take **one role or one domain** - the method allows this explicitly. The last-review date is mandatory: an access matrix without one goes stale silently.
 
-В AI-контуре сюда добавляется требование из `evidence-2026.md` §4.2: агент — не «сервисный аккаунт с правами админа», а отдельная identity с узкими ключами и audit trail.
+In the AI perimeter this gains the requirement from `evidence-2026.md` §4.2: an agent is not "a service account with admin rights" but a separate identity with narrow keys and an audit trail.
 
-Связи: [[data-domains-classification]] · [[data-mgmt-processes]] · [[user-classification]] · [[rules-and-standards]]
+Links: [[data-domains-classification]] · [[data-mgmt-processes]] · [[user-classification]] · [[rules-and-standards]]

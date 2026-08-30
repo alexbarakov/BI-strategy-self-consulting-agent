@@ -1,29 +1,29 @@
 ---
 id: rules-and-standards
-title: 3.1 Правила, инструкции и стандарты BI
+title: 3.1 BI rules, instructions and standards
 type: method
-source: "Guide 2.0, лист «3. Rules and Standards in BI»"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"3. Rules and Standards in BI\""
+confidence: verifiable
 blocks: [6]
 ---
 
-Короткий, но недооценённый лист: список регламентирующих документов, которые имеет смысл завести. Разрез: `инструкция / чеклист / стандарт · зачем это, в чём польза · ответственный · сроки`.
+A short but underrated sheet: the list of governing documents worth having. The cut: `instruction / checklist / standard · why it exists and what it buys you · owner · timing`.
 
-## Что обычно попадает в список
+## What usually makes the list
 
-Практический минимум вычитывается из смежных листов метода:
-- конвенция именования источников данных и отчётов ([[data-mgmt-processes]], [[content-mgmt-processes]])
-- визуальный style guide и guide по архитектуре отчёта ([[centralized-practices]])
-- чеклист метаданных, встроенный в валидацию, промоушен и сертификацию
-- чеклист критериев сертификации контента
-- чеклист промоушена с критериями оценки
-- стандарт архивации и процедура удаления устаревшего контента
-- допустимое время загрузки отчёта и процедура при превышении
-- процедура передачи владения контентом при уходе сотрудника
-- SLA по сервисам из service catalog
+The practical minimum can be read off the method's adjacent sheets:
+- the naming convention for data sources and reports ([[data-mgmt-processes]], [[content-mgmt-processes]])
+- the visual style guide and the report architecture guide ([[centralized-practices]])
+- the metadata checklist, wired into validation, promotion and certification
+- the checklist of content certification criteria
+- the promotion checklist with its assessment criteria
+- the archiving standard and the procedure for deleting stale content
+- the acceptable report load time and the procedure when it is exceeded
+- the procedure for handing over content ownership when someone leaves
+- the SLAs for the services in the service catalog
 
-## Правило колонки «зачем»
+## The rule of the "why" column
 
-Колонка «в чём польза» — не формальность. Стандарт, для которого нельзя сформулировать пользу в одну строку, не будет соблюдаться и не должен попадать в список. Тот же анти-ритуальный фильтр, который метод применяет к практикам в [[selfservice-practices]].
+The "what it buys you" column is not a formality. A standard whose benefit cannot be stated in one line will not be followed and should not be on the list. It is the same anti-ritual filter the method applies to practices in [[selfservice-practices]].
 
-Связи: [[regular-meetings]] · [[content-mgmt-processes]] · [[centralized-practices]] · [[onboarding-plan]]
+Links: [[regular-meetings]] · [[content-mgmt-processes]] · [[centralized-practices]] · [[onboarding-plan]]

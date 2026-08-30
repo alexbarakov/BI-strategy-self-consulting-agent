@@ -1,46 +1,46 @@
 ---
 id: centralized-practices
-title: 2.4 Практики централизованного BI — reporting factory и guided analytics
+title: 2.4 Centralized BI practices - the reporting factory and guided analytics
 type: method
-source: "Guide 2.0, листы «2.4 Centralized D&A Practices» и «2.4 Analytical Workplaces»"
-confidence: проверяемо
+source: "Guide 2.0, sheets \"2.4 Centralized D&A Practices\" and \"2.4 Analytical Workplaces\""
+confidence: verifiable
 blocks: [4.2, 4.3, 6]
 ---
 
-Зеркало [[selfservice-practices]] для guided-модели. Тот же разрез: применимо? · драйвер · сроки.
+The mirror of [[selfservice-practices]] for the guided model. The same cut: applicable? · driver · timing.
 
-## Инструменты и практики (15)
+## Tools and practices (15)
 
-| Практика | Что делает |
+| Practice | What it does |
 |---|---|
-| **Service catalog** | интерфейс, где пользователь находит, понимает и заказывает готовый сервис и видит SLA по качеству |
-| **Analytical workplace** | наборы готовых отчётов под потребности ключевых ролей + навигационный интерфейс и поиск по сертифицированным отчётам внутри рабочего места |
-| **Report metadata** | user-centered база описаний отчётов с картинками, гифками, ссылками на глоссарий |
-| **Notifications, announcements, digests** | наступательная реклама и доставка отчётов, рост доверия |
-| **Visual Style Guide** | стандарт качества корпоративного дашбординга для централизованной команды |
-| **Report certification** | кросс-функциональная маркировка рекомендованных отчётов бизнес-функцией, ответственной за домен, плюс мониторинг качества данных и актуальности логики |
-| **Business Analytics Stories** | база результатов deep-dive проектов: проблема, решение, подтверждение результата, отчёты-артефакты |
-| **Base — video training reports** | записи демонстраций отчётов с качественной подачей |
-| **Events & Education Calendar** | публичный календарь под casual-аудиторию |
-| **Analytics Blog** | промо-контент для casual users и рабочих мест |
-| **Feedback tool** | обратная связь на всех интерфейсах, включая сами отчёты |
-| **Public Quality** | публичные борды об актуальности данных в ключевых отчётах и источниках |
-| **Public project boards** | публичные борды с текущими проектами и бэклогом команды под заказчиков |
-| **Glossary and Report navigation Assistant Chat bot** | помогает понять термины и рекомендует лучший отчёт под запрос; отвечает, что отчёт показывает и как им пользоваться |
-| **Data Consultant Chat bot** | даёт точные значения метрик и описания дельт, динамики, отклонений и аномалий |
+| **Service catalog** | an interface where a user finds, understands and orders a ready service, and sees the quality SLA |
+| **Analytical workplace** | sets of ready reports matched to the needs of key roles, plus a navigation interface and search across certified reports inside the workplace |
+| **Report metadata** | a user-centered base of report descriptions with images, GIFs and links to the glossary |
+| **Notifications, announcements, digests** | proactive promotion and delivery of reports, building trust |
+| **Visual style guide** | the quality standard for corporate dashboarding for the centralized team |
+| **Report certification** | cross-functional marking of recommended reports by the business function that owns the domain, plus monitoring of data quality and logic freshness |
+| **Business analytics stories** | a base of deep-dive project outcomes: problem, solution, confirmation of the result, artifact reports |
+| **Base - video training reports** | recorded report walkthroughs with proper presentation |
+| **Events & education calendar** | a public calendar aimed at the casual audience |
+| **Analytics blog** | promotional content for casual users and workplaces |
+| **Feedback tool** | feedback on every interface, including the reports themselves |
+| **Public quality** | public boards on data freshness in key reports and sources |
+| **Public project boards** | public boards with the team's current projects and backlog, aimed at requesters |
+| **Glossary and report navigation assistant chatbot** | helps make sense of terms and recommends the best report for a request; explains what a report shows and how to use it |
+| **Data consultant chatbot** | gives exact metric values and describes deltas, trends, deviations and anomalies |
 
-Два последних пункта — **точка входа AI в классический метод**: ассистент по навигации и ассистент по данным описаны как обычные сервисы централизованной команды со своим владельцем и SLA, а не как отдельная «AI-инициатива».
+The last two entries are **AI's point of entry into the classical method**: the navigation assistant and the data assistant are described as ordinary services of the centralized team with their own owner and SLA, not as a separate "AI initiative".
 
-## Типы встреч (7)
+## Meeting types (7)
 
-Internal User Group · **персональные встречи с топ-юзерами** (обновить понимание потребности роли, показать обновления, собрать фидбэк от 2+ пользователей) · **персональные встречи с топ-менеджерами** (персонализированные рабочие места вплоть до персональных версий отчётов и рассылок) · рабочая группа внутри роли · **статус-встреча по проектам с бизнес-функцией / владельцем данных** (итеративный ревью активных проектов и бэклога по домену, новые требования от других департаментов, согласование приоритетов) · **Report Certification Meetings** (бейдж бизнес-функции и квартальный аудит таких отчётов) · **BI innovation Workshops**.
+Internal user group · **one-on-one meetings with top users** (refresh your understanding of the role's needs, show updates, collect feedback from two or more users) · **one-on-one meetings with top managers** (personalized workplaces, down to personal versions of reports and mailings) · a working group within a role · **a project status meeting with the business function / data owner** (an iterative review of active projects and the domain backlog, new requirements from other departments, agreeing priorities) · **report certification meetings** (the business-function badge and a quarterly audit of those reports) · **BI innovation workshops**.
 
-## Типы поддержки (3)
+## Support types (3)
 
-User Support Process · **Business consulting** (продвинутый сервис анализа и интерпретации данных — по индивидуальным запросам менеджмента или по самой частой тематике) · **открытые массовые ролевые обучения**: тур по рабочему месту · онбординг новичков в рабочее место (собрать всех новых сотрудников фокусной роли раз в месяц и провести по ключевым отчётам) · тренинги по релизу новых отчётов · «пропущенный отчёт месяца» · новые кастомные функции BI-инструмента.
+The user support process · **business consulting** (an advanced data analysis and interpretation service - on individual requests from management, or on the most frequent topic) · **open mass role-based training**: a tour of the workplace · onboarding newcomers into the workplace (gather all new hires in the focus role once a month and walk them through the key reports) · training on the release of new reports · "the report of the month you missed" · new custom features of the BI tool.
 
-## Лист Analytical Workplaces
+## The analytical workplaces sheet
 
-Отдельное упражнение: выбрать **одну** роль менеджмента и на основе анализа информационных потребностей собрать под неё набор отчётов — `домен · отчёт (имя, ссылка) · описание · владелец отчёта`.
+A separate exercise: pick **one** management role and, based on the analysis of its information needs, assemble a set of reports for it - `domain · report (name, link) · description · report owner`.
 
-Связи: [[selfservice-practices]] · [[content-mgmt-processes]] · [[info-supply-demand]] · [[guide-structure]]
+Links: [[selfservice-practices]] · [[content-mgmt-processes]] · [[info-supply-demand]] · [[guide-structure]]

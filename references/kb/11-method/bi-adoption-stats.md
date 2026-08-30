@@ -1,26 +1,26 @@
 ---
 id: bi-adoption-stats
-title: 1.5 Ландшафт информационного менеджмента — inside и outside BI
+title: 1.5 The information management landscape - inside and outside BI
 type: method
-source: "Guide 2.0, листы «1. Inside BI» и «1. Outside BI»"
-confidence: проверяемо
+source: "Guide 2.0, sheets \"1. Inside BI\" and \"1. Outside BI\""
+confidence: verifiable
 blocks: [1, 2, 5]
 ---
 
-Два зеркальных листа: инвентаризация того, что происходит **внутри** дисциплин информационного менеджмента и **под зонтиком BI**. По каждой строке одинаковый разрез: технический стек · заказчики и потребители · какие задачи решает · кто драйвер · оценка успешности (adoption rate, удовлетворённость) · приоритет high/medium/low.
+Two mirrored sheets: an inventory of what is happening **inside** the information management disciplines and **under the BI umbrella**. Every row is cut the same way: technical stack · requesters and consumers · which problems it solves · who drives it · a success assessment (adoption rate, satisfaction) · priority high/medium/low.
 
-## Inside BI — дисциплины информационного менеджмента
+## Inside BI - the information management disciplines
 
-DS / AI / predictive analytics · performance management и бизнес-аналитика · business intelligence · data warehousing, data integration, data modeling, MDM · data governance и metadata management · data quality.
+DS / AI / predictive analytics · performance management and business analysis · business intelligence · data warehousing, data integration, data modeling, MDM · data governance and metadata management · data quality.
 
-## Outside BI — темы под зонтиком BI
+## Outside BI - the topics under the BI umbrella
 
-Self-Service BI · Data Visualization · Data Storytelling · Centralized Reporting · **Semantic layer** · Data transformation in BI · Data catalogs in BI · Mobile BI · Embedded Analytics · **Augmented analytics, LLM**.
+Self-service BI · data visualization · data storytelling · centralized reporting · **the semantic layer** · data transformation in BI · data catalogs in BI · mobile BI · embedded analytics · **augmented analytics, LLM**.
 
-## Зачем разрез «кто драйвер»
+## Why the "who drives it" column matters
 
-Самая полезная колонка. Она вскрывает случаи, когда дисциплина формально есть, но её никто не ведёт, и случаи, когда драйвер сидит вне BI-команды (CDO Office, финансовый департамент, продуктовые команды) — то есть влиять придётся через договорённости, а не через свой бэклог.
+It is the most useful column on the sheet. It exposes the cases where a discipline formally exists but nobody runs it, and the cases where the driver sits outside the BI team (the CDO office, finance, product teams) - meaning you will have to work through agreements rather than through your own backlog.
 
-Строка `Mobile BI · no need detected` в примере заполнения — образец нормального ответа. **Осознанный отказ — валидный результат упражнения** и материал для раздела «чего стратегия НЕ делает».
+The row `Mobile BI · no need detected` in the worked example is a model answer. **A deliberate refusal is a valid outcome of the exercise** and material for the "what the strategy does not do" section.
 
-Связи: [[guide-structure]] · [[bi-toolset-landscape]] · [[painpoints-analysis]]
+Links: [[guide-structure]] · [[bi-toolset-landscape]] · [[painpoints-analysis]]

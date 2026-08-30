@@ -1,46 +1,46 @@
 ---
 id: info-supply-demand
-title: 1.4 Матрица information supply-demand
+title: 1.4 The information supply-demand matrix
 type: method
-source: "Guide 2.0, лист «1. Info supply-demand matrix»; курс, Занятие 2"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"1. Info supply-demand matrix\"; course, Day 2"
+confidence: verifiable
 blocks: [1, 2]
 ---
 
-Центральное аналитическое упражнение AS-IS: **кто что хочет от аналитики и что кому реально доступно**. Формально — определение скоупа BI-проекта.
+The central analytical exercise of the AS-IS: **who wants what from analytics, and what is actually available to whom**. Formally, it is the definition of the BI project's scope.
 
-Тезис курса: *«Нельзя закрыть потребности, которых не знаешь»*. Возражение «я просто BI-менеджер, я админю сервер и делаю отчёты по запросу» метод отвергает: бизнесу нужен governed BI со смесью SS и Centralized, реально закрывающий потребности.
+The course's thesis: *"You cannot meet needs you do not know about."* The method rejects the objection "I am just a BI manager, I administer the server and build reports on request": what the business needs is governed BI, a mix of self-service and centralized, that actually meets the needs.
 
-## Четыре шага сборки
+## Four steps to assemble it
 
-1. Какие аналитические потребности существуют → классификатор дата-доменов ([[data-domains-classification]])
-2. Каким ролям менеджмента → классификатор ролей ([[user-classification]])
-3. Кому что нужно → сама матрица «домен × роль»
-4. Для каких задач → база analytics use cases
+1. Which analytical needs exist -> the data domain classifier ([[data-domains-classification]])
+2. For which management roles -> the role classifier ([[user-classification]])
+3. Who needs what -> the domain-by-role matrix itself
+4. For which tasks -> the base of analytics use cases
 
-Матрица строится на пересечении «домен/сабдомен ↓ × роль менеджмента →». В ячейку допустимо класть не галочку, а **оценку эффекта на выручку** в деньгах или баллах — тогда матрица сразу даёт приоритизацию и суммарный revenue impact.
+The matrix is built on the intersection of "domain/subdomain (down) by management role (across)". A cell may hold not a tick but **an estimate of the revenue effect** in money or points - which turns the matrix straight into a prioritization and a total revenue impact.
 
-## Два скоркарда, которые из неё вырастают
+## The two scorecards that grow out of it
 
-- **Data Availability Scorecard** — по каждой процессной группе: `available in verified data sources` × `available in BI reports` → сводный балл 0–1.
-- **Reports Availability by Roles / Workplaces Coverage** — та же сетка в разрезе ролей, снизу Total Workplace coverage. Красный — отчёта нет, жёлтый — есть, но не покрывает требования, зелёный — покрывает.
+- **A data availability scorecard** - for each process group: `available in verified data sources` by `available in BI reports` -> a combined score of 0 to 1.
+- **Reports availability by role / workplace coverage** - the same grid cut by role, with total workplace coverage along the bottom. Red means no report, yellow means there is one but it does not cover the requirement, green means it does.
 
-## Use cases как единица спроса
+## Use cases as the unit of demand
 
-Use case — отдельный пример применения специфичных данных для специфичной бизнес-цели; практически совпадает с user story: **«Как [роль], я хочу [что-то анализировать], чтобы [принять решение]»**. Паспорт кейса из курса: стейкхолдер и должность · домен · ключевая логика · необходимые данные · объёмы · что здесь относится к DG · пробовали ли раньше и почему провалилось · драйверы роста доходов · potential savings · реализуемость · трудоёмкость · драйверы затрат · прогноз затрат в FTE.
+A use case is one example of applying specific data to a specific business goal; in practice it coincides with a user story: **"As a [role], I want to analyse [something] so that I can [make a decision]."** The case passport from the course: stakeholder and job title · domain · the key logic · the data needed · volumes · what falls under governance here · whether it was attempted before and why it failed · revenue growth drivers · potential savings · feasibility · effort · cost drivers · a cost forecast in FTE.
 
-## Приоритизация
+## Prioritization
 
-Практическая шкала из курса (огрублённо): отчёт нужен 3 ролям `+3` · среди заказчиков CxO `+2` · у заказчика нет своего ресурса решить `+2` · эффект от автоматизации 2 FTE `+1`.
+The practical scale from the course (coarse): the report is needed by 3 roles `+3` · a CxO is among the requesters `+2` · the requester has no in-house resource to solve it `+2` · the automation effect is 2 FTE `+1`.
 
-Формальная альтернатива — **RICE**: `Reach × Impact × Confidence / Effort`. Impact: 3.0 massive / 2.0 high / 1.0 medium / 0.5 low / 0.25 minimal. Confidence: 1.0 точно знаем / 0.9 почти уверены / 0.7 гипотеза / 0.5 интуиция. Длинный список кейсов с RICE-скорингом реалистично собирается LLM-ом и вычитывается человеком.
+The formal alternative is **RICE**: `Reach x Impact x Confidence / Effort`. Impact: 3.0 massive / 2.0 high / 1.0 medium / 0.5 low / 0.25 minimal. Confidence: 1.0 we know for certain / 0.9 nearly certain / 0.7 a hypothesis / 0.5 intuition. A long list of cases with RICE scoring is realistically assembled by an LLM and read through by a human.
 
-## Правило Парето по доменам
+## The Pareto rule over domains
 
-Из курса: **20–40% доменов обеспечивают ~60–85% use cases**. Отсюда порядок: длинный список кейсов → приоритизация → какие данные им нужны → какие data products вытекают из сопоставления.
+From the course: **20-40% of domains cover roughly 60-85% of the use cases**. Hence the order: a long list of cases -> prioritization -> which data they need -> which data products follow from the comparison.
 
-## Куда это уходит
+## Where this ends up
 
-Три слайда в годовом отчёте BI-команды перед менеджментом со сравнением с прошлым годом: что кому нужно и что есть → что важнее → перечень стратегических проектов → перечень препятствий. Автоматизированная версия: маппинг отчётов к доменам + маппинг пользователей к ролям = живой мониторинг покрытия с проваливанием до отчёта и пользователя.
+Three slides in the BI team's annual report to management, compared against last year: who needs what and what exists -> what matters more -> the list of strategic projects -> the list of obstacles. The automated version: mapping reports to domains plus mapping users to roles equals live coverage monitoring you can drill into down to the individual report and user.
 
-Связи: [[guide-structure]] · [[data-domains-classification]] · [[user-classification]] · [[bi-project-metrics]] · [[action-plan]]
+Links: [[guide-structure]] · [[data-domains-classification]] · [[user-classification]] · [[bi-project-metrics]] · [[action-plan]]

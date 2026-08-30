@@ -1,41 +1,41 @@
 ---
 id: data-domains-classification
-title: 1.2 Доменная классификация данных и ownership
+title: 1.2 Domain classification of data and ownership
 type: method
-source: "Guide 2.0, лист «1. Data Domains Classification»; курс, Занятие 2"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"1. Data Domains Classification\"; course, Day 2"
+confidence: verifiable
 blocks: [1, 4.1]
 ---
 
-**Опорный элемент всего метода.** Доменная структура — отправная точка для большинства последующих практик: матрица доступов по доменам, DQ-ассессмент по доменам, availability по доменам, info supply-demand матрица, коммуникационный план по доменам.
+**The load-bearing element of the whole method.** The domain structure is the starting point for most of the practices that follow: the access matrix by domain, the data quality assessment by domain, availability by domain, the information supply-demand matrix, the communication plan by domain.
 
-Дата-домен — выделенная область данных, привязанная к бизнес-функции или направлению. Отражает, откуда данные приходят и для кого предназначены; управляется профильной командой, отвечающей за сбор, качество и использование. Домены децентрализуют ответственность за данные.
+A data domain is a delimited area of data tied to a business function or line. It reflects where the data comes from and who it is meant for; it is run by a specialist team responsible for its collection, quality and use. Domains decentralize responsibility for data.
 
-## Структура листа
+## The structure of the sheet
 
-Заполняется на **два верхних уровня** (домен → сабдомен), по каждой строке:
+Filled in to the **top two levels** (domain -> subdomain), with each row carrying:
 
 `System · Domain · Subdomain · Description · Level of Detail · Data Owner (Sign off) · Business Data Steward · Tech Data Steward · Sensitivity type · Criticality level · Last review date`
 
-Три роли различаются намеренно: **Data Owner подписывает**, Business Data Steward отвечает за смысл, Tech Data Steward — за реализацию.
+The three roles are kept distinct deliberately: **the data owner signs off**, the business data steward is answerable for meaning, and the tech data steward for implementation.
 
-## Классификация по значимости — что потеряем при удалении
+## Classification by significance - what we lose if it disappears
 
-| Тип | Определение | Примеры |
+| Type | Definition | Examples |
 |---|---|---|
-| **Стратегические** | уникальны, созданы внутри, дают конкурентное преимущество | данные клиентов, модели риск-профиля |
-| **Критические** | существенно влияют на внешнюю отчётность, риск-менеджмент, ключевые функции | финансы, цепочка поставок, контрагенты, цены |
-| **Кросс-функциональные** | одни данные в 2+ процессах, определения/качество/формат должны быть синхронизированы | продажи и расходы; клиентские данные; заказы |
-| **Локальные** | не для регуляторной отчётности и не для межфункциональных коммуникаций | всё остальное |
+| **Strategic** | unique, created in-house, a source of competitive advantage | customer data, risk profile models |
+| **Critical** | materially affects external reporting, risk management, key functions | finance, supply chain, counterparties, pricing |
+| **Cross-functional** | the same data in two or more processes; definitions, quality and format must stay in sync | sales and costs; customer data; orders |
+| **Local** | not for regulatory reporting and not for cross-functional communication | everything else |
 
-Плюс **матрица значимости доменов**: домены раскладываются по осям «бизнес-ценность × сенситивность».
+Plus a **domain significance matrix**: domains are laid out on the axes of business value and sensitivity.
 
-## Смежное: Enterprise data ontology
+## Adjacent: the enterprise data ontology
 
-Следующий уровень зрелости — семантическая модель, описывающая сущности домена, их атрибуты и отношения в машиночитаемом графе (Клиент → Размещает → Заказ → Содержит → Товар). Онтология описывает **виды** сущностей, а не экземпляры. Референсы курса: FIBO, banking data model, knowledge graphs для utilities, taxonomy→ontology (Enterprise Knowledge).
+The next maturity level is a semantic model describing the domain's entities, their attributes and their relations in a machine-readable graph (Customer -> Places -> Order -> Contains -> Product). An ontology describes **kinds** of entities, not instances. The course references FIBO, banking data models, knowledge graphs for utilities, and taxonomy-to-ontology work (Enterprise Knowledge).
 
-## Почему это критично в AI-эру
+## Why this is critical in the AI era
 
-Агент не угадывает границы домена. Без явной нарезки и ownership он не знает, чей ответ считать правильным и у кого спрашивать подтверждение. Домены — предусловие для [[critical-data-status]] и для доменной базы знаний в AI-фундаменте.
+An agent does not guess where a domain's boundary lies. Without an explicit carve-up and clear ownership it does not know whose answer counts as correct or whom to ask for confirmation. Domains are a precondition for [[critical-data-status]] and for the domain knowledge base in the AI foundation.
 
-Связи: [[guide-structure]] · [[critical-data-status]] · [[info-supply-demand]] · [[access-matrix]] · [[data-mgmt-processes]]
+Links: [[guide-structure]] · [[critical-data-status]] · [[info-supply-demand]] · [[access-matrix]] · [[data-mgmt-processes]]

@@ -1,29 +1,29 @@
 ---
 id: onboarding-plan
-title: 3.2 Кадровая стратегия — трёхнедельный онбординг BI-аналитика
+title: 3.2 Staffing strategy - the three-week BI analyst onboarding
 type: method
-source: "Guide 2.0, лист «3. Newcomer onboarding plan»"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"3. Newcomer onboarding plan\""
+confidence: verifiable
 blocks: [6]
 ---
 
-Единственное упражнение раздела «Staff strategy» — и намеренно конкретное: не «разработать HR-политику», а собрать понедельный план на три недели.
+The only exercise in the "staff strategy" section - and deliberately concrete: not "draft an HR policy" but assemble a week-by-week plan for three weeks.
 
-## Сетка
+## The grid
 
-Три недели × 5 рабочих дней, по каждому дню четыре дорожки:
+Three weeks by five working days, with four tracks per day:
 
-| Дорожка | Содержание |
+| Track | Content |
 |---|---|
-| **Access & software** | доступы и установка инструментов |
-| **Self-learning** | самостоятельное обучение |
-| **Meetings** | встречи и обучающие сессии |
-| **Tasks** | рабочие задачи |
+| **Access & software** | access grants and tool installation |
+| **Self-learning** | independent study |
+| **Meetings** | meetings and training sessions |
+| **Tasks** | actual work |
 
-## Почему это в стратегии, а не в HR
+## Why this sits in the strategy rather than in HR
 
-Скорость выхода нового аналитика на продуктивность — прямой множитель ко всему, что запланировано в [[action-plan]]. Кроме того, план онбординга — самый честный аудит собственных стандартов: если на дорожке Self-learning нечего поставить, значит документов из [[rules-and-standards]] не существует.
+How fast a new analyst becomes productive is a direct multiplier on everything planned in [[action-plan]]. Beyond that, the onboarding plan is the most honest audit of your own standards: if there is nothing to put on the self-learning track, the documents from [[rules-and-standards]] do not exist.
 
-Смежное в компетенциях: матрица компетенций BI и планы апгрейда аналитиков — отдельный объект в [[innovation-map]].
+Adjacent, on competencies: the BI competency matrix and analyst upgrade plans are a separate object in [[innovation-map]].
 
-Связи: [[rules-and-standards]] · [[action-plan]] · [[innovation-map]] · [[guide-structure]]
+Links: [[rules-and-standards]] · [[action-plan]] · [[innovation-map]] · [[guide-structure]]

@@ -1,32 +1,32 @@
 ---
 id: vision-statement
-title: 5 D&A Vision — заявление, цели, инициативы, риски
+title: 5 D&A vision - the statement, goals, initiatives and risks
 type: method
-source: "Guide 2.0, лист «5. BI Vision»"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"5. BI Vision\""
+confidence: verifiable
 blocks: [1, 7]
 ---
 
-Финальный лист, который метод предписывает **написать в начале и переписать в конце** упражнения.
+The final sheet, which the method says to **write at the start and rewrite at the end** of the exercise.
 
-## Четыре части
+## Four parts
 
-**1. Vision Statement.** Шаблон из метода — с намеренными пропусками под числа:
+**1. Vision statement.** The method's template, with deliberate blanks where numbers go:
 
-> Наше корпоративное BI-видение — создать и поддерживать инфраструктуру с безопасным доступом к данным всей компании. Наш корпоративный стандарт BI-инструментов — ______. Мы укомплектовываем свой BI Competence Center и оцениваем его по опросам удовлетворённости конечных пользователей, NPS и метрикам adoption (MAU, DAU). Значимому сегменту нашего сообщества нужен доступ к большим объёмам данных в реальном времени, и мы построили инфраструктуру для этого доступа. Сейчас мы обслуживаем ___ пользователей — ___% менеджмента/штата. Наша цель — увеличить использование на ___% к (дата). Мы взвешиваем издержки расширения использования BI против бизнес-ценности и ROI.
+> Our corporate BI vision is to build and maintain an infrastructure with secure access to company-wide data. Our corporate standard for BI tooling is ______. We staff our BI competence centre and assess it through end-user satisfaction surveys, NPS and adoption metrics (MAU, DAU). A significant segment of our community needs access to large volumes of data in real time, and we have built the infrastructure for that access. We currently serve ___ users - ___% of management/headcount. Our goal is to increase usage by ___% by (date). We weigh the cost of expanding BI usage against business value and ROI.
 
-**2. BI Business Goals** — `описание · KPIs/метрики · outcomes · timing`. Пример из метода: «вовлечь бизнес в самостоятельную работу с BI-инструментами в рамках сертифицированных источников».
+**2. BI business goals** - `description · KPIs/metrics · outcomes · timing`. The method's example: "engage the business in working with BI tools themselves, within the bounds of certified sources".
 
-**3. Strategic Initiatives** — тот же разрез. Пример: «разработать собственное решение для умного алертинга пользователей».
+**3. Strategic initiatives** - the same cut. Example: "build our own solution for smart user alerting".
 
-**4. Challenges and risks** — `описание · факторы снижения риска`. Пример намеренно неудобный: «нашу компанию купит другая компания, и BI-стек сменится в рамках консолидации».
+**4. Challenges and risks** - `description · risk mitigation factors`. The example is deliberately uncomfortable: "our company is bought by another company and the BI stack changes as part of consolidation".
 
-## Форма цели
+## The shape of a goal
 
-Канонический формат метода — `Description | KPIs | Outcomes | Timing`. Четыре поля обязательны: цель без outcomes — намерение, цель без timing — пожелание.
+The method's canonical format is `Description | KPIs | Outcomes | Timing`. All four fields are mandatory: a goal with no outcomes is an intention, a goal with no timing is a wish.
 
-## Правило заполнения пропусков
+## The rule for filling the blanks
 
-Пропуски заполняются замеренными числами или остаются как `[не хватает данных]` до замера. Вдохновляющее число, поставленное чтобы закрыть дыру, — самая дорогая ошибка этого листа: оно переживёт стратегию и будет цитироваться год.
+Blanks are filled with measured numbers or left as `[data missing]` until they are measured. An inspiring number dropped in to plug a hole is the most expensive mistake on this sheet: it will outlive the strategy and be quoted for a year.
 
-Связи: [[action-plan]] · [[bi-project-metrics]] · [[guide-structure]] · [[bi-strategy-purpose]]
+Links: [[action-plan]] · [[bi-project-metrics]] · [[guide-structure]] · [[bi-strategy-purpose]]

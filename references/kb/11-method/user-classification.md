@@ -1,35 +1,35 @@
 ---
 id: user-classification
-title: 1.3 Классификация пользователей BI и модели потребления
+title: 1.3 Classification of BI users and consumption models
 type: method
-source: "Guide 2.0, лист «1. User Classification and BI Models»; курс, Занятие 2 (по Wayne Eckerson)"
-confidence: проверяемо
+source: "Guide 2.0, sheet \"1. User Classification and BI Models\"; course, Day 2 (after Wayne Eckerson)"
+confidence: verifiable
 blocks: [1, 3]
 ---
 
-Принцип из курса: **«Если вы не документируете своих бизнес-пользователей, у вас нет основы для стратегии. По сути, вы ведёте вслепую»**. Два шага — Identify (найти всех, кто использует данные и отчёты) и Classify (разложить по тому, как они потребляют и производят аналитику).
+The principle from the course: **"If you are not documenting your business users, you have no basis for a strategy. You are effectively driving blind."** Two steps - identify (find everyone who uses data and reports) and classify (sort them by how they consume and produce analytics).
 
-## Две группы и четыре категории (Eckerson)
+## Two groups and four categories (Eckerson)
 
-**Casual users** — используют данные, чтобы делать свою работу. Требуют «silver service»: данные и отчёты под их роль.
-- **Data Customers** — читают визуализации, помещают данные в контекст, ничего не создают
-- **Data Explorers** — есть время и опыт дополнять свои дашборды
+**Casual users** - use data to do their job. They need a "silver service": data and reports fitted to their role.
+- **Data customers** - read visualizations, put data in context, create nothing
+- **Data explorers** - have the time and the experience to extend their own dashboards
 
-**Power users** — им платят за анализ данных полный рабочий день. Требуют настоящего self-service: создавать датасеты и отчёты без участия IT.
-- **Data Analysts** — проходят полный цикл от источника до отчёта
-- **Data Scientists** — высокая грамотность, строят ML-модели, визуализируют, автономны
+**Power users** - are paid to analyse data full time. They need genuine self-service: creating datasets and reports without IT.
+- **Data analysts** - go through the full cycle from source to report
+- **Data scientists** - highly literate, build ML models, visualize, work autonomously
 
-Отдельно **Self-Service Support** — админы BI, инженеры, архитекторы, кураторы данных.
+Separately, **self-service support** - BI admins, engineers, architects, data curators.
 
-## Что заполняется
+## What gets filled in
 
-1. **Классификатор ролей менеджмента**: роль · описание · логика идентификации (AD-группы) · фокусные зоны данных · приоритетный BI-сервис (смотреть готовое / делать отчёты самому / делать отчёты и источники) · потенциал SSBI (высокий/средний/низкий).
-2. **Численность по категориям** — всего / факт / план на год по приросту, в разрезе департаментов. Практический выход: автонаполняемые AD-группы для раздачи прав на SS-инструменты.
-3. **Подходящая BI-модель по департаментам** — текущий статус, потенциал, дата-компетенции, SSBI-чемпионы, ограничения.
-4. **Плюсы и минусы моделей** для конкретной компании: Self-Service BI · Guided analytics · Delegated.
+1. **The classifier of management roles**: role · description · identification logic (AD groups) · focus data areas · the priority BI service (view what exists / build reports yourself / build reports and sources) · self-service BI potential (high/medium/low).
+2. **Headcount by category** - total / actual / the year's growth plan, cut by department. The practical output: auto-populated AD groups for granting rights to self-service tools.
+3. **The right BI model per department** - current status, potential, data competencies, self-service champions, constraints.
+4. **The pros and cons of the models** for this particular company: self-service BI · guided analytics · delegated.
 
-## Вопросы, определяющие категорию
+## The questions that decide the category
 
-Хотят просто смотреть статические отчёты · кликнуть и провалиться в детали · редактировать и перестраивать анализ · строить модели анализа сами · сохранять свои редакции · собирать отчёты из готовых блоков · пройти полный цикл от подготовки источника.
+Do they want to just view static reports · to click through into detail · to edit and rebuild an analysis · to build analytical models themselves · to save their own edits · to assemble reports from ready blocks · to go through the full cycle starting from preparing the source.
 
-Связи: [[guide-structure]] · [[info-supply-demand]] · [[selfservice-practices]] · [[centralized-practices]] · [[access-matrix]]
+Links: [[guide-structure]] · [[info-supply-demand]] · [[selfservice-practices]] · [[centralized-practices]] · [[access-matrix]]

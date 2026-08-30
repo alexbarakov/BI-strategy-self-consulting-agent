@@ -1,39 +1,39 @@
 ---
 id: data-mgmt-processes
-title: 2.1 Процессы управления данными — шесть процессов в двух моделях
+title: 2.1 Data management processes - six processes in two models
 type: method
-source: "Guide 2.0, листы «2.1 Data Mgmt processes» и «2.1 Data Mgmt questionnaire»"
+source: "Guide 2.0, sheets \"2.1 Data Mgmt processes\" and \"2.1 Data Mgmt questionnaire\""
 board_ref: "https://miro.com/app/board/o9J_lha8MnM=/?moveToWidget=3458764567476311802"
-confidence: проверяемо
+confidence: verifiable
 blocks: [4.1]
 ---
 
-Ядро TO-BE по данным. Ключевая конструкция метода: **каждый процесс описывается дважды** — как он реализуется в Centralized-модели и как в Self-Governing. Это операционализация дихотомии, а не абстрактный выбор «мы за self-service».
+The core of the data TO-BE. The method's key construction: **every process is described twice** - how it is implemented in the centralized model and how in the self-governing one. This operationalizes the dichotomy rather than leaving it as an abstract choice of "we are for self-service".
 
-## Шесть процессов
+## The six processes
 
-| Процесс | Centralized | Self-Governing |
+| Process | Centralized | Self-governing |
 |---|---|---|
-| **Data Source Management** | управление и раздача доступа к источникам, разработка и внедрение политик и процедур | определение, использование, развитие и управление объектами и моделями данных для анализа |
-| **Data Quality** | определение процесса валидации и построение доверия, дизайн и применение правил очистки | применение правил очистки к своим данным |
-| **Enrichment & Preparation** | определение процесса и инструментов ETL, подготовка источников | использование готовых источников и применение ETL-правил для своих таблиц |
-| **Data Security** | настройки безопасности и контроль доступа к моделям, аудит | соблюдение корпоративных политик и внешних регуляций |
-| **Metadata Management** | политики управления метаданными, поддержка метаданных ключевых моделей, внедрение Data Catalog | описание и поддержка метаданных своих объектов |
-| **Monitoring & Management** | мониторинг и аудит использования, контроль compliance, выбор инструментов | мониторинг метрик своих источников в централизованных инструментах |
+| **Data source management** | managing and granting access to sources, developing and enforcing policies and procedures | defining, using, evolving and managing data objects and models for analysis |
+| **Data quality** | defining the validation process and building trust, designing and applying cleansing rules | applying cleansing rules to your own data |
+| **Enrichment & preparation** | defining the ETL process and tooling, preparing sources | using ready sources and applying ETL rules to your own tables |
+| **Data security** | security configuration and access control for models, audit | complying with corporate policies and external regulation |
+| **Metadata management** | metadata management policy, maintaining metadata for key models, rolling out the data catalog | describing and maintaining the metadata of your own objects |
+| **Monitoring & management** | monitoring and auditing usage, compliance control, tool selection | monitoring the metrics of your own sources in centralized tooling |
 
-По каждому процессу лист требует: **Pain Points → целевой подход в 2–3 предложениях с указанием ролей и инструментов**.
+For each process the sheet requires: **pain points -> a target approach in two or three sentences naming the roles and the tools**.
 
-## Анкета — 40+ вопросов, по которым проверяется, что процесс реально есть
+## The questionnaire - 40+ questions that test whether the process actually exists
 
-- **Data Source Management** — какие ключевые источники и для каких департаментов · кто Steward/Owner · какие типы подключений разрешены (live, extract, embedded, published) · стандарты связывания в BI-модели (широкая консолидированная удобнее, но медленнее нормализованной) · конвенция именования.
-- **Data Quality** — процессы обеспечения точности, полноты, надёжности, актуальности · есть ли чеклист · кто валидирует данные до того, как они станут доступны · может ли бизнес-пользователь сообщить о проблеме владельцу данных.
-- **Enrichment & Preparation** — централизованно или self-service · какие ETL-инструменты для разных уровней дата-грамотности (enterprise / light / self-service ETL) · что можно внутри BI-системы, а что снаружи (джойны, миксы, инкрементальная загрузка, сложные скрипты) · какие комбинации источников самые ценные · чем синхронизируются обновление источника и обновление отчёта.
-- **Data Security** — как классифицируются данные по сенситивности · как выглядит процесс запроса доступа · какие уровни видимости используются (БД, схема, таблица, строки, колонки) · соответствует ли защита юридическим и регуляторным требованиям.
-- **Metadata Management** — как выглядит курирование источников · как понять, что источник пригоден для анализа, каковы его допущения и проблемы · требования к именованию, форматам полей, скрытию дублей, описаниям · есть ли чеклист метаданных и как он встроен в валидацию, промоушен и сертификацию.
-- **Monitoring & Management** — насколько успешны загрузки и какие ошибки · есть ли дублирующиеся источники · какие расписания доступны · как работают подписки, рассылки, алерты · сколько self-service пользователей и сколько заходят с мобильных · сколько источников используется, кем, почему перестают · процесс удаления устаревших источников · нагрузка и производительность (CPU, RAM, сеть, cache-hit ratio, latency, активные сессии).
+- **Data source management** - which sources are key and for which departments · who the steward and owner are · which connection types are allowed (live, extract, embedded, published) · standards for joining in the BI model (a wide consolidated model is more convenient but slower than a normalized one) · the naming convention.
+- **Data quality** - the processes ensuring accuracy, completeness, reliability and freshness · is there a checklist · who validates the data before it becomes available · can a business user report a problem to the data owner.
+- **Enrichment & preparation** - centralized or self-service · which ETL tools serve which levels of data literacy (enterprise / light / self-service ETL) · what may be done inside the BI system and what outside it (joins, blends, incremental loads, complex scripts) · which source combinations are the most valuable · what keeps the source refresh and the report refresh in sync.
+- **Data security** - how data is classified by sensitivity · what the access request process looks like · which visibility levels are in use (database, schema, table, rows, columns) · whether the protection meets legal and regulatory requirements.
+- **Metadata management** - what source curation looks like · how you can tell a source is fit for analysis, what its assumptions and problems are · requirements for naming, field formats, hiding duplicates, descriptions · is there a metadata checklist and how it is wired into validation, promotion and certification.
+- **Monitoring & management** - how successful the loads are and which errors occur · are there duplicate sources · which schedules are available · how subscriptions, mailings and alerts work · how many self-service users there are and how many come in from mobile · how many sources are used, by whom, and why they fall out of use · the process for removing stale sources · load and performance (CPU, RAM, network, cache hit ratio, latency, active sessions).
 
-## Как читать в AI-эру
+## How to read this in the AI era
 
-Вопросы анкеты — это же список того, чего не хватает агенту. «Как понять, что источник пригоден для анализа, каковы его допущения» — ровно тот контекст, отсутствие которого превращает text-to-SQL в угадывание.
+The questionnaire's questions are the same list as what the agent is missing. "How you can tell a source is fit for analysis and what its assumptions are" is exactly the context whose absence turns text-to-SQL into guesswork.
 
-Связи: [[guide-structure]] · [[critical-data-status]] · [[content-mgmt-processes]] · [[data-domains-classification]] · [[access-matrix]]
+Links: [[guide-structure]] · [[critical-data-status]] · [[content-mgmt-processes]] · [[data-domains-classification]] · [[access-matrix]]
