@@ -1,87 +1,87 @@
 ---
 id: bi-community-management
-title: BI Community management — мотивация, роли, чемпионы, skill belts
+title: BI community management - motivation, roles, champions, skill belts
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 6"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 6"
+confidence: verifiable
 blocks: [4.3, 6]
 ---
 
-## Начинать с мотивации пользователя, а не с программы
+## Start from the user's motivation, not from the programme
 
-Зачем человеку заниматься self-service BI:
-- получить отчёт с правильными цифрами и нужными графиками в срок, быстро править когда нужно
-- **повысить свой авторитет и ценность в команде и перед руководством**
-- изучить новый инструмент, повысить свою стоимость на рынке
-- развлечься построением крутых графиков
-- отвлечься от рутины, сменить тип деятельности
-- потусить, вовлечься в компанию драйвовых людей
-- **руководитель заставил**
+Why a person would take up self-service BI:
+- to get a report with the right numbers and the charts they need, on time, and to fix it quickly when needed
+- **to raise their standing and value in the team and with management**
+- to learn a new tool and raise their market value
+- to have fun building good charts
+- to break from routine, to change the kind of work they do
+- to socialize, to join a crowd of energetic people
+- **their manager made them**
 
-Программа сообщества работает ровно настолько, насколько попадает в эти мотивы. Последний пункт назван честно и означает, что часть аудитории удерживать бесполезно.
+A community programme works exactly as far as it lands in these motives. The last item is named honestly and means part of the audience is not worth trying to retain.
 
-## Три опоры управления сообществом
+## Three pillars of community management
 
-1. **Инструменты коммуникаций** — фактически оглавление разделов BI-портала (детальный каталог — [[selfservice-practices]])
-2. **Типы событий и встреч**
-3. **Направления поддержки**
+1. **Communication tools** - effectively the table of contents of the BI portal's sections (the detailed catalog is [[selfservice-practices]])
+2. **Types of events and meetings**
+3. **Directions of support**
 
-## BI Enablement Intranet — что реально бывает на портале
+## The BI enablement intranet - what actually ends up on the portal
 
-Разделы по аудиториям: «если ты пользователь» / «если ты аналитик или BI» / «если ты лидируешь BI». Внутри: поиск объектов, дашборды, метрики, запрос доступа, реестр метрик, каталог дашбордов, health score, удовлетворённость отчётами · создание отчётов, сбор требований, создание витрин и датасетов, визуализация · стратегия BI, требования к стратегии BI домена, матрица компетенций, обучение, онбординг · гайды, SQL style guide, сертификация, feature requests · регулярные встречи, процессы и их описание.
+Sections by audience: "if you are a user" / "if you are an analyst or in BI" / "if you lead BI". Inside: object search, dashboards, metrics, access requests, the metric registry, the dashboard catalog, health score, report satisfaction · building reports, gathering requirements, building marts and datasets, visualization · the BI strategy, the requirements for a domain's BI strategy, the competency matrix, training, onboarding · guides, the SQL style guide, certification, feature requests · regular meetings, the processes and their descriptions.
 
-Ключевая идея структуры: **навигация по ролям, а не по инструментам**.
+The key idea of the structure: **navigate by role, not by tool**.
 
-## Learning Path by Roles — три группы ролей
+## Learning paths by role - three groups
 
-**Роли Data Culture** — устанавливают культурные и технические стандарты:
-- **Executive Sponsor** — распространяет и продаёт видение современной аналитики · представляет интересы отделов при определении бюджета · согласует использование аналитики со стратегическими инициативами · утверждает процессы, политики, роли и обязанности по управлению данными · **подаёт пример использования фактов вместо интуиции, будучи активным пользователем платформы**
-- **Community Leader** — содействие взаимодействию пользователей · координация мероприятий · продвижение ресурсов поддержки · пропаганда аналитики; большинство при этом интенсивно пользуются продуктом как creator
-- **Data Steward** — понимает бизнес-область и взаимодействие процессов с аналитикой · обеспечивает наличие задокументированных процедур доступа и использования · работает с DBA и дата-инженерами над реализацией политик · курирует сертифицированные источники и управляет разрешениями
+**Data culture roles** - they set the cultural and technical standards:
+- **The executive sponsor** - spreads and sells the vision of modern analytics · represents departmental interests in setting the budget · aligns the use of analytics with the strategic initiatives · approves the processes, policies, roles and responsibilities of data management · **sets the example of using facts instead of intuition, by being an active user of the platform**
+- **The community leader** - facilitates interaction between users · coordinates events · promotes the support resources · evangelizes analytics; most of them are also intensive users of the product as creators
+- **The data steward** - understands the business area and how its processes interact with analytics · ensures documented procedures for access and use exist · works with DBAs and data engineers on implementing the policies · curates certified sources and manages permissions
 
-**Роли создания и использования отчётов:** Consumer · Author · Designer · Analyst · Data Scientist · Developer.
+**Report creation and consumption roles:** consumer · author · designer · analyst · data scientist · developer.
 
-**Роли администрирования среды:** Site Administrator · Server Administrator · Server Architect.
+**Environment administration roles:** site administrator · server administrator · server architect.
 
-## Skill Belt и геймификация — три разных механизма
+## Skill belts and gamification - three different mechanisms
 
-| Механизм | Что фиксирует |
+| Mechanism | What it records |
 |---|---|
-| **Пояса скиллов** | уровень владения инструментом |
-| **Бейджи** | промежуточная мотивация, несложные достижения, геймификация обучения |
-| **Награды** | итоговая значимость сотрудника для BI-сообщества |
+| **Skill belts** | the level of mastery of the tool |
+| **Badges** | interim motivation, easy achievements, gamified learning |
+| **Awards** | the final measure of a person's significance to the BI community |
 
-Плюс leaderboard. Разделение важно: пояс — про компетенцию, бейдж — про вовлечение, награда — про признание. Смешение обесценивает все три.
+Plus a leaderboard. The separation matters: a belt is about competence, a badge about engagement, an award about recognition. Mixing them devalues all three.
 
-## Программа BI/Data Champions
+## The BI/data champions programme
 
-**Кто такие чемпионы:** люди, которые верят в трансформирующее влияние данных, хотят поставить данные в центр каждого разговора и решения, и мотивированы развивать навыки и поддерживать других.
+**Who champions are:** people who believe in the transformative influence of data, want to put data at the centre of every conversation and decision, and are motivated to develop their skills and support others.
 
-**Что они дают:** уменьшают зависимость от централизованной группы поддержки · помогают коллегам принимать решения на данных, менторят и обучают · устанавливают связи между пользователями и создают возможности для межфункционального сотрудничества · «проповедуют» и участвуют в BI-активностях · **собирают сценарии использования и выявляют примеры лучших практик**.
+**What they give:** they reduce dependence on the centralized support group · they help colleagues make decisions on data, they mentor and teach · they connect users to each other and create opportunities for cross-functional collaboration · they "preach" and take part in BI activities · **they collect usage scenarios and surface examples of best practice**.
 
-### Четыре предусловия до запуска формальной программы
+### Four preconditions before launching a formal programme
 
-1. **Уже есть стратегический план для сообщества** — программа чемпионов не заменяет онбординг пользователей и другие усилия; чемпионы ускоряют и расширяют коммуникации, вовлечение и поддержку
-2. **Выделенный руководитель программы**, который проведёт её от начала до конца — часто community-лидер в SSBI-команде
-3. **Установленная коммуникационная платформа** — как минимум чат и пространство в вики
-4. **Executive sponsor**
+1. **A strategic plan for the community already exists** - a champions programme does not replace user onboarding and the other efforts; champions accelerate and broaden communication, engagement and support
+2. **A dedicated programme lead** who will carry it from start to finish - often the community leader in the self-service team
+3. **An established communication platform** - at minimum a chat and a wiki space
+4. **An executive sponsor**
 
-### Симметрия: цели программы и выгоды чемпиона
+### The symmetry: the programme's goals and the champion's benefits
 
-Цели: расширение возможностей команд · снижение зависимости от центральных команд · улучшение понимания данных в командах · повышение результативности мониторинга потребностей в отчётности · **создание «Совета чемпионов»** · масштабирование лучших практик · стандартизация обучающих ресурсов.
+The goals: empowering the teams · reducing dependence on the central teams · improving how the teams understand data · making the monitoring of reporting needs more effective · **creating a "champions council"** · scaling best practice · standardizing the training resources.
 
-Выгоды чемпиона: возможности нетворкинга и аналитическое лидерство · участие в глобальном проекте и влияние на перемены · прямое влияние на культуру данных · общение с другими экспертами · доступ к информации о продуктах и планам развития · **общекорпоративное признание как эксперта**.
+The champion's benefits: networking opportunities and analytical leadership · taking part in a global project and influencing change · direct influence on the data culture · contact with other experts · access to product information and roadmaps · **company-wide recognition as an expert**.
 
-Без второй колонки программа не живёт.
+Without the second column the programme does not live.
 
-### Peer-to-peer сервисы: BI / Data Doctor
+### Peer-to-peer services: the BI / data doctor
 
-Отбор доктора по трём критериям: уровень BI-скиллов · **склонность к волонтёрской работе** · наличие ресурса.
+A doctor is selected on three criteria: BI skill level · **an inclination towards volunteering** · having the capacity.
 
-Польза: 1-1 разбор проблем на «приёмах» · обнаружение пробелов в знаниях и навыках · рост data culture · **уменьшение количества тикетов** — пользователи помогают друг другу вместо обращения к централизованной команде · рост доверия между коллегами и к BI-продуктам.
+The benefit: one-to-one problem solving at "surgeries" · discovering gaps in knowledge and skills · a growing data culture · **fewer tickets** - users help each other instead of turning to the centralized team · growing trust between colleagues and in the BI products.
 
-### Названные проблемы чемпионских программ
+### The stated problems of champion programmes
 
-**Удержание градуса** — нужны идейные люди с внутренним драйвом. И **капасити**. Обе не решаются организационно, поэтому программа всегда упирается в конкретных людей.
+**Keeping the temperature up** - it needs people with conviction and internal drive. And **capacity**. Neither is solvable organizationally, which is why the programme always comes down to specific people.
 
-Связи: [[selfservice-practices]] · [[ssbi-workflow]] · [[user-classification]] · [[onboarding-plan]]
+Links: [[selfservice-practices]] · [[ssbi-workflow]] · [[user-classification]] · [[onboarding-plan]]

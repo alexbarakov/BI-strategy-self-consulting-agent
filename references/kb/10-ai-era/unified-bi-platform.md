@@ -1,71 +1,71 @@
 ---
 id: unified-bi-platform
-title: Единая BI-платформа — три слоя как один продукт
+title: A unified BI platform - three layers as one product
 type: case
-source: "Курс «BI+AI стратегия 26», Занятие 8 — внутренняя практика"
-confidence: проверяемо (внутренний опыт)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 8 - internal practice"
+confidence: verifiable (internal experience)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [3, 4.2, 5]
 ---
 
-Целевая модель платформы в AI-эру: **создание · смысл · потребление** собираются в один продукт.
+The target platform model for the AI era: **creation · meaning · consumption** assembled into one product.
 
-| Слой | Что в нём |
+| Layer | What is in it |
 |---|---|
-| **Потребление** — пользователь получает ответ | портал данных как единая точка входа · «Отчёт» с режимами Monitor ↔ Explore · карточка метрики, умный поиск · репортинг как движок |
-| **Смысл / данные** — что значит каждая метрика | Semantic Layer (определения) · Semantic Engine (сборка) · Core Layer (атомарные факты) · **agent contracts для AI** |
-| **Создание** — производство аналитики | Notebook Mode (аналитики) · Report Builder (бизнес) · континуум ad-hoc → prod · гибридный compute |
+| **Consumption** - the user gets an answer | the data portal as a single entry point · the "Report" with Monitor and Explore modes · the metric card, smart search · reporting as an engine |
+| **Meaning / data** - what each metric means | the semantic layer (definitions) · the semantic engine (assembly) · the core layer (atomic facts) · **agent contracts for AI** |
+| **Creation** - producing analytics | notebook mode (analysts) · report builder (the business) · the ad-hoc-to-production continuum · hybrid compute |
 
-## Разделение Core / Semantic Layer / Semantic Engine
+## Separating core, semantic layer and semantic engine
 
-Три разных вопроса, эффекты не задваиваются:
+Three different questions, and the effects do not double-count:
 
-- **Semantic Layer — ЧТО считать.** Канонические определения метрик, производные вычисления, валидные join-пути. **Ничего не материализует.**
-- **Semantic Engine — КАК подать.** Runtime поверх Layer: сборка presentation-витрин, семантическая сборка SQL. **По умолчанию — on-the-fly.**
-- **Core Layer — ИЗ ЧЕГО считать.** Атомарные факты и сущности, интегрированные и дедуплицированные, стабильный контракт. **Всегда материализован.**
+- **The semantic layer is WHAT to compute.** Canonical metric definitions, derived calculations, valid join paths. **It materializes nothing.**
+- **The semantic engine is HOW to serve it.** A runtime over the layer: assembling presentation marts, semantic assembly of SQL. **On the fly by default.**
+- **The core layer is WHAT FROM.** Atomic facts and entities, integrated and deduplicated, a stable contract. **Always materialized.**
 
-> **Правило по умолчанию: витрина НЕ создаётся — считаем на лету.** Отказ от лишней материализации — инфраструктурный выигрыш Engine.
+> **The default rule: a mart is NOT created - we compute on the fly.** Refusing unnecessary materialization is the engine's infrastructural win.
 
-Это правило прямо противоположно привычному «под каждый отчёт своя витрина» и заслуживает отдельного обсуждения при переносе.
+This rule is the direct opposite of the familiar "a mart per report", and deserves a separate discussion when transplanting it.
 
-## Три принципа опыта
+## Three principles of the experience
 
-1. **Один вход.** Портал данных — единственная точка входа; пользователь не думает, в какой инструмент идти.
-2. **Один артефакт.** «Отчёт» вместо разделения на дашборд и data app; режим Monitor или Explore — деталь реализации, а не выбор пользователя.
-3. **Один путь.** Ad-hoc → датасет → production — плавный **переход уровня governance над одним объектом**, без миграции SQL и данных.
+1. **One entrance.** The data portal is the single entry point; the user does not think about which tool to go to.
+2. **One artifact.** A "report" instead of splitting dashboard from data app; Monitor or Explore mode is an implementation detail, not a choice the user makes.
+3. **One path.** Ad-hoc -> dataset -> production is a smooth **change in the level of governance over one object**, with no migration of SQL or data.
 
-Снизу это держит принцип **«репортинг как движок, а не продукт»** — по аналогии с Chromium внутри Chrome и Edge. Практическое следствие: редактор визуализаций становится общим компонентом для SQL-редактора и для BI, и работа с графиками одинакова в разных инструментах платформы.
+Underneath, this is held up by the principle of **"reporting as an engine, not a product"** - by analogy with Chromium inside Chrome and Edge. The practical consequence: the visualization editor becomes a shared component for the SQL editor and for BI, and working with charts is identical across the platform's tools.
 
-## AI-ассистент внутри дашборда
+## The AI assistant inside a dashboard
 
-Ассистент встроен в боковую шторку BI-инструмента и **понимает контекст открытого дашборда**: отвечает на вопросы по данным без перехода в другие инструменты, учитывает выбранные фильтры (период, продукт, команду) и не просит повторно вводить то, что уже указано на дашборде.
+The assistant is built into the BI tool's side panel and **understands the context of the open dashboard**: it answers questions about the data without going to another tool, respects the filters chosen (period, product, team) and does not ask the user to re-enter what is already set on the dashboard.
 
-Это хороший образец правильной постановки: контекст берётся из состояния интерфейса, а не запрашивается у пользователя заново.
+This is a good example of the right framing: context is taken from the interface state rather than requested from the user again.
 
-## Качество MCP как продуктовая метрика
+## MCP quality as a product metric
 
-Отдельная цель спринта — **снизить долю ошибок MCP-сервера до однозначного низкого процента**. За спринт долю удалось сократить примерно на треть от исходной и подойти к цели вплотную.
+A dedicated sprint goal: **bring the MCP server's error rate down to a low single-digit percentage**. Over the sprint the rate came down by roughly a third from where it started, close to the target.
 
-Что дало эффект: MCP стал объяснять агенту, что произошло и что делать дальше (проверено на выборке реальных ошибок движков) · поиск зависимостей переведён с обхода всех дашбордов на один быстрый запрос — доля ошибок этого сценария упала почти на порядок · начали собирать статистику **отдельно по каждому инструменту и каждой причине ошибки**.
+What produced the effect: MCP began explaining to the agent what had happened and what to do next (checked against a sample of real engine errors) · dependency search moved from walking every dashboard to a single fast query, cutting that scenario's error rate by nearly an order of magnitude · statistics began to be collected **separately per tool and per error cause**.
 
-Что осталось: примерно каждая вторая оставшаяся ошибка — тайм-аут или временная недоступность · большинство ошибок возникает при выполнении SQL или работе с датасетами · небольшая, но устойчивая доля — когда агент использует старое название инструмента или неверный идентификатор.
+What remains: roughly every second remaining error is a timeout or a temporary unavailability · most errors arise when executing SQL or working with datasets · a small but persistent share is the agent using an old tool name or a wrong identifier.
 
-Следующие шаги: долгие запросы не держать до тайм-аута, а сразу возвращать номер задачи и получать результат отдельным вызовом · для временных сбоев один автоматический повтор после рекомендованной паузы · проверять название инструмента, идентификатор и обязательные параметры до отправки, поддерживая старые названия как совместимые.
+The next steps: do not hold long queries until timeout - return a task number immediately and fetch the result in a separate call · for transient failures, one automatic retry after the recommended pause · validate the tool name, the identifier and the required parameters before sending, keeping old names as compatible aliases.
 
-**Почему это важно для стратегии:** доля ошибок MCP — измеримая, управляемая и понятная метрика качества агентной инфраструктуры, которая не требует оценивать «качество ответа». Её стоит завести раньше, чем метрики точности.
+**Why this matters for a strategy:** the MCP error rate is a measurable, controllable and comprehensible quality metric for agentic infrastructure that does not require judging "answer quality". It is worth setting up before any accuracy metrics.
 
-## Какие метрики года выносить наверх
+## Which year metrics to put on top
 
-Набор, который сработал как годовая витрина платформы (значения обезличены — важен состав):
+The set that worked as the platform's annual shop window (the values are anonymized - what matters is the composition):
 
-- **доля задач, решённых без аналитика** — растёт
-- **доля времени аналитиков на исследования** против рутины — растёт
-- **WAU AI-ассистента** — растёт кратно
-- **время создания «Отчёта»** — падает кратно
-- **NPS платформы** — растёт
+- **the share of tasks solved without an analyst** - rising
+- **the share of analysts' time spent on investigation** rather than routine - rising
+- **weekly active users of the AI assistant** - rising several times over
+- **the time to create a "report"** - falling several times over
+- **platform NPS** - rising
 
-Конструкция набора важнее чисел: две метрики про перераспределение труда, одна про adoption AI, одна про скорость, одна про удовлетворённость. Ни одна не измеряется самооценкой.
+The composition of the set matters more than the numbers: two metrics about redistributing labour, one about AI adoption, one about speed, one about satisfaction. None is measured by self-assessment.
 
-Итоговый вывод автора: **«мы переоценивали важность инструмента»** — данные, контекст и AI работают как один продукт.
+The author's closing conclusion: **"we were overrating the importance of the tool"** - data, context and AI work as one product.
 
-Связи: [[bi-tool-selection]] · [[semantic-layer-evidence]] · [[nextgen-report-formats]] · [[core-layer-project]]
+Links: [[bi-tool-selection]] · [[semantic-layer-evidence]] · [[nextgen-report-formats]] · [[core-layer-project]]

@@ -1,65 +1,65 @@
 ---
 id: ai-accelerator
-title: AI-акселератор и лига лояльности — как разгонять адопшен без курсов
+title: The AI accelerator and the loyalty league - driving adoption without courses
 type: case
-source: "Курс «BI+AI стратегия 26», Занятие 7 — внутренняя практика"
-confidence: проверяемо (внутренние замеры)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 7 - internal practice"
+confidence: verifiable (internal measurements)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [6, 7]
 ---
 
-Два механизма разгона AI-адопшена в аналитической функции: разовый акселератор и постоянная сезонная программа.
+Two mechanisms for driving AI adoption in an analytics function: a one-off accelerator and a standing seasonal programme.
 
-## Акселератор — формат между хакатоном и курсом
+## The accelerator - a format between a hackathon and a course
 
-**Задачи:** запустить волну AI-инициатив внутри аналитики · быстро протестировать идеи и сделать прикладные решения · найти проекты для масштабирования в платформе · **снять блоки и вовлечь без «загона на курсы»**.
+**The goals:** start a wave of AI initiatives inside analytics · test ideas quickly and build applied solutions · find projects to scale into the platform · **remove the blockers and get people involved without herding them onto courses**.
 
-**Почему не хакатон и не курс:**
-- **эффективнее курса** — обучение через работу над проектом и наблюдение за другими
-- **продуктивнее хакатона** — больше времени на доведение на фоне рабочей нагрузки
-- **реальный эффект для бизнеса** — лучшее сразу интегрируется в процессы и продукты
+**Why not a hackathon and not a course:**
+- **more effective than a course** - learning through work on a project and through watching others
+- **more productive than a hackathon** - more time to finish things off alongside the day job
+- **a real effect for the business** - the best of it gets integrated into processes and products straight away
 
-**Формат:** около двух месяцев, четыре этапа — сбор заявок → разработка в командах → питчинги → голосование и выбор победителей. Четыре номинации: эффективность · бизнес-импакт · синергия с платформой · народное голосование. Критерии оценки: бизнес-ценность · практическая применимость · потенциал масштабирования · переиспользуемость · качество реализации. Оценивают трое: **AI-судья · жюри хедов и лидов платформы · народное голосование**.
+**The format:** about two months, four stages - collecting submissions -> development in teams -> pitches -> voting and picking the winners. Four categories: efficiency · business impact · synergy with the platform · the popular vote. The assessment criteria: business value · practical applicability · scaling potential · reusability · implementation quality. Three parties assess: **an AI judge · a jury of platform heads and leads · the popular vote**.
 
-Специфика: полная свобода идей · поддержка менторами · **несколько недель на проработку — это не хакатон** · «вайб стартапов».
+The specifics: complete freedom of ideas · mentor support · **several weeks to work it through - this is not a hackathon** · a startup vibe.
 
-**Результаты в разобранном кейсе.** Из заявленных проектов до питча дошло около двух третей, до прода — примерно каждый четвёртый из дошедших. Десятки человек в командах при примерно одном менторе на команду, сотни уникальных зрителей на эфирах питчингов.
+**The results in the case walked through.** About two thirds of the submitted projects made it to the pitch, and roughly one in four of those reached production. Dozens of people in the teams with about one mentor per team, and hundreds of unique viewers on the pitch broadcasts.
 
-Два главных числа — оба стартовали с нуля за три месяца: **доля аналитиков с активным использованием локальных агентов** и **покрытие скиллами основных JTBD по объёму задач** вышли примерно на три четверти каждое.
+The two headline numbers, both starting from zero three months earlier: **the share of analysts actively using local agents** and **skill coverage of the main jobs-to-be-done by task volume** each reached about three quarters.
 
-Полезнее абсолютных значений здесь две вещи: обе метрики **измеряют поведение, а не установку инструмента**, и обе замерены от честного нуля.
+Two things here are more useful than the absolute values: both metrics **measure behaviour rather than tool installation**, and both were measured from an honest zero.
 
-## Выученные уроки — самое ценное
+## The lessons learned - the most valuable part
 
-- **Чувство плеча: саппорт и ментор критичны.** Доходимость до прода была сильно выше там, где была поддержка — техническая и методологическая.
-- Акселератор даёт **быстрое «снятие сливок»** — хороший стартовый эффект и закрытие последней мили для AI-грамотных.
-- **Хорошо нормализует AI в глазах сотрудников.**
-- **Были повторы и пересечения в JTBD между проектами** → дальше имеет смысл делать пре-ревью, объединять и связывать проекты до старта.
-- **Фокус далее не на генерацию, а на «шлифовку»** ограниченного набора массовых сценариев и проверку импакта.
+- **A sense of support: help and mentoring are critical.** Completion to production was far higher where support existed - technical and methodological.
+- The accelerator delivers **quick skimming of the cream** - a good starting effect and closing the last mile for the AI-literate.
+- **It normalizes AI in employees' eyes.**
+- **There were repeats and overlaps in jobs-to-be-done between projects** -> next time it makes sense to pre-review, merge and connect projects before the start.
+- **The focus from here is not generation but polishing** a limited set of mass scenarios and verifying their impact.
 
-Последний пункт — типовая точка, где программы адопшена ломаются: продолжают генерировать новые идеи вместо доведения существующих до качества.
+That last point is the standard place where adoption programmes break: they keep generating new ideas instead of taking the existing ones to quality.
 
-## Что дальше — три ветки
+## What comes next - three branches
 
-Объединяем проекты вокруг крупных сценариев · часть продолжает развитие силами аналитики и BI (улучшение точности и экономики) — **AI-чемпионы драйвят, платформа помогает** · часть интегрируется в платформенные решения — **платформа драйвит, AI-чемпионы помогают**.
+Consolidate projects around the large scenarios · some continue to be developed by analytics and BI (improving accuracy and economics) - **the AI champions drive, the platform helps** · some are integrated into platform solutions - **the platform drives, the AI champions help**.
 
-Следующий формат — **AI-марафон по self-service аналитике**: часть 1 марафон (обучение всему готовому в агентской аналитике по своей роли), часть 2 акселератор (работа в группах с менторами — адаптация, доработка, замер пользы ключевых агентов; фокус — дошлифовать скиллы, а не генерить новые идеи). Цель — поднять в 2+ раза долю пользователей, решающих простые и средние задачи с данными на готовых AI-скиллах.
+The next format is an **AI marathon on self-service analytics**: part 1 is the marathon (learning everything that already exists in agentic analytics for your role), part 2 is an accelerator (working in groups with mentors - adapting, refining, and measuring the benefit of the key agents; the focus is polishing the skills rather than generating new ideas). The goal is to more than double the share of users solving simple and medium data tasks on ready AI skills.
 
-## Лига лояльности — сезон вместо разовых конкурсов
+## The loyalty league - a season instead of one-off competitions
 
-**Проблема:** полезный AI-вклад разрознен и не виден. Четыре симптома: трейсы уходят вендорам моделей, а не внутрь — качество решения не измерить · автор скилла не знает, сколько людей реально применяют его работу · **вклад в ДБЗ, разметку кейсов и здоровье витрин проигрывает срочным задачам** · нет единой площадки видимости для всех AI-адоптеров.
+**The problem:** useful AI contribution is scattered and invisible. Four symptoms: traces go to the model vendors rather than inward, so solution quality cannot be measured · a skill's author does not know how many people actually use their work · **contribution to the knowledge base, case labelling and mart health loses out to urgent work** · there is no single place where all AI adopters are visible.
 
-**Три принципа программы:**
-1. **Сезонное накопление** — баллы копятся весь сезон и не обнуляются; кривая уровней ускоряет первый успех и усложняет следующие
-2. **Ежемесячная сверка** — итог месяца это сверка и публичное признание, а не новый конкурс с нуля
-3. **Только подтверждённая ценность** — поощряем активы, которыми пользуются другие люди, а не «чаще нажимать на AI»
+**Three principles of the programme:**
+1. **Seasonal accumulation** - points accumulate all season and do not reset; the level curve accelerates the first success and makes the later ones harder
+2. **A monthly reconciliation** - the month closes with a reconciliation and public recognition, not a new competition from scratch
+3. **Only confirmed value** - we reward assets other people use, not "pressing the AI button more often"
 
-**Логика начисления** (важна конструкция, не цифры): максимум баллов за публикацию принятого скилла и его попадание в сертифицированный набор или продукт платформы; отдельно — за использование скилла **уникальным внешним пользователем**, с лимитом на скилл в месяц; новая метрика засчитывается **только после порога в несколько уникальных пользователей**; **удаление неактуальной метрики тоже даёт баллы** — и из реестра, и из системы метрик.
+**The scoring logic** (the construction matters, not the numbers): the most points go for publishing an accepted skill and getting it into the certified set or a platform product; separately, for a skill being used by **a unique external user**, with a per-skill monthly cap; a new metric counts **only after a threshold of several unique users**; **deleting an obsolete metric also earns points** - both from the registry and from the metrics system.
 
-Три механизма против накрутки: лимиты по каждому типу действия · пороги реального использования · начисление за удаление, а не только за создание.
+Three mechanisms against gaming: caps per action type · thresholds of real usage · points for deletion, not only for creation.
 
-**Следующий уровень оценки эффекта:** доля успешно завершённых AI-JTBD и **Successful AI Analytics Hours** — сколько задаче-часов AI успешно решает в аналитике. Правило: **рост количества вызовов без роста успешных задач результатом не считается.**
+**The next level of effect measurement:** the share of successfully completed AI jobs-to-be-done and **successful AI analytics hours** - how many task-hours AI successfully covers in analytics. The rule: **a rise in call volume with no rise in successful tasks does not count as a result.**
 
-**Прозрачность механики:** единый журнал событий с временем, хешем участника, источником, баллами, версией правила и защитой от дублей; в лидерборд попадает только хеш или псевдоним, связь с получателем приза хранится в закрытом сервисе. Автоматические источники (трейсы, хаб скиллов, бэкенд скиллов, ДБЗ, реестр метрик) отделены от трёх ручных сценариев с человеком в контуре (выступление, задание, спорное событие), и для каждого назван проверяющий.
+**Transparency of the mechanics:** a single event journal with the timestamp, a participant hash, the source, the points, the rule version and duplicate protection; only a hash or a pseudonym appears on the leaderboard, and the link to the prize recipient is kept in a closed service. Automatic sources (traces, the skill hub, the skill back end, the knowledge base, the metric registry) are kept separate from the three manual scenarios with a human in the loop (a talk, an assignment, a disputed event), and a reviewer is named for each.
 
-Связи: [[ai-adoption-waves]] · [[domain-knowledge-base]] · [[bi-community-management]] · [[ai-time-saving-trap]]
+Links: [[ai-adoption-waves]] · [[domain-knowledge-base]] · [[bi-community-management]] · [[ai-time-saving-trap]]

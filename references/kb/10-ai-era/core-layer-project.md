@@ -1,79 +1,79 @@
 ---
 id: core-layer-project
-title: Core-слой сертифицированных витрин — вижн, health-критерии, старт
+title: The core layer of certified marts - the vision, health criteria, the start
 type: case
-source: "Курс «BI+AI стратегия 26», Занятие 6 — внутренний проект"
-confidence: проверяемо (внутренний проект)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 6 - an internal project"
+confidence: verifiable (an internal project)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [4.1, 5]
 ---
 
-Самый проработанный в материалах пример того, как выглядит инициатива AI-фундамента, доведённая до целей и метрик.
+The most fully worked example in the materials of what an AI-foundation initiative looks like when taken through to goals and metrics.
 
-## Вижн
+## The vision
 
-Создать слой сертифицированных витрин (core-слой) — trusted-источник для всех потребителей: **данные готовы вовремя · данным можно верить · данными удобно пользоваться · данные сможет использовать AI-ассистент · ресурсы расходуются эффективно**.
+Build a layer of certified marts (the core layer) as a trusted source for all consumers: **the data is ready on time · the data can be believed · the data is convenient to use · the data can be used by an AI assistant · resources are spent efficiently**.
 
-Четвёртый пункт стоит в одном ряду с остальными, а не отдельной AI-инициативой. Это и есть правильная упаковка: **один и тот же труд закрывает и аналитиков, и агента**.
+The fourth point stands on the same line as the rest rather than as a separate AI initiative. That is the right packaging: **the same work covers both the analysts and the agent**.
 
-Что даёт:
-- аналитикам — быстрее находить достоверные данные, меньше джойнить, стабильнее получать обновление
-- компании — экономить на потреблении CPU и хранения за счёт ограничения роста и переиспользования
-- GenAI-продуктам — точнее отвечать за счёт лучшего здоровья витрин под метриками и дашбордами и качества метаданных
+What it gives:
+- analysts - finding trustworthy data faster, fewer joins, more reliable refreshes
+- the company - saving on CPU and storage consumption by limiting growth and encouraging reuse
+- GenAI products - answering more accurately, thanks to better health of the marts under the metrics and dashboards, and better metadata
 
-Итог: повысить velocity аналитических проектов · снизить совокупные затраты (технические — CPU/RAM/storage, человеческие — поиск/adhoc/создание/поддержка) · повысить готовность домена к AI-аналитику ([[ai-ready-domain-score]]).
+The upshot: raise the velocity of analytics projects · lower total cost (technical - CPU/RAM/storage; human - search, ad-hoc, creation, support) · raise the domain's readiness for an AI analyst ([[ai-ready-domain-score]]).
 
-## Что делают DWH и BI вместе
+## What the warehouse and BI do together
 
-Выделяют и размечают слой trusted-витрин по ключевым сущностям · создают роадмапы и бэклоги улучшений (to-be архитектура, задачи) · закрепляют ответственность за развитие и поддержку · автоматизируют что можно.
+Identify and mark the layer of trusted marts across the key entities · build roadmaps and improvement backlogs (to-be architecture, tasks) · fix responsibility for development and support · automate what can be automated.
 
-## Что получает потребитель
+## What the consumer gets
 
-В каталоге виден **статус доверия: Candidate / Certified / Degraded**. Для Certified есть гарантии по умолчанию: owner и контакты · SLA свежести · базовые DQ-пороги · lineage · правила изменений (contract). Принцип **reuse-first**: новые витрины, дашборды и ad-hoc строим от core, а не с нуля.
+The catalog shows a **trust status: candidate / certified / degraded**. Certified carries default guarantees: an owner and contacts · a freshness SLA · baseline data quality thresholds · lineage · rules for changes (a contract). The principle is **reuse first**: new marts, dashboards and ad-hoc work are built from the core rather than from scratch.
 
-Целевая архитектура слоёв: `Sandbox (зона self-service) → Tech Datamarts (3NF, денормализованные факты, измерения, справочники для переиспользования) → Presentation Datamarts (обогащённые широкие витрины через вьюхи с консистентным неймингом) → Semantic Layer (модели: факты, измерения, обогащения; SQL + YAML) → Trusted BI content: метрики, дашборды, AI-аналитик, SQL-запросы`.
+The target layer architecture: `sandbox (the self-service zone) -> tech datamarts (3NF, denormalized facts, dimensions, reference data for reuse) -> presentation datamarts (enriched wide marts through views with consistent naming) -> the semantic layer (models: facts, dimensions, enrichments; SQL plus YAML) -> trusted BI content: metrics, dashboards, the AI analyst, SQL queries`.
 
-## Health: MVP-набор критериев
+## Health: the MVP set of criteria
 
-**Принцип:** выполняем бинарные управляемые assurance-критерии и следим за изменением control-метрик.
+**The principle:** satisfy binary, controllable assurance criteria and watch the control metrics move.
 
-Четыре группы:
-- **Готово вовремя** — витрина считается к указанному времени и быстро
-- **Можно верить** — покрытие дата-контрактами, нет инцидентов
-- **Удобно использовать** — оптимально читаем необходимый минимум, заполнены метаданные
-- **Эффективно по ресурсам** — храним только нужное, ресурсы используем оптимально
+Four groups:
+- **Ready on time** - the mart computes by the stated time, and fast
+- **Can be believed** - covered by data contracts, no incidents
+- **Convenient to use** - we read the necessary minimum optimally, the metadata is filled in
+- **Efficient on resources** - we store only what is needed and use resources optimally
 
-Пример развёрнутого набора проверок на датасете: error rate ниже порога · не дубликат · построен на целевом движке · не использует временные или dev-схемы · **есть активный владелец** · есть расписание обновления · редактировался за последний год · апстрим-витрина обновлялась в пределах нескольких дней.
+An example of the expanded check set on a dataset: error rate below a threshold · not a duplicate · built on the target engine · does not use temporary or dev schemas · **has an active owner** · has a refresh schedule · has been edited within the last year · the upstream mart refreshed within a few days.
 
-Важна не конкретная величина порогов, а их свойство: все критерии **бинарные и управляемые** — на каждый есть действие, которым его можно закрыть.
+What matters is not the specific threshold values but their property: every criterion is **binary and controllable** - for each there is an action that closes it.
 
-## Интеграции — единый источник правды статусов
+## Integrations - one source of truth for the statuses
 
-Бейджи Core / Certified / Degraded в поиске и карточке витрины дата-каталога с фильтрацией и детализацией по клику · **тот же статус у дашбордов и метрик** — единый процесс доверия · объекты семантического слоя certified-by-default · дата-контракты как часть health score с покрытием каждого поля и подпиской на контракты апстрима.
+Core / certified / degraded badges in the search and on the mart's card in the data catalog, with filtering and detail on click · **the same status on dashboards and metrics** - one trust process · semantic layer objects certified by default · data contracts as part of the health score, with per-field coverage and a subscription to upstream contracts.
 
-Ключевое: один статус, видимый во всех инструментах. Иначе сертификация превращается в локальный признак внутри одного тула.
+The key point: one status, visible in every tool. Otherwise certification turns into a local flag inside a single tool.
 
-## Операционные и бизнес-цели
+## Operational and business goals
 
-Операционные (с горизонтом на два года, с промежуточной и финальной целью по каждой): **сократить долю запросов пользователей с двумя и более джойнами** · **повысить долю обращений к таблицам core-слоя** от аналитиков · контролировать общее количество витрин.
+Operational (on a two-year horizon, each with an interim and a final target): **reduce the share of user queries with two or more joins** · **raise the share of analysts' queries hitting core-layer tables** · keep the total number of marts under control.
 
-Бизнес-цель — снизить совокупные затраты: технические, с привязкой к биллингу платформы (**витрины = ресурсы, за которые платят домены**), и человеческие.
+The business goal is to lower total cost: technical, tied to platform billing (**marts are resources the domains pay for**), and human.
 
-Обе метрики хороши тем, что меряют поведение (долю запросов, долю обращений), а не наличие артефакта.
+Both metrics are good because they measure behaviour (the share of queries, the share of hits) rather than the existence of an artifact.
 
-## Как заходить в домен
+## How to enter a domain
 
-**Core Data Preparation** (BI-партнёр домена): валидируем список core-кандидатов (usage + ручной отбор), после прогона через health scoring правим то, что можно самостоятельно · анализируем текущие боли аналитиков и то, насколько модель отражает потребности и процессы · готовимся к deep dive и бронируем под него ресурс с учётом миграции.
+**Core data preparation** (the domain's BI partner): validate the list of core candidates (usage plus manual selection) and, after a health-scoring run, fix what can be fixed independently · analyse the analysts' current pain and how well the model reflects their needs and processes · prepare for the deep dive and book resource for it, allowing for migration.
 
-**Core Data Deep dive:** формируется проектная команда домена BI + DE · аудит модели данных домена, анализ болей и процессов · нарезка бэклога и роадмап с фокусом на кейсы с бизнес-ценностью · срываем фрукты, доводим до эффекта · уходим в обычный формат работы по роадмапу. Целевая длительность — **один квартал**.
+**Core data deep dive:** a domain project team of BI plus data engineering is formed · an audit of the domain's data model, an analysis of the pain and the processes · slicing a backlog and a roadmap focused on cases with business value · pick the fruit and take it through to effect · move into the normal roadmap working mode. The target duration is **one quarter**.
 
-## Как обойти проблему «нет низковисящих фруктов»
+## How to get around the "there is no low-hanging fruit" problem
 
-Пять правил старта:
-- **Не начинайте с самых больных витрин** — там дорого, долго и славой не покроешься; проект заглохнет на первом тяжёлом случае, не показав ценности
-- **Начинайте с самых переиспользуемых сущностей** — кросс-доменные объекты (клиент, объявление, сделка) дают максимум reuse на единицу усилий
-- **Сначала presentation, потом tech** — core-presentation быстрее даёт заметную пользу аналитикам и AI; техническую оптимизацию можно доделать следом
-- **Health-score как ведущий сигнал** — он подсказывает кандидатов в core-слой ещё до ручного отбора: не гадать, а идти по данным
-- **Свяжите работу с AI-готовностью** — каждая новая core-витрина сразу поднимает AI Ready Score домена
+Five rules for the start:
+- **Do not begin with the most painful marts** - they are expensive and slow and win you no glory; the project stalls on the first hard case without having shown value
+- **Begin with the most reused entities** - cross-domain objects (customer, listing, deal) give the most reuse per unit of effort
+- **Presentation first, tech second** - a core presentation layer delivers visible benefit to analysts and to AI faster; technical optimization can follow
+- **Health score as the leading signal** - it suggests core-layer candidates before any manual selection: go by the data rather than guess
+- **Tie the work to AI readiness** - every new core mart immediately raises the domain's AI-ready score
 
-Связи: [[critical-data-status]] · [[ai-ready-domain-score]] · [[infra-billing]] · [[dg-launch-path]] · [[data-catalog-pitfalls]]
+Links: [[critical-data-status]] · [[ai-ready-domain-score]] · [[infra-billing]] · [[dg-launch-path]] · [[data-catalog-pitfalls]]

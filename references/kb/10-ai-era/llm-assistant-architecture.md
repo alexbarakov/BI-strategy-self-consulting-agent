@@ -1,71 +1,71 @@
 ---
 id: llm-assistant-architecture
-title: Референсная архитектура LLM-ассистента — от источников до ответа
+title: A reference architecture for an LLM assistant - from sources to answer
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 7"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 7"
+confidence: verifiable
 blocks: [5]
 ---
 
-Пять слоёв, семь шагов runtime и пять сквозных контуров. Цветовая логика схемы: **синий — путь с гарантией** (запрос собирается из готовых определений) · **оранжевый — путь без гарантии** (SQL пишет модель) · красный — доступ и риск · зелёный — обратная связь.
+Five layers, seven runtime steps and five cross-cutting loops. The diagram's colour logic: **blue is the guaranteed path** (the query is assembled from ready definitions) · **orange is the path with no guarantee** (the model writes the SQL) · red is access and risk · green is feedback.
 
-## 1. Источники
+## 1. Sources
 
-Продуктовые БД (факты бизнеса: заказы, платежи, статусы) · clickstream (события и сессии) · внешние системы (данные партнёров и сервисов) · справочники и MDM (единые списки: клиенты, товары, категории) · **логи запросов аналитиков — сырьё для описаний колонок и эталонных пар**.
+Product databases (the facts of the business: orders, payments, statuses) · clickstream (events and sessions) · external systems (partner and service data) · reference data and MDM (single lists: customers, products, categories) · **the analysts' query logs - the raw material for column descriptions and reference pairs**.
 
-Последний источник обычно забывают, а он самый дешёвый: история реальных запросов уже содержит и типовые джойны, и рабочие определения.
+That last source is usually forgotten and is the cheapest: the history of real queries already contains both the typical joins and the working definitions.
 
-## 2. Хранилище
+## 2. The warehouse
 
-**Core-слой** — единые сущности, ключи, история; на нём стоит весь смысл, описанный правее · **витрины** — предрассчитанные агрегаты под домены · **контракты и DQ-чекеры** — следят за качеством данных (важная оговорка: *качество ответа — это не они*) · **роли в хранилище** — нижний рубеж доступа: то, что агент не обойдёт, даже если ошибётся слоем.
+**The core layer** - single entities, keys, history; all the meaning described to its right rests on it · **the marts** - pre-computed aggregates for the domains · **contracts and data quality checkers** - they watch data quality (an important caveat: *answer quality is not what they watch*) · **roles in the warehouse** - the lower bound of access: what the agent cannot get around even if it picks the wrong layer.
 
-## 3. Слой смысла — не хранит данные, описывает, что они значат
+## 3. The meaning layer - it stores no data, it describes what the data means
 
-| Компонент | Цель | Что даёт |
+| Component | Purpose | What it gives |
 |---|---|---|
-| **Каталог метаданных** | знать, что существует и чему можно верить | владельца, свежесть, статус сертификации |
-| **Бизнес-глоссарий** | одно понятие вместо десяти синонимов | перевод слов пользователя в термины компании |
-| **Онтология и граф связей** | убрать угадывание связей между сущностями | единые ID и **разрешённые пути соединения** |
-| **Семантический слой** | считать метрику одинаково всегда и везде | меры, измерения, зерно, правила агрегации и **политики доступа в коде, а не в промпте** |
-| **Эталонные запросы и описания** | закрыть хвост, который не смоделирован | примеры «вопрос → SQL» и описания колонок |
+| **The metadata catalog** | know what exists and what can be believed | the owner, freshness, certification status |
+| **The business glossary** | one concept instead of ten synonyms | translating the user's words into the company's terms |
+| **The ontology and relation graph** | stop guessing at links between entities | single IDs and **permitted join paths** |
+| **The semantic layer** | compute a metric the same way always and everywhere | measures, dimensions, grain, aggregation rules and **access policies in code, not in the prompt** |
+| **Reference queries and descriptions** | close the tail that has not been modelled | "question -> SQL" examples and column descriptions |
 
-Плюс две вещи: **кеш и преагрегаты**, чтобы ответ приходил быстро, и **версии и тесты определений**, чтобы метрику нельзя было изменить незаметно.
+Plus two things: **cache and pre-aggregates**, so the answer comes back fast, and **versions and tests over the definitions**, so a metric cannot be changed unnoticed.
 
-## 4. Runtime ассистента — семь шагов от вопроса до числа
+## 4. The assistant's runtime - seven steps from question to number
 
-1. **Вопрос и кто его задал** — роли и домен приходят вместе с вопросом, а не после
-2. **Понять вопрос** — слова в понятия, понятия в конкретные объекты и пути
-3. **Уточнить** — если прочтений два, вернуть пользователю вопрос
-4. **Выбрать маршрут** — вопрос покрыт семантическим слоем или нет
-5. **5а. Собрать запрос (text-2-semantics)** — компилятор строит SQL из мер и измерений, **модель его не пишет**; **5б. Сгенерировать (text-2-sql)** — SQL пишет модель, но с контекстом из слоя смысла, повтор при ошибке до 3 раз
-6. **Применить права внутри запроса** — фильтр строк вшивается в SQL, а не накладывается после
-7. **Выполнить и ответить** — число, метка доверия и провенанс: какая мера, какой запрос, на какую дату данные. **«Не могу» — валидный ответ**
+1. **The question and who asked it** - the roles and the domain arrive with the question, not afterwards
+2. **Understand the question** - words into concepts, concepts into specific objects and paths
+3. **Clarify** - if there are two readings, put the question back to the user
+4. **Choose the route** - is the question covered by the semantic layer or not
+5. **5a. Assemble the query (text-to-semantics)** - a compiler builds SQL from measures and dimensions, **the model does not write it**; **5b. Generate (text-to-SQL)** - the model writes the SQL, but with context from the meaning layer, retrying on error up to 3 times
+6. **Apply entitlements inside the query** - the row filter is baked into the SQL rather than applied afterwards
+7. **Execute and answer** - the number, a trust marker and provenance: which measure, which query, as of what date. **"I can't" is a valid answer**
 
-Шаги 5а/5б — сердце конструкции: покрытая семантикой зона даёт гарантию, непокрытая — best-effort, и пользователь должен видеть разницу.
+Steps 5a and 5b are the heart of the construction: the zone covered by semantics comes with a guarantee, the uncovered zone is best effort, and the user has to see the difference.
 
-## 5. Потребители
+## 5. Consumers
 
-Бизнес задаёт вопрос словами в чат и **проверить не может** · аналитик ускоряет свою работу и достраивает ответ руками · дашборды читают **те же определения**, что и ассистент · внешние агенты получают тот же слой через единый интерфейс.
+The business asks a question in words in a chat and **cannot check it** · the analyst speeds up their own work and finishes the answer by hand · dashboards read **the same definitions** the assistant does · external agents get the same layer through one interface.
 
-## Сквозные контуры — без чего конструкция не живёт дольше квартала
+## The cross-cutting loops - without which the construction does not survive a quarter
 
-| Контур | Цель | Что даёт |
+| Loop | Purpose | What it gives |
 |---|---|---|
-| **A. Офлайн-вал** | не выпустить регресс в прод | оценку на золотом наборе до релиза, стоп-сигнал для выкатки, долю уверенно неверных ответов |
-| **B. Онлайн-вал** | видеть, что происходит в проде | трассу каждого ответа от вопроса до числа, дрейф качества, стоимость, аномалии объёма выборок |
-| **C. Разбор ошибок людьми** | превращать провалы в материал для обучения системы | новые кейсы в голденсет и подтверждённые эталонные запросы |
-| **D. Управление покрытием** | расширять зону с гарантией **по спросу, а не по интуиции команды** | очередь моделирования из самых частых best-effort вопросов |
-| **E. Доступ и безопасность** | не дать ассистенту стать каналом утечки | минимальные права, аудит запросов, ревью изменений определений |
+| **A. Offline validation** | do not let a regression into production | a score on the golden set before release, a stop signal for the rollout, the share of confidently wrong answers |
+| **B. Online validation** | see what is happening in production | a trace of every answer from question to number, quality drift, cost, anomalies in result-set size |
+| **C. Human error review** | turn failures into material for teaching the system | new cases into the golden set and confirmed reference queries |
+| **D. Coverage management** | expand the guaranteed zone **by demand, not by the team's intuition** | a modelling queue drawn from the most frequent best-effort questions |
+| **E. Access and security** | stop the assistant becoming a leak channel | minimal entitlements, query audit, review of changes to definitions |
 
-Контур D — самый недооценённый: он превращает разрыв между «покрыто семантикой» и «спрашивают» в управляемую очередь работ.
+Loop D is the most underrated: it turns the gap between "covered by semantics" and "actually asked about" into a managed work queue.
 
-## Термины
+## Terms
 
-- **Голденсет** — фиксированный список вопросов с заранее известными правильными ответами; на нём меряют систему до выкатки
-- **Eval** — прогон системы по такому набору и подсчёт метрик; офлайн-eval перед релизом, онлайн-eval на живом трафике
-- **Контур (петля)** — процесс, замкнутый сам на себя: результат работы возвращается на вход и меняет поведение системы
-- **Best-effort** — режим ответа без гарантии; противоположность governed-ответу по проверенному определению
-- **Зерно** — что означает одна строка: сделку, день на категорию, снимок остатков; определяет, что можно суммировать
-- **Провенанс** — цепочка происхождения ответа: какая метрика, какой запрос, на какую дату данные
+- **Golden set** - a fixed list of questions with the right answers known in advance; the system is measured on it before rollout
+- **Eval** - a run of the system over such a set with metrics computed; offline eval before release, online eval on live traffic
+- **Loop** - a process closed on itself: the result of the work returns to the input and changes the system's behaviour
+- **Best effort** - an answer mode with no guarantee; the opposite of a governed answer from a verified definition
+- **Grain** - what one row means: a deal, a day per category, a stock snapshot; it determines what may be summed
+- **Provenance** - the chain of an answer's origin: which metric, which query, as of what date
 
-Связи: [[ai-triad-prerequisites]] · [[plausible-but-wrong]] · [[context-governance]] · [[domain-knowledge-base]] · [[core-layer-project]]
+Links: [[ai-triad-prerequisites]] · [[plausible-but-wrong]] · [[context-governance]] · [[domain-knowledge-base]] · [[core-layer-project]]

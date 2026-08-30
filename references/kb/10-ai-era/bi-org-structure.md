@@ -1,70 +1,70 @@
 ---
 id: bi-org-structure
-title: Организационное развитие BI — место в компании, структура, совет по аналитике
+title: Organizational development of BI - its place in the company, the structure, the analytics council
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 9"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 9"
+confidence: verifiable
 blocks: [3, 6]
 ---
 
-Пять актуальных вопросов блока: место BI в оргструктуре · структура BI-отдела · роли в команде · компетенции BI-аналитика-разработчика · подбор сотрудников.
+The block's five live questions: where BI sits in the org structure · the structure of the BI department · the roles in the team · the competencies of a BI analyst-developer · hiring.
 
-## Где сидит BI — две модели
+## Where BI sits - two models
 
 | IT-centric | Business-centric |
 |---|---|
-| CIO / VP IT → Head of DWH → Head of BI · либо VP Corp management / COO → Head of BI | CDO / CAO → Head of BI |
-| **традиционный подход:** уходящий, технический, небизнесовый | **модный подход:** фокус на сервисе для бизнеса, характерен для крупных глобальных компаний |
+| CIO / VP IT -> Head of DWH -> Head of BI · or VP corporate management / COO -> Head of BI | CDO / CAO -> Head of BI |
+| **the traditional approach:** on its way out, technical, un-business-like | **the fashionable approach:** focused on service to the business, typical of large global companies |
 
-## Целевая структура под «governed self-service + centralized reporting»
+## The target structure for "governed self-service plus centralized reporting"
 
-`Executives → Head of D&A → D&A Center`, внутри которого три блока:
+`Executives -> Head of D&A -> the D&A centre`, holding three blocks:
 
-- **BI Reporting Office** (Head of BI Reporting Office): BI Business Analyst, BI Business Consultant, аналитики — централизованный сертифицированный репортинг и поддержка
-- **Self-Service BI Office** (Head of Self-Service BI Office): BI User Support manager, BI Community manager, BI Administrator — сервисы self-service и поддержка
-- **DWH team**: DWH Architect, DWH Developers, Business Analyst
+- **The BI reporting office** (Head of BI Reporting Office): BI business analyst, BI business consultant, analysts - centralized certified reporting and support
+- **The self-service BI office** (Head of Self-Service BI Office): BI user support manager, BI community manager, BI administrator - self-service services and support
+- **The DWH team**: DWH architect, DWH developers, business analyst
 
-Логика разделения: **разные Head'ы у RF и SSBI**, потому что цели у них разные и при одном владельце один блок всегда съедает другой.
+The logic of the split: **separate heads for the report factory and self-service**, because their goals differ, and under a single owner one block always eats the other.
 
-## Data & Analytics Council — совет по аналитике
+## The data and analytics council
 
-Двухуровневая конструкция:
-- **Working committee** — analytics managers из каждого бизнес-юнита, те, кто каждый день испытывает «боль от плохих данных». Могут быть подкомитеты: data governance committee, digital transformation committee, reporting committee, prioritization board.
-- **Executive committee** — бизнес-спонсоры. **Аналитиков здесь лучше отвлекать по минимуму.**
+A two-tier construction:
+- **The working committee** - analytics managers from each business unit, the people who feel "the pain of bad data" every day. There can be subcommittees: a data governance committee, a digital transformation committee, a reporting committee, a prioritization board.
+- **The executive committee** - the business sponsors. **Analysts are best distracted here as little as possible.**
 
-**Восемь процессов, которые ведёт совет:**
+**The eight processes the council runs:**
 
-| Процесс | Что делает |
+| Process | What it does |
 |---|---|
-| Standardize data | надзор за определением, документированием и управлением ключевыми элементами данных через глоссарии и каталоги |
-| Oversee data quality | стандарты и правила качества, пригодного для целей использования |
-| **Govern reports** | процессы ревью и сертификации новых корпоративных отчётов и изменений в сертифицированных |
-| **Govern algorithms** | ревью и сертификация новых алгоритмов, управление аналитическими моделями, мониторинг их точности |
-| Establish data controls and policies | определение, документирование, управление и enforcement политик доступа, приватности и безопасности |
-| Prioritize projects | приоритизация запросов на новые приложения, фичи и изменения |
-| Standardize technology | корпоративные стандарты технологий и инструментов |
-| Foster data literacy | обучение и программы поддержки для роста дата-грамотности |
-| Increase awareness | маркетинг и коммуникации для роста осведомлённости и adoption |
+| Standardize data | oversight of defining, documenting and managing the key data elements through glossaries and catalogs |
+| Oversee data quality | standards and rules for quality that is fit for the purpose of use |
+| **Govern reports** | processes for reviewing and certifying new corporate reports and changes to certified ones |
+| **Govern algorithms** | review and certification of new algorithms, management of analytical models, monitoring of their accuracy |
+| Establish data controls and policies | defining, documenting, managing and enforcing access, privacy and security policies |
+| Prioritize projects | prioritizing requests for new applications, features and changes |
+| Standardize technology | corporate standards for technology and tools |
+| Foster data literacy | training and support programmes to grow data literacy |
+| Increase awareness | marketing and communications to grow awareness and adoption |
 
-Пункт **Govern algorithms** — готовое место для AI-governance: сертификация моделей и мониторинг их точности встраивается в уже существующий орган, а не требует нового комитета.
+**Govern algorithms** is a ready-made home for AI governance: model certification and accuracy monitoring get built into an organ that already exists rather than needing a new committee.
 
-**Что делает executive-состав** (независимо от названия): коммуницирует и продаёт видение современной аналитики · представляет интересы отделов при определении бюджета · согласует решения по аналитике со стратегическими инициативами · утверждает процессы, политики, роли и обязанности BI governance · **является примером использования фактов вместо интуиции**, помещая данные и BI-отчёты в центр каждого разговора.
+**What the executive tier does** (whatever it is called): communicates and sells the vision of modern analytics · represents departmental interests in setting the budget · aligns analytics decisions with the strategic initiatives · approves the processes, policies, roles and responsibilities of BI governance · **sets the example of using facts instead of intuition**, putting data and BI reports at the centre of every conversation.
 
-## Роли: 50+ — все не нужны
+## Roles: 50+ - you do not need them all
 
-Каталог ролей D&A насчитывает более пятидесяти. Установка метода: **определите свои**, а не внедряйте каталог.
+The D&A role catalog runs to over fifty. The method's instruction: **define your own** rather than roll out the catalog.
 
-## CTB / RTB и SCRUM в BI
+## Change-the-business / run-the-business and scrum in BI
 
-Команда делится на **CTB (change the business)** и **RTB (run the business)** сабкоманды. Скрам-конструкция: Product Owner + Business Analyst / Tech Lead + BI Developers.
+The team splits into **change-the-business** and **run-the-business** subteams. The scrum construction: product owner plus business analyst / tech lead plus BI developers.
 
-- **Product Owner** — точка контакта для стейкхолдеров, управление бэклогом продукта, отслеживание активностей по доменам RTB и CTB, **создание прототипов всех новых дашбордов и согласование их с клиентами**, приёмка результатов спринта до релиза, приоритизация прототипированного бэклога, встречи с клиентами, people management. *Фокус: клиенты, результаты, люди.*
-- **BI Tech Lead — scrum master** — планирование и ревью спринта, ретро, инкремент за спринт, демонстрация результатов, развитие BI-экспертизы, поддержка SD-тикетов, коучинг команды, поддержание документации DWH и BI-среды, участие в тренингах как эксперт по данным. *Фокус: команда и задачи.*
-- **BI-аналитики / разработчики** — владение задачами и исполнение, рефайнмент бэклога, инициативы на рост качества. *Фокус: задачи.*
-- **Business analysts** — сбор требований, описание проектов. *Фокус: требования и процесс.*
+- **The product owner** - the point of contact for stakeholders, product backlog management, tracking activity across the run and change domains, **creating prototypes of every new dashboard and agreeing them with clients**, accepting sprint results before release, prioritizing the prototyped backlog, client meetings, people management. *Focus: clients, results, people.*
+- **The BI tech lead as scrum master** - sprint planning and review, retrospectives, the sprint increment, demonstrating results, growing BI expertise, supporting service-desk tickets, coaching the team, maintaining warehouse and BI environment documentation, taking part in training as a data expert. *Focus: the team and the tasks.*
+- **BI analysts / developers** - owning and executing the work, backlog refinement, quality-improvement initiatives. *Focus: the tasks.*
+- **Business analysts** - gathering requirements, documenting projects. *Focus: requirements and process.*
 
-Ритм: bi-weekly планирование в понедельник, mid-sprint review, ретро в пятницу, bi-weekly рефайнмент бэклога, weekly планирование спринта DWH, ежедневные совместные стендапы.
+The rhythm: fortnightly planning on Monday, a mid-sprint review, a retrospective on Friday, fortnightly backlog refinement, weekly warehouse sprint planning, daily joint stand-ups.
 
-**Зафиксированный эксперимент:** ушли от daily; вместо него рефайнмент не общий, а внутри доменов, плюс warmup, плюс еженедельный слот на BI governance; двухчасовое rolling-планирование спринта.
+**A recorded experiment:** they dropped the daily; in its place, refinement moved from a shared meeting into the domains, plus a warm-up, plus a weekly slot for BI governance, and a two-hour rolling sprint planning.
 
-Связи: [[regular-meetings]] · [[bi-competency-matrix]] · [[bi-routine-calendar]] · [[centralized-bi-brand]]
+Links: [[regular-meetings]] · [[bi-competency-matrix]] · [[bi-routine-calendar]] · [[centralized-bi-brand]]

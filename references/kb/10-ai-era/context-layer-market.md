@@ -1,107 +1,107 @@
 ---
 id: context-layer-market
-title: Контекстный слой (LLM wiki) — рынок, архитектура, что доказано
+title: The context layer (the LLM wiki) - the market, the architecture, what is proven
 type: evidence
-source: "Курс «BI+AI стратегия 26», Занятие 8; развёрнуто в references/evidence-2026.md §5"
-confidence: смешанная — разделено по источнику доказательства
+source: "Course \"BI+AI strategy 26\", Day 8; expanded in references/evidence-2026.md §5"
+confidence: mixed - separated by the type of evidence
 blocks: [5]
 ---
 
-## Data governance ≠ Context governance
+## Data governance is not context governance
 
-Разные объекты управления:
-- **Data governance** — сами данные: качество, доступ, происхождение, соответствие
-- **Context governance** — слой смысла: определения, доменные знания, метаданные, ситуативный контекст. **То, что агент читает, чтобы рассуждать**
+They govern different objects:
+- **Data governance** - the data itself: quality, access, provenance, compliance
+- **Context governance** - the meaning layer: definitions, domain knowledge, metadata, situational context. **What the agent reads in order to reason**
 
-> **Чистые данные ≠ доверенные данные.** Агенту мало правильных чисел — нужны сигналы о свежести, владельце, изменении определения, иначе он уверенно ошибётся.
+> **Clean data is not trusted data.** Correct numbers are not enough for an agent - it needs signals about freshness, ownership and changes to definitions, or it will be confidently wrong.
 
-Сдвиг рынка 2026: каталог данных → context platform.
+The 2026 market shift: the data catalog becomes the context platform.
 
-## Почему каталог перестал справляться
+## Why the catalog stopped coping
 
-Агент не человек: он не спросит коллегу, не догадается по контексту и не заметит, что определение метрики поменялось полгода назад.
+An agent is not a person: it will not ask a colleague, will not infer from context, and will not notice that a metric's definition changed six months ago.
 
-- **Знание живёт в головах** — правила именования, стандартные фильтры, известные кривости конкретных витрин не приходят через подключение к базе
-- **Больше контекста ≠ лучше** — context rot: качество падает по мере роста ввода; у модели с окном 200К заметная потеря точности уже на 50К токенов
-- **RAG в лоб не спасает** — свалить документы в вектор-стор это не governance
+- **The knowledge lives in people's heads** - naming rules, the standard filters, the known quirks of particular marts do not arrive through a database connection
+- **More context is not better** - context rot: quality degrades as input grows; a model with a 200K window loses noticeable accuracy already at 50K tokens
+- **Naive RAG does not save you** - dumping documents into a vector store is not governance
 
-## Три разные вещи, которые постоянно путают
+## Three different things that get constantly confused
 
-| | На какой вопрос отвечает | Потребитель |
+| | Which question it answers | Consumer |
 |---|---|---|
-| **Каталог данных** | «что у нас есть» — перечень объектов и схем, владельцы, теги, сертификация, lineage | **человек, который ищет** |
-| **Семантический слой** | «как это правильно посчитать» — определения метрик и разрезов, единое место расчёта, детерминированная генерация SQL | **движок запросов** |
-| **Контекстный слой (LLM wiki)** | «что это значит и чему верить» — плюс неструктурное знание (доки, треды, решения), ловушки и примеры «вопрос → SQL», плоскость доверия и свежести | **агент, через MCP** |
+| **The data catalog** | "what do we have" - a list of objects and schemas, owners, tags, certification, lineage | **the human doing the searching** |
+| **The semantic layer** | "how is this correctly computed" - metric and dimension definitions, a single place of computation, deterministic SQL generation | **the query engine** |
+| **The context layer (the LLM wiki)** | "what does this mean and what should be believed" - plus unstructured knowledge (docs, threads, decisions), traps and "question -> SQL" examples, a plane of trust and freshness | **the agent, via MCP** |
 
-**Контекстный слой не заменяет два первых, а надстраивается над ними.** Убери любой — агент начнёт угадывать.
+**The context layer does not replace the first two; it is built on top of them.** Remove any one and the agent starts guessing.
 
-## Референсная архитектура — пять слоёв плюс петля
+## The reference architecture - five layers plus a loop
 
-1. **Источники** — хранилище (схемы, витрины) · логи запросов и BI-использование · документы · треды, тикеты, решения · код (dbt, SQL, пайплайны)
-2. **Сбор** — коннекторы · извлечение lineage до колонок · **майнинг истории запросов** · парсинг документов · событийная синхронизация
-3. **Сборка знания** — резолвинг сущностей · **генерация описаний + human-gate** · глоссарий и определения метрик · пары «вопрос → SQL», ловушки · eval-кейсы (golden set)
-4. **Хранение** — граф метаданных и семантический слой · вектора чанков с ACL · статус inferred → verified · freshness TTL, provenance, SSOT
-5. **Подача** — **MCP-сервер: pull, не push** · тот же policy-движок, что людям · **ACL-фильтр ДО поиска** · отдаёт только релевантные чанки · аудит: кто что прочитал
+1. **Sources** - the warehouse (schemas, marts) · query logs and BI usage · documents · threads, tickets, decisions · code (dbt, SQL, pipelines)
+2. **Collection** - connectors · lineage extraction down to the column · **mining the query history** · document parsing · event-driven synchronization
+3. **Assembling knowledge** - entity resolution · **generating descriptions plus a human gate** · the glossary and metric definitions · "question -> SQL" pairs, traps · eval cases (the golden set)
+4. **Storage** - the metadata graph and the semantic layer · chunk vectors with ACLs · status inferred to verified · freshness TTL, provenance, a single source of truth
+5. **Serving** - **an MCP server: pull, not push** · the same policy engine humans get · **an ACL filter BEFORE the search** · returning only the relevant chunks · audit: who read what
 
-**Петля обратной связи:** агент пишет обратно, чего не нашёл и что противоречит, ставит флаги качества · usage задаёт приоритет описаний · eval ловит регресс после смены определения · **провал теста снимает статус verified**.
+**The feedback loop:** the agent writes back what it could not find and what contradicts, and raises quality flags · usage sets the priority for descriptions · eval catches a regression after a definition changes · **a failed test removes the verified status**.
 
-*Не закрыто стандартом: сквозная цепочка «промпт → какие куски достали → какой ответ выдали».*
+*Not covered by any standard: the end-to-end chain of "prompt -> which chunks were retrieved -> which answer was given".*
 
-## Паспорт атома знания
+## The passport of a knowledge atom
 
-Обязательные поля узла: **provenance** (откуда добыт факт) · **status** (inferred → candidate → verified → deprecated) · **ssot_ref** (ссылка на источник истины — формула НЕ копируется) · **freshness** (created / verified / ttl; состояние fresh · aging · stale) · **source_object** (объект-источник плюс его сертификация и health-score) · **owner · eval · usage**.
+The mandatory fields on a node: **provenance** (where the fact was obtained) · **status** (inferred -> candidate -> verified -> deprecated) · **ssot_ref** (a reference to the source of truth - the formula is NOT copied) · **freshness** (created / verified / ttl; state fresh · aging · stale) · **source_object** (the source object plus its certification and health score) · **owner · eval · usage**.
 
-Четыре корневые проблемы «сырой» базы знаний, которые это закрывает: откуда взялся факт · проверено человеком или выведено моделью · не протухло ли · не копия ли определения, разошедшаяся с оригиналом.
+Four root problems of a "raw" knowledge base that this closes: where the fact came from · whether it was checked by a human or inferred by a model · whether it has gone stale · whether it is a copy of a definition that has since diverged from the original.
 
-**Доверие наследуется:** если витрина потеряла сертификат — знание о ней автоматически падает в candidate.
+**Trust is inherited:** if a mart loses its certificate, knowledge about it automatically drops to candidate.
 
-## Три протокола и чего не решает ни один
+## Three protocols, and what none of them solves
 
-- **MCP** — как агент запрашивает контекст. Есть у всех игроков. *«MCP переносит контекст, но не производит его.»* Риск: отравление инструментов.
-- **A2A** — как агенты договариваются между собой; актуально при нескольких агентских системах, ранняя стадия.
-- **OSI → Apache Ossie** — YAML-формат обмена определениями метрик, «USB-C для семантики», а не новый семантический слой; конвертеры в dbt MetricFlow.
+- **MCP** - how an agent requests context. Every player supports it. *"MCP carries context but does not produce it."* The risk: tool poisoning.
+- **A2A** - how agents negotiate with each other; relevant once you have several agent systems, at an early stage.
+- **OSI -> Apache Ossie** - a YAML format for exchanging metric definitions, "USB-C for semantics" rather than a new semantic layer; converters into dbt MetricFlow.
 
-**Чего не закрывает ни один:**
-1. **Переносимость прав.** RLS, настроенная в одном каталоге, не работает при чтении той же таблицы через другой. Отраслевого формата обмена политиками нет — поэтому на практике выбирают **ОДИН каталог как границу governance**.
-2. **Происхождение ответа.** Цепочка «промпт → извлечённые куски → ответ» в стандарты не входит.
+**What none of them covers:**
+1. **Portability of entitlements.** Row-level security configured in one catalog does not apply when the same table is read through another. There is no industry format for exchanging policies - which is why in practice people pick **ONE catalog as the governance boundary**.
+2. **The provenance of an answer.** The chain "prompt -> retrieved chunks -> answer" is not part of any standard.
 
-## Что доказано, а что нарратив
+## What is proven and what is narrative
 
-**Доказано независимо:** качество падает с ростом ввода (проверено на 18 моделях, падение на каждом шаге задолго до заполнения окна) · падение рывком, а не постепенно (до ~51K токенов точность держится, к 64K обваливается почти вдвое) · описания от модели врут втрое чаще человека (19,6% против 6,3%).
+**Independently proven:** quality degrades as input grows (checked across 18 models, declining at every step long before the window fills) · the decline is continuous rather than a cliff - the "cliff" claim comes from a different paper, where the threshold is **a share of the window (40-50%)**, not an absolute 51-64K tokens · model-written descriptions are wrong three times more often than human ones (19.6% versus 6.3% - *the cited source did not survive verification; do not quote this figure until it is checked against the full text*).
 
-**Мерил продавец:** «+38% к точности SQL» · «около 90% точности агента» · «87% описаний не хуже человека» — методики не опубликованы, независимая проверка даёт втрое больше ошибок.
+**Vendor-measured:** "38% better SQL accuracy" · "around 90% agent accuracy" · "87% of descriptions no worse than a human's" - the methodologies are not published, and independent checking finds three times as many errors.
 
-**Маркетинг:** опросы «82% / 87% / 91%» заказаны теми, кто продаёт платформу, и внутренне противоречивы (88% «платформа уже есть» и одновременно 87% «данные не готовы») · «каталог → context platform» — новое название для того же графа метаданных · «AI-native governance» — на практике авто-теги и авто-описания с той же долей ошибок.
+**Marketing:** the "82% / 87% / 91%" surveys were commissioned by the people selling the platform and are internally contradictory (88% "the platform already exists" alongside 87% "the data is not ready") · "catalog becomes context platform" is a new name for the same metadata graph · "AI-native governance" is, in practice, auto-tags and auto-descriptions with the same error rate.
 
-> **Практический вывод: покупать стоит архитектуру — где лежит контекст, чьи права, можно ли забрать данные, — а не заявленные проценты.** Любую заявленную цифру проверять на своём наборе эталонных вопросов, иначе вы покупаете чужой замер.
+> **The practical conclusion: buy the architecture - where the context sits, whose entitlements apply, whether you can take the data out - not the claimed percentages.** Check any claimed figure on your own set of reference questions, or you are buying somebody else's measurement.
 
-## Ловушка стоимости
+## The cost trap
 
-У открытых решений лицензия нулевая, но **0,25–1 FTE платформенного инженера** на апгрейды, починку коннекторов и запросы. У коммерческих цену двигает не число мест, а **число подключённых источников**.
+Open-source solutions have a zero licence but cost **0.25-1 FTE of a platform engineer** for upgrades, fixing connectors and handling requests. For commercial ones the price is driven not by seat count but by **the number of connected sources**.
 
-## Как собрать свою LLM wiki без покупки платформы
+## How to assemble your own LLM wiki without buying a platform
 
-Порядок важнее инструмента — каждый шаг имеет смысл только после предыдущего:
+The order matters more than the tool - each step only makes sense after the one before:
 
-1. **Выбрать границу governance** — один каталог как источник прав; все движки и агенты ходят через него
-2. **Собрать атомы, а не документы** — каждый узел с паспортом
-3. **Майнить, а не писать** — контекст добывается из истории запросов и дашбордов; ручное описание только на пилотный домен
-4. **Узкий human-gate** — из inferred в verified только через человека; **метрика — доля принятого без правок, а не покрытие**
-5. **Отдавать по MCP с фильтром** до поиска, а не после
-6. **Замкнуть петлю** — golden set, регресс при смене определения, обратная запись от агента
+1. **Choose the governance boundary** - one catalog as the source of entitlements; every engine and agent goes through it
+2. **Collect atoms, not documents** - each node with a passport
+3. **Mine, do not write** - context is extracted from the query history and the dashboards; hand-written description only for the pilot domain
+4. **A narrow human gate** - inferred becomes verified only through a human; **the metric is the share accepted without edits, not coverage**
+5. **Serve over MCP with the filter** applied before the search, not after
+6. **Close the loop** - a golden set, a regression when a definition changes, write-back from the agent
 
-**Метрики:** доля знаний в статусе verified · медианный возраст узла · доля ответов агента с провенансом · точность на golden set до и после подачи контекста · доля описаний, принятых без правок.
+**The metrics:** the share of knowledge in verified status · the median age of a node · the share of agent answers carrying provenance · accuracy on the golden set before and after context is supplied · the share of descriptions accepted without edits.
 
-**Анти-паттерны:** свалить документы в вектор-стор и назвать это базой знаний · сгенерировать описания на всё и опубликовать без проверки · завести агенту отдельный контур прав «чтобы не мешал».
+**The anti-patterns:** dumping documents into a vector store and calling it a knowledge base · generating descriptions for everything and publishing them unchecked · giving the agent its own separate entitlement perimeter "so it does not get in the way".
 
-## Операционная модель и kill-gate
+## The operating model and the kill-gate
 
-**Куратор не пишет контекст — судит черновик машины** (gate, а не авторинг).
+**The curator does not write context - they judge the machine's draft** (a gate, not authoring).
 
-Целевые пороги: accuracy доменного бота 25% → 80% · verified share ≥ 70% · false-accept rate < 5%.
+The target thresholds: domain bot accuracy 25% -> 80% · verified share at least 70% · false-accept rate under 5%.
 
-Правила: **DoD атома** — пустое поле значит не verified и не сервится · **verify привязан к eval** — нельзя пометить verified то, что роняет точность · **депрекейт автоматизирован** — «никто не убрал» невозможно, убирает таймаут · **наполнение ≠ доверие ≠ эффект** — три разные метрики.
+The rules: **an atom's definition of done** - an empty field means not verified and not served · **verify is tied to eval** - you cannot mark as verified something that lowers accuracy · **deprecation is automated** - "nobody removed it" is impossible, a timeout removes it · **population is not trust is not effect** - three different metrics.
 
-> **Kill-gate: если прирост accuracy от контекста не значим — СТОП.** Бесполезный контекст роняет доверие ко всей AI-повестке (governance theatre).
+> **The kill-gate: if the accuracy gain from context is not significant, STOP.** Useless context knocks down trust in the whole AI agenda (governance theatre).
 
-Связи: [[context-governance]] · [[domain-knowledge-base]] · [[semantic-layer-evidence]] · [[data-catalog-pitfalls]] · [[plausible-but-wrong]]
+Links: [[context-governance]] · [[domain-knowledge-base]] · [[semantic-layer-evidence]] · [[data-catalog-pitfalls]] · [[plausible-but-wrong]]

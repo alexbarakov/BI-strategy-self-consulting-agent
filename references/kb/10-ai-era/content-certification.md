@@ -1,57 +1,57 @@
 ---
 id: content-certification
-title: Сертификация BI-контента — три модели и их оттенки
+title: Certifying BI content - three models and their shades
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие «Content management»"
-confidence: проверяемо (описания практик компаний)
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session"
+confidence: verifiable (descriptions of company practice)
 blocks: [4.2]
 ---
 
-Курс задаёт вопрос прямо: **нормальная тема или оверинжиниринг?** — и отвечает: у сертификации есть оттенки, и модель выбирается под модель управления.
+The course puts the question directly: **a sensible topic or over-engineering?** - and answers that certification has shades, and the model is chosen to fit the management model.
 
-## Модель А. Сертификация в децентрализованном self-service
+## Model A. Certification in decentralized self-service
 
-Все отчёты делятся на «хорошие» (сертифицированные) и «плохие», и команда верит, что хорошие быстрее решают задачу бизнеса. Сертификация проходит в ревью, через которое проходит каждый отчёт, попадающий в прод. По сути похоже на ревью кода, но менее стандартизировано.
+All reports split into "good" (certified) and "bad", and the team believes the good ones solve the business's problem faster. Certification happens in the review every report goes through on the way to production. It is essentially like code review, but less standardized.
 
-**Формальные признаки:** наличие описания и понятного названия · правильность выставления доступов · использование стандартов оформления.
-**Экспертные признаки:** удобство и UX · правильность расчётов · оптимальность «кода» в BI-инструменте.
+**Formal criteria:** a description and a comprehensible name are present · entitlements are set correctly · the formatting standards are used.
+**Expert criteria:** convenience and UX · correctness of the calculations · how well the "code" in the BI tool is written.
 
-### Двухуровневая реализация
+### A two-tier implementation
 
-**1. Автоматическая сертификация BI** — 5 машинных проверок: заполнены метаданные для стартовой страницы · есть заголовок с указанием владельца · есть документация не менее 300 символов · отчёт и его объекты в продовых папках · отчёт работает быстро.
+**1. Automatic BI certification** - 5 machine checks: metadata for the landing page is filled in · there is a heading naming the owner · there is documentation of at least 300 characters · the report and its objects are in production folders · the report runs fast.
 
-**2. Сертификация данных** — только для ключевых отчётов или по требованию, по 5 параметрам: **Datasources · ETL · Methodology · Metrics (расчёт и сходимость) · Docs**. Упрощённая версия проверяет только Datasources, ETL, Docs — **методология расчёта метрик в ней не проверяется**, и это честно проговорено.
+**2. Data certification** - only for key reports or on request, across 5 parameters: **data sources · ETL · methodology · metrics (calculation and reconciliation) · docs**. A simplified version checks only data sources, ETL and docs - **the metric calculation methodology is not checked in it**, which is stated honestly.
 
-### Операционные ответы, которые метод считает обязательными
+### The operational answers the method considers mandatory
 
-- **Все ли отчёты проходят?** Автоматическую — да, кроме sandbox, self-service и личных папок. Тикеты на проверку данных заводятся только для самых просматриваемых.
-- **Что будет, если не пройти?** Везде висит плашка «отчёт не прошёл сертификацию» с указанием, что конкретно не так.
-- **Что будет тем, кто пройдёт?** Ачивка плюс отчёт с рейтингом владельцев, который принимается во внимание на ревью сотрудника.
-- **Поможет ли команда развития BI?** Да в сложных случаях, но в первую очередь помогает BI-аналитик своей команды.
-- **Как подтверждается?** Раз в год в рамках субботника.
+- **Do all reports go through?** The automatic one, yes, except sandboxes, self-service and personal folders. Data check tickets are raised only for the most-viewed.
+- **What happens if you fail?** A banner appears everywhere saying "this report failed certification", naming exactly what is wrong.
+- **What do those who pass get?** An achievement, plus a report ranking owners that is taken into account in performance review.
+- **Will the BI development team help?** Yes, in hard cases, but the first port of call is your own team's BI analyst.
+- **How is it re-confirmed?** Once a year, as part of the clean-up day.
 
-## Модель Б. Сертификация в централизованном report factory
+## Model B. Certification in a centralized report factory
 
-Процесс маркировки отчётов, **рекомендованных бизнес-функцией, отвечающей за область данных**, плюс контроль качества данных и актуальности логики по промаркированным.
+A process of marking reports **recommended by the business function responsible for the data area**, plus quality control over data and logic freshness for whatever has been marked.
 
-Бейдж «Рекомендовано \<название функции\>» означает, что департамент подтвердил правильность данных и логики и участвует в регулярном ревью.
+The badge "Recommended by \<function name\>" means the department has confirmed the data and the logic are right and takes part in the regular review.
 
-**Зачем:** пользователь среди множества отчётов находит заслуживающий доверия и экономит время; избегает устаревших по логике или необновляемых отчётов. **Без бюрократии:** сертифицируются только кросс-функциональные отчёты с потенциалом использования разными ролями; всё фиксируется в карточках отчётов на wiki; сертификация — часть разработки АРМ; промаркированные отчёты проверяются в полугодичных аудитах.
+**What for:** the user finds a trustworthy report among many and saves time; they avoid reports whose logic is stale or that are no longer refreshed. **Without bureaucracy:** only cross-functional reports with potential use by several roles get certified; everything is recorded on the report cards in the wiki; certification is part of building the analytical workplace; marked reports are checked in semi-annual audits.
 
-**Четыре роли в матрице ответственности:** Business Stakeholder (финальные решения по бизнес-логике, приоритизация) · Data Steward (разработка и проверка бизнес-логики, требования, UAT) · Report Developer (источники, разработка, дизайн, тестирование, документация) · Контроллер (запуск, модерирование и финализация коммуникаций, обновление артефактов на wiki).
+**Four roles in the responsibility matrix:** the business stakeholder (final decisions on business logic, prioritization) · the data steward (developing and checking the business logic, requirements, UAT) · the report developer (sources, development, design, testing, documentation) · the controller (starting, moderating and finalizing the communications, updating the wiki artifacts).
 
-**Этапы:** единовременная маркировка при включении в АРМ → разработка нового или апгрейд существующего кросс-функционального отчёта → релиз и промоушен в целевые роли → поддержка → **регулярные ревью раз в полгода** по всем отчётам АРМ.
+**The stages:** a one-off marking on inclusion in the workplace -> building a new cross-functional report or upgrading an existing one -> release and promotion into the target roles -> support -> **regular reviews every six months** across all the workplace's reports.
 
-## Модель В. Гибридная — report stewardship program
+## Model C. Hybrid - a report stewardship programme
 
-Ответственность за поддержку аналитических решений делится с представителями заказчика: **Business Stakeholder · Data Steward · R&A Report Owner**. Сертификация подтверждает, что дашборд верифицирован и R&A, и корпоративной функцией, и данным можно доверять при принятии решений.
+Responsibility for supporting analytical solutions is shared with the requester's representatives: **the business stakeholder · the data steward · the R&A report owner**. Certification confirms the dashboard has been verified both by R&A and by the corporate function, and that the data can be trusted for decisions.
 
-Разграничение с self-service простое: **если бизнес готов и может делать и поддерживать кросс-функциональный отчёт** — он разрабатывает и поддерживает, а централизованная команда помогает учесть требования другой части бизнеса и включает в АРМ. **Если не готов или не может** — разработка и поддержка на централизованной команде, бизнес участвует как заказчик.
+The boundary with self-service is simple: **if the business is willing and able to build and maintain a cross-functional report**, it develops and maintains it, and the centralized team helps take another part of the business's requirements into account and includes it in the workplace. **If it is unwilling or unable**, development and support sit with the centralized team and the business participates as the requester.
 
-Отдельный сценарный переход: отчёт, сделанный для своей команды, при выходе за её пределы проходит проверку на пересечение с существующим репортингом, совместное решение о владении и, при необходимости, **передачу ownership централизованной команде** с оптимизацией дизайна и архитектуры, ревью логики, настройкой видимости и подготовкой описаний.
+A separate scenario transition: a report built for one team, on going beyond that team, passes a check for overlap with existing reporting, a joint decision on ownership and, where needed, **a transfer of ownership to the centralized team**, with design and architecture optimization, a logic review, visibility configuration and prepared descriptions.
 
-## Связь с AI-эрой
+## The tie to the AI era
 
-Сертификация перестаёт быть только человеческим trust-сигналом: **health score контента становится сигналом доверия для агента**. Отсюда метрика из [[ai-ready-domain-score]] — доля просмотров и запросов, приходящаяся на здоровое и сертифицированное. Альтернативный подход «сертификация через тесты вместо паспорта» и его trade-off — `evidence-2026.md` §7.
+Certification stops being only a human trust signal: **a content health score becomes a trust signal for the agent**. Hence the metric from [[ai-ready-domain-score]] - the share of views and queries landing on healthy, certified content. The alternative approach of "certification through tests instead of a passport", and its trade-off, is in `evidence-2026.md` §7.
 
-Связи: [[content-mgmt-processes]] · [[content-hygiene-loop]] · [[ai-ready-domain-score]] · [[content-catalog-ux]]
+Links: [[content-mgmt-processes]] · [[content-hygiene-loop]] · [[ai-ready-domain-score]] · [[content-catalog-ux]]

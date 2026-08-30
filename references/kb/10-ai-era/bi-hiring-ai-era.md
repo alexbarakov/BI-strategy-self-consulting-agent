@@ -1,73 +1,73 @@
 ---
 id: bi-hiring-ai-era
-title: Найм в BI в AI-эру — Grade Discovery и что делать с вымыванием джунов
+title: Hiring into BI in the AI era - grade discovery and what to do about the vanishing juniors
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 9 — внутренняя практика"
-confidence: проверяемо (внутренний процесс)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 9 - internal practice"
+confidence: verifiable (an internal process)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [6, 7]
 ---
 
-## Что изменилось в работе BI-разработчика
+## What has changed in a BI developer's work
 
-- **AI-first: LLM в ежедневном цикле** — от SQL до витрин и документации. Ценность разработчика — получить корректный результат любым инструментом, **сохранив контроль качества**.
-- **Узкое место — ревью и требования.** Код пишется быстрее, решают качество ревью, анализ требований и понимание ценности. Фокус найма смещается с «сделает ли руками» на **«отревьюит ли результат»**.
-- **Профиль SQL-навыков сместился.** Ручное письмо с нуля — уже не основной кейс. Доминируют чтение чужого кода, дебаг, ревью LLM-вывода и защита решений в диалоге.
-- **Матрица уже переписана под AI, а найм остался прежним** — процесс проверяет харды «на словах» и не видит AI. Этот разрыв и закрывает новая концепция.
+- **AI-first: the LLM is in the daily cycle** - from SQL to marts and documentation. A developer's value is getting a correct result with any tool while **keeping quality under control**.
+- **The bottleneck is review and requirements.** Code gets written faster; what decides the outcome is the quality of review, requirements analysis and an understanding of value. The hiring focus shifts from "can they build it by hand" to **"will they review the result"**.
+- **The SQL skill profile has shifted.** Writing by hand from scratch is no longer the main case. What dominates is reading other people's code, debugging, reviewing LLM output and defending decisions in conversation.
+- **The competency matrix has already been rewritten for AI while hiring stayed the same** - the process tests hard skills "in words" and cannot see AI at all. The new concept exists to close that gap.
 
-## Пять принципов новой концепции найма
+## Five principles of the new hiring concept
 
-1. **Grade Discovery** — один процесс с нарастающей сложностью. **Грейд определяется по «потолку», где кандидат начинает плыть, а не по резюме.**
-2. **Привязка к матрице 1:1** — каждый блок интервью закрывает конкретные компетенции; **нет блоков «для общего впечатления»**.
-3. **Hard — практика, soft — кейс** — ETL и визуализация через артефакты в моменте; продуктовый подход наблюдением в кейсе, не опросом.
-4. **AI-first с контролем качества** — LLM разрешён на технических задачах, это реальный режим работы. **Стоп-сигналы: отказ от LLM и слепое доверие к output** — оба одинаково плохи.
-5. **Пул интервьюеров + score card** — рубрикаторы по каждому блоку, расхождения калибруются; AI-обвес снимает рутину фиксации. **Рекомендация = min(hard, soft)** — для подтверждения грейда нужен результат в обеих частях; защита и от завышения, и от занижения.
+1. **Grade discovery** - one process with rising difficulty. **The grade is determined by the ceiling at which the candidate starts to flounder, not by the CV.**
+2. **A 1:1 tie to the matrix** - each interview block closes specific competencies; **there are no blocks "for a general impression"**.
+3. **Hard skills through practice, soft skills through a case** - ETL and visualization through artifacts produced in the moment; the product mindset through observation in a case, not through questioning.
+4. **AI-first with quality control** - the LLM is allowed on the technical tasks, because that is the real working mode. **The stop signals are refusing the LLM and trusting its output blindly** - equally bad.
+5. **A pool of interviewers plus a scorecard** - rubrics for each block, with divergences calibrated; the AI harness removes the routine of recording. **The recommendation is min(hard, soft)** - confirming a grade requires a result in both halves, which protects against both inflation and deflation.
 
-*AI-обвес:* запись и транскрипция интервью, автопроверка задач, LLM-агент с выводами по компетенциям матрицы.
+*The AI harness:* interview recording and transcription, automatic task checking, an LLM agent that produces conclusions against the matrix competencies.
 
-## Воронка
+## The funnel
 
-HR-скрининг → **тех.сессия (новая)** → **кейс-секция (новая, примерно в полтора раза длиннее тех.сессии)** → финал у нанимающего менеджера → culture fit без изменений. Обе новые секции уложены в общий лимит тех.части, заданный до редизайна, — это было ограничением дизайна, а не следствием.
+HR screening -> **the technical session (new)** -> **the case section (new, roughly half again as long as the technical session)** -> the final with the hiring manager -> culture fit, unchanged. Both new sections fit inside the overall limit on the technical part that was set before the redesign - that was a design constraint, not a consequence.
 
-Грейд на входе неизвестен — процесс определяет его сам; все кандидаты идут одним маршрутом, сложность нарастает внутри секций. **Финальное слово по грейду — за нанимающим менеджером; тех.секции дают основание, а не вердикт.**
+The grade is unknown at entry; the process determines it. All candidates take one route, with difficulty rising inside the sections. **The final word on grade rests with the hiring manager; the technical sections give grounds, not a verdict.**
 
-## Честная карта покрытия — что процесс проверяет надёжно, а что нет
+## An honest coverage map - what the process tests reliably and what it does not
 
-| Компетенция | Где проверяется | Надёжность |
+| Competency | Where it is tested | Reliability |
 |---|---|---|
-| SQL/DWH | тех.сессия: 3 задачи + устный дебриф | надёжно L1–L2, сигнал L3 |
-| ETL | кейс, фаза 2 — модель данных | надёжно L1–L2, L3 — портфолио |
-| BI-инструмент | кейс — паттерны проектирования, не UI | **только сигнал L1–L2** |
-| Визуализация | прожарка дашборда, макет в кейсе если успели | надёжно L1–L2 |
-| Python | **не проверяем — зона риска по таймингу** | не проверяем |
-| Софты и BI Project | кейс (наблюдение) + поведенческий блок | наблюдение |
-| LLM-компетентность | дебриф + поведенческий блок | сигнал L1–L3 |
+| SQL/DWH | technical session: 3 tasks plus an oral debrief | reliable at L1-L2, a signal at L3 |
+| ETL | the case, phase 2 - the data model | reliable at L1-L2; L3 via portfolio |
+| The BI tool | the case - design patterns, not the UI | **a signal at L1-L2 only** |
+| Visualization | a dashboard critique, a mock-up in the case if there was time | reliable at L1-L2 |
+| Python | **not tested - a risk zone on timing** | not tested |
+| Soft skills and BI project | the case (observation) plus a behavioural block | observation |
+| LLM competence | the debrief plus the behavioural block | a signal at L1-L3 |
 
-Публикация ограничений процесса вместе с ним — редкость и признак зрелости: «обмен знаниями» на входе не проверяем как некритичную для найма компетенцию, AI-first майндсет мониторим поведенческими вопросами.
+Publishing the process's limitations alongside it is rare and a sign of maturity: "knowledge sharing" is not tested at entry, being non-critical for hiring, and the AI-first mindset is monitored through behavioural questions.
 
-## Что остаётся важнее технических навыков
+## What still matters more than technical skill
 
-> Вовлечённость, внутренняя мотивация, готовность делать бизнес-анализ данных и делать нестыдный дизайн на входе — **немного важнее тех-скиллов**. BI-продукту можно натаскать, SQL можно прокачать.
+> Engagement, intrinsic motivation, a willingness to do business analysis of data and to produce design that is not embarrassing on day one are **slightly more important than technical skills**. A BI product can be learned; SQL can be built up.
 
-Классический набор блоков: проективное интервью (софты и бизнесовость) · практическое задание на BI-продукт **даже если кандидат его не знает** (мотивация, способность быстро разобраться, базовый дизайн-скилл) · техническое интервью по SQL.
+The classic set of blocks: a projective interview (soft skills and business sense) · a practical task on a BI product **even if the candidate does not know it** (motivation, the ability to get up to speed fast, basic design skill) · a technical interview on SQL.
 
-## Риск, который стоит назвать вслух: битва агентов
+## A risk worth naming out loud: the battle of the agents
 
-> Кандидат бомбит генеративными резюме ↔ рекрутер агентами скорит.
-> Сотрудник генерит отчёт и артефакты для перф-ревью ↔ менеджеры агентами прогоняют ревью.
+> The candidate carpet-bombs with generated CVs, while the recruiter scores with agents.
+> The employee generates a report and artifacts for the performance review, while managers run the review through agents.
 
-Обе петли обесценивают процесс с двух концов. Отсюда требование к артефактам «в моменте» и к устному дебрифу.
+Both loops hollow the process out from either end. Hence the requirement for artifacts produced in the moment and an oral debrief.
 
-## Вымывание джун-мидл уровня — и что делать вместо сокращения
+## The vanishing junior-to-middle tier - and what to do instead of cutting
 
-Сжатие команд-фабрик до 2–3 человек создаёт не только экономию, но и **кадровый риск**, которым нужно осознанно управлять.
+Compressing factory teams down to two or three people creates not only a saving but a **staffing risk** that has to be managed deliberately.
 
-**Риск, если пустить на самотёк:** исчезает вход в профессию для джунов и мидлов · некому растить будущих синьоров через 3–5 лет · **выхолащивание — оператор агента весь день на интеллектуальной нагрузке без пауз**.
+**The risk if left alone:** the entry route into the profession disappears for juniors and middles · in three to five years there is nobody to grow into senior · **hollowing out - an agent operator on intellectual load all day with no pauses**.
 
-**Что делать вместо этого:** переводить джунов в роль BDE и кураторов домена, а не увольнять · растить их **через ревью AI-аутпутов**, а не через рутину · **намеренно оставлять часть рутины для «заземления»** · переобучать на semantic, ДБЗ и агентскую разработку.
+**What to do instead:** move juniors into business data engineer and domain curator roles rather than letting them go · grow them **through reviewing AI outputs** rather than through routine · **deliberately keep some routine as ballast** · retrain them on semantics, the domain knowledge base and agent development.
 
-> Сжатие команд — это не только про сокращение, но и про новую траекторию роста: рутину забирает агент, а люди двигаются в сторону смысла, домена и надзора за качеством.
+> Compressing teams is not only about cutting; it is about a new growth trajectory: the agent takes the routine and people move towards meaning, the domain and oversight of quality.
 
-Это самый сильный кандидат в раздел «управление изменениями» стратегии: он даёт ответ на вопрос, который задаст HR и команда, и переводит сокращение в переквалификацию.
+This is the strongest candidate for a strategy's change management section: it answers the question HR and the team will ask, and turns a cut into a retraining.
 
-Связи: [[bi-competency-matrix]] · [[bi-org-structure]] · [[ai-in-data-processes]] · [[action-plan]]
+Links: [[bi-competency-matrix]] · [[bi-org-structure]] · [[ai-in-data-processes]] · [[action-plan]]

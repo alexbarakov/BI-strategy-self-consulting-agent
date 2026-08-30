@@ -1,71 +1,71 @@
 ---
 id: domain-knowledge-base
-title: Доменная база знаний (ДБЗ) — что внутри, как наполнять, как мерить
+title: The domain knowledge base - what is in it, how to populate it, how to measure it
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 7 — внутренняя практика"
-confidence: проверяемо (внутренние замеры)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 7 - internal practice"
+confidence: verifiable (internal measurements)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [4.3, 5, 6]
 ---
 
-**ДБЗ как skill: агент отвечает по домену, а не по памяти модели.**
+**The domain knowledge base as a skill: the agent answers from the domain, not from the model's memory.**
 
-## Зачем — диагноз причины неверных ответов
+## Why - a diagnosis of what causes wrong answers
 
-Причины фантазий агента формулируются одним блоком: **нехватка знаний про доменную специфику** — правила использования объектов для юзкейсов, допущения, принятые интерпретации, связи объектов и бизнес-процессов.
+The causes of an agent's inventions come down to one block: **a shortage of knowledge about domain specifics** - the rules for using objects in a use case, the assumptions, the accepted interpretations, the links between objects and business processes.
 
-Это не лечится большей моделью — только внешним знанием.
+A bigger model does not cure this; only external knowledge does.
 
-## Дорожная карта наполнения
+## The population roadmap
 
-0. **Определить с руководителем аналитики границы ответственности** — домен или сабдомен, внутреннее решение
-1. **Выбрать pack** — паки уже созданы по доменам и сабдоменам; если нужны правки в дереве — в общий канал доменов; если пака нет — отдельный скилл его заводит
-2. **Поставить свой pack себе и команде** — установить скилл ДБЗ, запустить онбординг, дальше агент рассказывает, что делать
-3. **Наполнять через реальные задачи и скилл enrichment** — начинать с **небольшого голден-сета (десятки вопросов, а не сотни)**, FAQ и объектов, далее по списку; ревьюить агентом то, что залито при массовом обогащении
-4. **Смотреть в дашборд формальной полноты** — идти к полному набору критериев, вовлекая команду
-5. *(за рамками цели)* **Понимать и улучшать качество** вместе с профильной командой
+0. **Agree the boundary of responsibility with the head of analytics** - a domain or a subdomain, an internal decision
+1. **Choose a pack** - packs already exist by domain and subdomain; if the tree needs changing, take it to the shared domain channel; if there is no pack, a separate skill creates one
+2. **Install your pack for yourself and the team** - install the knowledge base skill, run the onboarding, and from there the agent explains what to do
+3. **Populate through real work and the enrichment skill** - start with **a small golden set (dozens of questions, not hundreds)**, the FAQ and the objects, then work down the list; have the agent review whatever gets loaded during bulk enrichment
+4. **Watch the formal completeness dashboard** - work towards the full set of criteria, drawing the team in
+5. *(beyond the goal)* **Understand and improve quality** together with the specialist team
 
-## Два сигнала качества
+## Two quality signals
 
-- **Сигнал 1 — accuracy дежурного бота в канале**, лучший proxy на качество ДБЗ. В разобранном кейсе подключение наполненной базы знаний подняло среднюю точность автоответов **втрое с небольшим** — с уровня, при котором ботом нельзя пользоваться, до уровня рабочего инструмента.
-- **Сигнал 2 — свой голден-сет.** Внутренний бенчмарк под домен; при добавлении новых знаний имеет смысл сразу расширять список вопросов. По нему видно, отвечает ли агент правильно на ваших же типовых вопросах.
+- **Signal 1 - the accuracy of the duty bot in the channel**, the best proxy for knowledge base quality. In the case walked through, connecting a populated knowledge base raised average auto-answer accuracy **a little over threefold** - from a level at which the bot was unusable to the level of a working tool.
+- **Signal 2 - your own golden set.** An internal benchmark for the domain; when you add new knowledge it makes sense to extend the question list right away. It shows whether the agent answers your own typical questions correctly.
 
-Это самый сильный аргумент в пользу инвестиций в контекст: **дельта даётся знанием, а не моделью** — модель в обоих замерах одна и та же. Свою величину эффекта надо мерить на своём голден-сете до и после.
+This is the strongest argument for investing in context: **the delta comes from knowledge, not from the model** - the model is the same in both measurements. Your own effect size has to be measured on your own golden set, before and after.
 
-## Skill enrichment — вы решаете только что закидывать
+## Skill enrichment - all you decide is what to throw in
 
-Enrichment принимает вход в свободной форме, сам классифицирует entity family (FAQ / глоссарий / text2sql / объект / lineage) и роутит в нужный скилл добавления.
+Enrichment takes free-form input, classifies the entity family itself (FAQ / glossary / text2sql / object / lineage) and routes it to the right adding skill.
 
-| Триггер | Что отдаёте агенту |
+| Trigger | What you hand the agent |
 |---|---|
-| Агент не справился, вы подсказали | «прогони через enrichment всё, что мне пришлось подсказывать» |
-| Полезная страница в вики | ссылку или ID страницы |
-| Recurring-вопрос в канале | ссылку на тред — скилл сам выделит вопрос, ответ и артефакты |
-| Коллега прислал общий SQL | сам SQL плюс одно предложение «что считает» |
-| Узнали зависимость таблиц X→Y | текстом одним предложением |
+| The agent failed and you prompted it | "run everything I had to prompt you with through enrichment" |
+| A useful wiki page | the link or the page ID |
+| A recurring question in a channel | a link to the thread - the skill extracts the question, the answer and the artifacts itself |
+| A colleague sent shared SQL | the SQL itself plus one sentence on "what it counts" |
+| You learned a table dependency X -> Y | one sentence of plain text |
 
-**Мержить в свой домен можно без апрувов — но PR обязательно прочитайте глазами.**
+**Merging into your own domain needs no approvals - but do read the PR with your own eyes.**
 
-**Не тащим:** PII, токены, `.env`, разовые SQL, sandbox-таблицы, большие ресёрчи целиком.
+**What we do not take:** PII, tokens, `.env`, one-off SQL, sandbox tables, whole large research pieces.
 
-Порог входа здесь принципиален: барьер «одно предложение» — то, что отличает наполняемую базу знаний от ненаполняемой.
+The entry barrier matters here: the "one sentence" bar is what separates a knowledge base that gets populated from one that does not.
 
-## Жизненный цикл объекта и метрика
+## The object lifecycle and the metric
 
-Статусы:
-- **needs_review** — кандидат, непроверенное знание
-- **master_system_autosync** — объект пришёл из мастер-системы или автоматического доверенного источника (каталог, реестр метрик, BI); считается проверенным
-- **confirmed** — владелец домена подтвердил валидность
-- **archived** — удалён или устарел
+Statuses:
+- **needs_review** - a candidate, unverified knowledge
+- **master_system_autosync** - the object came from a master system or an automatic trusted source (the catalog, the metric registry, BI); counted as verified
+- **confirmed** - the domain owner has confirmed it is valid
+- **archived** - deleted or obsolete
 
-> **Метрика тимлида: в зачёт идут только `confirmed` и `master_system_autosync`.** Сгенерированные объекты учитываются только после ревью.
+> **The team lead's metric: only `confirmed` and `master_system_autosync` count.** Generated objects count only after review.
 
-Это ключевая защита от накрутки: без неё массовая автогенерация мгновенно «закрывает» полноту, не добавляя знания. Полезная привычка — регулярно спрашивать агента, какие объекты сейчас в `needs_review`.
+This is the key defence against gaming: without it, bulk auto-generation instantly "closes" completeness while adding no knowledge. A useful habit is to ask the agent regularly which objects are currently in `needs_review`.
 
-## Формальная полнота
+## Formal completeness
 
-Считается как composite по домену из примерно десятка бинарных критериев и входит первой частью в [[ai-ready-domain-score]]. Типы объектов знаний, по которым проверяется полнота: FAQ · объекты · глоссарий · документация · lineage · SQL · eval-кейсы · метрики (техническое и бизнес-имя) · скиллы · покрытие eval.
+Computed as a composite per domain from roughly a dozen binary criteria, and it forms the first part of [[ai-ready-domain-score]]. The knowledge object types completeness is checked across: FAQ · objects · glossary · documentation · lineage · SQL · eval cases · metrics (technical and business name) · skills · eval coverage.
 
-Отслеживаются также: вклад команд и тимлидов, число контрибьюторов, коммитов и knowledge items за период, ранжирование контрибьюторов.
+Also tracked: the contribution of teams and team leads, the number of contributors, commits and knowledge items in the period, and a ranking of contributors.
 
-Связи: [[ai-triad-prerequisites]] · [[ai-ready-domain-score]] · [[context-governance]] · [[llm-assistant-architecture]]
+Links: [[ai-triad-prerequisites]] · [[ai-ready-domain-score]] · [[context-governance]] · [[llm-assistant-architecture]]

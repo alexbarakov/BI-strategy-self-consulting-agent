@@ -1,83 +1,83 @@
 ---
 id: bi-competency-matrix
-title: Матрица компетенций BI 2026 — три части оценки, L1–L3, грейды
+title: The BI competency matrix 2026 - three parts of the assessment, L1-L3, grades
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 9 — внутренняя практика"
-confidence: проверяемо (внутренний документ)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 9 - internal practice"
+confidence: verifiable (an internal document)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [6]
 ---
 
-Переписанная под AI-эру матрица. Ключевое отличие от классических: **LLM-компетентность встроена в каждый уровень каждой компетенции, а не вынесена в отдельный навык**.
+A matrix rewritten for the AI era. The key difference from the classics: **LLM competence is built into every level of every competency rather than split out as a separate skill**.
 
-## Три части оценки — у каждой свой ритм
+## Three parts of the assessment - each with its own rhythm
 
-| Часть | Ритм | Содержание |
+| Part | Rhythm | Content |
 |---|---|---|
-| **4 soft-компетенции** | раз в полгода | анализ потребностей пользователя · управление ожиданиями и планирование · продуктовый подход к отчётам и данным · обмен знаниями и развитие BI-роли |
-| **4+1 hard-компетенции** | один раз на уровень | ETL · SQL/DWH · BI-инструмент · визуализация данных · **Python — опционально** |
-| **BI Project** | раз в год | один защищаемый проект, три критерия |
+| **4 soft competencies** | every six months | analysing user needs · managing expectations and planning · a product approach to reports and data · knowledge sharing and developing the BI role |
+| **4+1 hard competencies** | once per level | ETL · SQL/DWH · the BI tool · data visualization · **Python, optional** |
+| **The BI project** | annually | one project defended, against three criteria |
 
-Разный ритм — принципиальная деталь: харды не подтверждаются повторно, софты пересматриваются регулярно, проект — годовой.
+The differing rhythms are a deliberate detail: hard skills are not re-confirmed, soft skills are revisited regularly, the project is annual.
 
-## Четыре уровня грейда
+## Four grade levels
 
-- **Junior** — выполняет декомпозированные задачи под контролем тимлида; витрины, потоки и дашборды по стандартам
-- **Middle** — самостоятельно ведёт задачи в рамках юнита; анализирует потребности, проектирует модели данных, **развивает объекты как продукты**; планирует на несколько спринтов, сам ведёт коммуникацию с заказчиком
-- **Senior** — **сам генерирует задачи своего уровня в домене**; владеет продовым слоем отчётов и витрин, отвечает за его SLA; планирует квартал, даёт коммиты заказчикам; участвует в техсекциях найма и онбординге
-- **Lead (IC-трек)** — лидерство на уровне нескольких вертикалей или всей компании; кросс-доменные дата-продукты, BI-партнёрство, self-service, стандарты. Альтернатива — менеджерский трек Team Lead BI
+- **Junior** - performs decomposed tasks under the team lead's supervision; marts, flows and dashboards to the standards
+- **Middle** - runs work independently within the unit; analyses needs, designs data models, **develops objects as products**; plans several sprints ahead and handles requester communication themselves
+- **Senior** - **generates work at their own level inside the domain**; owns the production layer of reports and marts and is answerable for its SLA; plans a quarter and gives commitments to requesters; takes part in hiring technical sections and in onboarding
+- **Lead (IC track)** - leadership across several verticals or the whole company; cross-domain data products, BI partnership, self-service, standards. The alternative is the managerial track, team lead BI
 
-## Харды: три уровня глубины с встроенным LLM
+## Hard skills: three depth levels with the LLM built in
 
-> Критично **умение получить правильный результат любым инструментом — включая LLM**.
+> What is critical is **the ability to get the right result with any tool - the LLM included**.
 
-- **L1 Исполнение** — получаю корректный результат и понимаю, что написано. В том числе понимаю код, сгенерированный LLM, и могу объяснить его построчно.
-- **L2 Проектирование** — принимаю обоснованные архитектурные решения, выбираю оптимальный подход из альтернатив. **Могу обосновать решение, предложенное LLM, или заменить его.**
-- **L3 Системность** — сложная система работает в проде: переиспользуется, документирована, покрыта тестами. **Валидирую и ревьюю результат LLM, встраиваю его в систему.**
+- **L1 execution** - I get a correct result and understand what is written. Including understanding LLM-generated code and being able to explain it line by line.
+- **L2 design** - I make justified architectural decisions and pick the best approach among alternatives. **I can justify the LLM's proposed solution or replace it.**
+- **L3 systematicity** - a complex system runs in production: reused, documented, covered by tests. **I validate and review the LLM's output and embed it into the system.**
 
-Для L3 любой компетенции — защита проекта через жюри. Достигнутый уровень повторно не подтверждается.
+L3 in any competency means defending a project before a jury. A level once reached is not re-confirmed.
 
-**Содержание компетенций.** ETL: модель данных и схема хранения; L2 — оптимальная модель с примером оптимизации, L3 — core data layer в проде с переиспользованием и тестами. SQL/DWH: оптимальные запросы на больших данных с учётом СУБД; L2 — оптимизация с измеримым «было/стало», L3 — код высокой сложности плюс ревью SQL коллег. BI-инструмент: L1 — чарты, параметры, датасеты; L2 — кросс-фильтрация, drill-down, навигация; L3 — система дашбордов как приложение плюс вклад в сам продукт. Визуализация: L1 — без базовых ошибок, L2 — мокапы и обоснование выбора, L3 — влияние на качество решений и вклад в культуру датавиза.
+**What the competencies contain.** ETL: the data model and the storage schema; L2 is an optimal model with an example of optimization, L3 is a core data layer in production with reuse and tests. SQL/DWH: optimal queries on large data with the database engine in mind; L2 is optimization with a measurable before and after, L3 is highly complex code plus reviewing colleagues' SQL. The BI tool: L1 is charts, parameters, datasets; L2 is cross-filtering, drill-down, navigation; L3 is a system of dashboards as an application plus a contribution to the product itself. Visualization: L1 is no basic mistakes, L2 is mock-ups and a justified choice, L3 is influence on the quality of decisions and a contribution to the data visualization culture.
 
-## Грейды различает число L3, минимумы почти плоские
+## Grades are distinguished by the number of L3s; the minimums are nearly flat
 
-Минимумы по L1/L2 у Middle, Senior и Lead различаются мало — **грейд определяется количеством компетенций уровня L3**: у Senior их требуется больше, чем у Middle, для Lead порог может быть не задан вовсе и определяться на калибровках. Python в минимумы не входит ни на одном грейде.
+The L1/L2 minimums for middle, senior and lead barely differ - **the grade is determined by how many competencies sit at L3**: a senior needs more of them than a middle, and for a lead the threshold may not be set at all and is decided in calibration. Python is not part of the minimum at any grade.
 
-Это важная конструкция: она не даёт «дорасти» за счёт широты и требует настоящей глубины хотя бы в одном месте.
+This is an important construction: it stops people "growing" on breadth alone and requires genuine depth in at least one place.
 
-## BI-проект: раз в год, ключевой критерий — ценность
+## The BI project: annual, with value as the key criterion
 
-Три критерия:
-1. **Ценность** — что изменилось благодаря проекту, **не объём работы**: от «пользователи получили данные» (Junior) до влияния на стратегию функции (Lead)
-2. **Формализация** — кто сделал работу по определению задачи: от «задача пришла готовой» до «сам выявил проблему на уровне нескольких доменов»
-3. **Инженерная сложность** — осознанность выбора решения и его устойчивость: от стандартных паттернов до изменения архитектуры домена
+Three criteria:
+1. **Value** - what changed because of the project, **not the volume of work**: from "users got the data" (junior) to influencing the function's strategy (lead)
+2. **Formalization** - who did the work of defining the problem: from "the task arrived fully formed" to "I identified the problem myself across several domains"
+3. **Engineering complexity** - how deliberate the chosen solution was and how robust: from standard patterns to changing the domain's architecture
 
-Итог — средняя по критериям **с приоритетом ценности**. Пре-ревью: Junior и Middle — свой тимлид, Senior — один назначенный BI TL, Lead — три BI TL.
+The result is the average across criteria **with value weighted highest**. Pre-review: junior and middle by their own team lead, senior by one designated BI team lead, lead by three.
 
-## Промо: сначала перформишь на новом уровне
+## Promotion: you perform at the new level first
 
-**Перескочить грейд нельзя.** Каждый переход требует: софты и харды нового уровня по матрице · выполненный BI-проект нового уровня · минимум одно ревью с положительным результатом в текущей роли и подтверждение на калибровке.
+**You cannot skip a grade.** Every step requires: the soft and hard skills of the new level per the matrix · a completed BI project at the new level · at least one review with a positive result in the current role, plus confirmation at calibration.
 
-Senior → Lead: минимум две из четырёх soft-компетенций подтверждены через функциональный проект, принимает Head of BI. Senior → Team Lead: обоснование роли, решение принимают руководители домена и юнита вместе с Head of BI, **acting-роль перед промо обязательна**.
+Senior to lead: at least two of the four soft competencies confirmed through a functional project, accepted by the head of BI. Senior to team lead: a justification of the role, decided by the domain and unit heads together with the head of BI, and **an acting role before promotion is mandatory**.
 
-## Team Lead BI — шесть блоков компетенций
+## Team lead BI - six competency blocks
 
-Развитие процессов и инструментов · лидерство по корпоративной модели · управление ресурсами и проектами (квартальный роадмап; на младшем менеджерском уровне значимая доля времени — лидирование прикладных проектов руками) · управление командой (найм, техсекции, SMART-цели, удержание ключевых людей) · развитие функции BI · **оценка эффекта — влияние ключевых проектов на метрики посчитано корректно, «было/стало», а не отчёт об активности**.
+Developing processes and tools · leadership per the corporate model · managing resources and projects (a quarterly roadmap; at the junior management level a significant share of time goes on leading applied projects hands-on) · managing the team (hiring, technical sections, SMART goals, retaining key people) · developing the BI function · **assessing effect - the influence of key projects on metrics computed correctly, before and after, not an activity report**.
 
-Отличия M2 от M1: **Driver проекта BI-стратегии** (против значимого contributor) и **обязательный successor в команде**.
+What separates M2 from M1: **being the driver of the BI strategy project** (rather than a significant contributor) and **a mandatory successor in the team**.
 
-## Цикл калибровки — начинается за 6 недель до защиты
+## The calibration cycle - it starts 6 weeks before the defence
 
-1. **Непрерывно — наблюдение:** фиксировать примеры компетенций для питча, давать обратную связь по артефактам, **пока есть время исправить**
-2. **За 4–6 недель — сбор фактуры:** шаблон BI-проекта с отзывами, самооценка по матрице, пре-ревью проекта и Hard L3
-3. **За 1–2 недели — проверка:** матрица заполнена, артефакты на месте, вердикт жюри по L3 зафиксирован, питч готов
-4. **Калибровка — защита:** питч 3 минуты → чтение группой → вопросы и голосование
-5. **После — итоги:** результаты не коммуницировать до отмашки HR, встреча с сотрудником, обратная связь по развитию
+1. **Continuously - observation:** record examples of competencies for the pitch, give feedback on artifacts **while there is still time to fix things**
+2. **4-6 weeks out - gathering the evidence:** the BI project template with feedback, a self-assessment against the matrix, a pre-review of the project and of hard L3
+3. **1-2 weeks out - the check:** the matrix is filled in, the artifacts are in place, the jury's L3 verdict is recorded, the pitch is ready
+4. **Calibration - the defence:** a 3-minute pitch -> the group reads -> questions and a vote
+5. **Afterwards - the outcome:** do not communicate results until HR says so, meet the employee, give development feedback
 
-Промо обсуждается заранее, за 1–2 квартала; до выдвижения — проверка блокеров.
+Promotion is discussed in advance, one or two quarters ahead; before nomination, blockers are checked.
 
-## Стратегия бэкапа компетенций
+## The competency backup strategy
 
-**Минимум три эксперта на критичные домены, минимум два на остальные**, плюс регулярная запись knowledge sharing сессий. Это единственный работающий ответ на риск «домен держится на одном человеке».
+**At least three experts on critical domains and at least two on the rest**, plus regular recording of knowledge-sharing sessions. This is the only working answer to the risk of "the domain rests on one person".
 
-Связи: [[bi-hiring-ai-era]] · [[bi-org-structure]] · [[onboarding-plan]] · [[bi-community-management]]
+Links: [[bi-hiring-ai-era]] · [[bi-org-structure]] · [[onboarding-plan]] · [[bi-community-management]]
