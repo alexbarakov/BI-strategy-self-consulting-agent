@@ -1,42 +1,42 @@
 ---
 id: data-team-pain-points
-title: Боли дата-команд — BI/SSBI и data management
+title: The pain points of data teams - BI/self-service and data management
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие 6"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 6"
+confidence: verifiable
 blocks: [1, 4.1]
 ---
 
-Каталог болей для [[painpoints-analysis]], разложенный по двум командам. Ценность в том, что это готовый чеклист для интервью: боль либо узнаётся, либо явно отсутствует.
+A catalog of pain points for [[painpoints-analysis]], split across two teams. Its value is that it is a ready interview checklist: a pain is either recognized or explicitly absent.
 
-## Боли BI / SSBI / data-команды
+## The pain of a BI / self-service / data team
 
-| Боль | Суть |
+| Pain | The substance |
 |---|---|
-| **Доступ к данным** | у дата-групп часто нет доступа к данным других отделов и доменов; огромное время уходит на координацию ответов и поиск нужных сотрудников. Даже когда доступ есть, много времени уходит на идентификацию и поиск данных |
-| **Координация с бизнес-командами** | понимание сути запросов · бизнес-валидация · обработка «похожих» запросов от разных пользователей · разночтения в подходах к логике одних и тех же данных · сложность объяснения логики, лежащей под легаси data-продуктами |
-| **Documentation** | ограниченное время и ресурсы не дают своевременно реагировать на запросы документирования моделей и происхождения данных — страдает общее качество информационных активов |
-| **Impact analysis** | небольшое изменение атрибута может сломать другой отдел или отчёт, и команда может даже не знать об этом, потому что проблема ещё не проявилась. Классический пример: изменить длину поля — минуты, но это вызывает ошибку в нижестоящем приложении |
-| **Too many datasets** | данные рассредоточиваются по слишком многим датасетам; поиск и поддержка становятся проблемой, знание об объектах размазано по командам |
-| **Database doesn't scale** | запросы усложняются, выполнение занимает часы или дни |
-| **Files are too big** | большие файлы дороги в хранении и неудобны; даже бескрайние диски забиваются без процессов уборки |
+| **Access to data** | data groups often have no access to the data of other departments and domains; enormous time goes into coordinating answers and finding the right people. Even where access exists, a lot of time goes into identifying and locating the data |
+| **Coordination with business teams** | understanding what a request really means · business validation · handling "similar" requests from different users · differing readings of the logic over the same data · the difficulty of explaining the logic underneath legacy data products |
+| **Documentation** | limited time and resource make it impossible to respond promptly to requests to document models and data provenance - the overall quality of the information assets suffers |
+| **Impact analysis** | a small change to an attribute can break another department or report, and the team may not even know, because the problem has not surfaced yet. The classic example: changing a field's length takes minutes but triggers an error in a downstream application |
+| **Too many datasets** | data spreads across too many datasets; finding and maintaining them becomes a problem, and knowledge about the objects is smeared across teams |
+| **The database does not scale** | queries get more complex and take hours or days to run |
+| **Files are too big** | large files are expensive to store and awkward to handle; even limitless disks fill up without clean-up processes |
 
-## Боли data management команды
+## The pain of a data management team
 
-| Боль | Суть |
+| Pain | The substance |
 |---|---|
-| **Защита ПДн и конфиденциальной информации** | координация с системами, владельцами и пользователями; юристы регулярно запрашивают местонахождение PII и её защищённость, и каждый раз это сложная задача · процессы уточнения прав часто непрозрачны · обфускация требует много усилий |
-| **Управление качеством данных** | организации часто не знают, как им управлять; требуются сложные орг-конструкции, вместо которых развивается понятийная система «на руках» отдельных экспертов |
-| **No common standards** | без общих определений бизнес-терминов невозможно разработать общие стандарты данных |
-| **Прозрачность происхождения данных** | пользователи не имеют доступа к lineage; построить его — отдельная техническая задача со звёздочкой |
-| **Доступность данных** | владельцы стараются сделать данные доступными, но из-за PII и конфиденциальности не могут нормально делиться в озере |
-| **General compliance** | GDPR, CCPA, HIPAA и аналоги; **компании перестраховываются и лимитируют всё подряд на всякий случай** |
-| **Идентификация PII** | инвентаризация всех элементов PII; по мере движения данных от приложений к озеру, от хранилища к отчётам отслеживание усложняется |
-| **Documenting data lineage** | GDPR и BCBS 239 требуют полного lineage; знания находятся внутри кода, поэтому приходится читать исходники — месяцы работы |
-| **Right to be Forgotten** | данные рассредоточены по системам, удалить или даже извлечь их сложно; **большинство организаций просто игнорируют требование и остаются уязвимыми для аудита** |
+| **Protecting personal and confidential information** | coordination with systems, owners and users; lawyers regularly ask where the PII is and how it is protected, and each time it is a hard problem · the processes for clarifying entitlements are often opaque · obfuscation takes a lot of effort |
+| **Managing data quality** | organizations often do not know how to manage it; it calls for complex organizational constructions, in place of which a conceptual system develops "in the hands" of individual experts |
+| **No common standards** | without shared definitions of business terms it is impossible to develop shared data standards |
+| **Transparency of data provenance** | users have no access to lineage; building it is a technical problem with an asterisk on it |
+| **Data availability** | owners try to make data available but, because of PII and confidentiality, cannot share it properly in the lake |
+| **General compliance** | GDPR, CCPA, HIPAA and their equivalents; **companies over-insure and limit everything indiscriminately, just in case** |
+| **Identifying PII** | inventorying every PII element; as data moves from applications to the lake, from the warehouse to reports, tracking gets harder |
+| **Documenting data lineage** | GDPR and BCBS 239 require full lineage; the knowledge sits inside the code, so you end up reading source - months of work |
+| **The right to be forgotten** | data is spread across systems and is hard to delete or even extract; **most organizations simply ignore the requirement and stay exposed to an audit** |
 
-## Как это связано с AI
+## How this ties to AI
 
-Первая колонка болей data-команд — почти дословно карта задач, где AI даёт измеримый выигрыш (классификация PII, дедупликация, сопоставление схем, парсинг документов, восстановление lineage из кода). Вторая — область, где AI даёт только черновик под проверку. Разделение и цифры — `evidence-2026.md` §2 и [[ai-in-data-processes]].
+The first column of the data teams' pain is almost word for word the map of tasks where AI delivers a measurable win (PII classification, deduplication, schema matching, document parsing, recovering lineage from code). The second is the area where AI gives only a draft to be checked. The split and the figures: `evidence-2026.md` §2 and [[ai-in-data-processes]].
 
-Связи: [[painpoints-analysis]] · [[data-mgmt-processes]] · [[ai-in-data-processes]] · [[data-catalog-pitfalls]]
+Links: [[painpoints-analysis]] · [[data-mgmt-processes]] · [[ai-in-data-processes]] · [[data-catalog-pitfalls]]

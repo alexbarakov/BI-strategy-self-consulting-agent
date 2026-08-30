@@ -1,58 +1,58 @@
 ---
 id: visual-style-guide
-title: Visual Style Guide — трёхслойная структура и как он приживается
+title: The visual style guide - a three-layer structure and how it takes root
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие «Content management»"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session"
+confidence: verifiable
 blocks: [4.2, 6]
 ---
 
-## Постановка вопроса
+## Framing the question
 
-Зачем нужен pixel perfect reporting и борьба за сочетание оттенков, пиксели в отступах, уместность типов графиков? Можно ли научить high class design разработчика без задатков — **скорее нет**. Отсюда вопрос: дизайнер в BI-команде — перебор или спасение? Его главные обязанности в такой конструкции: **аудит дизайна, коучинг, дизайн-полишинг и лайв-дизайн**.
+Why do we need pixel-perfect reporting and a fight over shade combinations, padding pixels and the appropriateness of chart types? Can a developer with no aptitude be taught high-class design - **probably not**. Hence the question: is a designer in the BI team overkill or salvation? In such a setup their main duties are **design audit, coaching, design polishing and live design**.
 
-## Три слоя style guide — у каждого своя аудитория и реализация
+## The three layers of a style guide - each with its own audience and implementation
 
-| Слой | Содержание | Смысл | Где реализуется |
+| Layer | Content | Purpose | Where it lives |
 |---|---|---|---|
-| **1. Шаблон BI-отчёта** | преформатированный набор стартовых композиций с настроенными отступами, шрифтами, элементами навигации | автор использует как стартовую точку → экономия времени, стандартизация универсальных параметров | в BI-инструменте |
-| **2. Visual Vocabulary** | 10–15 основных типов визуализаций с целевыми вариантами реализации, хинты и ноу-хау | «распотрошить и сделать по аналогии» → обучение авторов, стандартизация внешнего вида чартов | в BI-инструменте |
-| **3. Корпоративный учебник по визуализации** | сотни страниц: цвет, паттерны восприятия, композиция дашборда, скетчинг, чеклисты | дать знание страждущим → глубокое обучение BI-чемпионов | **НЕ в BI-инструменте** — Miro, презентация |
+| **1. The BI report template** | a preformatted set of starting compositions with padding, fonts and navigation elements already set | the author uses it as a starting point -> time saved, universal parameters standardized | in the BI tool |
+| **2. The visual vocabulary** | 10-15 core visualization types with target implementations, hints and know-how | "take it apart and build one like it" -> training authors, standardizing how charts look | in the BI tool |
+| **3. The corporate visualization textbook** | hundreds of pages: colour, perception patterns, dashboard composition, sketching, checklists | give knowledge to those who want it -> deep training for BI champions | **not in the BI tool** - Miro, a deck |
 
-Разделение принципиальное: смешение слоёв — типовая причина, по которой style guide не используют. Шаблон должен быть в двух кликах от разработки, учебник — нет.
+The separation matters: mixing the layers is the standard reason a style guide goes unused. The template has to be two clicks from development; the textbook does not.
 
-## Цели design guide
+## The goals of a design guide
 
-Разрабатывать больше действительно крутых отчётов — понятных пользователю и радующих глаз менеджера · унифицировать визуальный код и повысить понятность и интуитивность · повысить культуру визуализации и **нетерпимость к визуальному колхозу** · поднять настроение от работы с BI-отчётами.
+Build more genuinely good reports - comprehensible to the user and pleasing to the manager's eye · unify the visual code and raise clarity and intuitiveness · raise the visualization culture and **the intolerance of visual slop** · make working with BI reports more enjoyable.
 
-## Как приживается — практика внедрения
+## How it takes root - rollout practice
 
-1. Разработать совместно с DWH/BI-командой, передать коллегам на развитие и поддержку
-2. Провести обучение для аналитиков
-3. Использовать для всех отчётов централизованной команды
-4. **Редизайн в шаблон как услуга** — проводить консультации, помогать сделать редизайн
-5. Серия мастер-классов для развития
+1. Develop it jointly with the warehouse/BI team, hand it to colleagues to grow and maintain
+2. Run training for the analysts
+3. Use it for every report the centralized team builds
+4. **Redesign into the template as a service** - run consultations, help people redesign
+5. A series of masterclasses to keep it developing
 
-Короткая формула из курса: «редизайн в шаблон как услуга · тренинги, тренинги, тренинги».
+The course's short formula: "redesign into the template as a service · training, training, training".
 
-## Алгоритм создания дашборда
+## The dashboard-building algorithm
 
-1. Определить цели и аудиторию → 2. Создать набросок → 3. Разработать → 4. Сделать интерактивным → 5. Добавить инструкции и подсказки → 6. **Убрать всё лишнее** → 7. Применить лучшие визуальные приёмы для финальной версии.
+1. Define the goals and the audience -> 2. Sketch it -> 3. Build it -> 4. Make it interactive -> 5. Add instructions and hints -> 6. **Remove everything superfluous** -> 7. Apply the best visual techniques to the final version.
 
-Вопросы шага 1: зачем вы создаёте этот дашборд · кто аудитория (руководитель, operational management или аналитики) · нужно ли разграничить права доступа внутри дашборда.
+The questions for step 1: why are you creating this dashboard · who is the audience (an executive, operational management or analysts) · do entitlements need to be separated inside the dashboard.
 
-## Три типа дашбордов
+## Three types of dashboard
 
-| Тип | Характеристики |
+| Type | Characteristics |
 |---|---|
-| **Стратегические** | быстрый обзор состояния, фокус на высокоуровневых показателях, простота |
-| **Операционные** | мониторинг процессов и метрик в разрезах, сравнениях, динамиках; больше информации, дольше понимание; понятные отработанные сценарии; шире аудитория |
-| **Аналитические** | требуют дополнительного контекста, неочевидные сценарии, сложнее для восприятия, глубже по возможностям, высоко-интерактивные, много фильтров |
+| **Strategic** | a fast overview of the state, focused on high-level indicators, simple |
+| **Operational** | monitoring processes and metrics across cuts, comparisons and trends; more information, longer to take in; clear, well-worn scenarios; a broader audience |
+| **Analytical** | needs additional context, non-obvious scenarios, harder to take in, deeper in capability, highly interactive, many filters |
 
-## Правила, названные явно
+## The rules stated explicitly
 
-**Отступы:** внешние — не менее 12px снизу и по бокам, сверху не нужен; между семантическими контейнерами — не менее 10px; область с фильтрами воспринимается как отдельный контейнер.
+**Padding:** external - at least 12px at the bottom and the sides, none needed at the top; between semantic containers - at least 10px; the filter area reads as a separate container.
 
-**Цвет:** фон визуализации всегда белый · «серый — самый важный цвет в визуализации данных» · если нужно больше семи цветов в чарте — сменить тип чарта или объединить категории в группы · светлые цвета для малых значений, тёмные для больших · один цвет для одинаковых переменных, оттенки для подтипов · при палитре RAG убедиться, что зелёный и красный означают хорошее и плохое соответственно · яркие акцентные цвета — только для данных, которые нужно выделить.
+**Colour:** the visualization background is always white · "grey is the most important colour in data visualization" · if a chart needs more than seven colours, change the chart type or group the categories · light colours for small values, dark for large · one colour per identical variable, shades for subtypes · with a red-amber-green palette, make sure green and red mean good and bad respectively · bright accent colours only for the data that needs to stand out.
 
-Связи: [[content-mgmt-processes]] · [[rules-and-standards]] · [[content-hygiene-loop]] · [[centralized-practices]]
+Links: [[content-mgmt-processes]] · [[rules-and-standards]] · [[content-hygiene-loop]] · [[centralized-practices]]

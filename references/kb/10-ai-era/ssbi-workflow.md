@@ -1,56 +1,56 @@
 ---
 id: ssbi-workflow
-title: Операционная модель SSBI — workflow, инструменты по ролям, метрики
+title: The self-service operating model - workflow, tools by role, metrics
 type: method
-source: "Курс «BI+AI стратегия 26», Занятие 3"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", Day 3"
+confidence: verifiable
 blocks: [3, 4.3, 6]
 ---
 
-Шесть шагов запуска self-service, после Identify и Classify из [[user-classification]].
+Six steps to launching self-service, after identify and classify from [[user-classification]].
 
-## Шаг 3. Определить SS workflow — в две стороны
+## Step 3. Define the self-service workflow - in both directions
 
-**Слева направо: curate → create → consume.** Централизованная команда курирует источники, power users создают, все потребляют.
+**Left to right: curate -> create -> consume.** The centralized team curates the sources, power users create, everyone consumes.
 
-**Справа налево: propose → prototype → promote.** Если отчёт популярен, power users отправляют его на рассмотрение в governance committee. Отчёт служит **прототипом нового массового кросс-функционального отчёта**. Комитет проверяет встроенные показатели и определения данных на соответствие корпоративным стандартам. BI-команда определяет, как «подготовить» массовый отчёт с адекватной масштабируемостью, безопасностью и надёжностью.
+**Right to left: propose -> prototype -> promote.** If a report proves popular, power users submit it to the governance committee. The report serves as **the prototype of a new mass, cross-functional report**. The committee checks the embedded indicators and data definitions against the corporate standards. The BI team works out how to "productionize" a mass report with adequate scalability, security and reliability.
 
-Обратное направление — то, чего обычно нет: без него хороший self-service отчёт остаётся локальным навсегда.
+The reverse direction is the one usually missing: without it a good self-service report stays local forever.
 
-## Шаг 4. Маппинг ролей на инструменты
+## Step 4. Mapping roles onto tools
 
-| Роль | Инструменты |
+| Role | Tools |
 |---|---|
-| **Data consumers** | готовые отчёты в BI для принятия решений |
-| **Data explorers** | кастомизация отчётов и создание новых из преднастроенных моделей — шаблоны отчётов и published data sources; **data wrangling tools** — легковесная подготовка данных, встроенная в BI или отдельная, чтобы добавить excel-данные в источник или быстро собрать селект |
-| **Data analysts** | инструменты подготовки данных для объединения источников, затем visual discovery для анализа и визуализации |
-| **Data scientists** | код (Java, Python, SQL), ML-инструментарий |
+| **Data consumers** | ready reports in BI, for making decisions |
+| **Data explorers** | customizing reports and creating new ones from pre-built models - report templates and published data sources; **data wrangling tools** - lightweight data preparation, built into BI or standalone, to add spreadsheet data to a source or quickly assemble a select |
+| **Data analysts** | data preparation tools for combining sources, then visual discovery for analysis and visualization |
+| **Data scientists** | code (Java, Python, SQL), ML tooling |
 
-**Главная ошибка — дать потребителям данных инструменты аналитиков.** Они пугаются, увидев все кнопки и пункты меню, никогда не дают инструменту шанс и берут трубку, чтобы попросить локального аналитика или IT сделать отчёт. Обратное тоже работает.
+**The main mistake is giving data consumers the analysts' tools.** They take fright at all the buttons and menu items, never give the tool a chance, and pick up the phone to ask a local analyst or IT to build the report. The reverse works too.
 
-## Шаг 5–6. Раздать права и запустить непрерывное обучение
+## Steps 5-6. Grant entitlements and start continuous training
 
-BI Community chat · BI/DWH School · марафоны и курсы · **внутренняя сертификация как условие доступа к инструментам и средам** · BI Champion program · BI Doctor Service · BI-форумы и события.
+A BI community chat · a BI/DWH school · marathons and courses · **internal certification as a condition of access to tools and environments** · a BI champion programme · a BI doctor service · BI forums and events.
 
-## Метрики SSBI — трекают обычно две вещи
+## Self-service metrics - two things usually get tracked
 
-1. **Проникновение self-service сценариев у неаналитиков** — доля creators / explorers
-2. **Количество ad-hoc в каналах и Jira-задач на одного неаналитика** в канале; плюс анализ «потерь» от ожидания ответов и switch context time
+1. **Penetration of self-service scenarios among non-analysts** - the share of creators / explorers
+2. **The number of ad-hoc requests in channels and Jira tickets per non-analyst** in the channel; plus an analysis of the "losses" from waiting for answers and from context switching
 
-## Как качать SSBI
+## How to grow self-service
 
-Растить слой **сертифицированных датасетов** для self-service — широких, понятных, качественных · воркшопы с бизнес-командами · растить BI-чемпионов · делать марафоны.
+Grow the layer of **certified datasets** for self-service - wide, comprehensible, high quality · workshops with the business teams · grow BI champions · run marathons.
 
-## Куда движется self-service
+## Where self-service is heading
 
-GenAI-боты (агенты, консьержи, ассистенты) · глобальное повышение data literacy · готовые фреймворки (где что лежит, инструменты, центры экспертизы) · self-service ETL с no-code трансформациями · готовые источники в виде дата-каталогов с описаниями · предподготовленные борды для редактирования.
+GenAI bots (agents, concierges, assistants) · a global rise in data literacy · ready frameworks (what lives where, the tools, the centres of expertise) · self-service ETL with no-code transformations · ready sources in the form of data catalogs with descriptions · pre-built boards ready for editing.
 
-## Эволюция орг-моделей: Federate to Accelerate
+## The evolution of org models: federate to accelerate
 
-Гибридные модели чаще эффективнее. Чрезмерная централизация создаёт узкие места и отсутствие заинтересованности бизнеса; децентрализация рискует несвязанностью подходов. **Гибрид сохраняет централизованные возможности и права принятия решений** (особенно по управлению данными и стандартам), но группы аналитиков остаются встроенными в бизнес и несут ответственность.
+Hybrid models are more often effective. Excessive centralization creates bottlenecks and a lack of business buy-in; decentralization risks approaches that do not connect. **A hybrid preserves the centralized capabilities and decision rights** (particularly over data management and standards) while the analyst groups stay embedded in the business and carry responsibility.
 
-Требует: вовлечения бизнеса · матричной отчётности и совместного размещения части ресурсов · сильных процессов governance данных и отчётов · сильного лидерства и коммуникаций.
+It requires: business engagement · matrix reporting and co-locating part of the resource · strong governance processes for data and reports · strong leadership and communication.
 
-Отдельное наблюдение: **в начале DG-пути имеет смысл работать более централизованно** — легче создать и контролировать центральную команду и обеспечить качество. Со временем, по мере роста опытности бизнеса, центр возвращается к роли фасилитатора и отдаёт больше автономии.
+A separate observation: **early in the governance journey it makes sense to work more centrally** - it is easier to build and control a central team and to ensure quality. Over time, as the business grows more experienced, the centre returns to a facilitator's role and hands over more autonomy.
 
-Связи: [[ssbi-vs-guided]] · [[ssbi-failure-causes]] · [[user-classification]] · [[selfservice-practices]]
+Links: [[ssbi-vs-guided]] · [[ssbi-failure-causes]] · [[user-classification]] · [[selfservice-practices]]

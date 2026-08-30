@@ -1,57 +1,57 @@
 ---
 id: infra-billing
-title: Биллинг аналитической инфраструктуры — от котлового метода к адресному счёту
+title: Billing the analytics infrastructure - from a common pot to an addressed bill
 type: case
-source: "Курс «BI+AI стратегия 26», Занятие 6 — внутренняя практика"
-confidence: проверяемо (внутренние замеры)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", Day 6 - internal practice"
+confidence: verifiable (internal measurements)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [5, 6, 7]
 ---
 
-Тема, которой нет в классическом гайде и которая быстро становится обязательной: **экономика аналитической платформы как объект управления**.
+A topic absent from the classical guide that is fast becoming mandatory: **the economics of the analytics platform as an object of management**.
 
-## Проблема
+## The problem
 
-В инвест-кейсах и P&L продуктовых команд затраты на аналитическую инфраструктуру **не отражаются совсем**. При отсутствии прозрачности нет и стимула оптимизировать — рост идёт не только от органики, но и от «длинного хвоста» неиспользуемых витрин и тупиковых расчётов, которые никто не читает.
+In investment cases and in product teams' P&L, the cost of analytics infrastructure **does not appear at all**. Without transparency there is no incentive to optimize either - the growth comes not only from organic demand but from a long tail of unused marts and dead-end computations nobody reads.
 
-Заказ железа для всей аналитики делает платформа котловым методом; аллокации затрат по доменам нет.
+The platform orders hardware for all of analytics out of one pot; there is no cost allocation by domain.
 
-Замеренные симптомы в разобранном кейсе: рост затрат на аналитическую инфраструктуру **вдвое выше целевого** · **утилизация вычислений примерно вдвое ниже отраслевой нормы** (ориентир нормы — 50–60%) · существенное удорожание серверов за год.
+The measured symptoms in the case walked through: analytics infrastructure cost growing at **twice the target rate** · compute utilization roughly **half the industry norm** (the norm being around 50-60%) · a substantial rise in server prices over the year.
 
-Первые две метрики стоит замерить у себя до любых разговоров о биллинге: без них тема не продаётся, а с ними продаётся сама.
+The first two metrics are worth measuring at home before any conversation about billing: without them the topic does not sell, and with them it sells itself.
 
-## Целевая схема — self-service заказ продуктовыми командами
+## The target scheme - self-service ordering by the product teams
 
-| Элемент | Содержание |
+| Element | Content |
 |---|---|
-| **Изоляция квот** | квота на уровне юнита: перерасход одной команды не блокирует другую |
-| **Каталог услуг** | витрина, датасет, ETL-источник, ad-hoc, метрика, ML-фича — с тарификацией |
-| **Отслеживание** | дашборды по текущему и историческому потреблению каждого домена |
-| **Заказ командой** | оформляет технический лид, аналитик выступает партнёром и обосновывает драйверы |
+| **Quota isolation** | a quota at unit level: one team overrunning does not block another |
+| **A service catalog** | mart, dataset, ETL source, ad-hoc, metric, ML feature - each with a tariff |
+| **Tracking** | dashboards of current and historical consumption per domain |
+| **Ordering by the team** | the tech lead places the order, with the analyst as a partner justifying the drivers |
 
-> Это **не выставление счетов**: перевод потребления в деньги нужен как метрика прозрачности юнит-экономики. Но следующий заказ железа команды делают сами.
+> This is **not invoicing**: turning consumption into money is needed as a transparency metric for unit economics. But the teams place their next hardware order themselves.
 
-Формулировка важна политически: биллинг, поданный как «теперь вы платите», встречает сопротивление; поданный как «теперь вы видите и решаете» — работает.
+The framing matters politically: billing presented as "now you pay" meets resistance; presented as "now you can see and decide", it works.
 
-## Кто за что платит — главное правило
+## Who pays for what - the central rule
 
-- **Чтение — платит читающий.** Любой SELECT к витрине тарифицируется по учётке инициатора и списывается из квоты читающей вертикали, **даже если витрина принадлежит горизонтальной команде**.
-- **Запись и хранение — платит владелец.** Команда-владелец тратит квоту только на регулярный пересчёт и место на диске; за чужие чтения не платит.
-- **Неразмеченное делится пропорционально.** Объекты без владельца и общие ресурсы платформы аллоцируются на технические кластеры, а затем распределяются между вертикалями по фактическому потреблению.
+- **Reads are paid by the reader.** Any SELECT against a mart is tariffed under the initiator's account and drawn from the reading vertical's quota, **even when the mart belongs to a horizontal team**.
+- **Writes and storage are paid by the owner.** The owning team spends quota only on the regular recomputation and the disk space; it does not pay for other people's reads.
+- **Unattributed usage is shared proportionally.** Objects with no owner and shared platform resources are allocated to technical clusters and then distributed across verticals by actual consumption.
 
-Эта развязка снимает главное возражение владельцев общих витрин: иначе платформенная команда платит за весь трафик компании.
+This split removes the main objection from the owners of shared marts: otherwise the platform team pays for the whole company's traffic.
 
-## Допущения, о которых надо знать, когда цифра кажется странной
+## The assumptions to know about when a number looks odd
 
-- **Единая стоимость вычислений** — стоимость запроса не зависит от поколения сервера, считается средняя утилизация по кластеру
-- **Сглаживание нагрузки** — потребление усредняется за период, чтобы редкие тяжёлые расчёты не давали скачков в квотах
-- **Накладные заложены** — в стоимость входит целевая утилизация (запас на отказоустойчивость) и коэффициент репликации
-- **Приоритет типа услуги** — запрос может иметь признаки нескольких систем, но попадёт в первый подходящий тип; порядок важен
+- **A single compute price** - the cost of a query does not depend on the server generation; average utilization across the cluster is used
+- **Load smoothing** - consumption is averaged over a period so that rare heavy computations do not spike the quotas
+- **Overheads are included** - the price includes target utilization (headroom for resilience) and a replication factor
+- **Service type priority** - a query may carry the markers of several systems but lands in the first matching type; the ordering matters
 
-Публикация допущений вместе с цифрами — обязательная часть механики. Без неё первый же спорный счёт обрушивает доверие ко всей модели.
+Publishing the assumptions alongside the numbers is a mandatory part of the mechanism. Without it, the first disputed bill collapses trust in the whole model.
 
-## Связь со стратегией
+## The tie to strategy
 
-Биллинг — недостающее звено между инициативами core-слоя и разговором с бизнесом: без него экономия от переиспользования витрин остаётся ненаблюдаемой. См. бизнес-цели в [[core-layer-project]].
+Billing is the missing link between core-layer initiatives and the conversation with the business: without it, the savings from reusing marts stay unobservable. See the business goals in [[core-layer-project]].
 
-Связи: [[core-layer-project]] · [[bi-project-metrics]] · [[data-mgmt-processes]]
+Links: [[core-layer-project]] · [[bi-project-metrics]] · [[data-mgmt-processes]]

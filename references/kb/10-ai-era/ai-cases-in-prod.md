@@ -1,41 +1,41 @@
 ---
 id: ai-cases-in-prod
-title: Два продовых AI-кейса в аналитике — анатомия работающего решения
+title: Two production AI cases in analytics - the anatomy of a working solution
 type: case
-source: "Курс «BI+AI стратегия 26», Занятие «Content management» part 2 — внутренние кейсы"
-confidence: проверяемо (внутренние замеры)
-origin: "разобранный на курсе внутренний кейс; числовые пороги обезличены — калибруйте от своего бейзлайна"
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session, part 2 - internal cases"
+confidence: verifiable (internal measurements)
+origin: "an internal case walked through on the course; the numeric thresholds are anonymized - calibrate from your own baseline"
 blocks: [4.3, 5, 6]
 ---
 
-Два разобранных кейса, доведённых до прода. Ценность не в результатах, а в **конструкции защит**: обе системы построены вокруг ограничений, а не вокруг возможностей модели.
+Two cases taken through to production. The value is not in the results but in **the construction of the safeguards**: both systems are built around constraints rather than around what the model can do.
 
-## Кейс 1. Персональный дайджест для топ-аудитории
+## Case 1. A personal digest for the top audience
 
-**Проблема.** Руководители вертикалей и категорий, C-level ловят задержки данных, вручную обновляют дашборды и переключают разрезы; при изменении метрики идут с вопросом «почему» к аналитикам.
+**The problem.** Heads of verticals and categories and the C-level run into data delays, refresh dashboards by hand and switch between cuts; when a metric moves they go to the analysts with "why".
 
-**Решение.** Бот с админкой в корпоративном мессенджере. Подписка на отчёты в своих разрезах (вертикаль / макрокатегория / локальная категория). По крону **после обновления данных** — персональный дайджест: графики из BI + факторный анализ внутренней LLM + саммари тредов из каналов инцидентов + ссылка на дашборд под нужный разрез. Дополнительные вопросы боту проходят **judge-gate против выдуманных данных**. Python-сервис, внутренняя модель для секьюрных данных.
+**The solution.** A bot with an admin panel inside the corporate messenger. Subscription to reports in your own cuts (vertical / macro category / local category). On a cron **after the data refreshes**, a personal digest: charts from BI, factor analysis by an internal LLM, a summary of threads from the incident channels, and a link to the dashboard for the relevant cut. Follow-up questions to the bot pass through a **judge gate against invented data**. A Python service, an internal model for secure data.
 
-**Результат.** Time-to-insight сократился примерно в тридцать раз — с десятков минут до пары — за счёт экономии на мониторинге готовности, хождении в BI, фильтрации, анализе и переписке с аналитиком. Десятки подписчиков, десятки отчётов в день, большинство подписчиков используют AI-выводы и саммари.
+**The result.** Time to insight fell roughly thirtyfold - from tens of minutes to a couple - by saving the monitoring of readiness, the trip into BI, the filtering, the analysis and the correspondence with an analyst. Dozens of subscribers, dozens of reports a day, and most subscribers use the AI conclusions and summaries.
 
-**Что здесь конструктивно:** запуск привязан к событию обновления данных, а не к расписанию наугад; контекст инцидентов подмешивается автоматически; ответы на свободные вопросы проходят отдельный гейт.
+**What is well constructed here:** the trigger is tied to the data refresh event, not to a schedule set by guesswork; incident context is blended in automatically; answers to free-form questions pass a separate gate.
 
-## Кейс 2. Агент, отвечающий «почему изменилась метрика»
+## Case 2. An agent that answers "why did the metric move"
 
-**Проблема.** Аналитики и биздевы тратят **часы на каждый вопрос «почему изменилась метрика»**: вручную собирают контекст из BI, семантического слоя, каталога метаданных, мессенджера и движка запросов — прежде чем начать думать.
+**The problem.** Analysts and business developers spend **hours on each "why did the metric move" question**: manually assembling context from BI, the semantic layer, the metadata catalog, the messenger and the query engine before they can start thinking.
 
-**Решение.** Агент отвечает за десятки минут вместо часов, оркеструя около десятка скиллов: проверка значимости · декомпозиция по сегментам · LMDI-факторный анализ воронки · параллельные сканеры A/B и мессенджера · внешние факторы (погода, маркетинг, поисковые запросы). На выходе — отчёт с топ-сегментами, факторами и 2–4 гипотезами причин.
+**The solution.** The agent answers in tens of minutes instead of hours, orchestrating about a dozen skills: a significance check · decomposition by segment · LMDI factor analysis of the funnel · parallel scanners over A/B tests and the messenger · external factors (weather, marketing, search queries). The output is a report with the top segments, the factors and two to four hypotheses about the cause.
 
-**Ключевая защита — режим RELATIVE-ONLY:** модель видит только проценты, процентные пункты и z-score, без абсолютных значений; все агрегации считаются в Trino / DuckDB / Python. Это одновременно защита от утечки чувствительных абсолютов и от галлюцинаций по цифрам.
+**The key safeguard is RELATIVE-ONLY mode:** the model sees only percentages, percentage points and z-scores, never absolute values; all aggregation happens in Trino / DuckDB / Python. This protects against both leaking sensitive absolutes and hallucinating numbers.
 
-**Результат.** Ускорение разбора аномалии до гипотезы в несколько раз · **существенный средний time-save**, замеренный как baseline → after на UAT · **качество объяснений около двух третей** по отдельному LLM-судье — авторы формулируют это как «есть куда расти» · точность metric-resolution замерена на голден-датасете отдельно для двух режимов и в жёстком режиме заметно ниже, чем в мягком. Поставляется плагином одной командой, deterministic evals.
+**The result.** Working an anomaly through to a hypothesis got several times faster · **a substantial average time saving**, measured as baseline versus after on UAT · **explanation quality around two thirds** per a separate LLM judge - the authors phrase this as "room to grow" · metric-resolution accuracy measured on a golden dataset separately for the two modes, and noticeably lower in the strict mode than in the lenient one. Shipped as a plugin by a single team, with deterministic evals.
 
-## Что из этого переносится в стратегию
+## What carries over into a strategy
 
-1. **Считать в коде, а не в модели.** Все агрегации вне LLM; модель получает только относительные величины. Это снимает сразу два риска — утечку и арифметические галлюцинации.
-2. **Judge-gate обязателен** для свободных вопросов, иначе бот начнёт выдумывать данные.
-3. **Метрики измеряют доставку, а не ощущение.** Time-save замерен как baseline → after на UAT; качество объяснений судит отдельный судья; точность резолвинга метрик — на голден-датасете. Ровно то, что требует [[ai-time-saving-trap]] и `evidence-2026.md` §1.
-4. **Качество около двух третей — это норма для старта, и его называют вслух.** Честная публикация неидеального числа — признак того, что замер реальный, а не подогнан.
-5. **Baseline замерен до запуска.** Без замера «сколько это занимало раньше» любой процент экономии не имеет смысла.
+1. **Compute in code, not in the model.** All aggregation outside the LLM; the model only receives relative values. That removes two risks at once - leakage and arithmetic hallucination.
+2. **A judge gate is mandatory** for free-form questions, or the bot starts inventing data.
+3. **Metrics measure delivery, not feeling.** The time saving was measured as baseline versus after on UAT; explanation quality is judged by a separate judge; metric resolution accuracy is measured on a golden dataset. Exactly what [[ai-time-saving-trap]] and `evidence-2026.md` §1 require.
+4. **Quality around two thirds is normal for a start, and they say so out loud.** Honestly publishing an imperfect number is a sign that the measurement is real rather than fitted.
+5. **The baseline was measured before launch.** Without measuring "how long this used to take", any percentage saving is meaningless.
 
-Связи: [[insight-management]] · [[ai-time-saving-trap]] · [[ai-ready-domain-score]] · [[ai-in-bi-approaches]]
+Links: [[insight-management]] · [[ai-time-saving-trap]] · [[ai-ready-domain-score]] · [[ai-in-bi-approaches]]

@@ -1,55 +1,55 @@
 ---
 id: content-catalog-ux
-title: Находимость контента — каталог отчётов, АРМ и навигация
+title: Findability of content - the report catalog, the workplace and navigation
 type: pattern
-source: "Курс «BI+AI стратегия 26», Занятие «Content management»"
-confidence: проверяемо
+source: "Course \"BI+AI strategy 26\", the \"Content management\" session"
+confidence: verifiable
 blocks: [4.2, 4.3]
 ---
 
-**Управление контентом — это ещё и находимость, а не только качество.** Health-score помогает ранжировать, но пользователю нужно легко найти нужное. При парадоксе Джевонса находимость падает первой.
+**Content management is findability too, not only quality.** A health score helps with ranking, but the user needs to find the right thing easily. Under the Jevons paradox, findability is the first thing to go.
 
-## Реальные вопросы пользователей, на которые должен отвечать интерфейс
+## The real user questions the interface has to answer
 
-**Power user — автор:** куда мне опубликовать отчёт · где посмотреть, какие отчёты построены на таблице X · где посмотреть, кто пользуется моим отчётом · как настроить права · кто имеет доступ к моему отчёту · я хочу начать делать отчёты, куда мне.
+**Power user, an author:** where do I publish my report · where do I see which reports are built on table X · where do I see who uses my report · how do I set up entitlements · who has access to my report · I want to start building reports, where do I go.
 
-**Casual user — потребитель:** ищу дашборд, как его найти и получить доступ · как понять, о чём отчёт и к кому идти с вопросами · где прочитать про отчёт и на чём он строится · нужна аналитика по метрике X — какие есть валидные отчёты · есть вопрос по отчёту, к кому обратиться · когда отчёт обновлялся.
+**Casual user, a consumer:** I am looking for a dashboard, how do I find it and get access · how do I work out what the report is about and who to go to with questions · where can I read about the report and what it is built on · I need analytics on metric X, which valid reports exist · I have a question about a report, who do I ask · when was the report last refreshed.
 
-На все эти вопросы должен отвечать **идеальный report catalog portal interface**.
+An **ideal report catalog portal interface** has to answer all of these.
 
-## Две реализации навигации
+## Two ways to implement navigation
 
-| Из коробки — BI-портал | Отдельная — кастомная разработка или секция корпоративного портала |
+| Out of the box - the BI portal | Separate - custom-built, or a section of the corporate portal |
 |---|---|
-| дерево папок / проектов / коллекций | может объединять несколько BI-интерфейсов в один знакомый пользователю |
-| дискомфорт от ещё одного незнакомого интерфейса, к которому надо приучать массового casual user | дорого, имеет смысл при большом числе casual users; больше контекста в компактном виде |
+| a tree of folders / projects / collections | can combine several BI interfaces into one the user already knows |
+| the discomfort of yet another unfamiliar interface that mass casual users have to be trained on | expensive, worth it with a large number of casual users; more context in a compact form |
 
-Промежуточный вариант — **интеграция report catalog в корпоративное google-like приложение поиска**.
+An intermediate option is **integrating the report catalog into the corporate Google-like search application**.
 
-## Разделение сред
+## Separating the environments
 
-Организационные (отделы/команды) · функциональные (домены данных) · и жизненный цикл: **личная папка → песочница → прод → сертифицированный отчёт → архив**.
+Organizational (departments/teams) · functional (data domains) · and the lifecycle: **personal folder -> sandbox -> production -> certified report -> archive**.
 
-Практика, отмеченная в курсе как удачная: в проектных песочницах можно держать любые отчёты и выдавать права любому сотруднику, **но через неделю права автоматически удаляются**. Механизм, а не регламент.
+A practice the course flags as successful: in project sandboxes you may keep any reports and grant access to any employee, **but the entitlements are deleted automatically after a week**. A mechanism, not a policy.
 
-## Аналитическое рабочее место (АРМ)
+## The analytical workplace
 
-Роле-ориентированный набор рекомендованного контента, а не свалка. В карточке АРМ: описание роли · как выдаётся доступ (AD-группы) · как нарезаются права · фокусные области данных и аналитики · таблица отчётов со статусом.
+A role-oriented set of recommended content, not a dumping ground. The workplace card holds: a description of the role · how access is granted (AD groups) · how entitlements are sliced · the focus areas of data and analytics · a table of reports with statuses.
 
-**Статусы отчётов в АРМ:** ДОСТУПЕН (готов к использованию) · ДОСТУПЕН с ограничениями (неоптимальный дизайн, значительные допущения в логике) · В РАБОТЕ · В ПЛАНЕ. Статус «доступен с ограничениями» — важная честная категория, которой обычно нет.
+**Report statuses in a workplace:** AVAILABLE (ready to use) · AVAILABLE with limitations (suboptimal design, significant assumptions in the logic) · IN PROGRESS · PLANNED. "Available with limitations" is an important honest category that is usually missing.
 
-Плюс: executive sponsor, рабочая группа, кнопки поддержки (нужен тренинг / нет нужного отчёта / нет доступа / другой вопрос).
+Plus: an executive sponsor, a working group, support buttons (need training / the report I need does not exist / no access / another question).
 
-Эволюция реализации: **от Confluence к встроенному интерфейсу** в дата-каталоге с quick search, take a tour, dashboards & access, dashboards traffic, get help.
+The evolution of the implementation: **from Confluence to a built-in interface** in the data catalog, with quick search, take a tour, dashboards and access, dashboard traffic, get help.
 
-## Описание отчётов и теги
+## Report descriptions and tags
 
-Описание — сквозной процесс создания и управления семантическим слоем метаданных об отчётах: на какие вопросы отвечает · как пользоваться · какие метрики представлены · особенности сбора и обновления данных · **допущения по качеству данных** · бэклог задач по развитию · ownership · доступность и RLS.
+A description is an end-to-end process of creating and managing a semantic layer of metadata about reports: which questions it answers · how to use it · which metrics are presented · the specifics of data collection and refresh · **the data quality assumptions** · the backlog of development work · ownership · availability and row-level security.
 
-Теги нужны для: категоризации через атрибутирование (домен данных, АРМ, сертификация от функции) · **поисковой оптимизации** · ключевых метрик и терминов, не встречающихся в названии.
+Tags are needed for: categorization through attribution (data domain, workplace, certification by the function) · **search optimization** · key metrics and terms that do not appear in the title.
 
-## Вывод
+## The conclusion
 
-Находимость — половина content-management. Каталог плюс АРМ под роль превращают health-score в реальный выбор пользователя **и агента**, а не в невидимый бэкенд-рейтинг.
+Findability is half of content management. The catalog plus a role-specific workplace turn the health score into a real choice for the user **and for the agent**, rather than an invisible back-end rating.
 
-Связи: [[content-mgmt-processes]] · [[content-certification]] · [[content-hygiene-loop]] · [[centralized-practices]]
+Links: [[content-mgmt-processes]] · [[content-certification]] · [[content-hygiene-loop]] · [[centralized-practices]]
