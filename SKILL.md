@@ -1,209 +1,209 @@
 ---
 name: bi-strategy
-description: Консультирует, строит и аудирует BI+AI стратегию. Три сценария: CONSULT (разбор конкретного кейса с вариантами и trade-off), FORM (сборка стратегии — интервью, диагностика зрелости по BI Project Health Check, AI-readiness оверлей, 7-блочный документ по D&A Strategy & Tactics Planner), AUDIT (ревью существующей стратегии: скоркард, разрывы цепочки, пересборка приоритетов). Любой артефакт проходит стадию судьи. Триггеры: "собери мою BI+AI стратегию", "проревьюй нашу стратегию", "посоветуй по кейсу", "диагностика BI зрелости", "/bi-strategy".
+description: Consults on, builds and audits a BI+AI strategy. Three scenarios - CONSULT (work a concrete case through options and trade-offs), FORM (build the strategy - interview, maturity diagnosis via BI Project Health Check, AI-readiness overlay, a six-section document), AUDIT (review an existing strategy - scorecard, chain breaks, resequenced priorities). Every artifact passes the judge stage. Triggers - "build my BI+AI strategy", "review our strategy", "advise me on this case", "assess our BI maturity", "/bi-strategy".
 ---
 
 # BI+AI Strategy Builder
 
-Собирает персональную BI+AI стратегию: интервью → диагностика зрелости → стратегия-документ по всем блокам. Заземлено на канонический метод Data Nature (Health Check + D&A Planner) плюс AI-слой курса «Разработка BI+AI стратегии 2026».
+Builds a BI+AI strategy for a specific company: interview → maturity diagnosis → a strategy document covering every section. Grounded on the canonical Data Nature method (Health Check + D&A Planner) plus the AI layer of the «BI+AI Strategy 2026» course.
 
-Принцип (тезис курса): **AI генерирует черновик — человек проверяет**. Скилл не выдумывает, а инстанцирует известные фреймворки под данные участника. Каждый блок валидируется пользователем.
+Working principle, and the course's own thesis: **AI drafts — humans validate.** The skill does not invent; it instantiates known frameworks against the participant's data. Every section is validated by the user.
 
-## Когда использовать
+## When to use
 
-- Итоговая работа курса — «макет BI+AI стратегии целиком»
-- Диагностика зрелости BI + AI-готовности
-- Триггеры: `/bi-strategy`, «собери мою стратегию», «финальная домашка», «оцени зрелость BI»
+- The final course exercise — "a full BI+AI strategy draft"
+- BI maturity and AI-readiness diagnosis
+- Triggers: `/bi-strategy`, "build my strategy", "final homework", "assess our BI maturity"
 
-## Опорные материалы
+## Reference material
 
-- `references/course-knowledge.md` — **библиотека концептов курса**, грунт для грамотных рекомендаций (генерично, без данных конкретной компании). Опирайся на неё в блоке «Рекомендация».
-- `references/diagnostic.md` — модель диагностики (по BI Project Health Check + AI-readiness оверлей курса).
-- `references/question-bank.md` — 72 фактора-вопроса Health Check.
-- `references/strategy-template.md` — **рабочая рамка анализа** из 7 блоков (не структура документа) + маппинг блок→материалы.
-- `references/wiki-structure.md` — дерево страниц по шести разделам и шаблоны каждой (оформление, таблицы, дорожная карта, метрики).
-- `references/evidence-2026.md` — **проверяемая фактура 2026** со ссылками: где AI реально работает в дата-процессах, тренды управления данными в AI-эпоху, контекстный слой, next-gen отчёты. Используй как источник цифр и как фильтр «проверяемо / мерил продавец / нет данных».
-- `references/kb/` — **атомарная база знаний, 66 файлов: один файл = одна тема**, связи через `[[wiki-ссылки]]`. Точка входа — `references/kb/30-graph.yaml`: по номеру блока стратегии находишь релевантные атомы, в `key_evidence` — числа для защиты приоритетов с указанием уровня доказательности.
-  - `kb/11-method/` — канонический метод Data Nature: каждый лист BI Strategy & Tactics Guide 2.0 как отдельный атом (боли, домены, классификация пользователей, info supply-demand, процессы данных и контента, практики SS и Centralized, матрица прав, метрики, action plan, vision).
-  - `kb/20-catalog/` — BI Project Innovation Map: каталог направлений развития BI-проекта как чеклист полноты стратегии.
-  - `kb/31-field/` — полевые данные: бенчмарк 12 российских BI-проектов (2026) и карта болей. Используй для калибровки «а как у других», **не как отраслевую статистику**.
-  - `kb/10-ai-era/` — концепты, кейсы и практики девяти занятий: AI-фундамент и триада пререквизитов, референсная архитектура LLM-ассистента, контекстный слой, семантический слой с парными замерами точности, сертификация контента, community и компетенции, найм в AI-эру.
-  - `kb/30-graph.md` — **визуальный граф тем**, 10 схем Mermaid: кластеры, цепочка зависимостей, AI-фундамент, спайн метода, жизненный цикл контента, модели поставки, данные, люди, триаж провалов. Показывай пользователю, когда нужна карта, а не список.
-  - `kb/50-failure-catalog.md` — **75 провалов в 7 семействах** с триажем по симптому. Открывай первым, когда участник приходит с «у нас что-то не так», а не с готовым вопросом.
-  - `kb/51-numbers.md` — **реестр чисел** с тегами `measured` / `benchmark` / `vendor` / `author-estimate` / `disputed`. Цитировать число можно только вместе с тегом; `vendor` и `disputed` — никогда как факт.
-  - **Атомы из списка `anonymized_cases` в графе — разобранные кейсы с обезличенными порогами.** Переносится механика; пороги ставятся от своего бейзлайна.
-- `references/faq-participants.md` — **база из 101 вопроса участников с ответами**, сгруппированных по 11 занятиям. Провенанс размечен: ◆ реальные (пре-курс опрос n=12 и интерактив n=10), ◇ вынесенные автором на обсуждение с залом, ○ достроенные из базы знаний. Каждый ответ ссылается на атомы KB. Используй как заготовки для дискуссии и как источник формулировок, когда участник задаёт похожий вопрос.
-- `references/70-golden-set/` — **голден-сет скилла в трёх уровнях**: retrieval (101 позиция, детерминированно), качество ответа (32 с `must_contain` / `must_not` и судьёй), честный отказ (10 негативных кейсов). Прогонять после правок KB и шаблонов. `build.py` пересобирает первый уровень из FAQ, `score.py` считает прогон.
-- `references/knowledge-map.yaml` — **машиночитаемая карта**: блок стратегии → какие локальные файлы читать и что взять из companion-репозитория. Начинай навигацию отсюда.
-- `references/strategy-requirements.md` — **спека приёмки документа**: шесть разделов (контекст → видение → стримы → инициативы → цели через метрики → риски), требование отточенности формулировок с шестью тестами и бан-листом, Definition of Done из 12 пунктов, дисквалифицирующие признаки. Применяется дважды: как сверка перед выдачей в FORM и как основа скоркарда в AUDIT.
-- `references/review-gates.md` — **обязательные гейты качества**: стадия судьи и анти-оптимизм при постановке целей.
-- `references/companion-kb.md` — как подключать [DG Board KB](https://github.com/alexbarakov/DG-strategy-self-consulting-agent) как governance-подложку.
-- `references/materials-links.md` — какие ссылки ставить (публичные) и что оставлять заглушкой.
-- `references/BI Project Health Check.xlsx`, `references/D&A Strategy & Tactics Planner [ENG].xlsx` — рабочие шаблоны (копируются в `<Company>/templates/`, линкуются относительным путём).
+- `references/course-knowledge.md` — **the course concept library**, grounding for competent recommendations (generic, no company-specific data). Lean on it in the "Recommendation" part of a section.
+- `references/diagnostic.md` — the diagnosis model (BI Project Health Check + the course's AI-readiness overlay).
+- `references/question-bank.md` — 72 Health Check factor questions.
+- `references/strategy-template.md` — **the analysis frame** of 7 blocks (not the shape of the document) + block → materials mapping.
+- `references/wiki-structure.md` — the page tree for the six document sections and a template for each (layout, tables, roadmap, metrics).
+- `references/evidence-2026.md` — **verifiable 2026 material** with sources: where AI actually works in data processes, data management trends in the AI era, the context layer, next-gen report formats. Use it as a source of figures and as the "verifiable / vendor-measured / no data" filter.
+- `references/kb/` — **an atomic knowledge base, 66 files: one file = one topic**, linked by Obsidian wiki-links. Entry point is `references/kb/30-graph.yaml`: find the strategy block by number and it lists the relevant atoms; `key_evidence` holds the numbers worth arguing with, each carrying its evidence level.
+  - `kb/11-method/` — the canonical Data Nature method: each worksheet of the BI Strategy & Tactics Guide 2.0 as its own atom (pains, domains, user classification, info supply-demand, data and content processes, self-service and centralized practices, access matrix, metrics, action plan, vision).
+  - `kb/20-catalog/` — BI Project Innovation Map: the catalog of every direction a BI project can take, used as a completeness checklist for the strategy.
+  - `kb/31-field/` — field data: a benchmark of 12 BI projects (2026) and the map of pain fronts. Use it to calibrate "how do others look", **not as industry statistics**.
+  - `kb/10-ai-era/` — concepts, cases and practices from nine course sessions: the AI foundation and its prerequisite triad, the LLM assistant reference architecture, the context layer, the semantic layer with paired accuracy measurements, content certification, community and competencies, hiring in the AI era.
+  - `kb/30-graph.md` — **the visual theme graph**, 10 Mermaid diagrams: clusters, dependency chain, AI foundation, method spine, content lifecycle, delivery models, data, people, failure triage. Show it to the user when they need a map rather than a list.
+  - `kb/50-failure-catalog.md` — **75 failure modes in 7 families** with symptom triage. Open it first when a participant arrives with "something is wrong with us" rather than with a formed question.
+  - `kb/51-numbers.md` — **the numbers registry** with tags `measured` / `benchmark` / `vendor` / `author-estimate` / `disputed`. A figure may only be quoted together with its tag; `vendor` and `disputed` never as fact.
+  - **Atoms listed under `anonymized_cases` in the graph are worked cases with anonymized thresholds.** The mechanics transfer; thresholds are set from your own baseline.
+- `references/faq-participants.md` — **101 participant questions with answers**, grouped by the eleven sessions. Provenance is tagged: ◆ real (pre-course survey n=12 and session interactive n=10), ◇ raised by the author for group discussion, ○ derived from the knowledge base. Every answer cites the atoms behind it. Use it as discussion material and as a source of phrasing when a participant asks something similar.
+- `references/70-golden-set/` — **the skill's golden set in three tiers**: retrieval (101 items, deterministic), answer quality (32 with `must_contain` / `must_not` and a judge), honest refusal (10 negative cases). Run it after changes to the KB or the templates. `build.py` regenerates tier 1 from the FAQ, `score.py` aggregates a run.
+- `references/knowledge-map.yaml` — **the machine-readable map**: strategy block → which local files to read and what to take from the companion repository. Start navigation here.
+- `references/strategy-requirements.md` — **the acceptance spec for the deliverable**: six sections (context → vision → streams → initiatives → goals as metrics → risks), the wording-precision requirement with six tests and a ban list, a 12-point Definition of Done, and the disqualifiers. Applied twice: as the check before delivery in FORM and as the scorecard in AUDIT.
+- `references/review-gates.md` — **mandatory quality gates**: the judge stage and the anti-optimism rules for setting targets.
+- `references/companion-kb.md` — how to plug in [DG Board KB](https://github.com/alexbarakov/DG-strategy-self-consulting-agent) as the governance layer.
+- `references/materials-links.md` — which links to include (public ones) and which to leave as placeholders.
+- `references/BI Project Health Check.xlsx`, `references/D&A Strategy & Tactics Planner [ENG].xlsx` — working templates (copied into `<Company>/templates/`, linked by relative path).
 
-**Запуск — участником на своей машине.** Всё грунтуется офлайн из этих файлов; **не подставляй чужие внутренние ссылки** — внутренние URL это заглушки, которые заполняет сам участник под свою компанию (см. `materials-links.md`).
+**The skill runs on the participant's own machine.** Everything is grounded offline from these files; **never substitute somebody else's internal links** — internal URLs are placeholders the participant fills in for their own company (see `materials-links.md`).
 
 ---
 
-## Сценарии и маршрутизация
+## Scenarios and routing
 
-| Сценарий | Триггеры | Форма |
+| Scenario | Triggers | Shape |
 |---|---|---|
-| **CONSULT** | «как нам лучше…», «имеет ли смысл…», «у нас кейс…», «посоветуй» — конкретный вопрос, без документа и без просьбы собрать | Диалог: кейс → заземлённые ответы с вариантами и trade-off → **судья** → сходимся на решении |
-| **AUDIT** | «проревьюй нашу стратегию», «дай фидбек на BI-программу», «прожарь», либо просто приложен документ | **Скоркард по шести разделам `strategy-requirements.md`** (есть / частично / нет + чего не хватает) → дисквалификаторы → разрывы цепочки → пересборка порядка → быстрые победы → **судья** |
-| **FORM** | «собери BI+AI стратегию», «финальная домашка курса» | Интервью → диагностика → 7 блоков рабочей рамки → сборка документа по шести разделам → **сверка с требованиями → судья → доработка** → 6-pager |
+| **CONSULT** | "what's the better way to…", "does it make sense to…", "we have a case…", "advise me" — a concrete question, no document, no request to build | Dialogue: the case → grounded answers with options and trade-offs → **judge** → converge on a decision |
+| **AUDIT** | "review our strategy", "give feedback on our BI programme", "tear this apart", or simply a document attached | **Scorecard across the six sections of `strategy-requirements.md`** (present / partial / absent + what is missing) → disqualifiers → chain breaks → resequencing → quick wins → **judge** |
+| **FORM** | "build a BI+AI strategy", "final course homework" | Interview → diagnosis → analysis across the 7 frame blocks → assemble the document in six sections → **requirements check → judge → rework** → 6-pager |
 
-Маршрутизация: документ с просьбой → AUDIT; вопрос → CONSULT; явная просьба собрать → FORM. CONSULT естественно эскалирует: если в диалоге выясняется, что кейс — это проблема всей программы, предложи перейти в AUDIT (если стратегия есть) или FORM (если нет).
+Routing: a document with a request → AUDIT; a question → CONSULT; an explicit request to build → FORM. CONSULT escalates naturally: if the dialogue reveals that the case is a whole-programme problem, offer to move to AUDIT (if a strategy exists) or FORM (if not).
 
-**Требования применяются в двух сценариях по-разному.** В FORM `strategy-requirements.md` — это чеклист приёмки собственного черновика перед выдачей. В AUDIT он же — рамка оценки чужого документа: шесть разделов дают структуру скоркарда, дисквалификаторы дают блокирующие находки, тесты отточенности дают предметный разбор формулировок вместо общего «написано размыто».
+**The requirements are applied differently in the two scenarios.** In FORM, `strategy-requirements.md` is a checklist for accepting your own draft before delivery. In AUDIT it is the frame for assessing somebody else's document: the six sections give the scorecard its structure, the disqualifiers give blocking findings, and the wording tests turn a vague "it reads fuzzy" into a specific critique of specific sentences.
 
-**Каждый сценарий заканчивается одной и той же стадией — судьёй** (`references/review-gates.md`). Это не полировка: ни один артефакт не выходит из скилла, не пройдя её и не показав, что она изменила.
+**Every scenario ends with the same stage — the judge** (`references/review-gates.md`). This is not polish: no artifact leaves the skill without passing it and showing what it changed.
 
-**Кейс с дедлайном.** Если у кейса есть жёсткое внешнее обязательство («обещали правлению в этом квартале»), не отвечай «вы не готовы» — такой совет не принимают, и запуск всё равно случится, только неподготовленным. Дай минимально безопасный контур: на каком узком домене запускать, какие гейты обязательны, что честно сказать заказчику про ограничения.
+**A case with a deadline.** If the case carries a hard external commitment ("we promised the board this quarter"), do not answer "you are not ready" — that advice is not taken, and the launch happens anyway, only unprepared. Give the minimum safe perimeter instead: which narrow domain to launch on, which gates are mandatory, and what to tell the sponsor honestly about the limits.
 
-## Универсальные конвенции (во всех сценариях)
+## Universal conventions (all scenarios)
 
-- **Язык артефакта — язык пользователя.** Опорные файлы могут быть на другом языке; артефакт — на том, на котором с тобой говорят. Спроси явно, если язык смешанный или у документа другая аудитория, чем у заказчика. Устоявшиеся термины (self-service, kill-gate, stack-rank, semantic layer) оставляй в привычной форме, оговорив это один раз в начале документа.
-- **Недостающее — называть, а не выдумывать.** Вместо правдоподобного числа ставь маркер прямо в артефакте:
-  > `[не хватает данных]` — чтобы назвать целевое проникновение self-service, нужна текущая доля активных пользователей по ролям. Источник: выгрузка использования BI за 90 дней. Без неё цель остаётся диапазоном, а не числом.
+- **The artifact is written in the user's language.** The reference files may be in another language; the artifact is in the language you are being spoken to in. Ask explicitly if the language is mixed or if the document's audience differs from the requester's. Established terms (self-service, kill-gate, stack-rank, semantic layer) stay in their usual form, noted once at the start of the document.
+- **Name what is missing rather than invent it.** Instead of a plausible number, put a marker straight into the artifact:
+  > `[missing data]` — to state a target self-service penetration we need the current share of active users by role. Source: a 90-day BI usage export. Without it the goal stays a range, not a number.
 
-  Собирай все маркеры в финальный список **«Что нужно измерить»**, отсортированный по тому, насколько каждый блокирует решения. Стратегия с пятью честными пробелами сильнее, чем с пятью выдуманными числами. Размытая формулировка вместо числа — это тот же пробел, только спрятанный.
-- **Приглашение документов по ходу.** Как только контекст начал формироваться (после постановки кейса в CONSULT, после первого батча интервью в FORM, при сборе входных в AUDIT) — предложи: *«Если есть готовые материалы — анализ болей, карта ландшафта, результаты ассессмента, прошлая стратегия, выгрузки опросов — пришлите сейчас, я заземлю работу на них вместо повторных вопросов»*. Присланное считается данными участника и цитируется, а не переспрашивается.
-- **Визуализация в конце.** Предложи собрать результат одностраничным HTML: CONSULT — one-pager решения; AUDIT — скоркард, карта разрывов, пересобранная дорожная карта; FORM — диагностика, дорожная карта со stack-rank, доска kill-gates.
-
----
-
-## Шаг 0. Выбор режима и сбор контекста
-
-1. Спроси режим (если не указан):
-   - **Лайт (экспресс, ~15 мин):** диагностика по 9 категориям крупно + стратегия по ключевым блокам. Для всех участников.
-   - **Полный (~45–60 мин):** по-факторная диагностика (ближе к 147 факторам Health Check) + развёрнутая стратегия по всем блокам с инициативами и метриками. Для тех, кто реально пишет стратегию.
-
-2. **Подтверди структуру и объём** (до интервью, не после):
-   - покажи список блоков и дай сократить или переставить — стратегия для компании на 200 человек не обязана нести все семь;
-   - объём: **6-pager** по умолчанию · полная вики по блокам · поблочная выдача с ревью после каждого;
-   - если строим не чистый BI/AI, а D&A или смесь с управлением данными — подключи companion (`references/companion-kb.md`).
-
-3. Проверь, есть ли уже данные:
-   - заполненный **пре-курс опрос** участника (профиль, команда, боли, что с AI дожило до прода) — если есть, переиспользуй, не переспрашивай;
-   - ранее сохранённый черновик стратегии — предложи обновить или начать заново.
+  Collect every marker into a closing list **"What must be measured"**, sorted by how much each one blocks decisions. A strategy with five honest gaps is stronger than one with five invented numbers. A vague phrase used instead of a number is the same gap, only hidden.
+- **Invite documents as you go.** As soon as context starts forming (after the case is stated in CONSULT, after the first interview batch in FORM, while collecting inputs in AUDIT), offer: *"If you have existing material — a pain analysis, a landscape map, assessment results, a previous strategy, survey exports — send it now and I will ground the work on it instead of asking again."* Anything sent counts as the participant's data and is quoted, not re-asked.
+- **Visualization at the end.** Offer to assemble the result as a single-file HTML: CONSULT — a one-pager of the decision; AUDIT — scorecard, chain-break map, resequenced roadmap; FORM — diagnosis, roadmap with the stack-rank, a board of kill-gates.
 
 ---
 
-## Шаг 1. Интервью
+## Step 0. Mode and context
 
-Задавай вопросы через `AskUserQuestion`, батчами по 2–3, не все сразу. Цель — собрать ровно то, что нужно для диагностики и заполнения блоков. Маппинг вопросов на блоки — в `references/strategy-template.md`.
+1. Ask for the mode (unless it was given):
+   - **Light (~15 min):** diagnosis across the 9 categories at a coarse grain + strategy for the key sections. Suitable for everyone.
+   - **Full (~45–60 min):** factor-by-factor diagnosis (closer to the 147 Health Check factors) + a developed strategy across all sections with initiatives and metrics. For those actually writing the strategy.
 
-**Лайт — минимальный набор (≈8 вопросов):**
-1. Контекст компании: размер, отрасль, тех/не-тех профиль, зрелость данных (data-informed / driven / led).
-2. Команда и инфра: какие роли есть (DWH, центральный BI, доменные аналитики, ML/DS, Data Governance, CDO), BI-тул, есть ли semantic layer / metric store, есть ли AI-ассистент по данным (в проде / пилот / нет).
-3. Спрос: кто потребители, % бизнес-юзеров заходящих в BI ≥1/мес, доля self-service.
-4. Фундамент: есть ли core-слой сертифицированных витрин, доля certified-данных, состояние DQ.
-5. Боли: топ-1–3 боли BI сейчас.
-6. AI сегодня: что пробовали с AI/LLM и что дожило до прода; % ad-hoc, который по ощущению можно отдать AI.
-7. Ограничения: ресурс/бюджет, риск-аппетит, обеспечен ли governance ресурсом.
-8. Амбиция: чего хотите достичь за 12 месяцев.
+2. **Confirm the structure and the volume** (before the interview, not after):
+   - show the list of sections and let them be cut or reordered — a strategy for a 200-person company need not carry all seven blocks of analysis;
+   - volume: **6-pager** by default · a full wiki by section · section-by-section delivery with a review after each;
+   - if this is not pure BI/AI but D&A or a mix with data management, plug in the companion (`references/companion-kb.md`).
 
-**Обязательный шаг само-оценки (и в Лайт, и в Полном).** После контекст-вопросов не выводи зрелость «на глаз» — попроси участника оценить категории по шкале 0–4. Источник формулировок — `references/question-bank.md` (реальные факторы Health Check, не выдумывать):
-- **Лайт:** 9 оценок по категориям (одна на категорию, опираясь на якорный вопрос) + 5 оценок AI-readiness (AI-1…AI-5). Задавай батчами по 3–4 через `AskUserQuestion`, опции = 0/1/2/3/4 с якорями (No / Planned / Partially / Completed / Optimized). По каждой — по возможности и 1Y-таргет.
-- Скоркард считается из **этих оценок**, а не из догадок. Без этого шага диагностика слишком тонкая, чтобы на ней строить стратегию.
-- **Формулируй вопросы просто:** одна мысль на вопрос, без списков жаргона в одном вопросе. Варианты — плейн-язык, единые для всех: «Да, налажено» (4) · «В основном да» (3) · «Частично» (2) · «Нет / почти нет» (1). Не грузи участника терминами Health Check дословно — переводи на человеческий.
-
-**Полный — добавляет к Лайт:**
-- Прогон по-факторно (72 фактора из `question-bank.md`), средние по 9 категориям и по 7 solution-категориям.
-- По каждой из 9 категорий Health Check — короткая самооценка 0–4 (см. `references/diagnostic.md`); можно грид-стилем.
-- Домены данных и ownership (для 1.2), карта потребителей по ролям (для 1.3/1.4).
-- Целевой баланс каналов Centralized / Self-Service / Agentic и стадия agentic-зрелости на год.
-- Кандидат-домен для триады AI-фундамента (что в semantic / core / ДБЗ, кто gate).
-
-Не превращай интервью в допрос: если ответа нет — помечай `[требует уточнения]` и иди дальше.
+3. Check for data that already exists:
+   - a completed **pre-course survey** (profile, team, pains, what survived to production with AI) — reuse it, do not ask again;
+   - a previously saved strategy draft — offer to update it or start fresh.
 
 ---
 
-## Шаг 2. Диагностика
+## Step 1. Interview
 
-Следуй `references/diagnostic.md`. На выходе:
-- **Профиль зрелости** — уровень (Beginning / Learning / Developing / Mastering, 0–4) по 9 категориям Health Check и по 7 solution-категориям.
-- **AI-readiness оверлей** — оценка по слою курса (полнота доменного контекста, семантическое покрытие, доля certified, готовность процессов к «AI генерирует — человек проверяет»).
-- **Разрыв в цепочке зависимостей** — где рвётся `core → semantic → контекст → точность AI → self-service`; назови 2–3 самых дорогих разрыва.
-- **Позиция в треугольнике каналов** и реалистичная стадия agentic-зрелости на год.
+Ask through `AskUserQuestion`, in batches of two or three, never all at once. The goal is to collect exactly what the diagnosis and the sections need. Question-to-block mapping is in `references/strategy-template.md`.
 
-Диагностика — это *вход* для стратегии: слабые категории и разрывы напрямую диктуют приоритеты в TO-BE и Action plan.
+**Light — the minimum set (~8 questions):**
+1. Company context: size, industry, tech / non-tech profile, data maturity (data-informed / driven / led).
+2. Team and infrastructure: which roles exist (warehouse, central BI, domain analysts, ML/DS, Data Governance, CDO), the BI tool, whether a semantic layer or metric store exists, whether a data assistant exists (production / pilot / none).
+3. Demand: who the consumers are, % of business users opening BI at least monthly, the self-service share.
+4. Foundation: whether a certified core layer exists, the share of certified data, the state of data quality.
+5. Pains: the top one to three BI pains right now.
+6. AI today: what was tried with AI/LLM and what survived to production; the % of ad-hoc that could plausibly go to AI.
+7. Constraints: resource and budget, risk appetite, whether governance is resourced.
+8. Ambition: what you want to achieve within 12 months.
 
----
+**A mandatory self-assessment step (both Light and Full).** After the context questions, do not eyeball the maturity — ask the participant to score the categories 0–4. Take the wording from `references/question-bank.md` (real Health Check factors, never invented):
+- **Light:** 9 category scores (one per category, anchored on its lead question) + 5 AI-readiness scores (AI-1…AI-5). Ask in batches of three or four through `AskUserQuestion`, with options 0/1/2/3/4 and anchors (No / Planned / Partially / Completed / Optimized). Where possible take a one-year target alongside.
+- The scorecard is computed from **these scores**, not from guesses. Without this step the diagnosis is too thin to build a strategy on.
+- **Keep the questions simple:** one idea per question, no jargon lists inside a single question. Options in plain language, identical everywhere: "Yes, established" (4) · "Mostly yes" (3) · "Partially" (2) · "No / barely" (1). Do not read Health Check terminology at the participant verbatim — translate it into human speech.
 
-## Шаг 3. Генерация документа
+**Full — adds to Light:**
+- A factor-by-factor pass (72 factors from `question-bank.md`), averages across the 9 categories and the 7 solution categories.
+- A short 0–4 self-assessment per Health Check category (see `references/diagnostic.md`); a grid works well.
+- Data domains and ownership, and a consumer map by role.
+- The target balance of Centralized / Self-Service / Agentic channels and a realistic agentic maturity stage for the year.
+- A candidate domain for the AI foundation triad (what goes into semantic / core / domain knowledge base, and who holds the gate).
 
-Собери вики по **шести разделам документа** `references/strategy-requirements.md`, раскладку страниц бери из `references/wiki-structure.md`. Семь блоков `references/strategy-template.md` — рабочая рамка анализа: прорабатываешь по ней, а в документ выносишь результат, распределённый по стримам и инициативам; сама рамка уходит в приложение. (Фазы AS-IS → TO-BE → Операционализация → Трансформация). Для каждого блока держи формат:
-
-> **Суть** (сухой драфт, 2–4 фразы) → **Рекомендация (черновик)** (конкретное экспертное описание на основе диагностики и материалов, с пометкой ЧЕРНОВИК) → **Состав блока** → **Вопросы компании → зависимые проекты** (таблица) → **Гейт зрелости** (что НЕ начинать без необходимости/зрелости) → **Материалы и шаблоны** (внутренние кросс-ссылки + внешние: шаблоны xlsx, занятия, Confluence).
-
-После `00-Диагностика` собери **`6-pager`** — сжатую суть всех блоков на одну страницу (Vision · диагноз · stack-rank · суть по 7 блокам · метрики/экономика · риски+первый шаг), с внутренними ссылками на блоки. Помечай ЧЕРНОВИК.
-
-Правила формата: **«Рекомендация (черновик)» — повествовательным текстом (проза)**, в стиле реальной стратегии-образца (ритм «почему важно → что делаем → к чему ведёт»), но заземлённым на **данные и оценки самого участника**. **Цифры, таргеты и названия из любой референс-стратегии НЕ переносить** — референс даёт образец формата и стиля, а не источник чисел. Каждая мера — **условная, через гейт зрелости**; не рекомендуй делать что-либо без потребности или фундамента. В каждый блок — релевантные **ссылки на материалы** (маппинг блок→материалы см. в `strategy-template.md`).
-
-- **Лайт:** блоки 1, 2 (сжато), 5 (AI-фундамент — ядро), 7 (Vision + план + stack-rank) + скоркард (`00-Диагностика`) и `09-Реестр-рисков`.
-- **Полный:** все 7 блоков (4 — с под-блоками 4.1/4.2/4.3) по полному формату, per-domain детали.
-
-Обязательные сквозные артефакты в документе:
-- диагностический скоркард (профиль зрелости + топ-разрывы);
-- **stack-rank** приоритетов (Governance → Trusted Data → AI-готовность → BI Content → Self-service) с явным «что замораживаем первым»;
-- **дерево метрик** BI+AI (из 4 групп Planner: Engagement / Quality of service / Process quality / Business impact + AI-метрики);
-- **kill-gate** хотя бы для одной AI-инициативы;
-- **реестр рисков** (хрупкая цепочка AI→SL→core→каталог; агенты умножают хаос; governance без ресурса);
-- **двойственная стратегия** «старый BI (практики) + новый BI (эксперименты)».
-
-### Вывод — вики-приложение (markdown, связанные страницы)
-
-Не один плоский файл, а **мини-вики**: главная страница + разделы по темам, связанные `[[wiki-ссылками]]` (нативно работает в Obsidian: граф-вью, переходы). Структура и правила именования — в `references/wiki-structure.md`.
-
-Кратко:
-- Папка `BI-AI-Strategy — <Company>/` в текущей рабочей директории (или в базе знаний, если запускается из вэлта).
-- `index.md` — **главная**: заголовок, executive summary (5–7 строк), диагностический скоркард, таблица-навигация со ссылками на все разделы, статус готовности блоков.
-- Отдельные страницы-разделы (по одной на блок спайна), каждая — с хлебной крошкой `[[index]]`, содержанием в логике AS-IS → TO-BE → инициативы → метрика+kill-gate, и ссылками «← пред / след →».
-- Внутренние перекрёстные ссылки между разделами (напр. из «Метрики» на `[[07-Transformation-plan]]`, из AS-IS-боли на закрывающую её инициативу).
-
-Порядок работы: сначала собери и покажи **index (скоркард + навигацию)**, получи «ок», затем разворачивай разделы по одному — показывай страницу → принимай правки → двигайся дальше (человеческий гейт против галлюцинаций). Не генери всю вики разом без согласования скоркарда.
-
-В конце предложи: (а) отдать участнику пустые Planner/Health Check xlsx как рабочие файлы, (б) собрать слайд-версию из index+разделов, (в) экспортировать вики в HTML одним файлом (скилл `barakov-html-app`) для шаринга вне Obsidian.
+Do not turn the interview into an interrogation: if there is no answer, mark `[requires clarification]` and move on.
 
 ---
 
-## Правила
+## Step 2. Diagnosis
 
-- Не давай общих советов — привязывай каждую рекомендацию к ответам участника и к фреймворку (не «внедрите DQ», а «у вас разрыв в звене core→semantic, поэтому первый шаг — core-слой на домене X с метрикой Y и kill-gate Z»).
-- Флагуй `[требует уточнения]` там, где данных нет; не выдумывай цифры.
-- Не гони весь документ разом в Лайт-режиме без согласования — покажи скоркард и stack-rank, получи «ок», потом разворачивай.
-- Держи baseline метода Data Nature: шкала 0–4, дихотомия Centralized vs Self-Governing в процессах, форма цели «Description | KPIs | Outcomes | Timing».
+Follow `references/diagnostic.md`. It produces:
+- **A maturity profile** — level (Beginning / Learning / Developing / Mastering, 0–4) across the 9 Health Check categories and the 7 solution categories.
+- **An AI-readiness overlay** — scored on the course's layer (domain context completeness, semantic coverage, share of certified data, process readiness for "AI drafts — humans validate").
+- **The break in the dependency chain** — where `core → semantic → context → AI accuracy → self-service` snaps; name the two or three most expensive breaks.
+- **The position in the channel triangle** and a realistic agentic maturity stage for the year.
 
-## Дисциплина доказательств (обязательно)
-
-Источник фактуры — `references/evidence-2026.md`. Правила:
-
-1. **Помечай уровень любой цифры:** проверяемо / мерил продавец / нет данных. Вендорскую цифру нельзя подавать как факт — рядом всегда «кто мерил».
-2. **«Нет данных» ≠ «не работает».** Это приглашение измерить у себя в shadow-режиме, а не приговор технологии.
-3. **Эффект AI не измеряется самооценкой команды.** В контролируемом замере разработчики оказались на 19% медленнее, будучи уверены, что стали на 20% быстрее. В блок метрик — замер на эталонном наборе, не опрос.
-4. **Не переноси чужие таргеты.** Числа из бенчмарков и кейсов — ориентир для разговора, в дорожной карте остаются заглушки `<•>`.
-5. **Маршрутизация вместо замены.** Рекомендуя AI в процессе, всегда указывай, что остаётся детерминированным и на каком объёме: дешёвый слой на массовое, модель — на спорное.
+The diagnosis is the *input* to the strategy: weak categories and breaks dictate the priorities directly.
 
 ---
 
-## Гейты перед выдачей (обязательно)
+## Step 3. Producing the document
 
-0. **Сверка с требованиями.** Прогони артефакт по `references/strategy-requirements.md`, в таком порядке:
-   - **Дисквалификаторы** — десять признаков. Любой найденный возвращает документ на доработку независимо от объёма; до судьи артефакт не идёт.
-   - **Definition of Done** — двенадцать пунктов, по каждому «да / нет / не применимо с причиной».
-   - **Трассируемость** — прогон в обе стороны: покрыта ли каждая названная проблема стримом, обоснована ли каждая инициатива ссылкой на проблему или тренд. Сироты либо удаляются, либо получают явное объяснение.
-   - **Отточенность** — шесть тестов и бан-лист. Формулировки, не прошедшие тест переносимости или оспоримости, переписываются, а не помечаются.
+Assemble the wiki along the **six document sections** of `references/strategy-requirements.md`, taking the page layout from `references/wiki-structure.md`. The seven blocks in `references/strategy-template.md` are the analysis frame: you work through them, and what goes into the document is the result, distributed across streams and initiatives — the frame itself moves to the appendix.
 
-   Результат сверки покажи таблицей: раздел · статус · что не хватает. Это дешёвая механическая проверка, и она снимает большую часть находок до того, как до них дойдёт судья.
+For each section hold the shape:
 
-1. **Судья.** Прогони артефакт через стадию судьи из `references/review-gates.md`: семь измерений, 5–8 находок с серьёзностью, вердикт «подписал бы / не подписал». Блокирующие находки исправь или преврати в явное решение пользователя. **Покажи, что изменилось** (было → стало) — проход без видимых изменений означает, что судья был вежлив, а не полезен.
-2. **Анти-оптимизм.** До того как числа попадут в документ: цели калиброванные, а не максимальные; +1 уровень за год по умолчанию; каждая цель дисконтирована на риск зависимости, мощности и принятия; написано, **чего стратегия не делает**; отрепетировано сокращение бюджета и опубликован список заморозки.
-3. **Дисциплина доказательств.** Каждая цифра помечена уровнем; вендорские числа не подаются как факт; эффект AI не измеряется самооценкой команды.
+> **Substance** (a dry draft, two to four sentences) → **Recommendation (draft)** (a concrete expert reading based on the diagnosis and the material, marked DRAFT) → **Contents** → **Company questions → dependent projects** (a table) → **Maturity gate** (what NOT to start without need or foundation) → **Materials and templates** (internal cross-links plus external ones: xlsx templates, sessions, wiki pages).
 
-## Установка
+Format rules: **"Recommendation (draft)" is written as prose**, in the rhythm of a real strategy ("why it matters → what we do → where it leads"), but grounded in **the participant's own data and scores**. **Never carry figures, targets or names across from a reference strategy** — a reference gives you the shape and the register, not the numbers. Every measure is conditional, gated on maturity; never recommend doing something without a need or a foundation underneath it.
 
-- **Claude Code:** склонируй репозиторий прямо в директорию скиллов — `git clone <url> ~/.claude/skills/bi-strategy`. `SKILL.md` лежит в корне, поэтому директория клона и есть скилл, а относительные пути к `references/` разрешаются сами.
-- **Любой другой агент:** передай этот файл как инструкции, а корень репозитория — как источник знаний.
-- **Парная работа:** склонируй рядом [DG Board KB](https://github.com/alexbarakov/DG-strategy-self-consulting-agent), если строишь D&A или смешанную стратегию.
+- **Light:** context, diagnosis (condensed), the AI foundation as the core, vision and plan with the stack-rank, plus the scorecard and the risk register.
+- **Full:** all sections in full, with per-domain detail.
+
+Mandatory cross-cutting artifacts:
+- the diagnostic scorecard (maturity profile + top breaks);
+- the **stack-rank** of priorities (Governance → Trusted Data → AI readiness → BI Content → Self-service) with an explicit "what we freeze first";
+- the **metric tree** (four Planner groups: Engagement / Quality of service / Process quality / Business impact, plus AI metrics);
+- a **kill-gate** for at least one AI initiative;
+- a **risk register** (the fragile chain AI → semantic layer → core → catalog; agents multiply chaos; governance without resource);
+- the **dual track**: old BI sustaining plus new AI exploring.
+
+### Output — a linked wiki
+
+Not one flat file but a **mini-wiki**: a front page plus section pages, linked with Obsidian wiki-links (native graph view and navigation). Structure and naming rules are in `references/wiki-structure.md`.
+
+In short:
+- A folder `BI-AI-Strategy — <Company>/` in the current working directory (or in the knowledge base, if run from a vault).
+- `index.md` is **the front page and the vision summary**: where we are going, which problems we close, the streams one line each, what we deliberately do not do, the ask to the sponsor, the first step and the cost of inaction. It must read standalone.
+- Section pages, each with a breadcrumb back to `index` and cross-links to related sections.
+- Cross-links between sections (for example from a goal to the initiative that moves it, from a stated problem to the stream that closes it).
+
+Order of work: assemble and show **the index first**, get an "ok", then expand section by section — show a page, take corrections, move on. That human gate is the defence against hallucination. Never generate the whole wiki at once without agreeing the scorecard.
+
+At the end offer: (a) the blank Planner and Health Check xlsx as working files, (b) a slide version assembled from the wiki, (c) an export to a single HTML file for sharing outside Obsidian.
+
+---
+
+## Rules
+
+- No generic advice — tie every recommendation to the participant's answers and to the framework. Not "implement data quality", but "your chain breaks between core and semantic, so the first step is a core layer on domain X with metric Y and kill-gate Z".
+- Flag `[requires clarification]` wherever data is absent; never invent figures.
+- Do not dump the whole document at once in Light mode — show the scorecard and the stack-rank, get an "ok", then expand.
+- Hold the Data Nature baseline: the 0–4 scale, the Centralized vs Self-Governing dichotomy inside processes, and the goal form `Description | KPIs | Outcomes | Timing`.
+
+## Evidence discipline (mandatory)
+
+The source of figures is `references/evidence-2026.md` and `references/kb/51-numbers.md`. The rules:
+
+1. **Tag the level of every figure:** verifiable / vendor-measured / no data. A vendor figure is never presented as fact — who measured it is always named alongside.
+2. **"No data" ≠ "does not work".** It is an invitation to measure it yourself in shadow mode, not a verdict on the technology.
+3. **The effect of AI is not measured by the team's self-assessment.** In a controlled study developers were 19% slower while being convinced they were 20% faster. What goes into the metrics is a measurement against a golden set, not a survey.
+4. **Never carry across somebody else's targets.** Numbers from benchmarks and cases orient the conversation; in the roadmap they stay as placeholders `<•>`.
+5. **Routing, not replacement.** When recommending AI inside a process, always state what stays deterministic and at what volume: the cheap layer on the mass, the model on the disputed cases.
+
+---
+
+## Gates before delivery (mandatory)
+
+0. **Requirements check.** Run the artifact through `references/strategy-requirements.md`, in this order:
+   - **Disqualifiers** — ten signs. Any one of them sends the document back regardless of its size; it does not reach the judge.
+   - **Definition of Done** — twelve points, each answered "yes / no / not applicable, because".
+   - **Traceability** — run it both ways: is every named problem covered by a stream, is every initiative justified by a reference to a problem or a trend. Orphans are deleted or given an explicit reason to exist.
+   - **Wording precision** — six tests and the ban list. Phrases failing the portability or the arguability test are rewritten, not annotated.
+
+   Show the result as a table: section · status · what is missing. This is a cheap mechanical pass, and it removes most findings before the judge ever reaches them.
+
+1. **The judge.** Run the artifact through the judge stage from `references/review-gates.md`: seven dimensions, five to eight findings with severity, and a verdict of "I would sign this / I would not". Fix blocking findings or turn them into an explicit user decision. **Show what changed** (before → after) — a pass with no visible change means the judge was polite rather than useful.
+2. **Anti-optimism.** Before any number enters the document: targets calibrated rather than maximal; +1 level per year by default; every target discounted for dependency, capacity and adoption risk; **what the strategy does not do** written down; the budget cut rehearsed and the freeze list published.
+3. **Evidence discipline.** Every figure carries its level; vendor numbers are not presented as fact; the effect of AI is not measured by self-assessment.
+
+## Installation
+
+- **Claude Code:** clone the repository straight into the skills directory — `git clone <url> ~/.claude/skills/bi-strategy`. `SKILL.md` sits at the root, so the clone directory *is* the skill and the relative paths to `references/` resolve on their own.
+- **Any other agent:** pass this file as instructions and the repository root as a knowledge source.
+- **Paired work:** clone [DG Board KB](https://github.com/alexbarakov/DG-strategy-self-consulting-agent) alongside if you are building a D&A or mixed strategy.
