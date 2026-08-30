@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Сборка вики-стратегии в один переносимый HTML-файл.
+"""Build the strategy wiki into one portable HTML file.
 
-Без зависимостей и без сборки: markdown → HTML своим конвертером, все страницы
-в одном документе, навигация по якорям. Открывается с диска, из почты и с телефона.
+No dependencies and no build step: markdown to HTML through our own converter, every page
+in one document, navigation by anchors. Opens from disk, from email and on a phone.
 
-  python3 build-html.py <папка-вики> [выходной.html]
+  python3 build-html.py <wiki-folder> [output.html]
 """
 import html, os, re, sys
 
@@ -37,7 +37,7 @@ def inline(t):
     t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
     t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
     t = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", t)
-    # [[ссылка|подпись]] и [[ссылка]] -> внутренний якорь
+    # [[link|label]] and [[link]] -> an internal anchor
     def wiki(m):
         tgt = m.group(1).replace("../", "")
         anchor = (m.group(2) or "").strip()
@@ -93,7 +93,7 @@ def convert(md):
             out.append(f"<li>{inline(m.group(3))}</li>"); continue
         out.append(f"<p>{inline(line)}</p>")
     flush_tbl(); flush_quote()
-    # обернуть подряд идущие li в ul
+    # wrap consecutive li elements in a ul
     txt = "\n".join(out)
     txt = re.sub(r"(?:<li>.*?</li>\n?)+", lambda m: "<ul>" + m.group(0) + "</ul>", txt, flags=re.S)
     return txt
@@ -148,18 +148,18 @@ def main():
         p = os.path.join(src, name + ".md")
         if not os.path.exists(p): continue
         md = open(p, encoding="utf-8").read()
-        md = re.sub(r"^\[\[.*?\]\].*?\n", "", md, count=1)  # хлебная крошка не нужна
+        md = re.sub(r"^\[\[.*?\]\].*?\n", "", md, count=1)  # the breadcrumb is not needed
         title = re.search(r"^#\s+(.*)$", md, re.M)
         CUR_PAGE["slug"] = slug(name)
         pages.append((slug(name), name, title.group(1) if title else name, convert(md)))
 
     nav = []
     for sid, name, title, _ in pages:
-        if name.startswith("appendix/") and "прил" not in "".join(nav).lower():
-            nav.append('<div class="grp">Приложение</div>')
+        if name.startswith("appendix/") and "appendix" not in "".join(nav).lower():
+            nav.append('<div class="grp">Appendix</div>')
         nav.append(f'<a href="#{sid}">{html.escape(title)}</a>')
 
-    # ссылка на соседнюю страницу внутри подпапки пишется без префикса — доразрешаем по известным якорям
+    # a link to a sibling page inside a subfolder is written without the prefix - resolve it against the known anchors
     known = {sid for sid, _, _, _ in pages}
     body = "\n".join(f'<section id="{sid}">{h}</section>' for sid, _, _, h in pages)
 
@@ -175,10 +175,10 @@ def main():
     doc = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(pages[0][2])}</title><style>{CSS}</style></head><body>
-<div class="wrap"><nav><div class="hdr"><div class="t">BI+AI стратегия</div></div>
+<div class="wrap"><nav><div class="hdr"><div class="t">BI+AI strategy</div></div>
 {''.join(nav)}</nav><main>{body}</main></div><script>{JS}</script></body></html>"""
     open(dst, "w", encoding="utf-8").write(doc)
-    print(f"собрано {len(pages)} страниц → {dst}  ({os.path.getsize(dst)//1024} КБ)")
+    print(f"built {len(pages)} pages -> {dst}  ({os.path.getsize(dst)//1024} KB)")
 
 
 if __name__ == "__main__":

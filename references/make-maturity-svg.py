@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
-"""Генератор SVG-визуализации зрелости по темам (как в Data & Analytics Maturity Tool).
-Горизонтальный бар-чарт 0–4 с зонами Beginning / Learning / Developing / Mastering.
-Использование: заполни SCORES само-оценкой участника (0–4) и OUT — путь к svg в вики (assets/maturity.svg).
-Вставляй в 00-Диагностика.md как ![Профиль зрелости по темам](assets/maturity.svg)."""
+"""Generates an SVG visualization of maturity by theme (as in the Data & Analytics Maturity Tool).
+A horizontal bar chart from 0 to 4 with the zones Beginning / Learning / Developing / Mastering.
+Usage: fill SCORES with the participant's self-assessment (0-4) and OUT with the path to the svg in the wiki (assets/maturity.svg).
+Embed it in the diagnostics page as ![Maturity profile by theme](assets/maturity.svg)."""
 
-# (тема, оценка 0–4) — 9 категорий Health Check + AI-readiness оверлей
+# (theme, score 0-4) - the 9 Health Check categories plus the AI-readiness overlay
 SCORES = [
-    ("Связь с бизнесом", 3.0),
-    ("Adoption и удовлетворённость", 2.0),
-    ("Управление контентом", 2.0),
+    ("Link to the business", 3.0),
+    ("Adoption and satisfaction", 2.0),
+    ("Content management", 2.0),
     ("Self-Service delivery", 2.0),
-    ("Guided delivery / поддержка", 1.0),
-    ("Платформа: semantic / каталог", 1.0),
+    ("Guided delivery / support", 1.0),
+    ("Platform: semantics / catalog", 1.0),
     ("Data Quality", 2.0),
-    ("Безопасность и комплаенс", 2.0),
-    ("Управление BI-проектом", 3.0),
-    ("AI-readiness (оверлей)", 1.4),
+    ("Security and compliance", 2.0),
+    ("BI project management", 3.0),
+    ("AI readiness (overlay)", 1.4),
 ]
 OUT = "assets/maturity.svg"
 
@@ -31,8 +31,8 @@ def build(scores):
     H = top + len(scores) * rowh + 34
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="Arial, sans-serif">',
          f'<rect width="{W}" height="{H}" fill="#ffffff"/>',
-         '<text x="20" y="34" font-size="18" font-weight="700" fill="#171A26">Профиль зрелости по темам (0–4)</text>',
-         '<text x="20" y="54" font-size="12" fill="#7A8299">Само-оценка · зоны: Beginning · Learning · Developing · Mastering</text>']
+         '<text x="20" y="34" font-size="18" font-weight="700" fill="#171A26">Maturity profile by theme (0-4)</text>',
+         '<text x="20" y="54" font-size="12" fill="#7A8299">Self-assessment · zones: Beginning · Learning · Developing · Mastering</text>']
     for lo, c, name in bands:
         x = L + lo * unit
         s.append(f'<rect x="{x:.1f}" y="{top}" width="{unit:.1f}" height="{len(scores)*rowh}" fill="{tint[c]}"/>')

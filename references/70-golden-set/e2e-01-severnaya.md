@@ -1,171 +1,171 @@
 ---
 id: e2e-01-severnaya
 type: end-to-end-run
-purpose: сквозной прогон FORM на вымышленной компании — проверяем не документ, а скилл
-company: «Северная аптека» (вымышленная)
+purpose: an end-to-end FORM run on an invented company - what is tested is the skill, not the document
+company: "Severnaya Apteka" (invented)
 date: 2026-08-29
 ---
 
-# Сквозной прогон 01 — «Северная аптека»
+# End-to-end run 01 - "Severnaya Apteka"
 
-Голден-сет уровней 1–3 проверяет припоминание знаний. Этот файл проверяет то, ради чего скилл существует: **получается ли на выходе защитимая стратегия**. Кейс выбран неудобным намеренно — на удобном тест не показывает ничего.
+Golden set tiers 1-3 test recall of knowledge. This file tests what the skill exists for: **does a defensible strategy come out of it**. The case was chosen to be awkward on purpose - a convenient one shows nothing.
 
 ---
 
-## Часть 1. Вводные
+## Part 1. The inputs
 
-**Компания.** Региональная аптечная сеть, 620 точек в семи регионах, 4 800 сотрудников. Не технологическая компания: ИТ — обслуживающая функция при операционном директоре.
+**The company.** A regional pharmacy chain, 620 stores across seven regions, 4,800 employees. Not a technology company: IT is a support function reporting to the operations director.
 
-**Что делает кейс неудобным:**
+**What makes the case awkward:**
 
-| Фактор | Значение |
+| Factor | Value |
 |---|---|
-| Отрасль | регулируемая: оборот лекарственных средств, маркировка, ПДн покупателей в программе лояльности |
-| BI-стек | легаси-система, вендор ушёл в 2022; параллельно пилотят российскую замену |
-| DWH | есть, но витрины строит подрядчик по заявкам; своей команды инженеров нет |
-| BI-команда | 3 человека централизованно + ~15 аналитиков в категориях и логистике, уровень разный |
-| Data Governance | нет ни команды, ни роли |
-| Семантический слой | нет; метрики живут в SQL отчётов |
-| Adoption | никто не считает; «руководители смотрят выгрузки в Excel» |
-| Давление сверху | коммерческий директор после конференции требует «ИИ-помощника, который отвечает на вопросы по продажам» — к концу квартала |
-| Бюджет | на следующий год не выделен, решение в ноябре |
+| Industry | regulated: pharmaceutical circulation, labelling, customer personal data in the loyalty programme |
+| BI stack | a legacy system whose vendor left in 2022; a Russian replacement is being piloted in parallel |
+| Warehouse | exists, but the marts are built by a contractor on request; there is no in-house engineering team |
+| BI team | 3 people centrally plus ~15 analysts across the categories and logistics, at varying levels |
+| Data governance | neither a team nor a role |
+| Semantic layer | none; the metrics live in the reports' SQL |
+| Adoption | nobody measures it; "the executives look at Excel extracts" |
+| Pressure from above | after a conference, the commercial director wants "an AI helper that answers questions about sales" - by the end of the quarter |
+| Budget | not allocated for next year; the decision comes in November |
 
-**Запрос заказчика дословно:** «Нужна стратегия BI на три года. И покажите, где здесь AI, иначе не защитим».
-
----
-
-## Артефакт
-
-Сама стратегия — в папке [`e2e-01-severnaya/`](e2e-01-severnaya/): портрет компании как вход, шесть разделов документа, два приложения и сборка в один переносимый файл [`strategy.html`](e2e-01-severnaya/strategy.html). Собирается скриптом `build-html.py` без зависимостей.
-
-В папке лежит версия **после гейтов** — та, что прошла сверку и судью. Ниже разбирается, чем она отличалась на первом проходе.
-
-## Часть 2. Что скилл выдал на первом проходе
-
-Черновик по шести разделам. Приведён сокращённо — полностью значимы формулировки, по которым потом отработали гейты.
-
-### index — Видение
-
-> **Куда идём.** Через три года решения о закупке, ценообразовании и логистике принимаются на одних и тех же цифрах, а не на выгрузках, которые каждая функция считает по-своему. Аналитики категорий получают данные из готового слоя, а не собирают их запросами к подрядчику.
->
-> **Проблемы, которые закрываем.** Метрики расходятся между категориями и финансами · время от вопроса до цифры измеряется днями, потому что проходит через подрядчика · никто не знает, кто из руководителей чем пользуется.
->
-> **Стримы:** доверенные данные · слой метрик · управляемый self-service · платформенный переход.
->
-> **Чего сознательно не делаем.** AI-ассистента по продажам в этом году. Причина ниже, в разделе целей.
->
-> **Что требуется от спонсора.** Решение в ноябре: выделенный дата-инженер в штат и владелец домена «продажи» от коммерции — на 20% времени, с именем.
->
-> **Первый шаг и цена бездействия.** 90 дней: реестр мастер-источников по продажам и остаткам, замер adoption. Ничего не делая, компания входит в миграцию BI-платформы без описанных витрин, и миграция становится переписыванием логики заново.
-
-### 01 — Контекст
-
-Тренды: сдвиг от дашбордов к вопросам на естественном языке · семантический слой как предусловие точности агента · регуляторное давление на ПДн · уход вендоров и вынужденная миграция · рост доли self-service в зрелых компаниях.
-
-Проблемы по четырём группам ролей: расхождение метрик · зависимость от подрядчика по любой витрине · нет владельцев данных · нет замера использования · разный уровень аналитиков в категориях · ПДн лояльности лежат в тех же витринах, что и продажи.
-
-Разрывы цепочки: **нет core-слоя** (витрины делаются под задачу) · **нет семантики** · контекста нет как класса.
-
-### 02 — Стримы
-
-Четыре: доверенные данные · слой метрик · управляемый self-service · платформенный переход. У каждого описание, обоснование со ссылкой на проблему, границы, владелец.
-
-### 03 — Инициативы
-
-Девять инициатив с тегами стримов, A/O по годам, kill-gates.
-
-### 04 — Цели
-
-Метрики по четырём группам, бейзлайны — в основном `[требует уточнения]`.
-
-### 05 — Риски
-
-Хрупкость цепочки · подрядчик как единая точка отказа · governance без ресурса · миграция платформы съедает год · смена приоритета после ноября.
+**The requester's ask, verbatim:** "We need a three-year BI strategy. And show us where the AI is in it, or we will not get it approved."
 
 ---
 
-## Часть 3. Гейт 0 — сверка с требованиями
+## The artifact
 
-Прогон по `strategy-requirements.md`. **Пять находок, две блокирующие.**
+The strategy itself is in the folder [`e2e-01-severnaya/`](e2e-01-severnaya/): the company portrait as the input, the document's six sections, two appendices, and the build into one portable file, [`strategy.html`](e2e-01-severnaya/strategy.html). It is assembled by `build-html.py` with no dependencies.
 
-### Дисквалификаторы
+The folder holds the version **after the gates** - the one that passed the requirements check and the judge. What follows analyses how it differed on the first pass.
 
-| Признак | Результат |
+## Part 2. What the skill produced on the first pass
+
+A draft across the six sections. Abridged here - what matters in full are the phrasings the gates later acted on.
+
+### index - the vision
+
+> **Where we are going.** In three years, decisions about purchasing, pricing and logistics are made on the same numbers rather than on extracts each function computes its own way. Category analysts get their data from a ready layer instead of assembling it through requests to a contractor.
+>
+> **The problems we are closing.** Metrics diverge between the categories and finance · the time from a question to a number is measured in days because it goes through the contractor · nobody knows which executives use what.
+>
+> **The streams:** trusted data · the metric layer · governed self-service · the platform migration.
+>
+> **What we deliberately are not doing.** An AI sales assistant this year. The reason is below, in the goals section.
+>
+> **What is required from the sponsor.** A decision in November: a dedicated data engineer on the payroll and an owner for the "sales" domain from the commercial side - at 20% of their time, named.
+>
+> **The first step and the cost of inaction.** 90 days: a registry of master sources for sales and stock, and an adoption measurement. Doing nothing, the company enters the BI platform migration with no documented marts, and the migration turns into rewriting the logic from scratch.
+
+### 01 - Context
+
+Trends: the shift from dashboards to natural-language questions · the semantic layer as a precondition of agent accuracy · regulatory pressure on personal data · vendors leaving and the forced migration · the rising share of self-service in mature companies.
+
+Problems across the four role groups: metrics diverge · dependence on the contractor for any mart · no data owners · no measurement of usage · category analysts at varying levels · loyalty personal data sits in the same marts as sales.
+
+Breaks in the chain: **no core layer** (marts are built per task) · **no semantics** · context does not exist as a class.
+
+### 02 - Streams
+
+Four: trusted data · the metric layer · governed self-service · the platform migration. Each with a description, a justification linked to a problem, boundaries and an owner.
+
+### 03 - Initiatives
+
+Nine initiatives tagged by stream, with outputs and outcomes by year, and kill-gates.
+
+### 04 - Goals
+
+Metrics across the four groups, with baselines mostly marked `[to be clarified]`.
+
+### 05 - Risks
+
+The fragility of the chain · the contractor as a single point of failure · governance with no resource · the migration eating a year · a change of priority after November.
+
+---
+
+## Part 3. Gate 0 - the requirements check
+
+A pass against `strategy-requirements.md`. **Five findings, two of them blocking.**
+
+### Disqualifiers
+
+| Sign | Result |
 |---|---|
-| Стримы без обоснования | пройдено |
-| Инициативы без outcome | **НАРУШЕНО** — у трёх из девяти только output |
-| Цели без бейзлайна | пройдено формально: помечены `[требует уточнения]` |
-| Инициативы без владельцев | **НАРУШЕНО** — у двух владелец «BI-команда», а не имя |
-| Тренды без следствий | пройдено |
-| Видение без запроса к спонсору | пройдено |
-| Числа без источника | пройдено |
-| AI-инициатива раньше своего звена | пройдено — ассистент вынесен за горизонт с явной причиной |
-| Нет списка заморозки | **НАРУШЕНО** — отсутствовал |
-| Текст переносится в другую компанию | пройдено |
+| Streams with no justification | passed |
+| Initiatives with no outcome | **VIOLATED** - three of nine carry only an output |
+| Goals with no baseline | formally passed: marked `[to be clarified]` |
+| Initiatives with no owners | **VIOLATED** - two name "the BI team" rather than a person |
+| Trends with no consequences | passed |
+| A vision with no ask of the sponsor | passed |
+| Numbers with no source | passed |
+| An AI initiative ahead of its link in the chain | passed - the assistant is put beyond the horizon with an explicit reason |
+| No freeze list | **VIOLATED** - it was absent |
+| The text transplants to another company | passed |
 
-**Три нарушения → документ возвращён на доработку, до судьи не пошёл.**
+**Three violations -> the document went back for rework and never reached the judge.**
 
-### Definition of Done
+### Definition of done
 
-Не выполнены пункты 7 (output и outcome по годам у каждой инициативы), 10 (список заморозки), частично 6 (две проблемы не покрыты стримом и не перечислены явно).
+Items 7 (an output and an outcome by year for every initiative) and 10 (the freeze list) were unmet, and 6 partially (two problems were not covered by a stream and not listed explicitly).
 
-### Трассируемость
+### Traceability
 
-Прогон в обе стороны нашёл двух сирот:
-- проблема «ПДн лояльности в тех же витринах, что продажи» не покрыта ни одним стримом и не названа как сознательно непокрытая;
-- инициатива «обучение аналитиков категорий» не привязана ни к одной проблеме — попала в план по инерции.
+Running it in both directions found two orphans:
+- the problem "loyalty personal data sits in the same marts as sales" is not covered by any stream and is not named as deliberately uncovered;
+- the initiative "training the category analysts" is not tied to any problem - it got into the plan by inertia.
 
-### Отточенность
+### Sharpness of wording
 
-Тест переносимости не прошли две формулировки: «повысить качество данных по ключевым доменам» и «развивать культуру работы с данными». Первая переписана в «покрыть дата-контрактами витрины продаж и остатков, порог по свежести — сутки»; вторая удалена, потому что за ней не стояло ни инициативы, ни метрики.
+Two phrasings failed the portability test: "raise data quality across the key domains" and "develop the data culture". The first was rewritten as "cover the sales and stock marts with data contracts, with a freshness threshold of one day"; the second was deleted, because there was neither an initiative nor a metric behind it.
 
-### После доработки
+### After the rework
 
-Нарушения закрыты: outcome добавлены, владельцы поимённо, список заморозки опубликован, ПДн-проблема превращена в пятый стрим «разделение чувствительных данных», инициатива про обучение привязана к стриму self-service. **Гейт 0 пройден со второго прохода.**
-
----
-
-## Часть 4. Судья
-
-Семь измерений. Три находки, одна блокирующая.
-
-**Блокирующая — приоритет.** Стратегия отвечает на боль «метрики расходятся», но самая дорогая боль компании другая: **зависимость от подрядчика**, из-за которой любая витрина стоит недели и денег по договору. Слой метрик поверх подрядной модели не ускорит ничего. → Порядок стримов пересобран: «доверенные данные» и внутренняя инженерная компетенция уходят вперёд слоя метрик.
-
-**Серьёзная — исполнимость.** Девять инициатив на команду из трёх человек плюс подрядчик. Даже при найме инженера первый год реально закрывает три. → Шесть перенесены во второй-третий год явно, а не растворены в «дорожной карте».
-
-**Стоит поправить — защитимость.** На вопрос «сколько это в деньгах» документ не отвечает. → Добавлена оговорка: экономический эффект считается отдельно, до ноябрьского решения, и названы три строки, где он вообще может быть.
-
-**Вердикт судьи:** «В таком виде подписал бы — при условии, что найм инженера подтверждён до старта. Без него это план работ для подрядчика, а не стратегия компании».
+The violations were closed: outcomes added, owners named individually, the freeze list published, the personal data problem turned into a fifth stream, "separating sensitive data", and the training initiative tied to the self-service stream. **Gate 0 passed on the second attempt.**
 
 ---
 
-## Часть 5. Что прогон сказал про сам скилл
+## Part 4. The judge
 
-Главный результат теста. Пять находок, четыре из них — про базу, а не про документ.
+Seven dimensions. Three findings, one blocking.
 
-**1. Регулируемая отрасль не покрыта.** Проблема с ПДн лояльности всплыла только на трассируемости. В каталоге провалов семейства для регуляторики нет — это уже записано в `kb/60-roadmap.md` как B3, и прогон это подтвердил на практике: скилл её не предложил, её нашёл гейт.
+**Blocking - priority.** The strategy answers the pain "metrics diverge", but the company's most expensive pain is a different one: **dependence on the contractor**, which makes any mart cost weeks and contractual money. A metric layer on top of a contractor model will speed nothing up. → The stream order was rebuilt: "trusted data" and in-house engineering competence move ahead of the metric layer.
 
-**2. Полевой бенчмарк не применим и вводит в заблуждение.** Выборка n=12 — технологические компании с командами 10–400 аналитиков. Для аптечной сети «медиана DWH-команды ~12» звучит как норма, которой у них нет и не будет. Нужна оговорка в атоме: бенчмарк валиден для tech-контура, для не-tech он завышает ожидания.
+**Serious - feasibility.** Nine initiatives for a team of three plus a contractor. Even with the engineer hired, the first year realistically closes three. → Six were moved into years two and three explicitly rather than dissolved into "the roadmap".
 
-**3. Противоречие про потолок ad-hoc проявилось.** На вопрос «сколько закроет ассистент» база даёт 70–80% (самооценка участников) и 15–25% (оценка потолка). Для компании без семантики честный ответ ближе к нижней границе, но правила выбора между ними в базе нет — только обе цифры рядом. Нужно правило: **при отсутствии семантического слоя берётся нижняя граница**.
+**Worth fixing - defensibility.** The document does not answer "what is this in money". → A caveat was added: the economic effect is computed separately, before the November decision, and the three lines where it can exist at all are named.
 
-**4. Подрядная модель разработки витрин не описана нигде.** Вся база предполагает, что витрины делает своя команда. Компания, у которой инженерия на аутсорсе, — распространённый случай, и для него нет ни атома, ни строки в каталоге провалов. Это новый пункт роадмапа.
-
-**5. Отсутствие экономической модели заметно.** Судья вынес это как находку, и обойти её пришлось оговоркой. Решение не делать скилл-близнец остаётся в силе, но в требованиях стоит явно сказать, что делать, когда вопрос про деньги задан: три строки, где эффект возможен, и честное «остальное не считается».
+**The judge's verdict:** "I would sign this as it stands - provided the engineer's hire is confirmed before the start. Without that it is a work plan for the contractor, not a company strategy."
 
 ---
 
-## Часть 6. Вердикт прогона
+## Part 5. What the run said about the skill itself
 
-| Что проверяли | Результат |
+The main result of the test. Five findings, four of them about the base rather than the document.
+
+**1. Regulated industries are not covered.** The loyalty personal data problem only surfaced during the traceability check. The failure catalog has no family for regulation - that is already recorded in `kb/60-roadmap.md` as B3, and the run confirmed it in practice: the skill did not propose it, the gate found it.
+
+**2. The field benchmark does not apply and misleads.** The n=12 sample is technology companies with teams of 10-400 analysts. For a pharmacy chain, "a median warehouse team of ~12" reads as a norm they do not have and never will. The atom needs a caveat: the benchmark is valid for the tech perimeter, and for non-tech it inflates expectations.
+
+**3. The contradiction about the ad-hoc ceiling showed up.** Asked "how much will the assistant close", the base gives 70-80% (participants' self-assessment) and 15-25% (the practical ceiling). For a company with no semantics the honest answer is closer to the lower bound, but the base has no rule for choosing between them - only the two figures side by side. A rule is needed: **with no semantic layer, take the lower bound**.
+
+**4. The contractor delivery model for marts is described nowhere.** The whole base assumes the marts are built by an in-house team. A company whose engineering is outsourced is a common case, and there is neither an atom nor a line in the failure catalog for it. This is a new roadmap item.
+
+**5. The absence of an economic model is noticeable.** The judge raised it as a finding, and it had to be worked around with a caveat. The decision not to build a twin skill stands, but the requirements should say explicitly what to do when the money question is asked: the three lines where an effect is possible, and an honest "the rest is not computed".
+
+---
+
+## Part 6. The run's verdict
+
+| What was tested | Result |
 |---|---|
-| Скилл собирает документ по шести разделам | да |
-| Гейт 0 ловит дефекты механически | да — три дисквалификатора и две сироты на первом проходе |
-| Гейт 0 не пропускает документ к судье до исправления | да |
-| Судья находит то, что чеклист не ловит | да — неверный приоритет стримов |
-| Документ проходит после доработки | да, со второго прохода |
-| База покрывает неудобный не-tech кейс | **частично** — четыре пробела, см. часть 5 |
+| The skill assembles a document across the six sections | yes |
+| Gate 0 catches defects mechanically | yes - three disqualifiers and two orphans on the first pass |
+| Gate 0 does not let the document reach the judge before it is fixed | yes |
+| The judge finds what a checklist cannot | yes - the wrong stream priority |
+| The document passes after rework | yes, on the second attempt |
+| The base covers an awkward non-tech case | **partially** - four gaps, see part 5 |
 
-**Главный вывод.** Механика работает: гейты поймали ровно то, для чего заводились, и в правильном порядке — дешёвая проверка сняла пять находок до того, как до них дошёл судья, а судья потратил силы на то, что чеклистом не ловится.
+**The main conclusion.** The mechanism works: the gates caught exactly what they were built for, and in the right order - the cheap check removed five findings before the judge reached them, and the judge spent its effort on what a checklist cannot catch.
 
-**Главный дефект.** База знаний смещена в сторону крупной технологической компании со своей инженерией. На кейсе без своей команды разработки и с регуляторным контуром скилл выдаёт корректную рамку, но подсказывает пороги и практики, которые этой компании не подходят. Это лечится не новыми атомами про AI, а оговорками о границах применимости у существующих.
+**The main defect.** The knowledge base is skewed towards a large technology company with its own engineering. On a case with no in-house development team and inside a regulatory perimeter, the skill produces a correct frame but suggests thresholds and practices that do not fit that company. The cure is not new atoms about AI but caveats about the boundary of applicability on the existing ones.
