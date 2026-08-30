@@ -1,49 +1,48 @@
 ---
 id: roadmap
-title: Чего базе не хватает и в каком порядке это чинить
+title: What the knowledge base lacks, and in what order to fix it
 type: meta
-source: находки из сборки базы и из сверки чисел с первоисточниками 2026-08-29
+source: findings from assembling the base and from checking its figures against primary sources, 2026-08-29
 ---
 
-# Роадмап базы знаний
+# Knowledge base roadmap
 
-Файл существует потому, что базу проверяли, а не любовались ею. Принцип тот же, что у компаньона: **честная дыра лучше раздутой главы**. Ничего из списка ниже нельзя закрыть, сгенерировав правдоподобный текст — это уничтожит единственное свойство, ради которого база собиралась.
+This file exists because the base was tested rather than admired. The principle matches the companion's: **an honest gap beats a padded chapter.** Nothing on this list can be closed by generating plausible text — that would destroy the one property the base was assembled for.
 
-## A. Проверка фактуры — самое срочное
+## A. Checking the substance — the most urgent
 
-**A1. Сверить оставшиеся числа с первоисточниками.** Прогон 2026-08-29 покрыл восемь несущих величин из примерно девяноста и дал **четыре расхождения из восьми** — то есть половину. Экстраполяция очевидна: остальная часть реестра не проверена и не должна считаться проверенной. Порядок: сначала всё, что помечено `benchmark`, потому что этот тег обещает воспроизводимость.
+**A1. Verify the remaining figures against primary sources.** The 2026-08-29 pass covered eight load-bearing quantities out of roughly ninety and produced **four discrepancies out of eight** — half. The extrapolation is obvious: the rest of the registry is unverified and must not be treated as verified. Order of work: everything tagged `benchmark` first, because that tag promises reproducibility.
 
-**A2. Закрыть или снять строку 19,6% / 6,3%.** Указанный arXiv оказался про метаданные веб-архивов. Либо найти реальный источник чисел, либо удалить строку. Сейчас она `disputed` и цитировать её нельзя, но она всё ещё цитируется в двух атомах — их надо поправить вслед за реестром.
+**A2. Close or drop the 19.6% / 6.3% line.** The cited arXiv paper turned out to be about web archive metadata. Either find the real source of the figures or delete the line. It is currently tagged `disputed` and must not be quoted, but it is still cited by two atoms — they need fixing after the registry.
 
-**A3. Развести два разных утверждения про длинный контекст.** Chroma фиксирует непрерывную деградацию, работа про критический порог — обрыв после 40–50% окна. В атоме они слиты в одно «падает рывком». Это не мелочь: из первого следует «подавай меньше всегда», из второго — «следи за долей окна».
+**A3. Separate two different claims about long context.** Chroma records continuous degradation; the critical-threshold paper records a collapse after 40–50% of the window. The atom merges them into a single "it falls in a step". This is not a nuance: the first implies "always serve less", the second implies "watch the share of the window".
 
-**A4. Пометить в атомах даты проверки.** Реестр теперь несёт дату сверки, атомы — нет. Пока цифра в атоме и цифра в реестре расходятся по статусу, агент возьмёт ту, что ближе.
+**A4. Mark verification dates inside the atoms.** The registry now carries verification dates; the atoms do not. While a figure's status differs between the atom and the registry, the agent will take whichever is closer.
 
-## B. Полнота базы
+## B. Completeness of the base
 
-**B0. Смещение базы в сторону крупной tech-компании.** Сквозной прогон `70-golden-set/e2e-01-severnaya.md` на аптечной сети показал: рамка выдаётся корректная, но пороги и практики подсказываются из контура крупной технологической компании со своей инженерией. Лечится не новыми атомами, а оговорками о границах применимости у существующих — начиная с полевого бенчмарка.
+**B0. The base is skewed toward a large technology company.** The end-to-end run in `70-golden-set/e2e-01-severnaya.md` on a pharmacy chain showed that the frame comes out correct, but the thresholds and practices suggested come from the perimeter of a large technology company with its own engineering. The fix is not new atoms but caveats about the limits of applicability on the existing ones, starting with the field benchmark.
 
-**B5. Подрядная модель разработки витрин.** Вся база предполагает собственную команду инженеров. Компания, у которой витрины делает подрядчик по заявкам, — распространённый случай: у него другая экономика, другие сроки и другой главный риск (единая точка отказа). Ни атома, ни строки в каталоге провалов нет.
+**B1. Session transcripts.** Real participant questions were reconstructed from written sources: the pre-course survey, the session-one interactive and the questions the author put on slides. Live questions have a different shape — "but our case is a bit special" — and those special cases are the most valuable material. Not currently available.
 
-**B1. Транскрипции занятий.** Реальные вопросы участников восстановлены из письменных источников: пре-курс опроса, интерактива и вопросов со слайдов. Живые вопросы имеют другую форму — «а у нас вот такой частный случай» — и эти частные случаи самое ценное. Пока недоступны.
+**B2. The Innovation Map is only partly extracted.** The major directions are captured, the nested detail is not. The frame holds 471 elements.
 
-**B2. Innovation Map извлечена частично.** Крупные направления собраны, детализация вложенных объектов — нет. Во фрейме 471 элемент.
+**B3. Regulated industries and forced migrations.** In the failure catalog these appear only in passing: breaching data residency, auditing access to personal data, honouring a deletion request, missing a migration deadline. There is not enough substance yet for separate entries.
 
-**B3. Регулируемые отрасли и импортозамещение.** В каталоге провалов эти сюжеты только по касательной: нарушение локализации, аудит доступа к ПДн, отзыв согласия, срыв сроков миграции. Фактуры на отдельные позиции пока нет.
+**B4. The economic model.** The base does not answer "how much money is this". A decision was taken not to build a twin of the companion's economics skill: BI has different metrics and different specifics. The question stays open in another form — which lines of effect are defensible for BI at all.
 
-**B4. Экономическая модель.** Ответа на «сколько это денег» база не даёт. Решено не делать скилл-близнец к companion: у BI другие метрики и другая специфика. Вопрос остаётся открытым в другой форме — какие строки эффекта вообще защитимы для BI.
+**B5. The contractor delivery model.** The whole base assumes an in-house engineering team. A company whose marts are built by a contractor on request is a common case with different economics, different lead times and a different principal risk — a single point of failure. There is no atom and no line in the failure catalog.
 
-## C. Оценка
+## C. Evaluation
 
-**C1. Парафразы для первого уровня голден-сета.** Вопросы взяты из FAQ дословно и сформулированы языком базы, поэтому частично проверяют совпадение строк, а не понимание. Уровни 2 и 3 переформулированы специально, первый — нет.
+**C1. Paraphrases for tier 1 of the golden set.** The questions are taken from the FAQ verbatim and are phrased in the base's own language, so they partly test string overlap rather than understanding. Tiers 2 and 3 were deliberately reworded; tier 1 was not.
 
-**C2. Голден-сет на сквозную сборку.** Сейчас проверяется припоминание знаний, а не то, ради чего скилл существует, — получается ли на выходе защитимая стратегия. У компаньона это решено пятью вымышленными компаниями.
+**C2. A golden set for end-to-end assembly.** Done — `70-golden-set/e2e-01-severnaya.md`. Worth extending with a second and third company so that a single case does not become the specification.
 
-**C3. Детерминированные проверки самой базы.** Висячие ссылки, атомы без `confidence`, атомы вне графа, расхождение счётчиков в README сейчас проверяются вручную. У компаньона это `evals/`.
+**C3. Deterministic checks on the base itself.** Dangling links, atoms without a `confidence` field, atoms missing from the graph, counter mismatches in the README — all currently checked by hand. The companion solves this in its `evals/`.
 
-**C4. Вычитка голден-сета.** Все позиции в `status: needs_review`, потому что ответы в FAQ — синтез по базе, а не подтверждённая автором истина. В зачёт идут только `confirmed`, то есть формально засчитанных пока ноль.
+**C4. Reviewing the golden set.** Every item is `status: needs_review`, because the FAQ answers are a synthesis from the base rather than truth confirmed by the author. Only `confirmed` items count, so formally the count is zero.
 
-## Порядок
+## Order
 
-A1 и A2 — раньше всего: непроверенная цифра с тегом `benchmark` опаснее отсутствующей, потому что её процитируют в защите бюджета. Дальше C3 как самое дешёвое. B и C1–C2 — по мере появления материала и времени.
-
+A1 and A2 come first: an unverified figure tagged `benchmark` is more dangerous than a missing one, because it will be quoted in a budget defence. Then C3, as the cheapest. B and C1–C2 as material and time appear.

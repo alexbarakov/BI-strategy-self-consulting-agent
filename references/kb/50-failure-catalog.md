@@ -1,220 +1,220 @@
 ---
 id: failure-catalog
-title: Каталог провалов — как BI и AI-инициативы умирают на самом деле
+title: Failure catalog — how BI and AI initiatives actually die
 type: index
-purpose: точка входа «у нас что-то не так»; симптом → механика → атом с фактурой
-confidence: смешанная — по каждой позиции указан атом с уровнем доказательности
+purpose: the entry point for "something is wrong with us"; symptom → mechanism → the atom holding the evidence
+confidence: mixed — each entry names the atom carrying its evidence level
 ---
 
-# Каталог провалов
+# Failure catalog
 
-75 названных способов провалить BI-проект или AI-инициативу, сгруппированных в семь семейств. Не теория рисков: каждая позиция — наблюдаемый механизм, у которого есть симптом, по которому его узнают, и атом базы знаний, где лежит фактура.
+75 named ways to fail a BI project or an AI initiative, grouped into seven families. Not a risk taxonomy: every entry is an observed mechanism with a symptom you recognise it by, and an atom where the substance lives.
 
-**Как пользоваться.** Начните с таблицы триажа: найдите свой симптом, перейдите в семейство, прочитайте механику. Если симптом не находится — это само по себе находка: либо вы смотрите не туда, либо у вас редкий случай, который стоит описать.
+**How to use it.** Start with the triage table: find your symptom, go to the family, read the mechanism. If the symptom is not there, that is itself a finding — either you are looking in the wrong place, or you have a rare case worth writing down.
 
-**Правило чтения.** Провал в списке — не приговор инициативе, а описание того, как она ломается, если не поставить конкретную защиту. Защита названа в каждой позиции после стрелки `→`.
+**Reading rule.** A failure in this list is not a verdict on an initiative; it is a description of how it breaks when a specific defence is missing. The defence is named after the `→` in each entry.
 
 ---
 
-## Триаж по симптому
+## Symptom triage
 
-| Симптом | Смотреть |
+| Symptom | Look at |
 |---|---|
-| Отчёты делаем, а пользуются единицы | **A** — ценность и спрос |
-| Не можем назвать процент adoption | **A2**, **G6** |
-| Бизнес спорит о цифрах, у каждого своя правда | **D5**, **C6** |
-| В проде мусор, владельцев нет | **B** — контент и доверие |
-| Пользователи не находят нужный отчёт | **B6**, **B7** |
-| Раздали self-service — стало хуже | **C** — модель поставки |
-| Аналитики обходят регламенты | **D1** |
-| Каталог внедрили, он пустой | **D7** |
-| AI-пилот отлично работал, в проде врёт | **E1**, **E2** |
-| Базу знаний наполнили, точность не выросла | **E5** |
-| Не можем доказать эффект AI | **E8**, **A6** |
-| Люди не растут, домен держится на одном | **F** — люди и команда |
-| Стратегия написана, ничего не изменилось | **G** — управление программой |
-| Governance объявлен, но его нет | **G3**, **G4** |
+| We build reports and almost nobody uses them | **A** — value and demand |
+| We cannot state our adoption percentage | **A2**, **G6** |
+| The business argues about numbers, everyone has their own truth | **D5**, **C6** |
+| Production is full of junk with no owners | **B** — content and trust |
+| Users cannot find the report they need | **B6**, **B7** |
+| We opened self-service and it got worse | **C** — delivery model |
+| Analysts route around the rules | **D1** |
+| We deployed a catalog and it is empty | **D7** |
+| The AI pilot worked beautifully and lies in production | **E1**, **E2** |
+| We filled the knowledge base and accuracy did not move | **E5** |
+| We cannot prove the effect of AI | **E8**, **A6** |
+| People do not grow, a domain rests on one person | **F** — people and team |
+| The strategy is written and nothing changed | **G** — programme management |
+| Governance is declared but absent | **G3**, **G4** |
 
 ---
 
-## A. Ценность и спрос
+## A. Value and demand
 
-**A1. Отчёты умирают быстрее, чем окупаются.** 88% отчётов не доживают до трёх месяцев — меняется процесс, уходит фокус бизнеса, увольняется драйвер. 10% живут с минимальным трафиком, 2% дают стабильный результат. → Метрики «отчёты с падающим трафиком» и «пользователи, зашедшие один раз и не вернувшиеся»; без них команда не отличает свои 2% от своих 88%. [[bi-value-illusion]]
+**A1. Reports die faster than they pay off.** 88% of reports do not survive three months — the process changes, the business shifts focus, the driver leaves. 10% live on minimal traffic, 2% deliver a stable result. → Metrics for "reports with falling traffic" and "users who came once and never returned"; without them a team cannot tell its 2% from its 88%. [[bi-value-illusion]]
 
-**A2. Adoption не считается, поэтому не управляется.** Команда называет абсолютное число пользователей вместо процента целевой аудитории. → Пара метрик: engagement rate целевой группы и target audience match rate; первая без второй обманывает — высокий трафик может идти от людей, которым отчёт не предназначен. [[content-promotion-monitoring]], [[participants-2026-benchmark]]
+**A2. Adoption is not counted, therefore not managed.** The team quotes an absolute number of users instead of a share of the target audience. → A pair of metrics: target-group engagement rate and target audience match rate; the first without the second misleads — high traffic can come from people the report was never for. [[content-promotion-monitoring]], [[participants-2026-benchmark]]
 
-**A3. Строим и ждём, что придут.** Платформа, витрины, озеро созданы, юзкейсов нет. → Матрица information supply-demand до, а не после стройки. [[bi-strategy-purpose]], [[info-supply-demand]]
+**A3. Build it and they will come.** The platform, the marts and the lake exist; the use cases do not. → An information supply-demand matrix before the build, not after. [[bi-strategy-purpose]], [[info-supply-demand]]
 
-**A4. Изоляция дата-команды.** Команда работает отдельно от бизнеса, не понимая его задач; проекты выходят нерелевантными. → Регулярные статусы с владельцем домена, персональные встречи с топ-пользователями. [[bi-strategy-purpose]], [[centralized-practices]]
+**A4. The data team is isolated.** It works apart from the business without understanding its tasks; the projects come out irrelevant. → Regular status meetings with the domain owner, personal sessions with top users. [[bi-strategy-purpose]], [[centralized-practices]]
 
-**A5. Вечные пилоты.** Много экспериментов, ни одного масштабирования. → Kill-gate с порогом на своих данных: пилот либо проходит гейт, либо закрывается по названному критерию. [[bi-strategy-purpose]], `review-gates.md`
+**A5. Eternal pilots.** Many experiments, not one scaled. → A kill-gate with a threshold on your own data: a pilot either passes the gate or closes on a named criterion. [[bi-strategy-purpose]], `review-gates.md`
 
-**A6. Ценность проекта — самообман руководителя.** Не хватает циничности оценить реальный value; люди массово скрывают, что сами не пользуются отчётами, полагая, что у других иначе. → Замер вместо ощущения; претензия «лучший BI в стране» обязана подтверждаться трафиком. [[bi-value-illusion]], [[centralized-bi-brand]]
+**A6. The leader's own illusion about the project's value.** There is not enough cynicism to assess the real value; people routinely hide that they do not use the reports themselves, assuming everyone else does. → Measurement instead of feeling; a claim to be the best BI project must be backed by traffic. [[bi-value-illusion]], [[centralized-bi-brand]]
 
-**A7. BI в непродающем подразделении: эффект нечем показать.** → Метрики, не требующие выручки: доля встреч с использованием отчётов, объём автоматизированных ручных операций, покрытие информационного спроса. [[bi-project-metrics]]
+**A7. BI in a non-selling function: there is nothing to show the effect with.** → Metrics that do not require revenue: the share of meetings where reports are used, the volume and cost of manual work automated, coverage of the information demand. [[bi-project-metrics]]
 
-**A8. Аналитика останавливается на «что произошло».** Дашборды показывают данные, но не объясняют причины изменений KPI; проверка гипотез дорога, структурированного подхода к root-cause нет. → Diagnostic-слой как отдельная инвестиция, а не побочный эффект дашбордов. [[maturity-models]]
-
----
-
-## B. Контент и доверие
-
-**B1. Отчёт умирает вместе с автором.** Сотрудник уходит, владение не передаётся. → Процедура передачи владения как обязательный пункт процесса, а не добрая воля. [[content-hygiene-loop]]
-
-**B2. Регламент вместо механизма.** Написали правила чистоты прода, ничего не изменилось. → Три механизма сразу: автомониторинг с дайджестами, content-бот по расписанию, социальный формат-субботник. Цель субботника — привычка, а не разовая уборка. [[content-hygiene-loop]]
-
-**B3. Сертифицируем всё.** Процесс захлёбывается, признак обесценивается. → Двухуровневая схема: автоматическая сертификация по машинным признакам на широкий круг, сертификация данных и методологии — только на самые просматриваемые. [[content-certification]]
-
-**B4. Сертификация мёртвого контента.** Доля сертифицированных объектов растёт, польза — нет. → Мерить долю потребления (просмотров и запросов), а не долю покрытия. [[ai-ready-domain-score]], [[content-certification]]
-
-**B5. Копии одного отчёта с разными фильтрами.** Авторы плодят версии, единая версия правды теряется. → Проверка в анкете content management и разделение сред с автоснятием прав в песочнице. [[content-mgmt-processes]], [[content-catalog-ux]]
-
-**B6. Health-score есть, находимости нет.** Рейтинг посчитан, пользователь всё равно спрашивает в чате. → Каталог отчётов плюс роле-ориентированное рабочее место; иначе скор остаётся невидимым бэкенд-рейтингом. [[content-catalog-ux]]
-
-**B7. Поиск в BI-портале отпугивает casual-пользователя.** Лишние функции, непривычный интерфейс, нет описаний и группировок. → Отдельный навигационный интерфейс или интеграция каталога в корпоративный поиск. [[content-catalog-ux]]
-
-**B8. Стайл-гайд опубликован и не используется.** → Три слоя с разными адресами: шаблон и visual vocabulary внутри инструмента, учебник — снаружи. Плюс редизайн в шаблон как услуга. [[visual-style-guide]]
-
-**B9. Автор не заинтересован, чтобы его отчётом пользовались другие.** Промо не работает никакими каналами. → Вопрос задаётся до промо; если ответ «нет», отчёт не выносится в кросс-функциональные. [[content-promotion-monitoring]]
-
-**B10. Тировые отчёты работают на песочницах.** Прод построен на слоях, которые никто не поддерживает. → Разделение сред и проверка источников в чеклисте валидации. [[content-mgmt-processes]], [[pain-fronts-2026]]
+**A8. Analytics stops at "what happened".** Dashboards show the data but do not explain why a KPI moved; testing a hypothesis is expensive and there is no structured approach to root cause. → The diagnostic layer as its own investment, not a side effect of dashboards. [[maturity-models]]
 
 ---
 
-## C. Модель поставки
+## B. Content and trust
 
-**C1. Self-service как самообман.** Casual-пользователей учат собирать отчёты по шаблонам; принятие близко к нулю. → Развести термины: это Guided BI, и мерить его надо полезностью готового, а не числом авторов. [[ssbi-vs-guided]]
+**B1. The report dies with its author.** Someone leaves and ownership is never transferred. → A handover procedure as a mandatory part of the process rather than goodwill. [[content-hygiene-loop]]
 
-**C2. Доминирование report factory.** Большой бэклог, self-service «второстепенная задача», отклика нет. → Недостаточное проникновение BI: барьер заказчика и разработчика, bottleneck, shadow BI. [[ssbi-vs-guided]]
+**B2. A policy instead of a mechanism.** Rules for keeping production clean were written and nothing changed. → Three mechanisms at once: automated monitoring with digests, a content bot on a schedule, and a social format. The point of the clean-up day is the habit, not the one-off tidying. [[content-hygiene-loop]]
 
-**C3. Доминирование SSBI.** Права раздали, курс записали, трафик мониторим — «всё отлично». → То же недостаточное проникновение, но через размножение правды, хаос контента и риски безопасности. [[ssbi-vs-guided]]
+**B3. Certifying everything.** The process chokes and the mark loses meaning. → A two-tier scheme: automated certification on machine-checkable signs across a wide set, and certification of data and methodology only for the most-viewed. [[content-certification]]
 
-**C4. Инструмент аналитика выдан потребителю данных.** Человек пугается меню и звонит локальному аналитику. → Маппинг ролей на инструменты; обратная ошибка работает так же. [[ssbi-workflow]]
+**B4. Certifying dead content.** The share of certified objects rises; the benefit does not. → Measure the share of *consumption* (views and queries), not the share of coverage. [[ai-ready-domain-score]], [[content-certification]]
 
-**C5. Нет обратного пути из self-service в прод.** Хороший локальный отчёт остаётся локальным навсегда, прод зарастает дублями. → Workflow `propose → prototype → promote` с governance-комитетом. [[ssbi-workflow]]
+**B5. Copies of one report with different filters.** Authors multiply versions and the single version of truth is lost. → The check exists in the content management questionnaire, plus environment separation with automatic permission expiry in the sandbox. [[content-mgmt-processes]], [[content-catalog-ux]]
 
-**C6. Монополизация бизнес-логики внутри подразделений.** Три линии бизнеса считают текучесть тремя способами, HR имеет четвёртый. → Централизованный BI определяет владельца, фасилитирует согласование, закрепляет в глоссарии, делает удобнее альтернатив и **контролирует их удаление**. Последний шаг обычно пропускают. [[ssbi-failure-causes]]
+**B6. There is a health score and no findability.** The rating is computed and the user still asks in chat. → A report catalog plus a role-oriented workspace; otherwise the score stays an invisible back-end rating. [[content-catalog-ux]]
 
-**C7. Self-service там, где он неэффективен по существу.** Общекорпоративная отчётность для топов, кросс-ролевая унифицированная, функции без BI-практики, конфиденциальные данные. → Эти четыре сегмента остаются централизованными при любой зрелости. [[ssbi-failure-causes]]
+**B7. Search in the BI portal scares off the casual user.** Too many functions, an unfamiliar interface, no descriptions or grouping. → A dedicated navigation interface, or catalog integration into corporate search. [[content-catalog-ux]]
 
-**C8. Брошенный контент.** Отчёты отращены там, где их некому поддерживать. → Проверять не только «смогут ли сделать», но и «смогут ли поддерживать». [[ssbi-failure-causes]]
+**B8. The style guide is published and unused.** → Three layers with different addresses: the template and the visual vocabulary inside the tool, the textbook outside it. Plus "redesign into the template" offered as a service. [[visual-style-guide]]
 
-**C9. Один руководитель на report factory и self-service.** Один блок съедает другой. → Разные Head'ы: цели у моделей разные. [[bi-org-structure]]
+**B9. The author has no interest in others using their report.** Promotion then works through no channel. → The question is asked before promotion; if the answer is no, the report does not go cross-functional. [[content-promotion-monitoring]]
 
-**C10. Пользователи не знают, что источники существуют.** Трудно узнать о доступных источниках, выбрать нужный из похожих, понять названия полей. → Это же список того, чего не хватает агенту — инвестиция окупается дважды. [[ssbi-failure-causes]]
-
----
-
-## D. Данные и фундамент
-
-**D1. Регламент дороже обхода.** Высокий TTM по витринам — аналитики уходят в более доступные данные, нарушая правила. → Инициативы governance и инициативы скорости идут парой, а не последовательно. [[pain-fronts-2026]], [[dg-launch-path]]
-
-**D2. Матрица прав без механизма реализации.** Красивая таблица, права раздаются вручную. → В ячейке рядом с областью видимости — конкретная visibility-таблица или AD-фильтр. Матрица без механизма — декларация. [[access-matrix]]
-
-**D3. Матрица прав без даты ревью.** Протухает молча. → Дата последнего ревью — обязательное поле. [[access-matrix]]
-
-**D4. Попытка автоматизировать то, что не автоматизируется.** Ролевую матрицу пытаются вывести из данных. → Её вытаскивают из владельцев и получают sign off; зато она становится мандатом на раздачу прав без апрувов. [[access-automation]]
-
-**D5. Нет мастер-источников.** Витрины дублируются, ownership размазан, агенту не на чем стоять. → Реестр MDS: отбор оптимальных витрин на домен, сокращение дублей, фокус проверок только на них. [[critical-data-status]]
-
-**D6. Core-слой начали с самых больных витрин.** Дорого, долго, проект глохнет на первом тяжёлом случае, не показав ценности. → Начинать с самых переиспользуемых кросс-доменных сущностей; сначала presentation, потом технический слой. [[core-layer-project]]
-
-**D7. Каталог-призрак.** Внедрён, описаний нет. → Максимально автоматизировать добычу метаданных, вносить документацию в потоке работы вплоть до проверок в CI/CD, курировать топ-20%. [[data-catalog-pitfalls]]
-
-**D8. Фрагментация золотого пути.** Обсуждения, база знаний и запросы дублируются между каталогом, вики и мессенджером. → Выбрать один путь и отключить дублирующие функции. Встроенный мессенджер каталога — самообман. [[data-catalog-pitfalls]]
-
-**D9. Длинный хвост неиспользуемых витрин.** Затраты растут быстрее органики, стимула оптимизировать нет, потому что затрат никто не видит. → Биллинг как метрика прозрачности юнит-экономики; читающий платит за чтение, владелец — за хранение. [[infra-billing]]
-
-**D10. Дерево метрик, которого не будет.** Попытка построить строгую иерархию заканчивается натяжкой или остановкой работы. → Строить связи и уровни, а не дерево. [[glossary-vs-dictionary]]
-
-**D11. Глоссарий и словарь данных в одном месте.** Ломаются оба. → Разные артефакты с разными владельцами; термин доставляется пользователю в момент чтения, а не в отдельной системе. [[glossary-vs-dictionary]]
-
-**D12. DG остановлен отказом в бюджете.** → Отказ — штатная ветка: Common Sense DG на уровне команд, рестарт через MVP. Для перехода к программе нужно минимум два условия из четырёх. [[dg-launch-path]]
-
-**D13. Роли владельца и куратора в доменах не прижились.** Назначили, никто не начал. → Роль без бюджета времени и без встроенности в процесс — это строка в презентации. [[dg-launch-path]], [[context-governance]]
+**B10. Production reports run on sandboxes.** Production is built on layers nobody maintains. → Environment separation and a source check in the validation checklist. [[content-mgmt-processes]], [[pain-fronts-2026]]
 
 ---
 
-## E. AI и контекст
+## C. Delivery model
 
-**E1. Правдоподобно неверный ответ.** Синтаксически валидный SQL, не та метрика, не тот период. Бьёт по доверию сильнее честного «не знаю»; пользователь возвращается в Excel. → «Не могу» как штатный сценарий, метка доверия и провенанс в каждом ответе, уточняющий вопрос при двух прочтениях. [[plausible-but-wrong]]
+**C1. Self-service as self-deception.** Casual users are taught to assemble reports from templates; adoption is close to zero. → Separate the terms: this is guided BI, and it is measured by the usefulness of finished content, not by the number of authors. [[ssbi-vs-guided]]
 
-**E2. Демо на игрушечной схеме перенесено на прод.** Маленькое пространство и очевидные джойны создают ложную уверенность. → Замер на своей схеме и своём голден-сете до решения о внедрении. [[plausible-but-wrong]], [[semantic-layer-evidence]]
+**C2. The report factory dominates.** A large backlog, self-service is "secondary", and there is no response from the business. → Insufficient BI penetration: the requester-developer barrier, a bottleneck, shadow BI. [[ssbi-vs-guided]]
 
-**E3. Ассистент раньше фундамента.** Запуск до семантического покрытия и сертифицированного ядра. → Kill-gate `no-assistant-without-foundation`; проверять порядок инициатив в листе инструментов отдельно от их ценности. [[ai-triad-prerequisites]], [[bi-toolset-landscape]]
+**C3. Self-service dominates.** Permissions granted, a course recorded, traffic monitored — "everything is fine". → The same insufficient penetration, arriving instead through multiplied truths, content chaos and security risk. [[ssbi-vs-guided]]
 
-**E4. Триаду строят параллельно.** Верный способ не достроить ничего. → Один слой за раз, с eval до и после, начиная с самой дорогой боли домена. [[ai-triad-prerequisites]]
+**C4. The analyst's tool handed to a data consumer.** The person is frightened by the menus and calls a local analyst instead. → Map roles to tools; the reverse mistake works the same way. [[ssbi-workflow]]
 
-**E5. Наполнение приравняли к качеству.** Объектов много, точность не выросла. → Наполнение ≠ доверие ≠ эффект: три разные метрики; в зачёт идут только подтверждённые объекты, сгенерированное — после ревью. [[domain-knowledge-base]], [[context-governance]]
+**C5. No way back from self-service into production.** A good local report stays local forever and production fills with duplicates. → The `propose → prototype → promote` workflow with a governance committee. [[ssbi-workflow]]
 
-**E6. Больше контекста в промпт.** Качество падает по мере роста ввода и падает рывком. → Подавать только релевантное, фильтр прав до поиска, а не после. [[context-layer-market]]
+**C6. Business logic monopolised inside departments.** Three lines of business compute attrition three ways, HR has a fourth. → Central BI names the data owner, facilitates agreement, fixes it in the glossary, builds something more convenient than the alternatives, **and enforces their removal**. The last step is usually skipped, which is why the conflict returns. [[ssbi-failure-causes]]
 
-**E7. Verify-gate стал бутылочным горлышком.** Куратор тонет в очереди. → У гейта явный недельный бюджет времени; превышение чинит платформа, а не человек. Нагрузка гейта — метрика здоровья платформы. [[context-governance]]
+**C7. Self-service where it cannot work.** Company-wide executive reporting, cross-role unified reporting, functions that cannot or will not grow a BI practice, and reports on highly confidential data. → These four segments stay centralized at any maturity. [[ssbi-failure-causes]]
 
-**E8. Эффект AI измерен самооценкой.** В контролируемом замере разработчики оказались на 19% медленнее, будучи уверены, что стали на 20% быстрее. → Только замер на эталонном наборе с зафиксированным baseline. [[ai-in-data-processes]], [[ai-time-saving-trap]]
+**C8. Abandoned content.** Reports were grown where there is nobody to maintain them. → Check not only "can they build it" but "can they maintain it". [[ssbi-failure-causes]]
 
-**E9. Сэкономленные часы приняты за эффект.** Высвобожденное время растворяется в мелочах. → Названное решение о ре-аллокейте и тот, кто его принимает, — обязательная часть AI-инициативы. [[ai-time-saving-trap]]
+**C9. One head over both the report factory and self-service.** One block eats the other. → Separate heads: the models have different goals. [[bi-org-structure]]
 
-**E10. Рост вызовов агента принят за успех.** → Рост вызовов без роста успешных задач результатом не считается; вызовы могут быть ретраями. [[ai-accelerator]]
-
-**E11. Замена процесса вместо маршрутизации.** AI ставят туда, где нужна гарантия. → Детерминированный слой на массовый объём, модель — на спорные случаи. [[ai-in-data-processes]]
-
-**E12. Governance theatre вокруг контекста.** Контекст собран, прирост точности незначим, доверие к AI-повестке падает. → Kill-gate: нет значимого прироста — стоп. [[context-layer-market]]
-
-**E13. Вендорская цифра процитирована как факт.** → Уровень доказательности переносится вместе с числом; покупать надо архитектуру, а не заявленные проценты. [[context-layer-market]], [[semantic-layer-evidence]]
-
-**E14. Ожидание, что AI закроет большую часть ad-hoc.** Оценки участников 70–80%, оценка потолка из практики скромнее. Высокая оценка потенциала часто означает низкую зрелость спроса. → Считать по доменам, а не в среднем. [[participants-2026-benchmark]], [[insight-management]]
-
-**E15. Проекты дублируют друг друга по JTBD.** Волна инициатив рождает пересечения. → Пре-ревью и объединение проектов до старта; фокус на шлифовке массовых сценариев, а не на генерации новых. [[ai-accelerator]]
+**C10. Users do not know the sources exist.** It is hard to learn what is available, to pick the right one among lookalikes, to understand field names. → This is also the list of what an agent lacks — which makes the investment pay twice. [[ssbi-failure-causes]]
 
 ---
 
-## F. Люди и команда
+## D. Data and foundation
 
-**F1. Грейд по широте.** Знает всё понемногу — значит синьор. → Грейд определяется количеством компетенций высшего уровня; широта не даёт дорасти. [[bi-competency-matrix]]
+**D1. The rule costs more than routing around it.** Long lead times on data marts push analysts into more accessible data, breaking the rules. → Governance initiatives and speed initiatives run as a pair, not in sequence. [[pain-fronts-2026]], [[dg-launch-path]]
 
-**F2. Домен держится на одном человеке.** → Минимум три эксперта на критичные домены, два на остальные; successor как обязательное требование к тимлиду. [[bi-competency-matrix]]
+**D2. A permission matrix with no implementation mechanism.** A beautiful table, permissions still granted by hand. → Next to the visibility scope, the specific visibility table or directory filter. A matrix without a mechanism is a declaration. [[access-matrix]]
 
-**F3. Матрицу переписали под AI, найм остался прежним.** Процесс проверяет харды «на словах» и не видит AI. → Привязка блоков интервью к матрице один в один; LLM разрешён на техзадачах, стоп-сигналы — отказ от него и слепое доверие к выводу. [[bi-hiring-ai-era]]
+**D3. A permission matrix with no review date.** It goes stale silently. → The last review date is a mandatory field. [[access-matrix]]
 
-**F4. Битва агентов.** Кандидат генерит резюме, рекрутер скорит агентом; сотрудник генерит артефакты к ревью, менеджер прогоняет агентом. → Артефакты «в моменте» и устный дебриф. [[bi-hiring-ai-era]]
+**D4. Trying to automate what cannot be automated.** People attempt to derive the role matrix from data. → It is extracted from the owners and signed off; in return it becomes the mandate to grant permissions without further approvals. [[access-automation]]
 
-**F5. Вымывание джун-мидл уровня.** Команды сжимаются, вход в профессию исчезает, через несколько лет некому растить синьоров. → Перевод в кураторы домена, рост через ревью AI-аутпутов, намеренно оставленная рутина для заземления. [[bi-hiring-ai-era]]
+**D5. No master data sources.** Marts duplicate, ownership is smeared, and the agent has nothing to stand on. → A master source register: the marts best suited to a domain, duplicates reduced, checks focused only on them. [[critical-data-status]]
 
-**F6. Программа чемпионов без колонки выгод.** Есть цели компании, нет ответа «что с этого чемпиону». → Симметрия целей и выгод; плюс четыре предусловия до запуска, включая executive sponsor. [[bi-community-management]]
+**D6. The core layer started from the most painful marts.** Expensive, slow, and the project stalls on the first hard case without showing value. → Start from the most reused cross-domain entities; presentation layer first, technical layer second. [[core-layer-project]]
 
-**F7. Пояса, бейджи и награды смешаны.** Обесцениваются все три. → Пояс — про компетенцию, бейдж — про вовлечение, награда — про признание. [[bi-community-management]]
+**D7. A ghost-town catalog.** Deployed, with no descriptions. → Automate metadata harvesting as far as possible, capture documentation in the flow of work including CI checks, and curate the top 20%. [[data-catalog-pitfalls]]
 
-**F8. Онбординг-план нечем наполнить.** На дорожке самообучения пусто. → Это не проблема онбординга, а диагноз: документов из списка стандартов не существует. [[onboarding-plan]], [[rules-and-standards]]
+**D8. A fragmented golden path.** Discussions, the knowledge base and querying are duplicated across the catalog, the wiki and the messenger. → Choose one path and switch the duplicates off. The catalog's built-in messenger is self-deception. [[data-catalog-pitfalls]]
 
-**F9. Премиальный сервис обещан всем.** Очередь воспринимается как дефект. → Централизованный BI по определению не может быть доступен всем; очередь — конструкция, а решение — в приоритизации. [[centralized-bi-brand]]
+**D9. A long tail of unused marts.** Costs grow faster than the organic load, and there is no incentive to optimize because nobody sees the cost. → Billing as a transparency metric for unit economics; the reader pays for reads, the owner for storage. [[infra-billing]]
 
----
+**D10. A metric tree that will never exist.** Attempting a strict hierarchy ends in a stretch or in a stall. → Build links and levels, not a tree. [[glossary-vs-dictionary]]
 
-## G. Стратегия и управление программой
+**D11. Glossary and data dictionary in one place.** Both break. → Different artifacts with different owners; the term reaches the user at the moment of reading, not in a separate system. [[glossary-vs-dictionary]]
 
-**G1. Стратегия под текущую технологию.** Строится вокруг платформы, а не задач бизнеса; платформа сменится — стратегия рухнет. → Спайн от потребностей, инструменты в отдельном листе. [[bi-strategy-purpose]], [[bi-tool-selection]]
+**D12. Data governance stopped by a budget refusal.** → The refusal is a normal branch of the route: common-sense governance inside teams via small quick wins, then a restart through an MVP. To move to a programme you need at least two of four conditions. Governance started from below survives the budget cycle. [[dg-launch-path]]
 
-**G2. Инициатива без владельца.** Строка в плане, а не изменение. → Владелец, метрика и kill-gate по каждой инициативе. [[action-plan]]
-
-**G3. Governance живёт только в тексте стратегии.** Ровно один регулярный формат его держит; если он не проводится, governance нет. → Ежемесячный BI Governance status как обязательный слот. [[regular-meetings]]
-
-**G4. Заявлено, но не обеспечено.** Роли названы без времени, цели поставлены без мощности, политики написаны без владельца. → Флаг `[заявлено, не обеспечено]` на измерение и перенос в список разрывов, а не усреднение в балл. `review-gates.md`
-
-**G5. Целевая зрелость 3–4 по всем категориям.** Симптом непрочитанной диагностики. → Плюс один уровень за год как честный дефолт; больший сдвиг требует названной причины. `review-gates.md`
-
-**G6. Вдохновляющее число вместо замера.** Пропуск в vision закрыт красивой цифрой, она переживёт стратегию и будет цитироваться год. → `[не хватает данных]` до замера. [[vision-statement]]
-
-**G7. Вежливый судья.** Ревью прошло, в черновике ничего не изменилось. → Проход без видимых изменений означает, что судья был вежлив, а не полезен. `review-gates.md`
-
-**G8. Сокращение не отрепетировано.** Первый бюджетный пересмотр проваливает всё сразу и везде. → Опубликованный список заморозки: что умирает, если потерять треть ресурса. [[action-plan]], `review-gates.md`
-
-**G9. Боли собраны только у своей команды.** Стратегия отвечает на самую интересную боль, а не на самую дорогую. → Четыре группы ролей в упражнении по болям, и кандидат-инициатива напротив каждой группы. [[painpoints-analysis]]
-
-**G10. Переоценка важности инструмента.** Выбор платформы съедает год, данные и контекст остаются как были. → Данные, контекст и AI работают как один продукт; инструмент — не главный рычаг. [[unified-bi-platform]]
+**D13. Owner and curator roles in domains never took hold.** They were assigned and nobody started. → A role without a time budget and without being built into the process is a line on a slide. [[dg-launch-path]], [[context-governance]]
 
 ---
 
-## Чего в каталоге нет
+## E. AI and context
 
-Провалы, специфичные для регулируемых отраслей (нарушение локализации, аудит доступа к ПДн, отзыв согласия), и провалы внедрения при импортозамещении описаны только по касательной — фактуры в базе на отдельные позиции пока не хватает. Если такой кейс встретился, он стоит описания, а не подгонки под ближайшую строку.
+**E1. The plausible wrong answer.** Syntactically valid SQL, the wrong metric, the wrong period. It damages trust more than an honest "I don't know"; the user goes back to Excel. → "I cannot" as a designed outcome, a trust label and provenance in every answer, a clarifying question when there are two readings. [[plausible-but-wrong]]
+
+**E2. A demo on a toy schema carried into production.** A small space and obvious joins create false confidence. → Measure on your own schema and your own golden set before deciding to deploy. [[plausible-but-wrong]], [[semantic-layer-evidence]]
+
+**E3. The assistant ahead of the foundation.** Launched before semantic coverage and a certified core exist. → The `no-assistant-without-foundation` kill-gate; check the order of initiatives separately from their value. [[ai-triad-prerequisites]], [[bi-toolset-landscape]]
+
+**E4. Building the triad in parallel.** A reliable way to finish none of it. → One layer at a time, with an eval before and after, starting from the domain's most expensive pain. [[ai-triad-prerequisites]]
+
+**E5. Filling equated with quality.** Many objects, accuracy unchanged. → Filling ≠ trust ≠ effect: three different metrics. Only confirmed objects count, and generated ones only after review. [[domain-knowledge-base]], [[context-governance]]
+
+**E6. More context into the prompt.** Quality degrades as input grows, and it degrades in a step. → Serve only what is relevant; apply the permission filter before retrieval, not after. [[context-layer-market]]
+
+**E7. The verify gate became a bottleneck.** The curator drowns in the queue. → The gate carries an explicit weekly time budget; exceeding it is fixed by the platform, not by the person. The gate's load is a platform health metric. [[context-governance]]
+
+**E8. The effect of AI measured by self-assessment.** In a controlled study developers were 19% slower while convinced they were 20% faster. → Only measurement against a golden set with a baseline fixed beforehand. [[ai-in-data-processes]], [[ai-time-saving-trap]]
+
+**E9. Hours saved taken for effect.** The freed time dissolves into small things. → A named reallocation decision, and the person who makes it, is a mandatory part of an AI initiative. [[ai-time-saving-trap]]
+
+**E10. Growth in agent calls taken for success.** → Growth in calls without growth in successfully completed tasks does not count as a result; the calls may be retries. [[ai-accelerator]]
+
+**E11. Replacing the process instead of routing.** AI is placed where a guarantee is required. → The deterministic layer on the bulk, the model on the disputed cases. [[ai-in-data-processes]]
+
+**E12. Governance theatre around context.** Context is assembled, the accuracy gain is not significant, and trust in the whole AI agenda falls. → The kill-gate: no significant gain, stop. [[context-layer-market]]
+
+**E13. A vendor figure quoted as fact.** → The evidence level travels with the number; what you buy is architecture, not the claimed percentages. [[context-layer-market]], [[semantic-layer-evidence]]
+
+**E14. Expecting AI to close most of the ad-hoc.** Participants estimate 70–80%; the practical ceiling is far lower. A high estimate of potential usually signals low maturity of demand. → Count per domain, not on average. [[participants-2026-benchmark]], [[insight-management]]
+
+**E15. Projects duplicating one another by job to be done.** A wave of initiatives breeds overlaps. → Pre-review and merge projects before they start; focus on polishing the mass scenarios rather than generating new ones. [[ai-accelerator]]
+
+---
+
+## F. People and team
+
+**F1. Grade by breadth.** Knows a bit of everything, therefore senior. → The grade is determined by the number of competencies at the top level; breadth does not carry you up. [[bi-competency-matrix]]
+
+**F2. A domain resting on one person.** → At least three experts on critical domains, two on the rest; a successor as a mandatory requirement for a team lead. [[bi-competency-matrix]]
+
+**F3. The matrix was rewritten for AI, hiring was not.** The process tests hard skills by conversation and does not see AI at all. → Interview blocks mapped one-to-one onto the matrix; LLM allowed on technical tasks, with two stop signals — refusing it, and trusting its output blindly. [[bi-hiring-ai-era]]
+
+**F4. The battle of agents.** The candidate mass-produces generated CVs while the recruiter scores with an agent; the employee generates review artifacts while managers run them through an agent. → Artifacts produced in the moment, plus a spoken debrief. [[bi-hiring-ai-era]]
+
+**F5. The junior and mid tier erodes.** Teams shrink, the entry into the profession disappears, and in a few years there is nobody to grow seniors from. → Move juniors into domain curator roles, grow them through reviewing AI output, and deliberately keep some routine for grounding. [[bi-hiring-ai-era]]
+
+**F6. A champions programme with no benefits column.** There are company goals and no answer to "what is in it for the champion". → Symmetry between goals and benefits; plus four preconditions before launch, including an executive sponsor. [[bi-community-management]]
+
+**F7. Belts, badges and awards mixed together.** All three lose their meaning. → The belt is about competence, the badge about engagement, the award about recognition. [[bi-community-management]]
+
+**F8. Nothing to put in the onboarding plan.** The self-learning track is empty. → That is not an onboarding problem but a diagnosis: the standards documents do not exist. [[onboarding-plan]], [[rules-and-standards]]
+
+**F9. A premium service promised to everyone.** The queue is perceived as a defect. → Centralized BI by definition cannot be available to all; the queue is the design, and the answer lies in prioritization. [[centralized-bi-brand]]
+
+---
+
+## G. Strategy and programme management
+
+**G1. A strategy built around the current technology.** It is organised around a platform rather than the business's tasks; the platform changes and the strategy collapses. → The spine runs from needs; tools live on their own worksheet. [[bi-strategy-purpose]], [[bi-tool-selection]]
+
+**G2. An initiative with no owner.** A line in a plan, not a change. → An owner, a metric and a kill-gate for every initiative. [[action-plan]]
+
+**G3. Governance lives only in the text of the strategy.** Exactly one recurring meeting holds it; if that meeting does not happen, governance does not exist. → A monthly governance status as a mandatory slot. [[regular-meetings]]
+
+**G4. Declared but not resourced.** Roles named without time, goals set without capacity, policies written without an owner. → Do not average it into a single score: flag the dimension `[declared, not resourced]` and move it into the gap list. `review-gates.md`
+
+**G5. Target maturity at 3–4 across every category.** A symptom of an unread diagnosis. → Plus one level per year as the honest default; a larger shift requires a named reason. `review-gates.md`
+
+**G6. An inspiring number instead of a measurement.** A gap in the vision is filled with a nice figure; it will outlive the strategy and be quoted for a year. → `[requires clarification]` until it is measured. [[vision-statement]]
+
+**G7. A polite judge.** The review happened and the draft did not change. → A pass with no visible change means the judge was polite rather than useful. `review-gates.md`
+
+**G8. The cut was never rehearsed.** The first budget review fails everything at once, everywhere. → A published freeze list: what dies if a third of the resource goes. [[action-plan]], `review-gates.md`
+
+**G9. Pains collected only from your own team.** The strategy answers the most interesting pain rather than the most expensive one. → Four role groups in the pain exercise, and a candidate initiative against each group. [[painpoints-analysis]]
+
+**G10. Overrating the tool.** Choosing a platform eats a year while the data and the context stay as they were. → Data, context and AI work as one product; the tool is not the main lever. [[unified-bi-platform]]
+
+---
+
+## What this catalog does not cover
+
+Failures specific to regulated industries (breaching data residency, auditing access to personal data, honouring a deletion request) and failures during a forced platform migration are only touched on. The knowledge base does not yet hold enough substance for separate entries. If such a case appears, it deserves to be written down rather than forced into the nearest existing line.
