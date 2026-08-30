@@ -1,83 +1,87 @@
-# Рабочая рамка анализа — семь блоков
+# The analysis frame — seven blocks
 
-> **Это не структура документа.** Документ собирается по шести разделам `strategy-requirements.md`
-> (контекст → видение → стримы → инициативы → цели через метрики → риски), а семь блоков ниже —
-> инструмент анализа: по ним ведётся диагностика и проработка, их результат распределяется
-> по стримам и инициативам, а сама рамка живёт в приложении (`appendix/91-Рамка-анализа.md`).
-> Блок, не попавший ни в один стрим, — либо неотработанный анализ, либо сознательное решение
-> не трогать область; второе записывается в «чего мы не делаем».
+> **This is not the shape of the document.** The document is assembled along the six sections of
+> `strategy-requirements.md` (context → vision → streams → initiatives → goals as metrics → risks).
+> The seven blocks below are an instrument: you run the diagnosis and the working through them, the
+> result is distributed across streams and initiatives, and the frame itself lives in the appendix
+> (`appendix/91-Analysis-frame.md`). A block that reaches no stream is either unfinished analysis or
+> a deliberate decision not to touch that area; the second is recorded under "what we do not do".
 
-Каноническая структура BI+AI стратегии (метод Data Nature / Alex Barakov). Основана на листе **«BI Strategy Structure»** D&A Planner и мастер-деке курса. 7 содержательных блоков поверх 4 фаз. Файлы-эталоны: `D&A Strategy & Tactics Planner [ENG].xlsx`, `BI Project Health Check.xlsx`.
+The canonical structure of a BI+AI strategy (the Data Nature method / Alex Barakov). Based on the **"BI Strategy Structure"** worksheet of the D&A Planner and on the course master deck. Seven substantive blocks across four phases. Reference files: `D&A Strategy & Tactics Planner [ENG].xlsx`, `BI Project Health Check.xlsx`.
 
-## Фазы (верхний уровень)
-🔎 **AS-IS — анализ** = блоки **1–2** · 🛠️ **TO-BE — дизайн** = блоки **3–6** · 🚀 **Трансформация** = блок **7**.
-Показывай карту фаз на главной и в диагностике; каждый блок помечай его фазой в хлебной крошке.
+## Phases (top level)
 
-## Формат каждого блока (важно)
-Не «готовая стратегия» и не «пустое меню», а **сухой конкретный драфт + решения компании**. Порядок:
+🔎 **AS-IS — analysis** = blocks **1–2** · 🛠️ **TO-BE — design** = blocks **3–6** · 🚀 **Transformation** = block **7**.
+Show the phase map on the front page and in the diagnosis; mark each block with its phase in the breadcrumb.
 
-1. **Суть (сухой драфт).** 2–4 фразы: о чём блок для этой компании, конкретно, минимум слов. Опирается на диагностику.
-2. **Состав блока.** Компактный список под-элементов (см. ниже), терсно.
-3. **Вопросы компании → зависимые проекты.** Таблица: вопрос, на который отвечает компания → какой проект/мера от ответа зависит.
-4. **Гейт зрелости.** Явно: что НЕ начинать без необходимости/зрелости; условие «делать только если …». Не рекомендуем меру, если нет потребности или фундамента под неё.
-5. **Материалы.** Ссылки из материалов курса, релевантные блоку (занятие, лист Planner, категория Health Check, Confluence).
+## The shape of every block (important)
 
-Правила: сухо, конкретно, без воды. Каждая мера — условная (через гейт), а не по умолчанию. Диагностика — контекст; выбор — за компанией.
+Not a "finished strategy" and not an empty menu, but **a dry, concrete draft plus the company's decisions**. In this order:
 
----
+1. **Substance (dry draft).** Two to four sentences: what this block is about for this company, concretely, in as few words as possible. Grounded in the diagnosis.
+2. **Contents.** A compact list of sub-elements (below), terse.
+3. **Company questions → dependent projects.** A table: the question the company answers → which project or measure depends on that answer.
+4. **Maturity gate.** Explicitly: what NOT to start without need or readiness; the condition "do this only if…". Never recommend a measure when there is no need or no foundation beneath it.
+5. **Materials.** Links from the course material relevant to the block (session, Planner worksheet, Health Check category, internal wiki).
 
-## Блок 1. Бизнес Основа  · фаза AS-IS
-**Состав:** бизнес-модель и аналитические сценарии · доменная структура данных · карта дата-аналитических болей · дерево метрик · информационная supply-demand матрица · executive sponsorship.
-**Материалы:** Занятие 02 (BI Vision и supply-demand); Planner — `1. D&A PainPoints`, `1. Data Domains Classification`, `1. Info supply-demand matrix`; Health Check — категория 1 (Connection with business).
-
-## Блок 2. Оценка D&A ландшафта  · фаза AS-IS
-**Состав:** текущий ландшафт D&A платформы · оценка здоровья и зрелости BI · анализ использования BI/Data Tools · бенчмаркинг ландшафта в индустрии · аудит источников данных и их качества.
-**Обязательно — секция «🌐 Внешний контекст: ключевые тренды»** (как FAQ-контекст в стратегии-образце): Traditional→Agentic BI, Headless BI (3 слоя), AI-ready governance, эволюция Data Mesh (управляемая децентрализация), трезвость к AI. Генерично, без цифр компании. Краткая версия трендов входит и в 6-pager.
-**Материалы:** Занятие 03 (Ассессмент BI + AI-готовность); Health Check — все 9 категорий + AI-readiness оверлей (`question-bank.md`); Planner — `1. Outside BI`, `1. Inside BI`.
-
-## Блок 3. Целевая Операционная Модель  · фаза TO-BE
-**Состав:** баланс Централизации и Self-Service — дизайн операционной модели · классификация пользователей · связывание персон и целевых интерфейсов/тулов · практики управления Центральным BI · практики управления Self-Service BI.
-**Материалы:** Занятие 04 (BI governance: Self-Service / Guided / Agentic); Planner — `1. User Classification and BI Models`, `2.3 SelfServ D&A Practices`, `2.4 Centralized D&A Practices`; Health Check — категории 4, 5.
-
-**Новое 2026:** каналов теперь четыре — Centralized · Self-Service · Agentic · **Data app** (ввод данных, сценарий, действие). Data app требует тех же атрибутов, что дашборд: владелец, сертификация, health-score. Плюс **агент как отдельная identity** со своими ключами и allowlist инструментов, а не «сервисная учётка аналитика».
-
-## Блок 4. Процессная Основа  · фаза TO-BE
-Три под-блока:
-- **4.1 Data Models Management:** Data Source Mgmt · Data Quality Mgmt · Data Security Mgmt · управление метаданными · monitoring использования · участие в Data Governance. — Занятие 05; Planner `2.1 Data Mgmt processes/questionnaire`, `2.1 Critical data`; Health Check кат. 7.
-- **4.1 новое 2026:** права на уровне куска документа (проверять до поиска, не после) · удаление производных объектов, включая векторы · контракты через гейт в CI на критичных витринах, а не как отдельный проект.
-- **4.2 BI Report Management:** разработка · валидация · управление доступом · продвижение · сертификация · мониторинг использования контента. — Занятие 06; Planner `2.2 Content Mgmt Processes/questionnaire`; Health Check кат. 3.
-- **4.2 новое 2026:** сертификация двумя измерениями — **паспорт объекта** (владелец, здоровье, описание, использование; масштабируется на весь контент) и **тесты поведения** (сравнение до/после релиза, сверка с источником; дороги, поэтому на критичном ядре).
-- **4.3 Insight Management:** Metric-to-Decision моделирование · генерация инсайтов · автоматизация и доставка · advanced analytics · развитие дата-грамотности. — Занятие 06–07; AI Analyst / инсайт-боты.
-
-## Блок 5. Технологическая Основа  · фаза TO-BE
-**Состав:** гармонизация дата-аналитической платформы · data engineering solution · **semantic layer (golden layer, metric store, глоссарий)** · автоматизация подписок · интеграции (мессенджер, DQ-алерты, мобильный) · **Next-gen BI / Дата-ассистент** · администрирование BI-системы / licence mgmt.
-**Материалы:** Занятие 07 (AI-фундамент: semantic layer, core, контекст) + Занятие 08 (агентная архитектура, MCP, judge-gates); `question-bank.md` кат. 6; Planner `2.5 BI & Around BI Tools`.
-
-**Новое 2026 — контекстный слой («LLM wiki») поверх триады.** Пять слоёв: источники → сбор → сборка знания → хранение → подача по запросу, плюс петля обратной связи. Единица хранения — атом с паспортом (происхождение, статус, ссылка на оригинал, срок годности, владелец). Каталог выбирается как **граница governance**: общий протокол не переносит права между каталогами. Отдавать агенту только релевантное — из-за context rot «больше контекста» ухудшает ответ.
-
-## Блок 6. Операционная Основа  · фаза TO-BE
-**Состав:** регулярный менеджмент BI-проекта · стандарты работы · матрица прав доступа · BI Service Desk · матрица компетенций BI · метрики эффективности BI-проекта · формирование и управление командой.
-**Материалы:** Занятие 09 (BI Operations, команда, профессия: BDE, вайбкодинг); Planner `3. Access Matrix`, `3. Regular Meetings`, `3. Rules and Standards`, `3. Newcomer onboarding plan`, `3. BI Project Metrics`; Health Check кат. 8, 9.
-
-**Новое 2026:** в метрики блока — запрет измерять эффект AI самооценкой команды (замер и самооценка расходятся вплоть до смены знака). Только эталонный набор вопросов до и после.
-
-## Блок 7. Управление изменениями  · фаза Трансформация
-**Состав:** BI Vision · планирование стратегических инициатив · тактическое планирование · целеполагание. Сюда же — Action plan, **stack-rank**, kill-gates, двойственная стратегия.
-**Материалы:** Занятие 01 (структура BI+AI стратегии) + Занятие 10 (метрики, kill-gates) + Занятие 11 (action plan, двойственная стратегия); Planner `4. Action plan`, `5. BI Vision`.
+Rules: dry, concrete, no filler. Every measure is conditional, gated, never a default. The diagnosis is context; the choice belongs to the company.
 
 ---
 
-## Сквозные артефакты (на главной или в блоке 7)
-- Диагностический **скоркард** (профиль зрелости 0–4 + топ-разрывы) — держать отдельной страницей и линковать.
-- **Stack-rank** приоритетов (Governance → Trusted Data → AI-готовность → BI Content → Self-service) с «что замораживаем первым».
-- **Дерево метрик** BI+AI (4 группы Planner + AI-метрики).
-- **Kill-gate** ≥1 AI-инициативы.
-- **Реестр рисков** (хрупкая цепочка AI→SL→core→каталог; хаос контента; governance без ресурса).
-- **Двойственная стратегия** «старый BI + новый BI».
+## Block 1. Business foundation · AS-IS
 
-## Формы (единообразно)
-Шкала 0–4 · процессы Centralized vs Self-Governing · цели «Description | KPIs | Outcomes | Timing» · каждая AI-инициатива — с метрикой/порогом/kill-gate.
+**Contents:** business model and analytical use cases · data domain structure · map of data and analytics pains · metric tree · information supply-demand matrix · executive sponsorship.
+**Materials:** Session 02 (BI Vision and supply-demand); Planner — `1. D&A PainPoints`, `1. Data Domains Classification`, `1. Info supply-demand matrix`; Health Check — category 1 (Connection with business).
 
-## Режимы
-- **Лайт:** блоки 1, 2 (сжато), 5 (AI-фундамент — ядро), 7 (план+vision) + скоркард. Остальные — свёрнуто.
-- **Полный:** все 7 блоков (4 с под-блоками) прорабатываются; в документ выходит их результат, а не сами блоки. По полному формату, per-domain детали.
+## Block 2. D&A landscape assessment · AS-IS
+
+**Contents:** the current D&A platform landscape · BI health and maturity assessment · BI and data tool usage analysis · industry landscape benchmarking · audit of data sources and their quality.
+**Mandatory — a "🌐 External context: key trends" section**: Traditional → Agentic BI, headless BI (three layers), AI-ready governance, the evolution of Data Mesh into governed decentralization, and sobriety about AI. Generic, without the company's figures. A short version of the trends also goes into the 6-pager.
+**Materials:** Session 03 (BI assessment and AI readiness); Health Check — all nine categories plus the AI-readiness overlay (`question-bank.md`); Planner — `1. Outside BI`, `1. Inside BI`.
+
+## Block 3. Target operating model · TO-BE
+
+**Contents:** the balance of centralization and self-service — operating model design · user classification · mapping personas to target interfaces and tools · practices for managing central BI · practices for managing self-service BI.
+**Materials:** Session 04 (BI governance: self-service / guided / agentic); Planner — `1. User Classification and BI Models`, `2.3 SelfServ D&A Practices`, `2.4 Centralized D&A Practices`; Health Check — categories 4, 5.
+
+**New in 2026:** there are now four channels — Centralized · Self-Service · Agentic · **Data app** (data entry, a scenario, an action). A data app requires the same attributes as a dashboard: an owner, certification, a health score. Plus **the agent as a separate identity** with its own keys and an allowlist of tools, rather than "the analyst's service account".
+
+## Block 4. Process foundation · TO-BE
+
+Three sub-blocks:
+
+- **4.1 Data models management:** data source management · data quality management · data security management · metadata management · usage monitoring · participation in data governance. — Session 05; Planner `2.1 Data Mgmt processes/questionnaire`, `2.1 Critical data`; Health Check cat. 7.
+- **4.1 new in 2026:** permissions at the level of a document fragment (checked before retrieval, not after) · deletion of derived objects, vectors included · contracts enforced through a CI gate on critical marts rather than run as a separate project.
+- **4.2 BI report management:** development · validation · access management · promotion · certification · content usage monitoring. — Session 06; Planner `2.2 Content Mgmt Processes/questionnaire`; Health Check cat. 3.
+- **4.2 new in 2026:** certification along two dimensions — **the object passport** (owner, health, description, usage; scales across all content) and **behavioural tests** (before/after release comparison, reconciliation against the source; expensive, therefore reserved for the critical core).
+- **4.3 Insight management:** metric-to-decision modelling · insight generation · automation and delivery · advanced analytics · data literacy. — Sessions 06–07; AI analyst and insight bots.
+
+## Block 5. Technology foundation · TO-BE
+
+**Contents:** harmonizing the data and analytics platform · data engineering solution · **semantic layer (golden layer, metric store, glossary)** · subscription automation · integrations (messenger, DQ alerts, mobile) · **next-gen BI and the data assistant** · BI system administration and licence management.
+**Materials:** Session 07 (the AI foundation: semantic layer, core, context) and Session 08 (agentic architecture, MCP, judge gates); `question-bank.md` cat. 6; Planner `2.5 BI & Around BI Tools`.
+
+**New in 2026 — the context layer ("LLM wiki") on top of the triad.** Five layers: sources → collection → knowledge assembly → storage → serving on request, plus a feedback loop. The unit of storage is an atom with a passport (provenance, status, a reference to the original, a freshness TTL, an owner). The catalog is chosen as **the governance boundary**: a shared protocol does not carry permissions between catalogs. Serve the agent only what is relevant — because of context rot, "more context" makes the answer worse.
+
+## Block 6. Operational foundation · TO-BE
+
+**Contents:** regular management of the BI project · working standards · access permission matrix · BI service desk · BI competency matrix · BI project performance metrics · building and running the team.
+**Materials:** Session 09 (BI operations, team, profession); Planner `3. Access Matrix`, `3. Regular Meetings`, `3. Rules and Standards`, `3. Newcomer onboarding plan`, `3. BI Project Metrics`; Health Check cat. 8, 9.
+
+**New in 2026:** the block's metrics carry a prohibition on measuring the effect of AI by the team's self-assessment — measurement and self-assessment diverge to the point of changing sign. Only a golden set of questions, before and after.
+
+## Block 7. Change management · Transformation
+
+**Contents:** BI vision · planning strategic initiatives · tactical planning · goal setting. Also here: the action plan, the **stack-rank**, kill-gates, and the dual track.
+**Materials:** Session 01 (the structure of a BI+AI strategy), Session 10 (metrics, kill-gates), Session 11 (action plan, dual track); Planner `4. Action plan`, `5. BI Vision`.
+
+---
+
+## Cross-cutting artifacts (front page or block 7)
+
+- The diagnostic **scorecard** (0–4 maturity profile + top breaks) — keep it as its own page and link to it.
+- The **stack-rank** of priorities (Governance → Trusted Data → AI readiness → BI Content → Self-service) with an explicit "what we freeze first".
+- The **metric tree** (four Planner groups plus AI metrics).
+- A **kill-gate** for at least one AI initiative.
+- The **risk register** (the fragile chain AI → semantic layer → core → catalog; content chaos; governance without resource).
+- The **dual track**: old BI plus new BI.

@@ -1,66 +1,68 @@
-# Companion: DG Board KB — governance-подложка для BI+AI стратегии
+# Companion: DG Board KB — the governance layer under a BI+AI strategy
 
-**Репозиторий:** https://github.com/alexbarakov/DG-strategy-self-consulting-agent
-**Точка входа:** его `README.md` · машиночитаемый граф тем: `30_graph/objects.yaml`
-**Что это:** текстовая проекция публичного Miro-борда «Data Governance Program Guide» — темы AI-эры и классического Data Governance, по одному файлу на тему, плюс каталог воркшоп-шаблонов и библиотека источников.
+**Repository:** https://github.com/alexbarakov/DG-strategy-self-consulting-agent
+**Entry point:** its `README.md` · machine-readable theme graph: `30_graph/objects.yaml`
+**What it is:** a textual projection of the public Miro board "Data Governance Program Guide" — AI-era and classic data governance themes, one file per theme, plus a catalog of workshop templates and a source library.
 
-Два репозитория спроектированы как пара и разделяют инварианты: stack-rank и порядок заморозки, kill-gates, «AI генерирует черновик — человек проверяет», цепочка `core → semantic → контекст → точность AI → self-service`.
+The two repositories are designed as a pair and share the same invariants: the stack-rank and the freeze order, kill-gates, "AI drafts — humans validate", and the chain `core → semantic → context → AI accuracy → self-service`.
 
 ---
 
-## Когда подключать
+## When to plug it in
 
-| Что строим | Кто ведёт | Роль companion |
+| What you are building | Who leads | The companion's role |
 |---|---|---|
-| **BI** или **AI** стратегия | **этот скилл** | заземляет governance-блоки и AI-фундамент |
-| **DG** (управление данными) | companion | этот скилл даёт BI/AI-стрим |
-| **D&A** / смешанная | companion ведёт структуру | этот скилл поставляет содержание BI/AI-стримов |
+| **BI** or **AI** strategy | **this skill** | grounds the governance blocks and the AI foundation |
+| **DG** (data management) | companion | this skill supplies the BI/AI stream |
+| **D&A** or a mix | companion leads the structure | this skill supplies the substance of the BI/AI streams |
 
-**Правило разрешения конфликтов:** по вопросам governance выигрывает companion, по вопросам BI/AI — этот скилл. Инварианты совпадают по построению; если разошлись — приоритет по предметной области.
+**Conflict rule:** on governance questions the companion wins, on BI/AI questions this skill does. The invariants match by construction; where they diverge, subject-matter ownership decides.
 
-## Как подключить
+## How to connect it
 
-- **Оба репозитория склонированы рядом** — читай файлы companion по относительному пути и ссылайся на них как на источник.
-- **Только этот скилл** — дай агенту URL companion как дополнительный источник знаний; при отсутствии доступа работай на локальных `references/` и честно помечай, где заземление слабее.
+- **Both repositories cloned side by side** — read the companion's files by relative path and cite them as a source.
+- **This skill alone** — give the agent the companion's URL as an additional knowledge source; with no access, work from the local `references/` and mark honestly where the grounding is thinner.
 
-Не копируй содержимое companion в свои артефакты целиком: ссылайся на файл и цитируй нужное. Файлы там нарезаны по одной теме — это удобно для точечного цитирования.
+Do not copy the companion's content wholesale into your artifacts: link to the file and quote what you need. Its files are cut one theme apiece, which makes precise citation easy.
 
 ---
 
-## Карта: блок стратегии → что читать в companion
+## Map: strategy block → what to read in the companion
 
-Машиночитаемая версия — в `knowledge-map.yaml` (поле `companion` у каждого блока).
+The machine-readable version lives in `knowledge-map.yaml` (the `companion` field on each block).
 
-| Блок | Файлы companion |
+| Block | Companion files |
 |---|---|
-| **1. Бизнес-основа** | `11_dg_program_themes/getting-started.md` — тест «5 из 12»: нужна ли вообще программа, или хватит здравого смысла · `dg-kitchen-research.md` — полевые наблюдения |
-| **2. Оценка ландшафта** | `maturity-and-metrics.md` — модель зрелости и метрики · `dg-frameworks.md` — рамки и стандарты |
-| **3. Целевая операционная модель** | `roles-and-operating-model.md` — роли и модель управления · `domains-and-data-mesh.md` — доменная нарезка |
-| **4.1 Data Models Management** | `data-quality.md` · `data-catalog.md` · `domains-and-data-mesh.md` · `10_ai_era_themes/certified-core-layer.md` |
-| **4.2 BI Report Management** | `10_ai_era_themes/bi-content-management.md` — воронка BI-контента |
-| **4.3 Insight Management** | `data-literacy.md` · `10_ai_era_themes/llm-assistant-architecture.md` |
-| **5. Технологическая основа** | `semantic-layer.md` · `semantic-metric-layer-v2.md` · `certified-core-layer.md` · `domain-knowledge-base.md` · `context-governance.md` · `llm-assistant-architecture.md` · `enterprise-ontology.md` |
-| **6. Операционная основа** | `skills-hub.md` — управление скиллами и агентами · `roles-and-operating-model.md` · `maturity-and-metrics.md` |
-| **7. Управление изменениями** | `dg-program-roadmap.md` — дорожная карта программы · `ai-governance.md` |
+| **1. Business foundation** | `11_dg_program_themes/getting-started.md` — the "5 of 12" test: do you need a programme at all, or will common sense do · `dg-kitchen-research.md` — field observations |
+| **2. Landscape assessment** | `maturity-and-metrics.md` — the maturity model and metrics · `dg-frameworks.md` — frameworks and standards |
+| **3. Target operating model** | `roles-and-operating-model.md` · `domains-and-data-mesh.md` — domain slicing |
+| **4.1 Data models management** | `data-quality.md` · `data-catalog.md` · `domains-and-data-mesh.md` · `10_ai_era_themes/certified-core-layer.md` |
+| **4.2 BI report management** | `10_ai_era_themes/bi-content-management.md` — the BI content funnel |
+| **4.3 Insight management** | `data-literacy.md` · `10_ai_era_themes/llm-assistant-architecture.md` |
+| **5. Technology foundation** | `semantic-layer.md` · `semantic-metric-layer-v2.md` · `certified-core-layer.md` · `domain-knowledge-base.md` · `context-governance.md` · `llm-assistant-architecture.md` · `enterprise-ontology.md` |
+| **6. Operational foundation** | `skills-hub.md` — managing skills and agents · `roles-and-operating-model.md` · `maturity-and-metrics.md` |
+| **7. Change management** | `dg-program-roadmap.md` — the programme roadmap · `ai-governance.md` |
 
-**Сквозное, полезно в любом блоке:**
-- `12_templates/templates.md` — воркшоп-шаблоны с прямыми ссылками на борд: анализ болей, классификатор доменов, vision statement, конфигураторы охвата и целей, канвасы. Предлагай их, когда участнику нужно не описание, а инструмент для сессии.
-- `10_ai_era_themes/library.md` — библиотека канонического чтения по темам.
-- `40_sources.md` — статус верификации каждой внешней ссылки.
+**Cross-cutting, useful in any block:**
+- `12_templates/templates.md` — workshop templates with direct deep-links to the board: pain analysis, domain classifier, vision statement, scope and goal configurators, canvases. Offer them when the participant needs an instrument rather than a description.
+- `10_ai_era_themes/library.md` — the canonical reading library by theme.
+- `40_sources.md` — verification status for every external link.
+- `50_failure_catalog.md` — 45 named ways a DG programme dies, with symptom triage.
+- `51_numbers.md` — the numbers registry on the same five-tag scale this skill uses.
 
 ---
 
-## Что брать оттуда, а что нет
+## What to take from it, and what not to
 
-**Брать:**
-- определения и «ключевые термины» — чтобы не изобретать свою терминологию;
-- блоки «числа для спора с оптимистами» — для защиты приоритетов и бюджета;
-- разделы «из курса» — пороги, антипаттерны и полевые истории, которых нет в открытых источниках;
-- воркшоп-шаблоны — когда нужен инструмент, а не текст.
+**Take:**
+- definitions and "key terms" — so you do not invent your own terminology;
+- the "numbers for arguing with optimists" blocks — for defending priorities and budget;
+- the "from the course" sections — thresholds, anti-patterns and field stories absent from public sources;
+- workshop templates — when what is needed is an instrument, not text.
 
-**Не брать:**
-- цифры, которые сам автор пометил как «отраслевая мифология / вендорский маркетинг» — этот флаг переносится вместе с цифрой и не снимается;
-- статусы объектов борда как факты о рынке — они отражают состояние борда на дату сборки;
-- английские формулировки в готовый артефакт: companion написан по-английски, а **артефакт выдаётся на языке пользователя**. KB — источник, а не шаблон вывода.
+**Do not take:**
+- figures the author himself flagged as "industry mythology / vendor marketing" — that flag travels with the figure and is never removed;
+- board object statuses as facts about the market — they reflect the board's state on the build date;
+- English phrasing straight into a deliverable: the companion is written in English, and **the artifact is produced in the user's language**. It is a source, not an output template.
 
-**Согласованность с локальной фактурой.** Если цифра из companion расходится с `evidence-2026.md`, приоритет у той, у которой указан первичный источник и уровень доказательности. Обе стороны обязаны нести пометку «проверяемо / мерил продавец / нет данных».
+**Consistency with local material.** Where a companion figure disagrees with `evidence-2026.md` or `kb/51-numbers.md`, priority goes to the one with a named primary source and a stated evidence level. Both sides must carry their reliability tag.
