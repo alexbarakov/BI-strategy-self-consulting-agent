@@ -74,7 +74,7 @@ The scale matches the companion's registry at [DG Strategy](https://github.com/a
 | $0.04 | the cost of processing a dataset under that scheme | `benchmark` | same source | [[ai-in-data-processes]] |
 | 88.7% versus 51–56% | schema matching against COMA and CUPID, only on complex schemas | `benchmark` | independent measurement | [[ai-in-data-processes]] |
 | 90.2% versus 64.6% | parsing complex tables and scans with variable layout | `benchmark` | independent measurement | [[ai-in-data-processes]] |
-| до 99% | ordinary OCR on fixed forms - cheaper and more accurate than the model | `benchmark` | same source | [[ai-in-data-processes]] |
+| up to 99% | ordinary OCR on fixed forms - cheaper and more accurate than the model | `benchmark` | same source | [[ai-in-data-processes]] |
 | 76% → 87% | SQL translation between dialects: raw versus translation with execution feedback | `benchmark` | independent measurement | [[ai-in-data-processes]] |
 | 19.6% versus 6.3% | error rate in descriptions: model versus human | `disputed` | **the 2026-08-29 check did not confirm this**: [arXiv 2411.05409](https://arxiv.org/abs/2411.05409) — it is "Web Archives Metadata Generation with GPT-4o", about web archive metadata, and the claimed figures are not in the abstract. The direction agrees ("human curated metadata maintains an edge"); the specific percentages do not. **Do not quote until checked against the full text** | [[ai-in-data-processes]] |
 | 23.75% → 48.25% | incident root cause: raw telemetry versus fused sources | `benchmark` | independent measurement | [[ai-in-data-processes]] |
@@ -126,10 +126,10 @@ The whole group is `measured`, with a caveat: **self-reported, and the sample is
 | 3 – 100 | warehouse team size, median ~12 | [[participants-2026-benchmark]] |
 | 3 – 400 | number of BI solution builders, median ~10 | [[participants-2026-benchmark]] |
 | 0 – 11 | data governance team size, median 2; **in 4 of 12 companies there is none at all** | [[participants-2026-benchmark]] |
-| 0 из 12 | companies with a fully mature semantic layer | [[participants-2026-benchmark]] |
+| 0 of 12 | companies with a fully mature semantic layer | [[participants-2026-benchmark]] |
 | 20% – 90% | subjective estimate of the ad-hoc share that could go to AI; median ~70-80% | [[participants-2026-benchmark]] |
-| 4 из 10 | share of companies naming semantics and metrics as the main pain | [[pain-fronts-2026]] |
-| 4 из 10 | the same for data culture and for speed/resources | [[pain-fronts-2026]] |
+| 4 of 10 | share of companies naming semantics and metrics as the main pain | [[pain-fronts-2026]] |
+| 4 of 10 | the same for data culture and for speed/resources | [[pain-fronts-2026]] |
 | 15–25% | estimated ceiling of queries an assistant can close - **at odds with the 70-80% above** | [[insight-management]] |
 
 **A conflict worth holding in mind.** The participants' subjective estimate (70-80%) and the practical ceiling (15-25%) differ fourfold. Both rows are kept deliberately: the divergence is the content. The most honest phrasing in the sample explains the gap - "the high estimate reflects the fact that the basic data need is not yet met".
@@ -145,7 +145,7 @@ The whole group is `measured`, with a caveat: **self-reported, and the sample is
 | 3+ / 2+ | experts per critical / ordinary domain | `author-estimate` | the competency backup strategy | [[bi-competency-matrix]] |
 | 20% | the share of catalog objects worth curating | `author-estimate` | the "do not boil the ocean" rule | [[data-catalog-pitfalls]] |
 | 1 quarter | target duration of a core-layer deep dive in a domain | `measured` | internal practice | [[core-layer-project]] |
-| 2 из 4 | minimum conditions to move from MVP to a governance programme | `author-estimate` | the launch rule | [[dg-launch-path]] |
+| 2 of 4 | minimum conditions to move from MVP to a governance programme | `author-estimate` | the launch rule | [[dg-launch-path]] |
 | 50–60% | the industry norm for compute utilization | `benchmark` | an industry reference point | [[infra-billing]] |
 | half the norm | observed utilization in the worked case | `measured` | internal measurement, anonymized | [[infra-billing]] |
 
@@ -162,7 +162,7 @@ The 2026-08-29 pass covered eight load-bearing figures. Four discrepancies, all 
 | Descriptions: 19.6% vs 6.3%, tagged `benchmark` | The cited arXiv paper is about web archive metadata and the figures are not in the abstract. Downgraded to `disputed`, **must not be quoted** |
 | METR 19% / 20%, with no caveats | Confirmed, but substantial caveats were added: n=16, early-2025 tooling, the authors label the result historical, and a counter-RCT points the other way |
 
-Подтвердились без правок: Gartner 40% (с уточнением, что это прогноз на опросе, а не замер), Chroma «18 models» и «200K окно, деградация на 50K».
+Confirmed without change: Gartner’s 40% (with the clarification that it is a forecast built on a poll, not a measurement), Chroma’s "18 models" and "a 200K window degrading at 50K".
 
 **The rule this produces.** The `benchmark` tag is applied only after opening the primary source, never on the strength of what a slide said. Until then the figure lives as `author-estimate` - which is more honest than a `benchmark` that later fails to hold up in somebody else's presentation.
 
