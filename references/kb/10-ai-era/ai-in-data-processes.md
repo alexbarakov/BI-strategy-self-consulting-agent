@@ -25,7 +25,7 @@ The one regularity the method considers dependable:
 | Task | Measurement | Comment |
 |---|---|---|
 | **SQL translation between dialects** | 76% -> 87% | raw translation versus translation with feedback from execution errors |
-| **Descriptions and metadata** | 19.6% versus 6.3% error rate | model versus human; measure the share a steward accepts without edits |
+| **Descriptions and metadata** | 19.6% versus 6.3% error rate - `disputed`, **do not quote** | model versus human; the cited source did not survive the 2026-08-29 check (see `51-numbers.md`). The direction holds - a human-curated description keeps an edge - but the percentages are unconfirmed. Measure the share a steward accepts without edits |
 | **Pipeline code** | speed up, stability down | DORA-2025: AI amplifies a mature pipeline and chaos alike - the bottleneck moves into review |
 
 ## Overrated or unproven - the figures are vendor-supplied or absent

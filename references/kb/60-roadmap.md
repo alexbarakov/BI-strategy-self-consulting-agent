@@ -13,9 +13,9 @@ This file exists because the base was tested rather than admired. The principle 
 
 **A1. Verify the remaining figures against primary sources.** The 2026-08-29 pass covered eight load-bearing quantities out of roughly ninety and produced **four discrepancies out of eight** — half. The extrapolation is obvious: the rest of the registry is unverified and must not be treated as verified. Order of work: everything tagged `benchmark` first, because that tag promises reproducibility.
 
-**A2. Close or drop the 19.6% / 6.3% line.** The cited arXiv paper turned out to be about web archive metadata. Either find the real source of the figures or delete the line. It is currently tagged `disputed` and must not be quoted, but it is still cited by two atoms — they need fixing after the registry.
+**A2. Close or drop the 19.6% / 6.3% line.** The cited arXiv paper turned out to be about web archive metadata. Either find the real source of the figures or delete the line. It is tagged `disputed` and must not be quoted; the two atoms that cite it now carry the same flag, so what remains is the decision on the line itself — find the source or delete it.
 
-**A3. Separate two different claims about long context.** Chroma records continuous degradation; the critical-threshold paper records a collapse after 40–50% of the window. The atom merges them into a single "it falls in a step". This is not a nuance: the first implies "always serve less", the second implies "watch the share of the window".
+**A3. Separate two different claims about long context — done.** Chroma records continuous degradation; the critical-threshold paper records a collapse after 40–50% of the window. The atom used to merge them into a single "it falls in a step"; `context-layer-market`, `50-failure-catalog` E6, `course-knowledge` and golden set item gs2-05 now state both separately. Kept here as a record of why the distinction matters: the first implies "always serve less", the second implies "watch the share of the window".
 
 **A4. Mark verification dates inside the atoms.** The registry now carries verification dates; the atoms do not. While a figure's status differs between the atom and the registry, the agent will take whichever is closer.
 

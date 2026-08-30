@@ -147,7 +147,7 @@ confidence: mixed — each entry names the atom carrying its evidence level
 
 **E5. Filling equated with quality.** Many objects, accuracy unchanged. → Filling ≠ trust ≠ effect: three different metrics. Only confirmed objects count, and generated ones only after review. [[domain-knowledge-base]], [[context-governance]]
 
-**E6. More context into the prompt.** Quality degrades as input grows, and it degrades in a step. → Serve only what is relevant; apply the permission filter before retrieval, not after. [[context-layer-market]]
+**E6. More context into the prompt.** Quality degrades as input grows, continuously and long before the window fills; the separate threshold effect is measured as a share of the window (40-50%), not as an absolute token count. → Serve only what is relevant; apply the permission filter before retrieval, not after. [[context-layer-market]]
 
 **E7. The verify gate became a bottleneck.** The curator drowns in the queue. → The gate carries an explicit weekly time budget; exceeding it is fixed by the platform, not by the person. The gate's load is a platform health metric. [[context-governance]]
 
