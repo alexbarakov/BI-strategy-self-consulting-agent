@@ -1,443 +1,443 @@
-# Голден-сет скилла bi-strategy — уровень 2: качество ответа
+# The bi-strategy skill's golden set - tier 2: answer quality
 #
-# Что меряет: сказал ли агент то, что нужно, и НЕ сказал ли того, что нельзя.
-# Оценивает LLM-судья по рубрике. Ведётся руками.
+# What it measures: did the agent say what it had to, and did it NOT say what it must not.
+# Scored by an LLM judge against a rubric. Maintained by hand.
 #
-# Вопросы намеренно переформулированы ЯЗЫКОМ УЧАСТНИКА, а не языком базы знаний:
-# сет должен проверять понимание, а не совпадение строк с FAQ.
+# The questions are deliberately rephrased IN THE PARTICIPANT'S LANGUAGE rather than the
+# knowledge base's: the set has to test understanding, not string overlap with the FAQ.
 #
-# must_not — главное поле. Это конкретные неправильные ответы, которые база знаний
-# опровергает явно. Ответ, содержащий любой пункт must_not, получает вердикт «неверно»
-# независимо от того, сколько пунктов must_contain он закрыл.
+# must_not is the central field. These are specific wrong answers that the knowledge base
+# explicitly refutes. An answer containing any must_not item gets the verdict "wrong"
+# regardless of how many must_contain items it covered.
 #
-# blind: true — позиция не показывается при разработке скилла, используется только на замере.
+# blind: true - the item is not shown during skill development and is used only at measurement time.
 
 meta:
   tier: 2
   kind: answer_quality
-  judge_verdicts: [верно_и_с_решением, верно_без_решения, неверно_или_выдумка]
-  primary_metric: "доля «верно_и_с_решением»"
-  secondary_metric: "доля «верно_и_с_решением» + «верно_без_решения»"
-  hard_rule: "любое совпадение с must_not → неверно_или_выдумка"
+  judge_verdicts: [correct_with_a_decision, correct_without_a_decision, wrong_or_invented]
+  primary_metric: "the share of correct_with_a_decision"
+  secondary_metric: "the share of correct_with_a_decision plus correct_without_a_decision"
+  hard_rule: "any match against must_not -> wrong_or_invented"
   items: 32
 
 items:
 
-  # ---- AI-фундамент: самые дорогие ошибки ----
+  # ---- The AI foundation: the most expensive mistakes ----
 
   - id: gs2-01
-    question: "Мы решили делать AI-ассистента. Параллельно запускаем семантический слой, core-слой и базу знаний по домену, чтобы быстрее. Нормальный план?"
+    question: "We have decided to build an AI assistant. In parallel we are starting the semantic layer, the core layer and a domain knowledge base, to go faster. Is that a sound plan?"
     expected_atoms: [ai-triad-prerequisites, core-layer-project]
     must_contain:
-      - строить один слой за раз, а не параллельно
-      - начинать с того слоя, который закрывает самую дорогую боль домена
-      - eval до и после, чтобы видеть реальный прирост
+      - build one layer at a time rather than in parallel
+      - start with the layer that closes the domain's most expensive pain
+      - an eval before and after, so the real gain is visible
     must_not:
-      - параллельный запуск трёх слоёв назван нормальным
-      - порядок сборки объявлен неважным
-      - рекомендация начать с ассистента
+      - launching all three layers in parallel is called fine
+      - the build order is declared unimportant
+      - a recommendation to start with the assistant
     status: needs_review
 
   - id: gs2-02
-    question: "Посчитали: AI сэкономил аналитикам 200 часов за квартал. Могу нести это руководству как эффект?"
+    question: "We worked it out: AI saved the analysts 200 hours last quarter. Can I take that to management as the effect?"
     expected_atoms: [ai-time-saving-trap, bi-project-metrics]
     must_contain:
-      - экономия времени у человека не равна выгоде компании
-      - высвобожденное время растворяется без явного решения о ре-аллокейте
-      - нужно назвать, кто принимает решение и куда идёт ресурс
+      - a person's time saved does not equal a gain for the company
+      - the freed time dissolves without an explicit reallocation decision
+      - you have to name who makes the decision and where the resource goes
     must_not:
-      - да, это готовый эффект
-      - достаточно умножить часы на стоимость часа
-      - самооценка команды принята как доказательство
+      - yes, that is a finished effect
+      - multiplying the hours by an hourly rate is enough
+      - the team's self-assessment is accepted as proof
     blind: true
     status: needs_review
 
   - id: gs2-03
-    question: "Пилот text-to-SQL на демо-схеме отработал отлично. Что может пойти не так на нашей реальной схеме?"
+    question: "Our text-to-SQL pilot worked beautifully on the demo schema. What could go wrong on our real schema?"
     expected_atoms: [plausible-but-wrong, semantic-layer-evidence]
     must_contain:
-      - на игрушечной схеме маленькое пространство и очевидные джойны
-      - в проде агент выдаёт синтаксически валидный, но неверный ответ
-      - правдоподобный неверный ответ бьёт по доверию сильнее честного отказа
+      - a toy schema has a small space and obvious joins
+      - in production the agent returns a syntactically valid but wrong answer
+      - a plausible wrong answer damages trust more than an honest refusal
     must_not:
-      - успех демо перенесён на прод без оговорок
-      - проблема сведена к качеству промпта
-      - обещана конкретная точность на схеме пользователя
+      - the demo's success is transferred to production without caveats
+      - the problem is reduced to prompt quality
+      - a specific accuracy is promised on the user's schema
     status: needs_review
 
   - id: gs2-04
-    question: "Насколько семантический слой поднимет точность у нас? Хочу цифру для защиты бюджета."
+    question: "How much will a semantic layer raise accuracy for us? I want a number to defend the budget."
     expected_atoms: [semantic-layer-evidence, plausible-but-wrong]
     must_contain:
-      - приведены парные замеры с оговоркой, что это чужие схемы
-      - чем грязнее схема, тем больше эффект
-      - меняется характер ошибки — слой отвечает «не могу» вместо тихого вранья
-      - свою величину надо мерить на своём голден-сете
+      - the paired measurements are given with the caveat that these are other people's schemas
+      - the dirtier the schema, the bigger the effect
+      - the nature of the error changes - the layer answers "I can't" instead of lying silently
+      - your own figure has to be measured on your own golden set
     must_not:
-      - конкретный процент обещан как гарантия для схемы пользователя
-      - вендорская цифра подана без пометки об источнике
+      - a specific percentage is promised as a guarantee for the user's schema
+      - a vendor figure is presented without flagging its source
     status: needs_review
 
   - id: gs2-05
-    question: "У нас окно модели 200К. Значит, можно грузить в контекст весь глоссарий и всю документацию?"
+    question: "Our model has a 200K window. So we can load the whole glossary and all the documentation into the context?"
     expected_atoms: [context-layer-market, context-governance]
     must_contain:
-      - качество падает по мере роста ввода задолго до заполнения окна
-      - падение происходит рывком, а не постепенно
-      - подавать надо только релевантное, фильтр прав применяется до поиска
+      - quality degrades as input grows, long before the window fills
+      - the decline is continuous rather than a cliff, and the threshold in the cliff paper is a share of the window rather than an absolute token count
+      - serve only what is relevant, with the entitlement filter applied before the search
     must_not:
-      - больше контекста однозначно лучше
-      - размер окна назван достаточным основанием
+      - more context is unambiguously better
+      - the window size is named as sufficient grounds
     status: needs_review
 
   - id: gs2-06
-    question: "Мы полгода наполняли доменную базу знаний, объектов много, а точность бота не выросла. Что не так?"
+    question: "We spent six months populating the domain knowledge base, there are plenty of objects, and the bot's accuracy has not risen. What is wrong?"
     expected_atoms: [domain-knowledge-base, context-governance]
     must_contain:
-      - наполнение, доверие и эффект — три разные метрики
-      - в зачёт идут только подтверждённые объекты, сгенерированное учитывается после ревью
-      - без этого правила автогенерация закрывает полноту, не добавляя знания
+      - population, trust and effect are three different metrics
+      - only confirmed objects count, and generated ones count after review
+      - without that rule, auto-generation closes completeness while adding no knowledge
     must_not:
-      - предложено просто добавить ещё объектов
-      - полнота базы приравнена к её качеству
+      - the suggestion is simply to add more objects
+      - the base's completeness is equated with its quality
     status: needs_review
 
   - id: gs2-07
-    question: "Назначили BI-партнёра верифицировать контекст домена. Он тонет в очереди. Нанимать второго?"
+    question: "We put the BI partner in charge of verifying the domain's context. They are drowning in the queue. Do we hire a second one?"
     expected_atoms: [context-governance]
     must_contain:
-      - у гейта должен быть явный недельный бюджет времени
-      - превышение бюджета чинит платформа, а не человек
-      - нагрузка гейта — метрика здоровья платформы
-      - куратор судит черновик машины, а не пишет контекст сам
+      - the gate has to have an explicit weekly time budget
+      - going over the budget is fixed by the platform, not by the person
+      - the gate's load is a platform health metric
+      - the curator judges the machine's draft rather than writing context themselves
     must_not:
-      - первое предложение — увеличить штат верификаторов
-      - предложено снять верификацию ради скорости
+      - the first suggestion is to grow the headcount of verifiers
+      - dropping verification for the sake of speed is suggested
     status: needs_review
 
   - id: gs2-08
-    question: "Хотим метрику AI-готовности домена. Возьмём долю сертифицированных дашбордов?"
+    question: "We want a metric for the domain's AI readiness. Shall we take the share of certified dashboards?"
     expected_atoms: [ai-ready-domain-score, content-certification]
     must_contain:
-      - мерить надо долю потребления, а не долю покрытия
-      - доля просмотров и запросов на сертифицированном, а не доля объектов
-      - доля покрытия накручивается сертификацией мёртвого контента
-      - в скор входят назначенные роли, а не только цифры
+      - measure the share of consumption, not the share of coverage
+      - the share of views and queries on certified content, not the share of objects
+      - the coverage share can be inflated by certifying dead content
+      - the score includes the named roles, not only the numbers
     must_not:
-      - доля сертифицированных объектов принята как достаточная метрика
-      - предложен конкретный универсальный порог
+      - the share of certified objects is accepted as a sufficient metric
+      - a specific universal threshold is proposed
     blind: true
     status: needs_review
 
   - id: gs2-09
-    question: "Купить готовую context-платформу или собирать самим? У вендора заявлено +38% к точности SQL."
+    question: "Buy a ready context platform or build our own? The vendor claims 38% better SQL accuracy."
     expected_atoms: [context-layer-market]
     must_contain:
-      - покупать надо архитектуру, а не заявленные проценты
-      - вопросы к вендору: где лежит контекст, чьи права, можно ли забрать данные
-      - цифра +38% измерена самим вендором на своих данных
-      - у открытых решений лицензия нулевая, но есть постоянная нагрузка на инженера
+      - buy the architecture, not the claimed percentages
+      - the questions to ask the vendor: where the context sits, whose entitlements apply, whether you can take the data out
+      - the 38% figure was measured by the vendor on its own data
+      - open-source solutions have a zero licence but a standing load on an engineer
     must_not:
-      - вендорская цифра процитирована как доказанная
-      - выбор сведён к наличию MCP
+      - the vendor figure is quoted as proven
+      - the choice is reduced to whether MCP is supported
     status: needs_review
 
   - id: gs2-10
-    question: "Мы на какой стадии внедрения AI и можно ли пропустить организационную возню и сразу делать продукт?"
+    question: "Which stage of AI adoption are we at, and can we skip the organizational fuss and go straight to a product?"
     expected_atoms: [ai-adoption-waves]
     must_contain:
-      - названы наблюдаемые волны от энтузиазма к продуктизации
-      - перепрыгнуть волну не получается, застрять можно
-      - MCP — это водопровод, а не смысл
+      - the observable waves from enthusiasm to productization are named
+      - you cannot skip a wave, but you can get stuck in one
+      - MCP is the plumbing, not the meaning
     must_not:
-      - предложено пропустить упорядочивание и платформизацию
-      - MCP назван решением задачи понимания домена
+      - skipping the ordering and platformization stages is suggested
+      - MCP is called the solution to understanding the domain
     status: needs_review
 
-  # ---- Контент ----
+  # ---- Content ----
 
   - id: gs2-11
-    question: "Решили сертифицировать все отчёты в компании. Сколько это займёт?"
+    question: "We have decided to certify every report in the company. How long will that take?"
     expected_atoms: [content-certification, content-hygiene-loop]
     must_contain:
-      - сертифицировать всё — это оверинжиниринг
-      - автоматическая сертификация по машинным признакам на широкий круг
-      - сертификация данных и методологии — только на самые просматриваемые или по требованию
-      - песочницы и личные папки исключаются
+      - certifying everything is over-engineering
+      - automatic certification on machine-checkable signs, applied broadly
+      - data and methodology certification only for the most-viewed reports or on request
+      - sandboxes and personal folders are excluded
     must_not:
-      - сплошная сертификация поддержана
-      - назван срок без вопроса об объёме и модели
+      - blanket certification is endorsed
+      - a timeline is given without asking about the volume and the model
     status: needs_review
 
   - id: gs2-12
-    question: "У нас в проде куча отчётов, у которых нет владельца. Написали регламент — не помогло."
+    question: "We have a pile of reports in production with no owner. We wrote a policy and it did not help."
     expected_atoms: [content-hygiene-loop, bi-value-illusion]
     must_contain:
-      - нужны три механизма сразу: автомониторинг, бот, социальный формат
-      - начинать с автоархивации по признаку «нет пользователей, нет апдейтов»
-      - цель субботника — создать привычку, а не сделать всё
-      - вопрос передачи владения при уходе автора должен быть в процессе
+      - three mechanisms are needed at once: automated monitoring, the bot, the social format
+      - start with automatic archiving on the "no users, no updates" signal
+      - the clean-up day's goal is to build a habit, not to do everything
+      - handing over ownership when an author leaves has to be part of the process
     must_not:
-      - предложен ещё один регламент как решение
-      - обещано разовое наведение порядка
+      - another policy is proposed as the solution
+      - a one-off tidy-up is promised
     status: needs_review
 
   - id: gs2-13
-    question: "Сделали health-score по всем дашбордам. Пользователи всё равно спрашивают в чате, где отчёт."
+    question: "We built a health score across all the dashboards. Users still ask in the chat where a report is."
     expected_atoms: [content-catalog-ux, content-certification]
     must_contain:
-      - находимость — половина управления контентом
-      - нужен каталог и роле-ориентированное рабочее место, а не только рейтинг
-      - health-score без навигации остаётся невидимым бэкенд-рейтингом
+      - findability is half of content management
+      - you need a catalog and a role-oriented workplace, not only a rating
+      - a health score without navigation stays an invisible back-end rating
     must_not:
-      - предложено улучшить формулу скора
-      - проблема сведена к обучению пользователей
+      - improving the score formula is proposed
+      - the problem is reduced to training the users
     status: needs_review
 
   - id: gs2-14
-    question: "Стайл-гайд написали, выложили в вики. Никто не использует. Что делать?"
+    question: "We wrote a style guide and put it on the wiki. Nobody uses it. What do we do?"
     expected_atoms: [visual-style-guide]
     must_contain:
-      - гайд работает только трёхслойным
-      - шаблон и visual vocabulary живут в самом BI-инструменте
-      - корпоративный учебник — вне инструмента
-      - редизайн в шаблон как услуга плюс тренинги
+      - a guide works only in three layers
+      - the template and the visual vocabulary live inside the BI tool itself
+      - the corporate textbook lives outside the tool
+      - redesign into the template as a service, plus training
     must_not:
-      - предложено просто лучше его прорекламировать
-      - все три слоя предложено держать в одном месте
+      - simply promoting it better is proposed
+      - keeping all three layers in one place is proposed
     status: needs_review
 
-  # ---- Self-service и governance ----
+  # ---- Self-service and governance ----
 
   - id: gs2-15
-    question: "Хотим self-service: научим бизнес-пользователей самим собирать дашборды по шаблонам. Взлетит?"
+    question: "We want self-service: we will teach business users to assemble dashboards themselves from templates. Will it fly?"
     expected_atoms: [ssbi-vs-guided, ssbi-failure-causes]
     must_contain:
-      - это не self-service, а guided BI — и термины стоит развести
-      - принятие explorer-сценария у casual-пользователей близко к нулю
-      - настоящий self-service — это инструменты для power users внутри бизнес-команд
-      - сценарий с casual важен для adoption, но как guided
+      - this is not self-service but guided BI, and the terms are worth separating
+      - uptake of the explorer scenario among casual users is close to zero
+      - real self-service means tools for power users inside the business teams
+      - the casual scenario matters for adoption, but as guided BI
     must_not:
-      - обучение casual-пользователей названо рабочим путём к self-service
-      - обещан рост adoption от раздачи инструмента
+      - training casual users is called a working route to self-service
+      - adoption growth is promised from handing out the tool
     status: needs_review
 
   - id: gs2-16
-    question: "Раздали права на разработку всем желающим, теперь в проде хаос. Отобрать доступы?"
+    question: "We gave development rights to everyone who asked, and now production is chaos. Do we take the access away?"
     expected_atoms: [ssbi-workflow, content-certification]
     must_contain:
-      - достроить обратный путь propose → prototype → promote
-      - популярный self-service отчёт идёт в комитет как прототип массового
-      - без обратного направления хороший отчёт остаётся локальным навсегда
+      - build the reverse path propose -> prototype -> promote
+      - a popular self-service report goes to the committee as the prototype of a mass report
+      - without the reverse direction a good report stays local forever
     must_not:
-      - изъятие доступов предложено как основное решение
-      - предложено запретить self-service разработку
+      - revoking access is proposed as the main solution
+      - banning self-service development is proposed
     status: needs_review
 
   - id: gs2-17
-    question: "Можно ли отдать в self-service вообще всю отчётность и распустить централизованную команду?"
+    question: "Could we hand all reporting over to self-service and disband the centralized team?"
     expected_atoms: [ssbi-failure-causes, ssbi-vs-guided]
     must_contain:
-      - названы сегменты, где self-service неэффективен по существу
-      - общекорпоративная отчётность для топов остаётся централизованной
-      - кросс-ролевая унифицированная отчётность и конфиденциальные данные тоже
-      - без SSBI централизованный подход не достигнет единой версии правды, и наоборот
+      - the segments where self-service is ineffective by its nature are named
+      - company-wide reporting for executives stays centralized
+      - so do cross-role unified reporting and confidential data
+      - without self-service the centralized approach will not reach a single version of the truth, and vice versa
     must_not:
-      - полный переход в self-service поддержан
-      - централизованная команда названа устаревшей
+      - a full move to self-service is endorsed
+      - the centralized team is called obsolete
     blind: true
     status: needs_review
 
   - id: gs2-18
-    question: "Купили хороший BI-инструмент, дали аналитикам и бизнесу. Пользуются только аналитики. Почему?"
+    question: "We bought a good BI tool and gave it to analysts and to the business. Only the analysts use it. Why?"
     expected_atoms: [ssbi-workflow, bi-adoption-barriers]
     must_contain:
-      - потребителям данных дали инструменты аналитиков
-      - маппинг ролей на инструменты различает consumers, explorers, analysts, scientists
-      - барьеры принятия собираются постоянным контуром, а не разовым аудитом
+      - data consumers were given the analysts' tools
+      - the role-to-tool mapping distinguishes consumers, explorers, analysts and scientists
+      - adoption barriers are gathered through a standing circuit, not a one-off audit
     must_not:
-      - проблема объяснена только недостатком обучения
-      - предложено купить другой инструмент
+      - the problem is explained solely by a lack of training
+      - buying a different tool is proposed
     status: needs_review
 
-  # ---- Данные и governance ----
+  # ---- Data and governance ----
 
   - id: gs2-19
-    question: "Аналитики обходят регламент и лезут в сырые данные, потому что витрины делаются долго. Ужесточать контроль?"
+    question: "Analysts go around the rules and reach into raw data because marts take too long. Do we tighten control?"
     expected_atoms: [pain-fronts-2026, dg-launch-path]
     must_contain:
-      - регламент, который дороже обхода, не соблюдается
-      - инициативы governance и инициативы TTM идут парой, а не последовательно
+      - a rule that costs more than going around it will not be followed
+      - governance initiatives and time-to-market initiatives move as a pair, not in sequence
     must_not:
-      - ужесточение контроля предложено как основное решение
-      - проблема названа дисциплинарной
+      - tightening control is proposed as the main solution
+      - the problem is called a disciplinary one
     status: needs_review
 
   - id: gs2-20
-    question: "Нам не дали бюджет на Data Governance. Значит, тему закрываем до следующего года?"
+    question: "We were refused the data governance budget. Does that mean we shelve the topic until next year?"
     expected_atoms: [dg-launch-path]
     must_contain:
-      - отказ в бюджете — штатная ветка маршрута, а не тупик
-      - продолжается Common Sense DG на уровне команд небольшими quick-win проектами
-      - для перехода к программе нужно минимум два условия из четырёх
-      - governance снизу переживает бюджетный цикл
+      - a budget refusal is a standard branch of the route, not a dead end
+      - common-sense governance continues at team level through small quick-win projects
+      - moving to a programme requires at least two of four conditions
+      - governance started from the bottom survives the budget cycle
     must_not:
-      - направление объявлено закрытым без бюджета
-      - предложено сначала добиться найма DG-офиса
+      - the direction is declared closed without a budget
+      - getting a governance office hired first is proposed
     status: needs_review
 
   - id: gs2-21
-    question: "Начинаем core-слой. Логично же начать с самых проблемных витрин, которые больше всего болят?"
+    question: "We are starting the core layer. Surely it makes sense to begin with the most problematic marts, the ones that hurt most?"
     expected_atoms: [core-layer-project]
     must_contain:
-      - начинать с самых больных — дорого и долго, проект заглохнет на первом тяжёлом случае
-      - начинать с самых переиспользуемых кросс-доменных сущностей
-      - сначала presentation, потом технический слой
-      - health-score подсказывает кандидатов до ручного отбора
+      - starting with the most painful is expensive and slow, and the project stalls on the first hard case
+      - start with the most reused cross-domain entities
+      - presentation layer first, technical layer second
+      - the health score suggests candidates before any manual selection
     must_not:
-      - старт с самых проблемных витрин поддержан
-      - предложено охватить все витрины сразу
+      - starting with the most problematic marts is endorsed
+      - covering all the marts at once is proposed
     status: needs_review
 
   - id: gs2-22
-    question: "Внедрили дата-каталог, он пустой — никто не заполняет описания. Как заставить?"
+    question: "We rolled out a data catalog and it is empty - nobody fills in the descriptions. How do we make them?"
     expected_atoms: [data-catalog-pitfalls]
     must_contain:
-      - максимально автоматизировать добычу метаданных
-      - вносить документацию в потоке работы, вплоть до проверок в CI/CD
-      - курировать топ-20% самых запрашиваемых объектов
+      - automate metadata extraction as far as possible
+      - enter documentation in the flow of work, up to and including CI/CD checks
+      - curate the top 20% of most-queried objects
     must_not:
-      - основное решение — мотивировать людей заполнять карточки
-      - предложено описать все объекты
+      - the main solution is motivating people to fill in the cards
+      - describing every object is proposed
     status: needs_review
 
   - id: gs2-23
-    question: "Где AI точно поможет в управлении данными? Хотим заменить ручной труд команды."
+    question: "Where will AI definitely help in data management? We want to replace the team's manual work."
     expected_atoms: [ai-in-data-processes, data-team-pain-points]
     must_contain:
-      - чем ближе задача к «понять смысл», тем лучше результат; к «дать гарантию» — тем хуже
-      - работает на классификации PII, дедупликации, сопоставлении схем, парсинге сложных документов
-      - только под проверку — описания, перевод SQL, код пайплайнов
-      - побеждает маршрутизация, а не замена процесса
+      - the closer the task is to "make sense of meaning" the better the result; the closer to "give a guarantee" the worse
+      - it works on PII classification, deduplication, schema matching and parsing complex documents
+      - only under verification - descriptions, SQL translation, pipeline code
+      - routing wins, not replacing the process
     must_not:
-      - обещана замена процесса целиком
-      - вендорские цифры по генерации DQ-правил поданы как доказанные
+      - replacing the process outright is promised
+      - vendor figures on generating data quality rules are presented as proven
     status: needs_review
 
   - id: gs2-24
-    question: "Раздача доступов съедает время команды. Что можно автоматизировать?"
+    question: "Handing out access eats the team's time. What can be automated?"
     expected_atoms: [access-automation, access-matrix]
     must_contain:
-      - лицензии и идентификация роли автоматизируются
-      - ролевая матрица не автоматизируется — её вытаскивают из владельцев и получают sign off
-      - согласованная матрица даёт мандат на раздачу прав без дополнительных апрувов
-      - отказ от поимённых прав на проде и наследование сверху
+      - licences and role identification can be automated
+      - the role matrix cannot - it has to be pulled out of the owners and signed off
+      - an agreed matrix is the mandate to hand out access without further approvals
+      - no per-person entitlements in production, and inheritance from above
     must_not:
-      - обещана полная автоматизация всей цепочки
-      - матрица прав названа автоматизируемой
+      - full automation of the whole chain is promised
+      - the entitlement matrix is called automatable
     status: needs_review
 
-  # ---- Метрики и эффективность ----
+  # ---- Metrics and efficiency ----
 
   - id: gs2-25
-    question: "Собрали дашборд из 40 метрик эффективности BI. Достаточно полно?"
+    question: "We assembled a dashboard of 40 BI performance metrics. Is that comprehensive enough?"
     expected_atoms: [bi-project-metrics]
     must_contain:
-      - правило отбора — пять основных и пять дополнительных
-      - четыре группы: engagement, quality of service, process quality, business impact
-      - ни одна метрика не измеряется самооценкой
+      - the selection rule is five primary and five secondary
+      - four groups: engagement, quality of service, process quality, business impact
+      - not one metric is measured by self-assessment
     must_not:
-      - большое число метрик названо преимуществом
-      - предложено добавить ещё метрик
+      - a large number of metrics is called an advantage
+      - adding more metrics is proposed
     status: needs_review
 
   - id: gs2-26
-    question: "Вызовы нашего AI-агента выросли в три раза за квартал. Это успех?"
+    question: "Calls to our AI agent tripled last quarter. Is that a success?"
     expected_atoms: [ai-accelerator, ai-time-saving-trap]
     must_contain:
-      - рост вызовов без роста успешных задач результатом не считается
-      - мерить долю успешно завершённых AI-JTBD
-      - рост вызовов может означать ретраи, а не адопшен
+      - a rise in calls with no rise in successful tasks does not count as a result
+      - measure the share of successfully completed AI jobs-to-be-done
+      - a rise in calls may mean retries rather than adoption
     must_not:
-      - рост вызовов принят как доказательство эффекта
+      - the rise in calls is accepted as proof of effect
     blind: true
     status: needs_review
 
   - id: gs2-27
-    question: "Не можем назвать процент бизнес-пользователей, заходящих в BI хотя бы раз в месяц. Не критично?"
+    question: "We cannot name the percentage of business users who open BI at least monthly. Not critical?"
     expected_atoms: [participants-2026-benchmark, content-promotion-monitoring]
     must_contain:
-      - невозможность назвать процент — это находка диагностики
-      - engagement rate целевой группы без match rate обманывает
-      - нужен разрез по целевым группам, а не общий трафик
+      - not being able to name a percentage is itself a diagnostic finding
+      - the target group's engagement rate without the match rate deceives
+      - you need the cut by target group, not overall traffic
     must_not:
-      - отсутствие метрики названо нормальным
-      - предложено оценить экспертно и двигаться дальше
+      - the missing metric is called normal
+      - estimating it by expert judgement and moving on is proposed
     status: needs_review
 
-  # ---- Стратегия и внедрение ----
+  # ---- Strategy and rollout ----
 
   - id: gs2-28
-    question: "В стратегии по всем девяти категориям поставили целевую зрелость 3–4 из 4. Амбициозно и правильно?"
+    question: "In our strategy we set target maturity at 3-4 out of 4 across all nine categories. Ambitious and right?"
     expected_atoms: [action-plan]
     expected_files: [review-gates.md]
     must_contain:
-      - уровни 3–4 по всем категориям — симптом непрочитанной диагностики
-      - честный дефолт — плюс один уровень за год
-      - больший сдвиг требует названной причины: мощность, финансирование, регуляторный срок
-      - по каждой категории назвать потолок и отметку «достаточно»
+      - levels 3-4 in every category is a symptom of an unread diagnostic
+      - the honest default is plus one level a year
+      - a bigger shift requires a named reason: capacity, funding, a regulatory deadline
+      - for each category, name the ceiling and where "enough" sits
     must_not:
-      - максимальная целевая зрелость поддержана как амбиция
+      - maximum target maturity is endorsed as ambition
     status: needs_review
 
   - id: gs2-29
-    question: "Составили список из 30 инициатив с датами. План готов?"
+    question: "We put together a list of 30 initiatives with dates. Is the plan done?"
     expected_atoms: [action-plan]
     must_contain:
-      - у каждой инициативы нужен названный владелец
-      - нужны метрика и kill-gate
-      - инициатива без владельца — строка в плане, а не изменение
-      - нужен отрепетированный сценарий сокращения ресурса
+      - every initiative needs a named owner
+      - a metric and a kill-gate are needed
+      - an initiative with no owner is a line in a plan, not a change
+      - a rehearsed resource-cut scenario is needed
     must_not:
-      - список с датами признан достаточным
+      - a list with dates is judged sufficient
     status: needs_review
 
   - id: gs2-30
-    question: "В стратегии писать только то, что делаем. Раздел про то, чего не делаем, — это же признак слабости?"
+    question: "A strategy should only say what we are doing. Surely a section on what we are not doing signals weakness?"
     expected_atoms: [innovation-map]
     expected_files: [review-gates.md]
     must_contain:
-      - раздел «чего стратегия не делает» обязателен
-      - сознательно исключённый стрим с гейтом сильнее стрима, включённого «потому что тренд»
-      - это честный ответ на вопрос «а где наш AI»
+      - the "what the strategy does not do" section is mandatory
+      - a deliberately excluded stream with a gate is stronger than a stream included "because it is a trend"
+      - it is the honest answer to "so where is our AI"
     must_not:
-      - раздел назван необязательным или вредным
+      - the section is called optional or harmful
     status: needs_review
 
-  # ---- Люди ----
+  # ---- People ----
 
   - id: gs2-31
-    question: "У нас грейд определяется широтой: знает и ETL, и SQL, и визуализацию — значит, синьор. Логично?"
+    question: "For us the grade comes from breadth: they know ETL, SQL and visualization, so they are a senior. Sound?"
     expected_atoms: [bi-competency-matrix]
     must_contain:
-      - минимумы по базовым уровням у грейдов различаются мало
-      - грейд определяется количеством компетенций высшего уровня
-      - конструкция не даёт дорасти за счёт широты и требует глубины
-      - LLM-компетентность встроена внутрь каждого уровня, а не отдельным навыком
+      - the minimums at the base levels barely differ between grades
+      - the grade is determined by the number of top-level competencies
+      - the construction stops people growing on breadth and requires depth
+      - LLM competence is built into every level rather than being a separate skill
     must_not:
-      - широта названа достаточным основанием для грейда
+      - breadth is called sufficient grounds for a grade
     status: needs_review
 
   - id: gs2-32
-    question: "Агенты забирают рутину, джуны стали не нужны. Сокращаем джун-позиции?"
+    question: "Agents are taking the routine and juniors are no longer needed. Do we cut the junior roles?"
     expected_atoms: [bi-hiring-ai-era]
     must_contain:
-      - сжатие команд создаёт кадровый риск, которым надо управлять
-      - исчезает вход в профессию, через несколько лет некому растить синьоров
-      - переводить джунов в кураторы домена, растить через ревью AI-аутпутов
-      - намеренно оставлять часть рутины для заземления
+      - compressing teams creates a staffing risk that has to be managed
+      - the entry route into the profession disappears, and in a few years there is nobody to grow into senior
+      - move juniors into domain curator roles and grow them through reviewing AI outputs
+      - deliberately keep some routine as ballast
     must_not:
-      - сокращение джунов поддержано как рациональное
-      - риск выхолащивания оператора агента проигнорирован
+      - cutting juniors is endorsed as rational
+      - the risk of hollowing out an agent operator is ignored
     blind: true
     status: needs_review

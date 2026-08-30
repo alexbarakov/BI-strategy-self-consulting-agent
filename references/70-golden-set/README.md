@@ -1,82 +1,82 @@
-# Голден-сет скилла
+# The skill's golden set
 
-Регресс-набор: после правок в `references/kb/`, `SKILL.md` или `strategy-template.md` прогнать и убедиться, что качество не упало.
+A regression set: after edits to `references/kb/`, `SKILL.md` or `strategy-template.md`, run it and confirm quality has not dropped.
 
-Построен по правилам, которые скилл сам проповедует: набор фиксируется до изменений и не переформулируется под то, что агент нашёл; часть позиций слепая; verify привязан к eval.
+It is built by the rules the skill itself preaches: the set is frozen before the changes and is not rephrased to match what the agent found; some items are blind; verify is tied to eval.
 
-## Три уровня — они меряют разное
+## Three tiers - they measure different things
 
-| Уровень | Что меряет | Как считается | Позиций |
+| Tier | What it measures | How it is scored | Items |
 |---|---|---|---|
-| **1 · retrieval** | нашёл ли агент нужные атомы базы знаний | детерминированно, без LLM | 101 |
-| **2 · answer quality** | сказал ли нужное и **не сказал ли запрещённого** | LLM-судья по рубрике + hard-rule | 32 |
-| **3 · honest refusal** | умеет ли не ответить | LLM-судья по рубрике | 10 |
+| **1 · retrieval** | did the agent find the right knowledge base atoms | deterministically, with no LLM | 101 |
+| **2 · answer quality** | did it say what was needed and **not say what is forbidden** | an LLM judge against a rubric, plus the hard rule | 32 |
+| **3 · honest refusal** | can it decline to answer | an LLM judge against a rubric | 10 |
 
-Уровень 1 дешёвый и гоняется на каждое изменение. Уровни 2–3 — перед релизом скилла.
+Tier 1 is cheap and runs on every change. Tiers 2 and 3 run before a skill release.
 
-**Уровень 3 обязателен.** Без него набор измеряет только полноту и поощряет уверенную выдумку — ровно тот `plausible but wrong`, ради защиты от которого строится вся архитектура в базе знаний.
+**Tier 3 is mandatory.** Without it the set measures only completeness and rewards confident invention - exactly the `plausible but wrong` the whole architecture in the knowledge base exists to guard against.
 
-## Поле, ради которого это стоит делать
+## The field that makes this worth doing
 
-`must_not` — конкретные неправильные ответы, которые база знаний опровергает явно: «сэкономленные часы — это эффект», «сертифицируем всё», «строим триаду параллельно», «доля сертифицированных объектов как метрика», «сокращаем джунов».
+`must_not` holds the specific wrong answers the knowledge base explicitly refutes: "saved hours are the effect", "we certify everything", "we build the triad in parallel", "the share of certified objects as a metric", "we cut the juniors".
 
-**Hard-rule: совпадение с `must_not` перебивает вердикт судьи.** Ответ, содержащий запрещённый тезис, получает «неверно» независимо от того, сколько пунктов `must_contain` он закрыл. Это защита от красивых ответов, в которых правильное соседствует с вредным.
+**The hard rule: a match against `must_not` overrides the judge's verdict.** An answer containing a forbidden claim gets "wrong" regardless of how many `must_contain` items it covered. That is the defence against elegant answers where the correct sits next to the harmful.
 
-## Сквозные прогоны
+## End-to-end runs
 
-`e2e-01-severnaya.md` и далее — проверка не припоминания, а сборки: вымышленная компания, полный прогон FORM, честное применение гейтов и раздел «что прогон сказал про сам скилл». Кейсы выбираются **неудобными**: на удобном тест не показывает ничего.
+`e2e-01-severnaya.md` and its successors test assembly rather than recall: an invented company, a full FORM run, honest application of the gates, and a section on "what the run said about the skill itself". The cases are chosen to be **awkward**: a convenient case shows nothing.
 
-Каждый прогон оставляет два артефакта: отчёт `e2e-NN-<компания>.md` и саму стратегию в папке `e2e-NN-<компания>/` — вики из восьми страниц плюс `strategy.html`, собранный `build-html.py` (без зависимостей, открывается с диска и с телефона).
+Every run leaves two artifacts: the report `e2e-NN-<company>.md` and the strategy itself in the folder `e2e-NN-<company>/` - an eight-page wiki plus `strategy.html`, built by `build-html.py` (no dependencies, opens from disk and on a phone).
 
-Ценность прогона — в последнем разделе. Находки про документ чинятся в документе, находки про базу уходят в `kb/60-roadmap.md`.
+The value of a run is in its last section. Findings about the document get fixed in the document; findings about the base go into `kb/60-roadmap.md`.
 
-## Как прогнать
+## How to run it
 
-1. Задать агенту со скиллом вопросы из наборов, собрать ответы в `answers.jsonl`:
+1. Put the questions from the sets to an agent carrying the skill and collect the answers into `answers.jsonl`:
 
 ```json
-{"id": "gs1-001", "cited_atoms": ["bi-strategy-purpose"], "answer": "текст"}
-{"id": "gs2-01", "cited_atoms": ["ai-triad-prerequisites"], "answer": "текст", "verdict": "верно_и_с_решением"}
+{"id": "gs1-001", "cited_atoms": ["bi-strategy-purpose"], "answer": "text"}
+{"id": "gs2-01", "cited_atoms": ["ai-triad-prerequisites"], "answer": "text", "verdict": "correct_with_a_decision"}
 ```
 
-2. Для уровней 2–3 проставить `verdict` LLM-судьёй: судье даётся вопрос, ответ, `must_contain`, `must_not` и список вердиктов. Судья не видит базу знаний — только рубрику.
+2. For tiers 2 and 3, set `verdict` with an LLM judge: the judge gets the question, the answer, `must_contain`, `must_not` and the list of verdicts. The judge does not see the knowledge base - only the rubric.
 
-3. Посчитать:
+3. Compute the score:
 
 ```bash
 python3 score.py answers.jsonl
 ```
 
-`cited_atoms` — идентификаторы атомов, на которые агент сослался. Если скилл не проставляет ссылки, уровень 1 не измерим — и это само по себе находка: без провенанса ответа нельзя отличить знание от угадывания.
+`cited_atoms` holds the identifiers of the atoms the agent cited. If the skill does not emit references, tier 1 cannot be measured - and that is a finding in itself: without provenance you cannot tell knowledge from guessing.
 
-## Метрики
+## Metrics
 
-- **Уровень 1:** доля вопросов с полным попаданием по атомам и recall по атомам
-- **Уровень 2:** доля `верно_и_с_решением` (основная), плюс она же с `верно_без_решения` (вспомогательная)
-- **Уровень 3:** доля `отказ_с_продолжением`; просто «не знаю» без указания, чего не хватает, — половина результата
+- **Tier 1:** the share of questions hit in full on atoms, and atom recall
+- **Tier 2:** the share of `correct_with_a_decision` (primary), plus the same together with `correct_without_a_decision` (secondary)
+- **Tier 3:** the share of `refusal_with_a_continuation`; a bare "I don't know" without stating what is missing counts half
 
-Целевые пороги в наборе намеренно не заданы. Ставятся от первого замера: прогнать, зафиксировать бейзлайн, и дальше следить, чтобы не падало. Порог, взятый из чужого набора, бесполезен.
+Target thresholds are deliberately not set in the sets. They are set from the first measurement: run it, record the baseline, and from then on watch that it does not fall. A threshold taken from somebody else's set is useless.
 
-## Статусы и слепая часть
+## Statuses and the blind portion
 
-У всех позиций `status: needs_review` — ответы в `../faq-participants.md`, из которых собран набор, это синтез по базе знаний, а не подтверждённая автором истина. **В зачёт идут только `confirmed`** — та же механика, что для объектов доменной базы знаний.
+Every item carries `status: needs_review` - the answers in `../faq-participants.md` the set is built from are a synthesis over the knowledge base, not truth confirmed by the author. **Only `confirmed` counts** - the same mechanic as for domain knowledge base objects.
 
-Позиции с `blind: true` не используются при доработке скилла — только на замере. Иначе набор превращается в спецификацию, под которую подгоняют.
+Items with `blind: true` are not used while refining the skill, only at measurement time. Otherwise the set turns into a specification to fit to.
 
-## Известное ограничение
+## A known limitation
 
-Вопросы уровня 1 взяты из FAQ дословно, то есть сформулированы **языком базы знаний**. Такой набор частично проверяет совпадение формулировок, а не понимание. Вопросы уровней 2 и 3 переформулированы языком участника специально против этого.
+The tier 1 questions are taken from the FAQ verbatim, which means they are phrased **in the knowledge base's language**. Such a set partly tests wording overlap rather than understanding. The tier 2 and 3 questions are rephrased in the participant's language specifically to counter this.
 
-Правильное лечение — добавить в уровень 1 парафразы к каждому вопросу и мерить retrieval на них. Это работа, которую стоит сделать до того, как набор начнут воспринимать как оценку.
+The proper fix is to add paraphrases of each question to tier 1 and measure retrieval on those. That is work worth doing before the set starts being treated as an assessment.
 
-## Файлы
+## Files
 
-| Файл | Ведение |
+| File | Maintenance |
 |---|---|
-| `goldenset-tier1.yaml` | **генерируется** из `../faq-participants.md` — руками не править |
-| `goldenset-tier2.yaml` | вручную |
-| `goldenset-tier3.yaml` | вручную |
-| `build.py` | пересборка уровня 1 после правок FAQ |
-| `score.py` | агрегация прогона, без внешних зависимостей |
+| `goldenset-tier1.yaml` | **generated** from `../faq-participants.md` - do not edit by hand |
+| `goldenset-tier2.yaml` | by hand |
+| `goldenset-tier3.yaml` | by hand |
+| `build.py` | rebuilds tier 1 after edits to the FAQ |
+| `score.py` | aggregates a run, with no external dependencies |
 
-Порядок при правке базы знаний: поправить атом → поправить ответ в FAQ → `python3 build.py` → прогнать → сравнить с бейзлайном.
+The order when editing the knowledge base: fix the atom -> fix the answer in the FAQ -> `python3 build.py` -> run it -> compare against the baseline.

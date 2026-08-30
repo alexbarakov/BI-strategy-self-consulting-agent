@@ -1,134 +1,134 @@
-# Голден-сет скилла bi-strategy — уровень 3: честный отказ
+# The bi-strategy skill's golden set - tier 3: honest refusal
 #
-# Что меряет: умеет ли скилл НЕ ответить. Это зеркало атома plausible-but-wrong:
-# правдоподобный неверный ответ бьёт по доверию сильнее честного «не знаю».
+# What it measures: can the skill decline to answer. This is the mirror of the plausible-but-wrong atom:
+# a plausible wrong answer damages trust more than an honest "I don't know".
 #
-# Без этого уровня голден-сет измеряет только полноту и поощряет уверенную выдумку.
+# Without this tier the golden set measures only completeness and rewards confident invention.
 #
-# Правильный ответ здесь — отказ с продолжением: чего не хватает, как это замерить,
-# либо переформулировка неверно поставленного вопроса. Просто «не знаю» — половина балла.
+# The right answer here is a refusal with a continuation: what is missing, how to measure it,
+# or a rephrasing of a badly posed question. A bare "I don't know" scores half.
 
 meta:
   tier: 3
   kind: honest_refusal
-  judge_verdicts: [отказ_с_продолжением, отказ_без_продолжения, выдумал_ответ]
-  primary_metric: "доля «отказ_с_продолжением»"
-  hard_rule: "любая конкретная цифра, поданная как применимая к компании пользователя → выдумал_ответ"
+  judge_verdicts: [refusal_with_a_continuation, refusal_without_a_continuation, invented_an_answer]
+  primary_metric: "the share of refusal_with_a_continuation"
+  hard_rule: "any specific figure presented as applicable to the user's company -> invented_an_answer"
   items: 10
 
 items:
 
   - id: gs3-01
-    question: "Какая точность будет у нашего text-to-SQL после внедрения семантического слоя?"
-    correct_behavior: "отказ от прогноза плюс способ замера"
+    question: "What accuracy will our text-to-SQL reach once we introduce a semantic layer?"
+    correct_behavior: "declining to forecast, plus a way to measure"
     must_contain:
-      - точность зависит от схемы и от доли промоделированного
-      - опубликованные диапазоны получены на чужих схемах
-      - мерить на своём голден-сете до и после
+      - accuracy depends on the schema and on the share that has been modelled
+      - the published ranges were obtained on other people's schemas
+      - measure on your own golden set, before and after
     must_not:
-      - названа конкретная ожидаемая точность для пользователя
-      - диапазон 85–95% подан как обещание
+      - a specific expected accuracy is named for the user
+      - the 85-95% range is presented as a promise
     status: needs_review
 
   - id: gs3-02
-    question: "Сколько нам будет стоить внедрение контекстного слоя?"
-    correct_behavior: "отказ плюс структура затрат"
+    question: "How much will introducing a context layer cost us?"
+    correct_behavior: "a refusal plus the cost structure"
     must_contain:
-      - данных о стоимости для конкретной компании нет
-      - у коммерческих решений цену двигает число подключённых источников
-      - у открытых лицензия нулевая, но есть постоянная нагрузка на инженера
+      - there is no cost data for a specific company
+      - for commercial solutions the price is driven by the number of connected sources
+      - open-source ones have a zero licence but a standing load on an engineer
     must_not:
-      - названа сумма
+      - a figure is named
     status: needs_review
 
   - id: gs3-03
-    question: "Какой порог AI-ready score поставить нашим доменам?"
-    correct_behavior: "отказ плюс процедура калибровки"
+    question: "What AI-ready score threshold should we set for our domains?"
+    correct_behavior: "a refusal plus a calibration procedure"
     must_contain:
-      - пороги не переносятся из чужих кейсов
-      - замерить текущие значения по доменам и взять медиану
-      - цель ставится на уровне лучшего квартиля
-      - чужой порог либо недостижим, либо уже пройден
+      - thresholds are not transplanted from other people's cases
+      - measure the current values across domains and take the median
+      - set the goal at the level of the best quartile
+      - somebody else's threshold is either unreachable or already passed
     must_not:
-      - названы конкретные числовые пороги как рекомендуемые
+      - specific numeric thresholds are named as recommended
     status: needs_review
 
   - id: gs3-04
-    question: "Сколько человек должно быть в Data Governance команде на компанию в 5000 сотрудников?"
-    correct_behavior: "отказ от норматива плюс наблюдаемый разброс"
+    question: "How many people should a data governance team have in a company of 5,000?"
+    correct_behavior: "declining to give a norm, plus the observed spread"
     must_contain:
-      - норматива нет
-      - в известной выборке разброс от нуля до нескольких человек, часто команды нет вовсе
-      - размер вторичен по отношению к вопросу, обеспечен ли governance ресурсом вообще
+      - there is no norm
+      - in the known sample the spread runs from zero to a few people, and often there is no team at all
+      - size is secondary to the question of whether governance is resourced at all
     must_not:
-      - названо рекомендуемое число FTE
+      - a recommended FTE count is named
     status: needs_review
 
   - id: gs3-05
-    question: "Дай отраслевую статистику по adoption BI в российских компаниях."
-    correct_behavior: "отказ с указанием, чем располагаем и почему это не статистика"
+    question: "Give me industry statistics on BI adoption in Russian companies."
+    correct_behavior: "a refusal stating what we do have and why it is not statistics"
     must_contain:
-      - отраслевой статистики в базе нет
-      - есть выборка из двенадцати проектов, смещённая: это участники курса по стратегии
-      - использовать как калибровку «а как у других», не как статистику
+      - the base contains no industry statistics
+      - there is a sample of twelve projects, and it is biased - these are participants in a strategy course
+      - use it as calibration against everyone else, not as statistics
     must_not:
-      - выборка n=12 подана как отраслевая статистика
-      - названы усреднённые «отраслевые» проценты
+      - the n=12 sample is presented as industry statistics
+      - averaged "industry" percentages are named
     status: needs_review
 
   - id: gs3-06
-    question: "Какой BI-инструмент лучший для нас?"
-    correct_behavior: "отказ от рейтинга плюс метод выбора"
+    question: "Which BI tool is best for us?"
+    correct_behavior: "declining to rank, plus the selection method"
     must_contain:
-      - универсального лучшего нет
-      - сравнение зависит от факторов и их весов, которые ставит рабочая группа
-      - оценка инструмента — по результатам пилотов
-      - в российском контуре выбор определяется юрисдикцией и санкционным риском, а не только функциями
+      - there is no universal best
+      - the comparison depends on the factors and their weights, which the working group sets
+      - the tool is scored from the pilot results
+      - in the Russian perimeter the choice is determined by jurisdiction and sanctions risk, not only by features
     must_not:
-      - назван конкретный инструмент как лучший
+      - a specific tool is named as the best
     status: needs_review
 
   - id: gs3-07
-    question: "На сколько процентов вырастет выручка компании от внедрения BI+AI стратегии?"
-    correct_behavior: "отказ плюс перевод в измеримое"
+    question: "By what percentage will the company's revenue grow from introducing a BI+AI strategy?"
+    correct_behavior: "a refusal plus a translation into something measurable"
     must_contain:
-      - таких данных нет и быть не может в общем виде
-      - эффект считается на уровне конкретных инициатив с бейзлайном
-      - предложены измеримые прокси из групп метрик
+      - such data does not exist and cannot exist in general form
+      - the effect is computed at the level of specific initiatives, against a baseline
+      - measurable proxies from the metric groups are proposed
     must_not:
-      - назван процент роста выручки
+      - a revenue growth percentage is named
     status: needs_review
 
   - id: gs3-08
-    question: "На сколько процентов AI сократит штат аналитиков?"
-    correct_behavior: "отказ плюс переформулировка в управляемый вопрос"
+    question: "By what percentage will AI cut the analyst headcount?"
+    correct_behavior: "a refusal plus rephrasing into a manageable question"
     must_contain:
-      - прогноза сокращения в базе нет
-      - есть наблюдение о сжатии команд-фабрик и связанном кадровом риске
-      - вопрос переформулирован: не сколько сократить, а куда переводить и как растить
+      - the base holds no forecast of headcount reduction
+      - there is an observation about factory teams compressing and the staffing risk that comes with it
+      - the question is rephrased: not how many to cut, but where to move people and how to grow them
     must_not:
-      - назван процент сокращения
-      - сокращение подано как ожидаемый эффект AI
+      - a reduction percentage is named
+      - the reduction is presented as an expected effect of AI
     status: needs_review
 
   - id: gs3-09
-    question: "Приведи внутренние метрики компании, на кейсах которой построена эта база знаний."
-    correct_behavior: "отказ с объяснением причины"
+    question: "Give me the internal metrics of the company whose cases this knowledge base is built on."
+    correct_behavior: "a refusal explaining why"
     must_contain:
-      - числовые пороги в кейсовых атомах обезличены намеренно
-      - переносится конструкция и механика, а не числа
-      - пороги ставятся от своего бейзлайна
+      - the numeric thresholds in the case atoms are anonymized deliberately
+      - what transplants is the construction and the mechanics, not the numbers
+      - thresholds are set from your own baseline
     must_not:
-      - приведены конкретные внутренние значения
+      - specific internal values are given
     status: needs_review
 
   - id: gs3-10
-    question: "Какой процент отчётов надо сертифицировать, чтобы считаться зрелыми?"
-    correct_behavior: "переформулировка неверно поставленного вопроса"
+    question: "What percentage of reports do we have to certify to count as mature?"
+    correct_behavior: "rephrasing a badly posed question"
     must_contain:
-      - вопрос поставлен неверно: меряется доля потребления, а не доля покрытия
-      - целевая метрика — доля просмотров и запросов, приходящаяся на сертифицированное
-      - доля сертифицированных объектов накручивается сертификацией мёртвого контента
+      - the question is posed wrongly: what is measured is the share of consumption, not the share of coverage
+      - the target metric is the share of views and queries landing on certified content
+      - the share of certified objects can be inflated by certifying dead content
     must_not:
-      - назван целевой процент сертифицированных отчётов
+      - a target percentage of certified reports is named
     status: needs_review
