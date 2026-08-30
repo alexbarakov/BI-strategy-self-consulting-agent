@@ -1,82 +1,83 @@
-# Диагностика зрелости — модель
+# The maturity diagnosis model
 
-Основа: **BI Project Health Check** (метод Data Nature / Alex Barakov). Расширена **AI-readiness оверлеем** курса. Файл-эталон: `BI Project Health Check.xlsx`.
+Based on the **BI Project Health Check** (the Data Nature method / Alex Barakov), extended with the course's **AI-readiness overlay**. Reference file: `BI Project Health Check.xlsx`.
 
-## Шкала оценки (0–4)
+## The scale (0–4)
 
-Базовая шкала (для большинства факторов):
+The base scale, used for most factors:
 
-| Балл | Значение |
+| Score | Meaning |
 |---|---|
-| 0 | No — нет |
-| 1 | Planned — запланировано |
-| 2 | In Progress / Partially — частично |
-| 3 | Completed, но нужны улучшения |
-| 4 | Fully Completed & Optimized — сделано и оптимизировано |
+| 0 | No |
+| 1 | Planned |
+| 2 | In progress / partially |
+| 3 | Completed, but needs improvement |
+| 4 | Fully completed and optimized |
 
-Спец-шкалы (тот же 0–4): **Applicability** (Not Applicable → Highly Applicable), **User-count** (≤50 / ≤150 / ≤500 / 500+), **Business dependency** (High / Moderate / Low), **Disruption likelihood** (Very Likely / Somewhat / Unlikely).
+Special scales on the same 0–4 range: **applicability** (not applicable → highly applicable), **user count** (≤50 / ≤150 / ≤500 / 500+), **business dependency** (high / moderate / low), **disruption likelihood** (very likely / somewhat / unlikely).
 
-По каждому фактору участник ставит текущую оценку **и 1Y-таргет** (цель на год). Разрыв (таргет − текущее) = приоритет.
+For each factor the participant gives a current score **and a one-year target**. The gap (target − current) is the priority.
 
-## Уровни зрелости (band'ы для дашборда)
+## Maturity bands
 
-Средний балл категории → band: **Beginning (0–1) · Learning (1–2) · Developing (2–3) · Mastering (3–4)**.
+The category average maps to a band: **Beginning (0–1) · Learning (1–2) · Developing (2–3) · Mastering (3–4)**.
 
-## Визуализация зрелости (обязательно)
+## Visualizing maturity (mandatory)
 
-В `00-Диагностика` вставляй **бар-чарт зрелости по темам** (как в Data & Analytics Maturity Tool): горизонтальные бары 0–4 по 9 категориям + AI-readiness, с зонами Beginning/Learning/Developing/Mastering. Генерируй скриптом `references/make-maturity-svg.py` (впиши в `SCORES` само-оценку участника) → `assets/maturity.svg`, вставь `![Профиль зрелости по темам](assets/maturity.svg)`. Плюс блок «🧭 Фазы работы»: 🔎 AS-IS = блоки 1–2, 🛠️ TO-BE = 3–6, 🚀 Трансформация = 7.
+In the diagnostics page, insert a **maturity bar chart by theme** (as in the Data & Analytics Maturity Tool): horizontal 0–4 bars across the nine categories plus AI readiness, with the Beginning / Learning / Developing / Mastering zones marked. Generate it with `references/make-maturity-svg.py` (put the participant's self-assessment into `SCORES`) → `assets/maturity.svg`, and embed it. Add a "phases of work" block: 🔎 AS-IS = blocks 1–2, 🛠️ TO-BE = 3–6, 🚀 Transformation = 7.
 
-## 9 категорий (Health Check) и их факторы
+## The nine Health Check categories and their factors
 
-1. **Connection with business** (6): регистрация аналитических кейсов; интеграция в бизнес-процессы; согласование целей BI с бизнес-целями; определение целевых ролей-аудитории; структурирование бизнес-метрик (дерево метрик); отслеживание влияния на бизнес.
-2. **Adoption and Satisfaction** (7): мониторинг использования BI (BI for BI); оценка adoption; вовлечённость бизнеса (>50% активных); опросы удовлетворённости; сбор фидбека; онбординг новых пользователей.
-3. **BI Content management** (12): критерии приёмки; документированный процесс разработки; чек-лист тестирования/релиза; документация отчётов; сертификация контента с бизнесом; интеграция с глоссарием; архивация; отслеживание и улучшение времени загрузки; стайл-гайд; SLA здоровья контента.
-4. **Self-Service BI Delivery** (8): баланс операционной модели (central + SSBI); консистентность методологии/инструментов; портал/канал коммуникации; передача и ревью контента; программа BI-чемпионов; learning paths; развитие сообщества; тренинги и менторство.
-5. **Guided BI Service Delivery** (8): поддержка пользователей; обучение; совместные сессии анализа данных; доступность/исследуемость данных; мобильная оптимизация; usability-тестирование; анализ UX-поведения; улучшение навигации BI-портала.
-6. **BI Platform Governance** (10): **semantic layer**; **metric store**; insights management; CI/CD; self-service ETL; мониторинг производительности; оптимизация запросов; процесс обновления платформы; интеграция с дата-каталогом; автоматизация подписок.
-7. **Data Quality management** (6): автообновление отчётов; валидация данных; сертифицированные источники; документация источников; отслеживание изменений lineage; прозрачность свежести данных.
-8. **BI security and compliance** (8): ролевой доступ; авто-идентификация ролей; workflow запросов доступа; интеграция с AD; аудиты безопасности; комплаянс (GDPR/HIPAA); оценка рисков; disaster recovery.
-9. **Project Management** (8): система приоритизации; трекинг задач (Jira); Agile (Kanban/Scrum); матрица компетенций; операционные KPI; целеполагание команды; долгосрочный стратегический план BI; стандартизированный найм.
+1. **Connection with business** (6): registering analytical use cases; integration into business processes; aligning BI goals with business goals; defining the target audience roles; structuring business metrics (the metric tree); tracking business impact.
+2. **Adoption and satisfaction** (7): BI usage monitoring ("BI for BI"); adoption measurement; business engagement (>50% active); satisfaction surveys; feedback collection; onboarding new users.
+3. **BI content management** (12): acceptance criteria; a documented development process; a testing and release checklist; report documentation; content certification with the business; glossary integration; archiving; tracking and improving load times; a style guide; a content health SLA.
+4. **Self-service BI delivery** (8): balance of the operating model (central + self-service); consistency of methodology and tooling; a portal or communication channel; content handover and review; a BI champions programme; learning paths; community development; training and mentoring.
+5. **Guided BI service delivery** (8): user support; training; joint data analysis sessions; data availability and explorability; mobile optimization; usability testing; UX behaviour analysis; improving BI portal navigation.
+6. **BI platform governance** (10): **semantic layer**; **metric store**; insight management; CI/CD; self-service ETL; performance monitoring; query optimization; a platform upgrade process; data catalog integration; subscription automation.
+7. **Data quality management** (6): automated report refresh; data validation; certified sources; source documentation; lineage change tracking; transparency of data freshness.
+8. **BI security and compliance** (8): role-based access; automated role identification; an access request workflow; directory integration; security audits; compliance (GDPR/HIPAA); risk assessment; disaster recovery.
+9. **Project management** (8): a prioritization system; task tracking; agile practice (Kanban/Scrum); a competency matrix; operational KPIs; team goal setting; a long-term BI strategic plan; standardized hiring.
 
-Расширенный блок (D&A / Data Governance maturity, ~83 фактора) — для Полного режима: Data sharing/democratization; **Data Governance** (sponsorship, stewardship, budget, policies, classification, metadata, catalog, roadmap); DQ management; Data security; **Data Architecture** (arch reviews, scalability, integrated governance, modern/cloud, real-time, **AI/ML**, **data mesh**, **data contracts**); Strategic leadership (D&A vision, exec involvement, investment, data literacy, ethics).
+An extended block (D&A and data governance maturity, ~83 factors) is used in Full mode: data sharing and democratization; **data governance** (sponsorship, stewardship, budget, policies, classification, metadata, catalog, roadmap); data quality management; data security; **data architecture** (architecture reviews, scalability, integrated governance, modern and cloud, real time, **AI/ML**, **data mesh**, **data contracts**); strategic leadership (D&A vision, executive involvement, investment, data literacy, ethics).
 
-## 7 solution-категорий (кросс-срез)
+## Seven solution categories (a cross-cut)
 
-Каждый фактор тегируется одной: **Business Alignment · Data Culture · Processes & Standards · User Engagement · Skills & Trainings · Tools & Automation · Efficiency Monitoring**. Второй дашборд считает зрелость в этом срезе — полезно, чтобы увидеть системный перекос (напр. сильные Tools, слабый User Engagement).
+Every factor is tagged with one of: **Business alignment · Data culture · Processes and standards · User engagement · Skills and training · Tools and automation · Efficiency monitoring**. A second scorecard computes maturity along this cut, which is useful for spotting a systemic skew — strong tooling with weak user engagement, for instance.
 
-## AI-readiness оверлей (слой курса)
+## The AI-readiness overlay (the course layer)
 
-Поверх Health Check оцени AI-готовность (0–4 по тем же band'ам). Это 10-я условная категория:
+On top of the Health Check, score AI readiness 0–4 using the same bands. Treat it as a tenth category:
 
-- **Семантическое покрытие** — доля ключевых метрик с однозначным определением в semantic layer / metric store.
-- **Trusted core** — доля запросов/отчётов на certified core-слое; наличие ownership/SLA/DQ на витринах.
-- **Доменный контекст (ДБЗ)** — полнота доменной базы знаний: объекты, глоссарий, FAQ, примеры «вопрос→SQL», eval-кейсы (минимумы: ≥5/≥5/≥3/≥5/≥10).
-- **Готовность процессов** к режиму «AI генерирует — человек проверяет»: есть ли verify-gate (BI Partner), kill-gates, eval-инфраструктура.
-- **Агентная инфраструктура** — MCP к сервисам, реестр скиллов, judge-gate/guardrails, наблюдаемость (трейсинг).
+- **Semantic coverage** — the share of key metrics with an unambiguous definition in the semantic layer or metric store.
+- **Trusted core** — the share of queries and reports running on a certified core layer; whether ownership, SLA and data quality checks exist on the marts.
+- **Domain context** — the completeness of the domain knowledge base: objects, glossary, FAQ, "question → SQL" examples, eval cases.
+- **Process readiness** for "AI drafts — humans validate": is there a verify gate, are there kill-gates, is there eval infrastructure.
+- **Agentic infrastructure** — MCP access to services, a skill registry, judge gates and guardrails, observability and tracing.
 
-### Дополнительные факторы 2026 (спрашивать в Полном режиме)
-- **Контекстный слой** — есть ли единое место, откуда агент берёт смысл, или контекст собирается заново под каждый кейс.
-- **Граница governance** — один каталог как источник прав или права размазаны по нескольким системам.
-- **Identity агента** — у агента свои учётные данные, узкие ключи и audit trail, или он ходит под учёткой человека.
-- **Права на неструктурном** — доезжают ли ACL до кусков документов и векторов; проверяются до поиска или после.
-- **Удаление производных** — можно ли выполнить требование об удалении, включая векторы и производные узлы знания.
-- **Происхождение ответа** — восстановима ли цепочка «промпт → извлечённые куски → ответ».
-- **Data app как канал** — есть ли у аналитических приложений владелец, сертификация и health-score, или они живут вне контура.
+### Additional 2026 factors (ask these in Full mode)
 
-## Диагноз цепочки зависимостей (ключевой вывод)
+- **Context layer** — is there one place the agent takes meaning from, or is context reassembled for every case.
+- **Governance boundary** — one catalog as the source of permissions, or permissions spread across several systems.
+- **Agent identity** — does the agent have its own credentials, narrow keys and an audit trail, or does it operate under a person's account.
+- **Permissions on unstructured content** — do ACLs reach document fragments and vectors; are they checked before retrieval or after.
+- **Deleting derivatives** — can a deletion request actually be fulfilled, including vectors and derived knowledge nodes.
+- **Answer provenance** — can the chain "prompt → retrieved chunks → answer" be reconstructed.
+- **Data apps as a channel** — do analytical applications have an owner, certification and a health score, or do they live outside the perimeter.
 
-Проверь цепочку и найди, где рвётся первым:
+## Diagnosing the dependency chain (the key output)
+
+Walk the chain and find where it snaps first:
 
 ```
-Core-слой → сертификация метрик (semantic) → доменный контекст (ДБЗ)
-        → точность AI (25% без grounding → 80% с ним) → self-service
+core layer → certified metrics (semantic) → domain context
+          → AI accuracy → self-service
 ```
 
-Правило: **AI-фичи нельзя ставить раньше своего звена** — на грязных данных они выдают правдоподобный мусор и роняют доверие. Назови 2–3 самых дорогих разрыва — они станут приоритетом №1 в Action plan.
+The rule: **an AI feature cannot be placed ahead of its link.** On dirty data it returns plausible garbage and destroys trust. Name the two or three most expensive breaks — they become priority number one in the action plan.
 
-## Как диагностика питает стратегию
+## How the diagnosis feeds the strategy
 
-- Слабые **категории** (Beginning/Learning) → TO-BE-инициативы в соответствующих блоках Planner (2.x) и в Action plan (4).
-- Перекос по **solution-категориям** → системная рекомендация (напр. «инструменты есть, adoption нет → занятие про User Engagement, а не про новый тул»).
-- **Разрыв цепочки** → порядок в stack-rank (Governance → Trusted Data → AI-готовность → BI Content → Self-service).
-- **1Y-таргеты** участника → измеримые цели в BI Vision (блок 5).
+- Weak **categories** (Beginning / Learning) → TO-BE initiatives in the corresponding Planner blocks and in the action plan.
+- A skew across **solution categories** → a systemic recommendation (for example, "the tools are there and adoption is not → work on user engagement, not on another tool").
+- **The chain break** → the order of the stack-rank (Governance → Trusted Data → AI readiness → BI Content → Self-service).
+- The participant's **one-year targets** → measurable goals in the vision.
