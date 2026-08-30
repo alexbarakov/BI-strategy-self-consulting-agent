@@ -24,7 +24,7 @@ Tier 1 is cheap and runs on every change. Tiers 2 and 3 run before a skill relea
 
 ## End-to-end runs
 
-`e2e-01-severnaya.md` and its successors test assembly rather than recall: an invented company, a full FORM run, honest application of the gates, and a section on "what the run said about the skill itself". The cases are chosen to be **awkward**: a convenient case shows nothing.
+`e2e-01-severnaya.md` and `e2e-02-vantage.md` test assembly rather than recall: an invented company, a full FORM run, honest application of the gates, and a section on "what the run said about the skill itself". The cases are chosen to be **awkward**, and deliberately awkward in opposite directions — run 01 has neither a team nor tools, run 02 has strong engineering and an assistant that launched a year too early. A convenient case shows nothing.
 
 Every run leaves two artifacts: the report `e2e-NN-<company>.md` and the strategy itself in the folder `e2e-NN-<company>/` - an eight-page wiki plus `strategy.html`, built by `build-html.py` (no dependencies, opens from disk and on a phone).
 
